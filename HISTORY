@@ -1,0 +1,53 @@
+***version 2.0.5 stable***
+- replaced title card font by builtin OS font
+- renamed fonts to match their properties (e.g., fontConsolasBold12)
+- improved objAstralTitle code
+- LoadSounds now takes directory
+- renamed methods from ObjectThingSet to ObjectSetThing (e.g., from PlayerShieldSet to PlayerSetShield)
+- speeded up the titlescreen animations
+- removed global.deactivateExceptionsSize, use ds_list_size(global.deactivateExceptions) instead
+- parTerrain is now always active
+
+***version 2.0.4 stable***
+- removed LudusLib dependency
+- replaced homingObjects array with ds_list
+- fixed heavy hammer collision
+- fixed stuck on transformation when trying to transform as super
+- PlayerVoiceline now takes character
+- camera methods now needs a reference to the camera
+
+***version 2.0.3 stable***
+- added color swap shader
+- added super transformation
+- added characters to player
+
+***version 2.0.2 stable***
+- cleaned legacy code
+- added underwater shader
+- added HomingFlight action after homing into an enemy
+- application surface can now take shaders
+- actions are now set in the PlayerActionSet method
+- actions are now executed in their action script (PlayerBoost, PlayerHoming, PlayerStomp)
+- removed global.player, replaced by global.player[0] != noone
+- removed PlayerActionTrigger method
+
+***version 2.0.1 stable***
+- cleaned legacy code
+- changed license to MIT
+- reorganized folder structure for better navigation
+- implemented a more robust deactivation exceptions system (see DeactivateExceptionsAdd and DeactivateExceptionsRemove)
+- PlaySound has been separated into PlaySoundExt and PlayVoice
+- methods previously in scrPlayerActionTrigger are now in Action methods (e.g., Jump, Stomp, Homing attack…)
+- replaced player.action with the method PlayerActionSet. This allows for Exit and Enter states in actions
+- added actionTimer to player
+- input is now based on bitflags
+- AnimationSystem now takes an animation list as a parameter
+- added PhysicModeWater and PhysicModeNormal
+- added parBody for bodies with xSpeed, ySpeed, and ground states
+- Boost, Reticle, and Waylauncher no longer interfere with multiple players
+- collision optimizations
+- user scripts are now in PascalCase and no longer use the scr prefix (e.g., PlayerCollisionTop)
+- removed ParActive
+- removed balloons, launch sensor, and fling sensor
+- removed parHome and replaced it with an improved system in the player’s code, allowing objects to have other parents other than parHome
+- removed startup splash screen

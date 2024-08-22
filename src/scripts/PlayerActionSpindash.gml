@@ -1,0 +1,50 @@
+/// PlayerActionSpindash()
+
+// Animations
+// Normal animation
+if (spindashStrength <= 0.9) {
+    AnimationApply("SPINDASH");
+}
+// Charging animation
+else {
+    AnimationApply("SPINDASH_CHARGE");
+}
+
+// Charge spindash
+if (keyActionPressed) {
+    // Increase strength
+    if (spindashStrength < spindashStrengthMax) {
+        spindashStrength += 2;
+    }
+    else {
+        spindashStrength = spindashStrengthMax;
+    }
+
+    // Create charge effect
+    with (instance_create(x, y, objVFXSpindashCharge)) {
+        image_blend = other.trailColor;
+        image_xscale = 0.0006;
+        image_yscale = 0.0006;
+        scalespeed = max(0.2, 0.2 + other.spindashStrength/50);
+    }
+    PlaySoundSingle("sndPlayerSpindashCharge", global.volumeSounds, 1 + (spindashStrength * 0.043));
+}
+
+// Decrease strength while doing nothing
+if (spindashStrength > 0) {
+    spindashStrength -= 0.15;
+}
+
+// Release spindash and start rolling
+if (!keyDown) {
+    // Create release trail if is charging the spindash
+    if (animationIndex == "SPINDASH_CHARGE") {
+        DummyEffectCreate(floor(x), floor(y), sprVFXSpindashHighRelease, 0.35, 0, 0.1, bm_normal, image_alpha, xDirection, 1, animationAngle);
+    }
+    xSpeed = (8.2 + spindashStrength) * xDirection;
+    PlayerSetAction(PlayerActionRoll);
+    trailTimer = 120;
+
+    StopSound("sndPlayerSpindashCharge");
+    PlaySound("sndPlayerSpindashRelease");
+}

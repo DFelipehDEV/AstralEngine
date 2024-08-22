@@ -1,0 +1,56 @@
+/// Init()
+// Initialize the game
+
+// Load all sounds and musics
+LoadSounds("GAME_DATA");
+
+// Fonts
+global.fontHUD = font_add_sprite(sprFontHUD, ord("0"), false, -2);
+global.fontText = font_add_sprite(sprFontText, ord(","), true, 0);
+global.fontResults = font_add_sprite(sprFontResults, ord("0"), false, -1);
+
+// Screen variables
+global.screenSize = 1;
+global.screenVSync = true;
+
+global.gamepad = joystick_count();
+
+// Volume variables
+global.volumeSounds = 1;
+global.volumeMusic = 1;
+global.volumeVoice = 1;
+global.volumeAmbient = 1;
+
+// Music variables
+global.bgmSound = -1;
+
+// Player variables
+global.player[0] = noone; // Player instance
+global.playerRings = 0;
+global.playerCheckTime = 0;
+global.playerCheckX = 0;
+global.playerCheckY = 0;
+
+// Others
+global.debug = false;
+global.debugIsAThing = false;
+global.deltaMultiplier = 1; // Time movement multiplier, lower values make objects move slower, higher values make objects move faster, used for slow motion
+global.stageRank[RankC] = 2500; // Minimum score for C rank
+global.stageRank[RankB] = 4000; // Minimum score for B rank
+global.stageRank[RankA] = 6000; // Minimum score for A rank
+global.stageRank[RankS] = 8500; // Minimum score for S rank
+global.gameState = GameStateRunning;
+
+global.zoom = 1; // Actual window zoom
+global.zoomValue = global.zoom; // Zoom value to interpolate global.zoom
+
+global.shaderHeat = shdHeat();
+global.shaderColorSwap = shdColorSwap();
+
+// Create essential controllers
+if (!instance_exists(objControllerInput))
+    instance_create(0, 0, objControllerInput);
+if (!instance_exists(objControllerMusic))
+    instance_create(0, 0, objControllerMusic);
+if (!instance_exists(objControllerRoom))
+    instance_create(0, 0, objControllerRoom);

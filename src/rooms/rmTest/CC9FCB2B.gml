@@ -1,0 +1,13 @@
+/// SetupFightAddEnemy(number, x, y, object, health, phase)
+SetupFightAddEnemy(0, x, y, objEnemyEggpawn, noone, 0)
+SetupFightAddEnemy(1, x + 500, y, objEnemyEggpawn, noone, 0)
+SetupFightAddEnemy(2, x + 128, y, objEnemyEggpawn, noone, 0)
+SetupFightAddEnemy(3, x + 100, y, objEnemyEggpawn, noone, 0)
+SetupFightAddEnemy(4, x + 300, y, objEnemyHeavy, 3, 0)
+SetupFightAddEnemy(5, x + 430, y + 115, objEnemySpinner, noone, 0)
+SetupFightAddEnemy(6, x + 300, y + 110, objEnemySpinner2, noone, 0)
+
+SetupFightAddEnemy(7, x + 128, y, objEnemyHeavy, 3, 1)
+SetupFightAddEnemy(8, x + 48, y, objEnemyHeavy, 3, 1)
+SetupFightAddEnemy(9, x + 50, y, objEnemyEggpawn, noone, 1)
+SetupFightAddEnemy(10, x + 78, y, objEnemyEggpawn, noone, 1)

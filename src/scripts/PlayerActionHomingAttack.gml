@@ -1,0 +1,21 @@
+/// PlayerActionHomingAttack()
+
+afterimageTime = 15;
+if (!instance_exists(homingReticleTarget)){ PlayerSetAction(PlayerActionNormal); exit; }
+
+animationFrameSpeed = 0.55 + abs(xSpeed)/17;
+
+var _homingTargetDirection;
+_homingTargetDirection = point_direction(x, y, homingReticleTarget.x, homingReticleTarget.y);
+
+// Check if we are not inside terrain
+if (!place_meeting(x, y, parSolid) && !place_meeting(x, y, parPlatform) && actionTimer < 50) {
+    xSpeed = lengthdir_x(homingSpeed, _homingTargetDirection);
+    ySpeed = lengthdir_y(homingSpeed, _homingTargetDirection);
+}
+else {
+    // Stop homing attack
+    xSpeed = 0;
+    ySpeed = 0;
+    PlayerSetAction(PlayerActionNormal);
+}

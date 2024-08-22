@@ -1,0 +1,2 @@
+objPlayerSpawn,32,64,A468855C,0,1,1,4294967295,0,0
+objControllerStage,0,0,DEE029EC,0,1,1,4294967295,0,0

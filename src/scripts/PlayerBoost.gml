@@ -1,0 +1,89 @@
+/// PlayerBoost(airboostPossible)
+
+var _airboostPossible;
+_airboostPossible = argument0;
+
+// Check if the player is not colliding with a wall
+if (!terrainPushing) {
+    if (energy > 0) {
+        // Trigger boost dash
+        if (keySpecial1Pressed && !boosting) {
+            PlayVoice(choose("sndNoone", voiceline[0], voiceline[1]));
+            PlaySound("sndPlayerBoostStart")
+
+            DummyEffectCreate(x, y, sprVFXBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, animationAngle);
+
+            // Decrease energy gauge
+            PlayerAddEnergy(-1.5);
+
+            // Speed up the player
+            if abs(xSpeed) < boostStartSpeed {
+                xSpeed = boostStartSpeed * xDirection;
+            }
+
+            with (cam) {
+                CameraLag(20);
+                CameraShakeY(20);
+            }
+
+            instance_create(x, y, objVFXBoostShockwave);
+
+            // Check if the player is in the air
+            if (!ground && (_airboostPossible)) {
+                // Air boost dash
+                boosting = true;
+                PlayerSetAction(PlayerActionBoostAir);
+
+                if (boostInstance == noone) {
+                    boostInstance = instance_create(x, y, objVFXBoost);
+                    with (boostInstance) {
+                        sprite_index = other.boostSprite;
+                        image_angle = point_direction(other.xprevious, other.yprevious, x, y);
+                        ownerID = other.id;
+                        image_alpha = 0.7;
+                    }
+                }
+                // Update player's physics to the boost physics
+                PlayerPhysicModeSet(physicsMode);
+            }
+            else {
+                boostPossible = true;
+            }
+        }
+
+        // Keep boosting
+        if (keySpecial1 && boostPossible) {
+            boosting = true;
+            trailTimer = 120;
+
+            if (boostInstance == noone) {
+                boostInstance = instance_create(x, y, objVFXBoost);
+                with (boostInstance) {
+                    sprite_index = other.boostSprite;
+                    image_angle = point_direction(other.xprevious, other.yprevious, x, y);
+                    ownerID = other.id;
+                    image_alpha = 0.7;
+                }
+            }
+            // Decrease energy gauge    
+            PlayerAddEnergy(-0.35);
+            
+            // Update player's physics to the boost physics
+            PlayerPhysicModeSet(physicsMode);
+        }
+    }
+    else {
+        // Alert the player that he can't boost
+        if (keySpecial1Pressed && !boosting) {
+            // Create charge effect
+            with (instance_create(x, y, objVFXSpindashCharge)) {
+                image_xscale = 0.0006;
+                image_yscale = 0.0006;
+                scalespeed = 0.2;
+            }
+            // Shake the energy gauge
+            objControllerStage.hudShakeTimer = 30;
+            PlayVoice(voiceline[2]);
+        }
+    }   
+}
