@@ -16,7 +16,7 @@ if (_ringNormal != noone) {
     // Destroy ring and create effect
     with (_ringNormal) {
         instance_create(x, y, objVFXRing);
-        PlaySoundSingle("sndRing", global.volumeSounds, 1);
+        PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
         instance_destroy();
     }
 
@@ -33,7 +33,7 @@ if (_ringDrop != noone && (action != PlayerActionHurt && invincibilityTime < 100
     // Destroy ring and create effect
     with (_ringDrop) {
         instance_create(x, y, objVFXRing);
-        PlaySoundSingle("sndRing", global.volumeSounds, 1);
+        PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
         instance_destroy();
     }
 }
@@ -44,7 +44,7 @@ if (_ringMagnetic != noone) {
     // Destroy ring and create effect
     with (_ringMagnetic) {
         instance_create(x, y, objVFXRing);
-        PlaySoundSingle("sndRing", global.volumeSounds, 1);
+        PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
         instance_destroy();
     }
     // Get energy
@@ -57,7 +57,7 @@ if (_ringHyper != noone && (action != PlayerActionHurt && invincibilityTime < 10
     // Destroy ring and create effect
     with (_ringHyper) {
         instance_create(x, y, objVFXRing);
-        PlaySoundSingle("sndRing", global.volumeSounds, 1);
+        PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
         instance_destroy();
     }
 }
@@ -74,7 +74,7 @@ if (_ring5 != noone) {
             image_index = 0;
             image_speed = 0;
         }
-        PlaySoundSingle("sndRingSuper", global.volumeSounds, 1);
+        PlaySoundSingle("snd/RingSuper", global.volumeSounds, 1);
         instance_destroy();
     }
 }
@@ -91,7 +91,7 @@ if (_ring10 != noone) {
             image_index = 1;
             image_speed = 0;
         }
-        PlaySoundSingle("sndRingSuper", global.volumeSounds, 1);
+        PlaySoundSingle("snd/RingSuper", global.volumeSounds, 1);
         instance_destroy();
     }
 }
@@ -104,7 +104,7 @@ if (_ringSpecial != noone) {
         with(instance_create(x, y, objVFXRing)) {
             sparkleOffset = 30;
         }
-        PlaySoundSingle("sndRingSpecial", global.volumeSounds, 1);
+        PlaySoundSingle("snd/RingSpecial", global.volumeSounds, 1);
         instance_destroy();
     }
     // Get energy

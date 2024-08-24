@@ -68,8 +68,8 @@ if (qteWon == 0) {
         hudBackScale = max(hudBackScale - 0.2, 0)
         global.deltaMultiplier = min(global.deltaMultiplier + 0.2, 1)
 
-        if (!sound_isplaying("sndPlayerHurt")) {
-            PlaySound("sndPlayerHurt");
+        if (!sound_isplaying("snd/PlayerHurt")) {
+            PlaySound("snd/PlayerHurt");
         }
         if (image_alpha <= 0.1) {
             with (ownerID) {
@@ -113,7 +113,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 0:
                     if (_inputActionPressed) {
                         hudInputCounter += 1;
-                        PlaySound("sndQTEPress");
+                        PlaySound("snd/QTEPress");
                     }
                     break;
                 
@@ -122,7 +122,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 1:
                     if (_inputSpecial1Pressed) {
                         hudInputCounter += 1;
-                        PlaySound("sndQTEPress");
+                        PlaySound("snd/QTEPress");
                     }
                     break;
                 
@@ -131,7 +131,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 2:
                     if (_inputSpecial2Pressed) {
                         hudInputCounter += 1;
-                        PlaySound("sndQTEPress");
+                        PlaySound("snd/QTEPress");
                     }
                     break;
                     
@@ -145,7 +145,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 0:
                     if (_inputActionPressed) {
                         hudInputCounter += 1;
-                        PlaySound("sndQTEPress");
+                        PlaySound("snd/QTEPress");
                     }
                     break;
                 
@@ -154,7 +154,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 1:
                     if (_inputSpecial1Pressed) {
                         hudInputCounter += 1;
-                        PlaySound("sndQTEPress");
+                        PlaySound("snd/QTEPress");
                     }
                     break;
                 
@@ -163,7 +163,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 2:
                     if (_inputSpecial2Pressed) {
                         hudInputCounter += 1;
-                        PlaySound("sndQTEPress");
+                        PlaySound("snd/QTEPress");
                     }
                     break;
                     
@@ -180,9 +180,9 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 0:
                     if (_inputActionPressed) {
                         hudInputCounter += 1;
-                        PlaySound("sndQTEPress");
+                        PlaySound("snd/QTEPress");
                         qteWon = 1;
-                        PlaySound("sndQTEWin");
+                        PlaySound("snd/QTEWin");
                         
                         with (ownerID) {
                             PlayerSetAction(PlayerActionHomingFlight);
@@ -199,9 +199,9 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 1:
                     if (_inputSpecial1Pressed) {
                         hudInputCounter += 1;
-                        PlaySound("sndQTEPress");
+                        PlaySound("snd/QTEPress");
                         qteWon = 1;
-                        PlaySound("sndQTEWin");
+                        PlaySound("snd/QTEWin");
                         
                         with (ownerID) {
                             PlayerSetAction(PlayerActionHomingFlight);
@@ -218,9 +218,9 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 2:
                     if (_inputSpecial2Pressed) {
                         hudInputCounter += 1;
-                        PlaySound("sndQTEPress");
+                        PlaySound("snd/QTEPress");
                         qteWon = 1;
-                        PlaySound("sndQTEWin");
+                        PlaySound("snd/QTEWin");
                         
                         with (ownerID) {
                             PlayerSetAction(PlayerActionHomingFlight);

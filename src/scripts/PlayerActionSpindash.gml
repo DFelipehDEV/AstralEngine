@@ -27,7 +27,7 @@ if (keyActionPressed) {
         image_yscale = 0.0006;
         scalespeed = max(0.2, 0.2 + other.spindashStrength/50);
     }
-    PlaySoundSingle("sndPlayerSpindashCharge", global.volumeSounds, 1 + (spindashStrength * 0.043));
+    PlaySoundSingle("snd/PlayerSpindashCharge", global.volumeSounds, 1 + (spindashStrength * 0.043));
 }
 
 // Decrease strength while doing nothing
@@ -45,6 +45,6 @@ if (!keyDown) {
     PlayerSetAction(PlayerActionRoll);
     trailTimer = 120;
 
-    StopSound("sndPlayerSpindashCharge");
-    PlaySound("sndPlayerSpindashRelease");
+    sound_stop("snd/PlayerSpindashCharge");
+    PlaySound("snd/PlayerSpindashRelease");
 }

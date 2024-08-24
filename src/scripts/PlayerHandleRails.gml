@@ -11,7 +11,7 @@ if (action != PlayerActionGrind) {
     if ((_railNormal != noone)
     || (_railLayer0 != noone && terrainLayer == 0)
     || (_railLayer1 != noone && terrainLayer == 1)) && ground {
-        PlaySound("sndPlayerGrindStart");
+        PlaySound("snd/PlayerGrindStart");
         PlayerSetAction(PlayerActionGrind);
     }
 }

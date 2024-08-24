@@ -9,7 +9,7 @@ if ((action == PlayerActionJump || action == PlayerActionNormal || action == Pla
         PlayerSetAction(PlayerActionWalljump)
 
         xDirection = 1;
-        PlaySoundExt("sndGrab", global.volumeSounds, 0.8, false);
+        PlaySoundExt("snd/Grab", global.volumeSounds, 0.8, false);
     }
 
         _wallR = PlayerCollisionObjectRight(x, y, 0, maskBig, objWalljumpTrigger)
@@ -19,6 +19,6 @@ if ((action == PlayerActionJump || action == PlayerActionNormal || action == Pla
         PlayerSetAction(PlayerActionWalljump)
 
         xDirection = -1;
-        PlaySoundExt("sndGrab", global.volumeSounds, 0.8, false);
+        PlaySoundExt("snd/Grab", global.volumeSounds, 0.8, false);
     }
 }

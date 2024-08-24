@@ -8,7 +8,7 @@ if (attackPossible) {
 
         if (_box1 != noone) {
             with (_box1) {
-                PlaySound("sndBoxDestroy");
+                PlaySound("snd/BoxDestroy");
                 instance_destroy();
 
                 // Spawn metal parts

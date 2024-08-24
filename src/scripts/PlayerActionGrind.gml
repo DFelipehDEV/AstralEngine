@@ -6,15 +6,15 @@ PlayerXMovementExt(xAcceleration, 0, xSpeedTop);
 
 var _pitch;
 _pitch = min(max(0.6, abs(xSpeed)/8), 1.2);
-if (grindsnd == 0) {
-    if (!sound_isplaying("sndPlayerGrindContinue")) {
-        grindsnd = PlaySoundExt("sndPlayerGrindContinue", global.volumeSounds, _pitch, false);
+if (grind == 0) {
+    if (!sound_isplaying("snd/PlayerGrindContinue")) {
+        grind = PlaySoundExt("snd/PlayerGrindContinue", global.volumeSounds, _pitch, false);
     }
 }
 else {
-    sound_pitch(grindsnd, _pitch);
-    if (!sound_isplaying("sndPlayerGrindContinue")) {
-        grindsnd = PlaySoundExt("sndPlayerGrindContinue", global.volumeSounds, _pitch, false);
+    sound_pitch(grind, _pitch);
+    if (!sound_isplaying("snd/PlayerGrindContinue")) {
+        grind = PlaySoundExt("snd/PlayerGrindContinue", global.volumeSounds, _pitch, false);
     }
 }
 

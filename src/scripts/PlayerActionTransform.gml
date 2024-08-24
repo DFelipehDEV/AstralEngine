@@ -9,8 +9,8 @@ if (animationIndex == "TRANSFORM") {
     }
 
 
-    if (round(animationFrame) == 5 && !sound_isplaying("sndPlayerTransform")) {
-        PlaySound("sndPlayerTransform")
+    if (round(animationFrame) == 5 && !sound_isplaying("snd/PlayerTransform")) {
+        PlaySound("snd/PlayerTransform")
         instance_create(x, y, objVFXBoostShockwave);
         with (cam)
             CameraShakeY(20);

@@ -8,7 +8,7 @@ if (keyActionPressed) {
 
     PlayerSetAction(PlayerActionNormal);
     AnimationApply("LAUNCH");
-    PlaySound("sndPlayerJump");
+    PlaySound("snd/PlayerJump");
 }
 
 if (!PlayerCollisionObjectLeft(x, y, 0, maskBig, objWalljumpTrigger) && !PlayerCollisionObjectRight(x, y, 0, maskBig, objWalljumpTrigger)) {

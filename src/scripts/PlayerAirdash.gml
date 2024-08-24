@@ -6,6 +6,6 @@ if (keyActionPressed && !ground && airdashPossible && !instance_exists(homingRet
     PlayerSetAction(PlayerActionAirdash);
     trailTimer = 60;
 
-    PlaySound("sndPlayerHome");
+    PlaySound("snd/PlayerHome");
     DummyEffectCreate(x, y, sprVFXBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection/1.5, 0.6, 0);
 }

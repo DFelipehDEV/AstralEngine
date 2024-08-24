@@ -130,8 +130,6 @@
 		|PlaySoundSingle
 		|PlayMusic
 		|FadeMusic
-		|LoadSounds
-		|StopSound
 	+VFX
 		|DummyEffectCreate
 		|AfterimageEffectCreate

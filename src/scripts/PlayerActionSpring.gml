@@ -35,7 +35,7 @@ if (keySpecial1Pressed && (animationIndex == "SPRING" || animationIndex == "LAND
         ySpeed = -2;
 
         AnimationApply("SPRING_TRICK_HORIZONTAL")
-        PlaySound("sndPlayerSpringTrick");
+        PlaySound("snd/PlayerSpringTrick");
         animationAngle = 0;
     }
 
@@ -46,7 +46,7 @@ if (keySpecial1Pressed && (animationIndex == "SPRING" || animationIndex == "LAND
         ySpeed = -7;
 
         AnimationApply("SPRING_TRICK_VERTICAL")
-        PlaySound("sndPlayerSpringTrick");
+        PlaySound("snd/PlayerSpringTrick");
         animationAngle = 0;
     }
 }

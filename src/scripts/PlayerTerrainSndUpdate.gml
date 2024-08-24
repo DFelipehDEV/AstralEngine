@@ -3,53 +3,53 @@
 // Water terrain
 if (PlayerCollisionObjectBottom(x, y, angle, maskBig, objWaterHorizon) || PlayerCollisionObjectMain(x, y, objFootstepSensorWater)) {
     terrainType = "WATER";
-    terrainSound[TerSkid] = "sndPlayerSkidWater";
-    terrainSound[TerLand] = "sndPlayerLandWater";
-    terrainSound[TerFootstep1] = "sndPlayerFootstepWater2";
-    terrainSound[TerFootstep2] = "sndPlayerFootstepWater2";
+    terrainSound[TerSkid] = "snd/PlayerSkidWater";
+    terrainSound[TerLand] = "snd/PlayerLandWater";
+    terrainSound[TerFootstep1] = "snd/PlayerFootstepWater";
+    terrainSound[TerFootstep2] = "snd/PlayerFootstepWater";
 }
 
 // Grass terrain
 if (PlayerCollisionObjectMain(x, y, objFootstepSensorGrass)) {
     terrainType = "GRASS";
-    terrainSound[TerSkid] = "sndPlayerSkidGrass";
-    terrainSound[TerLand] = "sndPlayerLandGrass";
-    terrainSound[TerFootstep1] = "sndPlayerFootstepGrass1";
-    terrainSound[TerFootstep2] = "sndPlayerFootstepGrass2";
+    terrainSound[TerSkid] = "snd/PlayerSkidGrass";
+    terrainSound[TerLand] = "snd/PlayerLandGrass";
+    terrainSound[TerFootstep1] = "snd/PlayerFootstepGrass";
+    terrainSound[TerFootstep2] = "snd/PlayerFootstepGrass2";
 }
 
 // Dirt terrain
 if (PlayerCollisionObjectMain(x, y, objFootstepSensorDirt)) {
     terrainType = "DIRT";
-    terrainSound[TerSkid] = "sndPlayerSkidDirt";
-    terrainSound[TerLand] = "sndPlayerLandDirt";
-    terrainSound[TerFootstep1] = "sndPlayerFootstepDirt1";
-    terrainSound[TerFootstep2] = "sndPlayerFootstepDirt2";
+    terrainSound[TerSkid] = "snd/PlayerSkidDirt";
+    terrainSound[TerLand] = "snd/PlayerLandDirt";
+    terrainSound[TerFootstep1] = "snd/PlayerFootstepDirt";
+    terrainSound[TerFootstep2] = "snd/PlayerFootstepDirt2";
 }
 
 // Stone terrain
 if (PlayerCollisionObjectMain(x, y, objFootstepSensorStone)) {
     terrainType = "STONE";
-    terrainSound[TerSkid] = "sndPlayerSkidStone";
-    terrainSound[TerLand] = "sndPlayerLand";
-    terrainSound[TerFootstep1] = "sndPlayerFootstepStone1";
-    terrainSound[TerFootstep2] = "sndPlayerFootstepStone2";
+    terrainSound[TerSkid] = "snd/PlayerSkidStone";
+    terrainSound[TerLand] = "snd/PlayerLand";
+    terrainSound[TerFootstep1] = "snd/PlayerFootstepStone";
+    terrainSound[TerFootstep2] = "snd/PlayerFootstepStone2";
 }
 
 // Metal terrain
 if (PlayerCollisionObjectMain(x, y, objFootstepSensorMetal)) {
     terrainType = "METAL";
-    terrainSound[TerSkid] = "sndPlayerSkidMetal";
-    terrainSound[TerLand] = "sndPlayerLandMetal";
-    terrainSound[TerFootstep1] = "sndPlayerFootstepMetal1";
-    terrainSound[TerFootstep2] = "sndPlayerFootstepMetal2";
+    terrainSound[TerSkid] = "snd/PlayerSkidMetal";
+    terrainSound[TerLand] = "snd/PlayerLandMetal";
+    terrainSound[TerFootstep1] = "snd/PlayerFootstepMetal";
+    terrainSound[TerFootstep2] = "snd/PlayerFootstepMetal2";
 }
 
 // Wood terrain
 if (PlayerCollisionObjectMain(x, y, objFootstepSensorWood)) {
     terrainType = "WOOD";
-    terrainSound[TerSkid] = "sndPlayerSkidWood";
-    terrainSound[TerLand] = "sndPlayerLandWood";
-    terrainSound[TerFootstep1] = "sndPlayerFootstepWood1";
-    terrainSound[TerFootstep2] = "sndPlayerFootstepWood2";
+    terrainSound[TerSkid] = "snd/PlayerSkidWood";
+    terrainSound[TerLand] = "snd/PlayerLandWood";
+    terrainSound[TerFootstep1] = "snd/PlayerFootstepWood";
+    terrainSound[TerFootstep2] = "snd/PlayerFootstepWood2";
 }

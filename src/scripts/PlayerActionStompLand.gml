@@ -7,7 +7,7 @@ if angleMode != 0 {
         xSpeed = 8 * sign(xSpeed);
     }
     PlayerSetAction(PlayerActionSlide);
-    PlaySound("sndPlayerSlide");
+    PlaySound("snd/PlayerSlide");
 }
 
 if (animationIndex == "STOMP_LAND") {

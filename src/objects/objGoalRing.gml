@@ -22,7 +22,7 @@ applies_to=self
 
 instance_create(0, 0, objFadeGoal)
 sound_stop_all();
-PlaySound("sndGoalRingFinish");
+PlaySound("snd/GoalRingFinish");
 instance_create(x, y, objVFXRainbow)
 
 alarm[1] = 60;
@@ -65,7 +65,7 @@ applies_to=self
 /// Activate
 
 if (!active) {
-    PlaySound("sndGoalRingSpin");
+    PlaySound("snd/GoalRingSpin");
     active = true;
 
     ownerID = other.id;

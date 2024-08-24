@@ -25,7 +25,7 @@ if (allowKeysTimer == 0) {
         // Create rainbow effect
         instance_create(x, y, objVFXRainbow);
 
-        PlaySoundExt("sndTrick", global.volumeSounds, 1 + (trickCombo * 0.0441), 0);
+        PlaySoundExt("snd/Trick", global.volumeSounds, 1 + (trickCombo * 0.0441), 0);
 
         if (global.deltaMultiplier == 0.4) {
             global.deltaMultiplier = 1;
@@ -42,7 +42,7 @@ if (keySpecial3Pressed) {
     AnimationApply("SPRING_TRICK_HORIZONTAL");
 
     global.deltaMultiplier = 1;
-    PlaySound("sndTrick");
+    PlaySound("snd/Trick");
 }
 
 

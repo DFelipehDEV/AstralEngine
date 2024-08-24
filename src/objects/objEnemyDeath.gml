@@ -30,7 +30,7 @@ DummyEffectCreate(x + random_range(-30, 30), y + random_range(-30, 30), choose(s
 DummyEffectCreate(x + random_range(-30, 30), y + random_range(-30, 30), choose(sprVFXExplosion1, sprVFXExplosion2), 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
 
 // Play sound
-PlaySoundExt(choose("sndExplosion1", "sndExplosion2"), global.volumeAmbient, 1, false);
+PlaySoundExt(choose("snd/Explosion", "snd/Explosion2"), global.volumeAmbient, 1, false);
 
 // Create metal parts
 repeat(choose(4, 5, 6)) {

@@ -2,18 +2,18 @@
 
 switch (argument0) {
     case CharacterSonic:
-        voiceline[0] = "sndVoiceSonic0";
-        voiceline[1] = "sndVoiceSonic1";
-        voiceline[2] = "sndVoiceSonic2";
-        voiceline[3] = "sndVoiceSonic3";
-        voiceline[4] = "sndVoiceSonic4";
-        voiceline[5] = "sndVoiceSonic5";
-        voiceline[6] = "sndVoiceSonic6";
-        voiceline[7] = "sndVoiceSonic7";
-        voiceline[8] = "sndVoiceSonic8";
-        voiceline[9] = "sndVoiceSonic9";
-        voiceline[10] = "sndVoiceSonic10";
-        voiceline[11] = "sndVoiceSonic11";
-        voiceline[12] = "sndVoiceSonic12";
+        voiceline[0] = "snd/SonicVoice";
+        voiceline[1] = "snd/SonicVoice2";
+        voiceline[2] = "snd/SonicVoice3";
+        voiceline[3] = "snd/SonicVoice4";
+        voiceline[4] = "snd/SonicVoice5";
+        voiceline[5] = "snd/SonicVoice6";
+        voiceline[6] = "snd/SonicVoice7";
+        voiceline[7] = "snd/SonicVoice8";
+        voiceline[8] = "snd/SonicVoice9";
+        voiceline[9] = "snd/SonicVoice10";
+        voiceline[10] = "snd/SonicVoice11";
+        voiceline[11] = "snd/SonicVoice12";
+        voiceline[12] = "snd/SonicVoice13";
         break;
 }

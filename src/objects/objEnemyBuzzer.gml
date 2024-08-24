@@ -62,7 +62,7 @@ if (action == PlayerActionNormal) {
     proj.hspeed = 5 * dcos(point_direction(x, y, _ownerID.x, _ownerID.y));
     proj.vspeed = -5 * dsin(point_direction(x, y, _ownerID.x, _ownerID.y));
 
-    PlaySound("sndShot");
+    PlaySound("snd/Shot");
 }
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -95,7 +95,7 @@ if (action == PlayerActionNormal && !place_meeting(x, y, objEnemyTurn) && global
         // Warn enemy
         if (!nearPlayer) {
             nearPlayer = true;
-            PlaySound("sndEnemyWarn");
+            PlaySound("snd/EnemyWarn");
             DummyEffectCreate(x - 15 * image_xscale, y - 20, sprVFXEnemyWarn, 0.2, 0, 1, bm_normal, 1, 1, 1, 0);
         }
     }

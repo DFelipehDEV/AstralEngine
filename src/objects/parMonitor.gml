@@ -30,8 +30,8 @@ with (other) {
 
 // Create explosion
 DummyEffectCreate(x, y, sprVFXExplosion1, 0.35, 0, -0.1, bm_normal, 1, 1, 1, 0);
-PlaySoundSingle("sndExplosion1", global.volumeSounds, 1);
-PlaySoundSingle("sndMonitorBreak", global.volumeSounds, 1);
+PlaySoundSingle("snd/Explosion", global.volumeSounds, 1);
+PlaySoundSingle("snd/MonitorBreak", global.volumeSounds, 1);
 instance_destroy();
 #define Other_4
 /*"/*'/**//* YYD ACTION

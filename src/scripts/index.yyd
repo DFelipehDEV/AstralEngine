@@ -59,7 +59,7 @@ PlayerActionHurt
 
 PlayerHandleLayers
 
-LoadSounds
+
 
 
 PlayerHandleSprings
@@ -147,7 +147,7 @@ PlayerSetAction
 PlaySoundExt
 
 PlayVoice
-StopSound
+
 PlayerPhysicModeSet
 PlayerJump
 PlayerHomingAttack

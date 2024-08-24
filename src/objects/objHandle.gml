@@ -39,16 +39,16 @@ if (pull) {
             y -= 16;
             movementAllow = true;
         }
-        if (!sound_isplaying("sndPlayerJump")) {
-            PlaySoundExt("sndPlayerJump", global.volumeSounds, 1.1, false);
+        if (!sound_isplaying("snd/PlayerJump")) {
+            PlaySoundExt("snd/PlayerJump", global.volumeSounds, 1.1, false);
         }
-        sound_stop("sndHandleMove");
+        sound_stop("snd/HandleMove");
         exit;
     }
     else {
         // Go to crane position
-        if (!sound_isplaying("sndHandleMove")) {
-            PlaySoundExt("sndHandleMove", global.volumeSounds, 1, true);
+        if (!sound_isplaying("snd/HandleMove")) {
+            PlaySoundExt("snd/HandleMove", global.volumeSounds, 1, true);
         }
     }
 

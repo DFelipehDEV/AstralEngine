@@ -2,43 +2,46 @@
 // Initialize the game
 
 // Load all sounds and musics
-LoadSounds("GAME_DATA");
+sound_add_directory_ext("Resources/snd", ".wav", 0, false, "snd/")
+sound_add_directory_ext("Resources/bgm", ".ogg", 1, true, "");
 
 // Fonts
 global.fontHUD = font_add_sprite(sprFontHUD, ord("0"), false, -2);
 global.fontText = font_add_sprite(sprFontText, ord(","), true, 0);
 global.fontResults = font_add_sprite(sprFontResults, ord("0"), false, -1);
 
-// Screen variables
+// Screen
 global.screenSize = 1;
 global.screenVSync = true;
 
 global.gamepad = joystick_count();
 
-// Volume variables
+// Volume
 global.volumeSounds = 1;
 global.volumeMusic = 1;
 global.volumeVoice = 1;
 global.volumeAmbient = 1;
 
-// Music variables
+// Music
 global.bgmSound = -1;
 
-// Player variables
+// Player
 global.player[0] = noone; // Player instance
 global.playerRings = 0;
 global.playerCheckTime = 0;
 global.playerCheckX = 0;
 global.playerCheckY = 0;
 
-// Others
+// Rank requirements
+global.stageRank[RankC] = 2500;
+global.stageRank[RankB] = 4000;
+global.stageRank[RankA] = 6000;
+global.stageRank[RankS] = 8500;
+
+// Game state
 global.debug = false;
 global.debugIsAThing = false;
 global.deltaMultiplier = 1; // Time movement multiplier, lower values make objects move slower, higher values make objects move faster, used for slow motion
-global.stageRank[RankC] = 2500; // Minimum score for C rank
-global.stageRank[RankB] = 4000; // Minimum score for B rank
-global.stageRank[RankA] = 6000; // Minimum score for A rank
-global.stageRank[RankS] = 8500; // Minimum score for S rank
 global.gameState = GameStateRunning;
 
 global.zoom = 1; // Actual window zoom

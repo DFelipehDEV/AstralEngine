@@ -2,10 +2,10 @@
 // Exit state
 switch (action) {
     case PlayerActionGrind:
-        StopSound("sndPlayerGrindContinue");
+        sound_stop("snd/PlayerGrindContinue");
         break;
     case PlayerActionSlide:
-        StopSound("sndPlayerSlide");
+        sound_stop("snd/PlayerSlide");
         break;
     case PlayerActionStomp:
         PlayerSensorPosUpdate();
@@ -92,7 +92,7 @@ switch (action) {
 
     case PlayerActionGrind:
         AnimationApply("GRIND_1");
-        grindsnd = 0;
+        grind = 0;
         break;
 
     case PlayerActionSlide:
@@ -162,7 +162,7 @@ switch (action) {
         movementAllow = false;
         AnimationApply("DEAD");
         AnimationUpdate();
-        PlaySound("sndPlayerHurt");
+        PlaySound("snd/PlayerHurt");
         PlaySound(voiceline[4]);
         break;
 }

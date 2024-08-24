@@ -22,7 +22,7 @@ global.volumeMusic = ini_read_real("config", "bgmvolume", 0.5);
 global.volumeVoice = ini_read_real("config", "voicevolume", 0.5);
 global.volumeAmbient = ini_read_real("config", "ambientvolume", 0.5);
 
-PlaySound("sndDialogueOpen");
+PlaySound("snd/DialogueOpen");
 alarm[0] = 3;
 if (debug_mode) {
     alarm[0] = 1;

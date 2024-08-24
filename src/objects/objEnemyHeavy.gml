@@ -19,7 +19,7 @@ enemyBust = true;
 enemyHP= 3;
 enemyHPMax = 3;
 
-hammerSnd = false;
+hammer = false;
 normalStateX = x;
 #define Alarm_1
 /*"/*'/**//* YYD ACTION
@@ -101,7 +101,7 @@ switch (action) {
         // Play warning sound and spotted effect.
         if (alarm[1] == -1) {
             alarm[1] = 15;
-            PlaySound("sndEnemyWarn");
+            PlaySound("snd/EnemyWarn");
             DummyEffectCreate(x - 10 * image_xscale, y - 25, sprVFXEnemyWarn, 0.25, 0, 1, bm_normal, 1, 1, 1, 0);
         }
         break;
@@ -122,7 +122,7 @@ switch (action) {
             if (objPlayer.invincibility == InvincibilityNoone) {
                 xSpeed = 0;
                 action = "ATTACK";
-                PlaySoundExt("sndWind1", global.volumeSounds, random_range(0.5, 0.9), false);
+                PlaySoundExt("snd/Wind", global.volumeSounds, random_range(0.5, 0.9), false);
                 EnemySetAnimation(sprEnemyHeavyAttack, 0.17);
             }
         }
@@ -135,9 +135,9 @@ switch (action) {
         // Check if we are on the hammer attack state
         if (image_index > 3 && image_index < 5) {
             // Check if we haven't used the hammer
-            if (!hammerSnd) {
-                hammerSnd = true;
-                PlaySound("sndEnemyHeavyAttack");
+            if (!hammer) {
+                hammer = true;
+                PlaySound("snd/EnemyHeavyAttack");
                 with (ownerID.cam)
                     CameraShakeY(40);
             }
@@ -161,7 +161,7 @@ switch (action) {
                 action = "CHASE";
                 EnemySetAnimation(sprEnemyHeavyWalk, 0.15);
             }
-            hammerSnd = false;
+            hammer = false;
         }
         break;
 

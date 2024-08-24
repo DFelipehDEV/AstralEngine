@@ -91,7 +91,7 @@ if (hudButtonKBM != -1) {
 
         // Play warning sound effect
         if (hudButtonAlpha[0] == 0.4) {
-            PlaySound("sndMenuWarn");
+            PlaySound("snd/MenuWarn");
         }
         // Decrease button scale
         hudButtonScale = lerp(hudButtonScale, 2, 0.2);

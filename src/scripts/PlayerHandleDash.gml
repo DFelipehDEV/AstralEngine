@@ -18,7 +18,7 @@ if (PlayerCollisionHitboxFast(x, y, parDashPad)) {
     // Create dust
     DummyEffectCreate(x, y, sprVFXDustDash, 0.25, 0, -0.1, bm_normal, 1, _dashPad.image_xscale, _dashPad.image_yscale, _dashPad.image_angle);
     // Play sound
-    PlaySound("sndDashPad");
+    PlaySound("snd/DashPad");
 }
 
 // Dash ring
@@ -59,11 +59,11 @@ if (PlayerCollisionHitboxFast(x, y, parDashRing)) {
     // Play sound
     switch(_dashRing.dashRingType) {
         case "NORMAL":
-            PlaySound("sndDashRing1");
+            PlaySound("snd/DashRing");
             break;
 
         case "RAINBOW":
-            PlaySound("sndDashRing2");
+            PlaySound("snd/DashRingRainbow");
             break;
     }
 }
@@ -98,7 +98,7 @@ if (_dashRamp != noone && ground) {
 
         interactDelay = 10;
 
-        PlaySound("sndDashRamp");
+        PlaySound("snd/DashRamp");
     }
 }
 
@@ -115,5 +115,5 @@ if (_dashRail != noone && ground && action == PlayerActionGrind) {
 
     DummyEffectCreate(x, y, sprVFXDustDash, 0.25, 0, -0.1, bm_normal, 1, xDirection, 1, animationAngle);
 
-    PlaySound("sndDashPad");
+    PlaySound("snd/DashPad");
 }

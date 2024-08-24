@@ -2,6 +2,6 @@
 if (!PlayerCollisionTop(x, y, angle, maskBig) && keyActionPressed) {
     PlayerSetAction(PlayerActionJump);
 
-    PlaySound("sndPlayerJump");
-    PlaySound("sndPlayerSpin");
+    PlaySound("snd/PlayerJump");
+    PlaySound("snd/PlayerSpin");
 }

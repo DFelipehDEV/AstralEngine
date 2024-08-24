@@ -83,10 +83,10 @@ yDirection = 1;
 // Terrain
 terrainLayer = 0;
 terrainType = "";
-terrainSound[TerFootstep1] = "sndPlayerFootstepStone1";
-terrainSound[TerFootstep2] = "sndPlayerFootstepStone2";
-terrainSound[TerLand] = "sndPlayerLand";
-terrainSound[TerSkid] = "sndPlayerSkidStone";
+terrainSound[TerFootstep1] = "snd/PlayerFootstepStone";
+terrainSound[TerFootstep2] = "snd/PlayerFootstepStone2";
+terrainSound[TerLand] = "snd/PlayerLand";
+terrainSound[TerSkid] = "snd/PlayerSkidStone";
 terrainPlatform = false; // Whether we are in a platform
 terrainPushing = false; // Whether the player is pushing into a wall
 footstepPlayed = false;
@@ -176,7 +176,7 @@ trailAlpha = 0;
 starTimer = 0;
 
 // Sound
-grindsnd = 0;
+grind = 0;
 
 afterimageTime = 0;
 
@@ -669,16 +669,16 @@ if (physicsMode == PhysicsWater && action != PlayerActionDead) {
 
         if (global.roomTick mod 30 == 1) {
             // Play sound effect until you drown
-            PlaySoundSingle("sndPlayerLossingAir", global.volumeSounds, 1);
+            PlaySoundSingle("snd/PlayerLossingAir", global.volumeSounds, 1);
         }
 
         // Check if we have drowned
-        if (underwaterDrownFrame >= 5.9 && !sound_isplaying("sndPlayerDrown")) {
+        if (underwaterDrownFrame >= 5.9 && !sound_isplaying("snd/PlayerDrown")) {
             global.playerRings = 0;
             PlayerSetAction(PlayerActionDead);
 
-            StopSound("sndPlayerLossingAir");
-            PlaySound("sndPlayerDrown");
+            sound_stop("snd/PlayerLossingAir");
+            PlaySound("snd/PlayerDrown");
         }
     }
 }

@@ -3,7 +3,7 @@
 
 // Play drop sound
 if (argument0 == true) {
-    PlaySound("sndPlayerRingSteal");
+    PlaySound("snd/PlayerRingSteal");
 }
 var _ringValue, _ringAngle, _ringSpeed, _n, _t;
 _ringValue = argument1;

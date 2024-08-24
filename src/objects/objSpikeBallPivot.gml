@@ -35,7 +35,7 @@ spikeBall.image_yscale = _scaleFactor;
 spikeBall.image_blend = make_color_hsv(0, 0, floorto(255+_scaleFactor*180, 20))
 
 if (depth != sign(spikeBall.x - spikeBall.xprevious)) {
-    PlaySound("sndFlail");
+    PlaySound("snd/Flail");
 }
 
 depth = sign(spikeBall.x - spikeBall.xprevious);
