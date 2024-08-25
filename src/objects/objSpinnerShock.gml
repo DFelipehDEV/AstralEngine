@@ -6,7 +6,6 @@ applies_to=self
 */
 /// Animation speed
 
-
 image_speed = 0.44;
 #define Collision_objPlayer
 /*"/*'/**//* YYD ACTION
@@ -15,7 +14,6 @@ action_id=603
 applies_to=self
 */
 /// Hurt player
-
 
 with (other) {
     PlayerHurt();

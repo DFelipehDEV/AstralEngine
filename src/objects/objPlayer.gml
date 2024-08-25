@@ -154,6 +154,8 @@ applies_to=self
 
 // Camera
 cam = instance_create(x, y, objCamera);
+hud = instance_create(x, y, objPlayerHUD);
+hud.ownerID = id;
 
 // Sensor position
 PlayerSensorPosUpdate();

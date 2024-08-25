@@ -6,4 +6,6 @@ applies_to=self
 */
 /// Create "depth" object
 
-instance_create(x, y, objCorkscrewDepth);
+with (instance_create(x, y, objCorkscrewDepth)) {
+    image_angle = other.image_angle;
+}

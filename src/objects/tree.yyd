@@ -95,6 +95,7 @@
 			|parBody
 			|objPlayerSpawn
 			|objPlayer
+			|objPlayerHUD
 			+Events
 				|objEventTitleCard
 				|objEventResults

@@ -2,7 +2,8 @@
 - replaced title card font by builtin OS font
 - renamed fonts to match their properties (e.g., fontConsolasBold12)
 - improved objAstralTitle code
-- LoadSounds now takes directory
+- LoadSounds removed
+- Changed Resources structure
 - renamed methods from ObjectThingSet to ObjectSetThing (e.g., from PlayerShieldSet to PlayerSetShield)
 - speeded up the titlescreen animations
 - removed global.deactivateExceptionsSize, use ds_list_size(global.deactivateExceptions) instead
