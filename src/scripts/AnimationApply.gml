@@ -1,7 +1,7 @@
 /// AnimationApply(Animation)
-if (animationIndex != argument0) {
-    animationIndexPrevious = animationIndex;
-    animationIndex = argument0;
+if (animation != argument0) {
+    animationPrevious = animation;
+    animation = argument0;
     AnimationUpdate();
 
     // Reset the animation frame if needed

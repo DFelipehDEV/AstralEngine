@@ -7,29 +7,29 @@ applies_to=self
 /// Variables
 
 DeactivateExceptionsAdd(id);
-// Viewport configuration
+
 view_object[0] = id;
 view_hborder[0] = ScreenWidthHalf * 0.99;
 view_vborder[0] = ScreenHeightHalf * 0.98;
 
 // Camera following settings
-camTarget = objPlayer; // Camera target to follow the object
-camLagTimer = 0; // Size in frames of how long the lag remains
+target = objPlayer; // Camera target to follow the object
+delay = 0; // Size in frames of how long the lag remains
 
 // Camera shift settings
-camXShift = 0; // Horizontal position shift
-camYShift = 0; // Vertical position shift
+xShift = 0; // Horizontal position shift
+yShift = 0; // Vertical position shift
 
 // Camera shake settings
-camYShakeValue = 48; // Position of the camera when the camera is shaking
-camXShakeTimer = 0; // Duration of how long the horizontal shake lasts
-camYShakeTimer = 0; // Duration of how long the vertical shake lasts
+yShakeOffset = 48; // Position of the camera when the camera is shaking
+xShakeTimer = 0; // Duration of how long the horizontal shake lasts
+yShakeTimer = 0; // Duration of how long the vertical shake lasts
 
 // Camera borders
-camBorderLeft = 0; // Camera left border
-camBorderRight = room_width; // Camera right border
-camBorderTop = 0; // Camera top border
-camBorderBottom = room_height; // Camera bottom border
+leftBorder = 0; // Camera left border
+rightBorder = room_width; // Camera right border
+topBorder = 0; // Camera top border
+bottomBorder = room_height; // Camera bottom border
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -48,26 +48,26 @@ applies_to=self
 /// Shake
 
 // Horizontal Shake
-if (camXShakeTimer > 0) {
+if (xShakeTimer > 0) {
     x += random_range(-17, 17);
-    camXShakeTimer -= 1;
+    xShakeTimer -= 1;
 }
 
 // Vertical Shake
-if (camYShakeTimer > 0) {
-    camYShift = approach(camYShift, camYShakeValue - round(camYShakeTimer/2)*2, 10)
-    y = SmoothStep(y, floor(y + camYShift), 0.3);
+if (yShakeTimer > 0) {
+    yShift = approach(yShift, yShakeOffset - round(yShakeTimer/2)*2, 10)
+    y = SmoothStep(y, floor(y + yShift), 0.3);
 
-    if (camYShakeTimer mod 6 == 4) {
-        camYShakeValue = -camYShakeValue;
+    if (yShakeTimer mod 6 == 4) {
+        yShakeOffset = -yShakeOffset;
     }
-    camYShakeTimer -= 1;
+    yShakeTimer -= 1;
 }
 
 
-if (sign(camYShakeValue) == -1) {
-    if (camYShakeTimer == 0) {
-        camYShakeValue = -camYShakeValue;
+if (sign(yShakeOffset) == -1) {
+    if (yShakeTimer == 0) {
+        yShakeOffset = -yShakeOffset;
     }
 }
 /*"/*'/**//* YYD ACTION
@@ -78,8 +78,8 @@ applies_to=self
 /// Decrease lag timer
 
 // Check if the camera is stuck
-if (camLagTimer > 0) {
-    camLagTimer -= 1;
+if (delay > 0) {
+    delay -= 1;
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -87,58 +87,58 @@ action_id=603
 applies_to=self
 */
 /// Camera Shift
-if (object_get_name(camTarget) == "objPlayer") {
+if (object_get_name(target) == "objPlayer") {
     var _targetSpeed;
     // Shift x-axis camera position
-    switch(camTarget.action) {
+    switch(target.action) {
         case PlayerActionWaylauncher:
-            if (camTarget.keyLeft) {
-                camXShift = approach(camXShift, -80, 10);
+            if (target.keyLeft) {
+                xShift = approach(xShift, -80, 10);
             }
-            else if (camTarget.keyRight) {
-                camXShift = approach(camXShift, 80, 10);
+            else if (target.keyRight) {
+                xShift = approach(xShift, 80, 10);
             }
             else {
-                camXShift = approach(camXShift, 0, 10);
+                xShift = approach(xShift, 0, 10);
             }
             break;
 
         default:
-            _targetSpeed = (((camTarget.x - camTarget.xprevious)/global.deltaMultiplier) * 12);
-            camXShift = approach(camXShift, round(_targetSpeed/2)*2, 7);
+            _targetSpeed = (((target.x - target.xprevious)/global.deltaMultiplier) * 12);
+            xShift = approach(xShift, round(_targetSpeed/2)*2, 7);
     }
 
     // Shift y-axis camera position
-    switch(camTarget.action) {
+    switch(target.action) {
         case PlayerActionLookup:
-            camYShift = approach(camYShift, -90, 3);
+            yShift = approach(yShift, -90, 3);
             break;
 
         case PlayerActionCrouch:
-            camYShift = approach(camYShift, 90, 3);
+            yShift = approach(yShift, 90, 3);
             break;
 
         case PlayerActionWaylauncher:
-            if (camTarget.keyUp) {
-                camYShift = approach(camYShift, -80, 10);
+            if (target.keyUp) {
+                yShift = approach(yShift, -80, 10);
             }
-            else if (camTarget.keyDown) {
-                camYShift = approach(camYShift, 80, 10);
+            else if (target.keyDown) {
+                yShift = approach(yShift, 80, 10);
             }
             else {
-                camYShift = approach(camYShift, 0, 10);
+                yShift = approach(yShift, 0, 10);
             }
             break;
 
         case PlayerActionStomp:
-            camYShift = approach(camYShift, 210, 3);
+            yShift = approach(yShift, 210, 3);
             break;
 
         default:
             // Only shift the camera if the y-shake timer is not active
-            if (camYShakeTimer == 0) {
-                _targetSpeed = ((camTarget.y - camTarget.yprevious)/global.deltaMultiplier) * 5
-                camYShift = approach(camYShift, round(_targetSpeed/2)*2, 6); // *5, *9
+            if (yShakeTimer == 0) {
+                _targetSpeed = ((target.y - target.yprevious)/global.deltaMultiplier) * 5
+                yShift = approach(yShift, round(_targetSpeed/2)*2, 6); // *5, *9
             }
     }
 }
@@ -149,25 +149,25 @@ applies_to=self
 */
 /// Shift to the target position
 
-if (camLagTimer == 0 && camTarget != noone) {
-    if (camTarget != objPlayer) {
+if (delay == 0 && target != noone) {
+    if (target != objPlayer) {
         // Shift to the target position
-        x = floor(SmoothStep(x, camTarget.x + camXShift, 0.2));
-        y = floor(SmoothStep(y, camTarget.y + camYShift, 0.1));
+        x = floor(SmoothStep(x, target.x + xShift, 0.2));
+        y = floor(SmoothStep(y, target.y + yShift, 0.1));
     }
     // Follow the player
     else {
-        if (camTarget.action != PlayerActionDead) {
+        if (target.action != PlayerActionDead) {
             // Shift to the player position
             // I could just have used lerp
-            x = floor(SmoothStep(x, camTarget.x + camXShift, 0.3));
-            y = floor(SmoothStep(y, camTarget.y + camYShift, 0.3)); //0.16
+            x = floor(SmoothStep(x, target.x + xShift, 0.3));
+            y = floor(SmoothStep(y, target.y + yShift, 0.3)); //0.16
         }
     }
 }
 
-x = clamp(x, camBorderLeft + ScreenWidthHalf, camBorderRight - ScreenWidthHalf);
-y = clamp(y, camBorderTop + ScreenHeightHalf, camBorderBottom - ScreenHeightHalf);
+x = clamp(x, leftBorder + ScreenWidthHalf, rightBorder - ScreenWidthHalf);
+y = clamp(y, topBorder + ScreenHeightHalf, bottomBorder - ScreenHeightHalf);
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -176,6 +176,6 @@ applies_to=self
 */
 /// Lost target
 
-if (!instance_exists(camTarget)) {
-    camTarget = noone;
+if (!instance_exists(target)) {
+    target = noone;
 }

@@ -1,5 +1,4 @@
 /// PlayerHandleSpikes()
-// Handle collision with spikes
 
 if (instance_exists(objSpike)) {
     var _nearSpike;

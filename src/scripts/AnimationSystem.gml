@@ -30,8 +30,8 @@ if (!animationFinished) {
                 animationFrame = animationFrameEnd;
 
                 // Update animation status
-                animationIndexPrevious = animationIndex;
-                animationIndex = animationLinkedTo;
+                animationPrevious = animation;
+                animation = animationLinkedTo;
 
                 script_execute(argument0);
 

@@ -1,7 +1,5 @@
 /// PlayerHandleSprings()
-//Handle springs collision
 
-// Check spring collision
 var _spring;
 _spring = PlayerCollisionHitbox(x, y, parSpring);
 

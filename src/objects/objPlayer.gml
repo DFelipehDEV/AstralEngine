@@ -152,7 +152,6 @@ applies_to=self
 */
 /// Misc
 
-// Camera
 cam = instance_create(x, y, objCamera);
 hud = instance_create(x, y, objPlayerHUD);
 hud.ownerID = id;
@@ -536,7 +535,7 @@ applies_to=self
 
 homingPossible = false;
 // Stop boosting
-if (!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || action == PlayerActionRoll || animationIndex == "FLING" || (boostAirTime == 0 && !ground)) && boosting {
+if (!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || action == PlayerActionRoll || animation == "FLING" || (boostAirTime == 0 && !ground)) && boosting {
     boosting = false;
     boostPossible = false;
     PlayerPhysicModeSet(physicsMode);
@@ -692,14 +691,14 @@ applies_to=self
 */
 /// Stay in screen
 
-if (x < objCamera.camBorderLeft + 12) {
+if (x < objCamera.leftBorder + 12) {
     xSpeed = 0;
-    x = objCamera.camBorderLeft + 12;
+    x = objCamera.leftBorder + 12;
 }
 
-if (x > objCamera.camBorderRight - 12) {
+if (x > objCamera.rightBorder - 12) {
     xSpeed = 0;
-    x = objCamera.camBorderRight - 12;
+    x = objCamera.rightBorder - 12;
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -735,7 +734,7 @@ applies_to=self
 /// Effects(Footsteps, Trail, Afterimage, Stars)
 
 // Footsteps
-switch (animationIndex) {
+switch (animation) {
     case "WALK_1":
     case "WALK_2":
     case "JOG_1":
@@ -811,7 +810,7 @@ if (invincibility != InvincibilityHurt) {
         if (invincibility == InvincibilityMonitor) {
             if (instance_exists(objControllerMusic)) {
                 with (objControllerMusic) {
-                    sound_stop("bgmInvincibility");
+                    sound_stop("bgm/Invincibility");
                     playTempMusic = "null";
                 }
             }
@@ -894,12 +893,12 @@ if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink 
 
 if (action == PlayerActionSpindash) {
     // Spindash normal dust
-    if (animationIndex == "SPINDASH") {
+    if (animation == "SPINDASH") {
         draw_sprite_ext(sprVFXSpindashLow, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, animationAngle, c_white, image_alpha);
     }
 
     // Spindash charging dust
-    if (animationIndex == "SPINDASH_CHARGE") {
+    if (animation == "SPINDASH_CHARGE") {
         draw_sprite_ext(sprVFXSpindashHigh, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, animationAngle, c_white, image_alpha);
     }
 }

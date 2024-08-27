@@ -8,27 +8,26 @@ applies_to=self
 
 DeactivateExceptionsAdd(id);
 
-hudShakeTimer = 0;
-hudShakeOffset = 0;
+hidden = false;
+shakeTimer = 0;
+shakeOffset = 0;
 
 gaugeIndex = 21;
 
 // Button pop up variables
-hudButtonKBM = -1;
-hudButtonJoystick = -1;
-hudButtonTimer = 0;
-hudButtonAlpha[0] = 0;
-hudButtonAlpha[1] = 1;
-hudButtonScale = 5;
+buttonKey = -1;
+buttonGamepad = -1;
+buttonTimer = 0;
+buttonAlpha[0] = 0;
+buttonAlpha[1] = 1;
+buttonScale = 5;
 
-hudOffset = 0;
-
-hudHide = false;
+offset = 0;
 
 // Enemy fight HUD
-hudEnemy = 0;
-hudEnemyFrame = 0;
-hudEnemyScale = 0;
+enemy = 0;
+enemyFrame = 0;
+enemyScale = 0;
 
 pauseOption = 1;
 pauseOptionOutlineScale = 0;
@@ -56,26 +55,22 @@ applies_to=self
 */
 /// HUD Control
 
-switch (hudHide) {
-    case false:
-        hudOffset = lerp(hudOffset, 0, 0.07);
-    break;
-
-    case true:
-        hudOffset = lerp(hudOffset, 300, 0.07);
-    break;
+if (hidden) {
+    offset = lerp(offset, 300, 0.07);
+} else {
+    offset = lerp(offset, 0, 0.07);
 }
 
-if (hudShakeTimer) {
-    hudShakeTimer -= 1;
+if (shakeTimer) {
+    shakeTimer -= 1;
 }
 
-if (!hudEnemy && hudEnemyScale > 0) {
-    hudEnemyScale = SmoothStep(hudEnemyScale, 0, 0.25);
+if (!enemy && enemyScale > 0) {
+    enemyScale = SmoothStep(enemyScale, 0, 0.25);
 }
 
-if (hudEnemy) {
-    hudEnemyScale = SmoothStep(hudEnemyScale, 1, 0.25);
+if (enemy) {
+    enemyScale = SmoothStep(enemyScale, 1, 0.25);
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -84,32 +79,30 @@ applies_to=self
 */
 /// Buttons
 
-if (hudButtonKBM != -1) {
-    // Check if the button timer is avaiable to show the button
-    if (hudButtonTimer > 0) {
-        hudButtonTimer -= 1;
-        hudButtonAlpha[0] = min(hudButtonAlpha[0] + 0.2, 1);
+if (buttonKey != -1) {
+    if (buttonTimer > 0) {
+        buttonTimer -= 1;
+        buttonAlpha[0] = min(buttonAlpha[0] + 0.2, 1);
 
-        // Play warning sound effect
-        if (hudButtonAlpha[0] == 0.4) {
+        if (buttonAlpha[0] == 0.4) {
             PlaySound("snd/MenuWarn");
         }
-        // Decrease button scale
-        hudButtonScale = lerp(hudButtonScale, 2, 0.2);
-        hudButtonAlpha[1] = lerp(hudButtonAlpha[1], 0, 0.2);
+
+        buttonScale = lerp(buttonScale, 2, 0.2);
+        buttonAlpha[1] = lerp(buttonAlpha[1], 0, 0.2);
     }
     else {
-        hudButtonScale = lerp(hudButtonScale, 0, 0.2);
-        hudButtonAlpha[0] = max(hudButtonAlpha[0] - 0.2, 0);
+        buttonScale = lerp(buttonScale, 0, 0.2);
+        buttonAlpha[0] = max(buttonAlpha[0] - 0.2, 0);
 
 
         // Reset variables after dissapearing
-        if (hudButtonAlpha[0] == 0) {
-            hudButtonKBM = -1;
-            hudButtonTimer = 0;
-            hudButtonAlpha[0] = 0;
-            hudButtonAlpha[1] = 1;
-            hudButtonScale = 5;
+        if (buttonAlpha[0] == 0) {
+            buttonKey = -1;
+            buttonTimer = 0;
+            buttonAlpha[0] = 0;
+            buttonAlpha[1] = 1;
+            buttonScale = 5;
         }
     }
 }
@@ -143,7 +136,7 @@ switch (GameStateGet(GameStatePaused)) {
             with (music) {
                 fadeOut = true;
             }
-            // Activate pause screen
+
             GameStateSet(GameStatePaused);
         }
 
@@ -260,7 +253,7 @@ _viewX = view_xview[0];
 _viewY = view_yview[0];
 
 d3d_set_projection_ortho(_viewX, _viewY, ScreenWidth, ScreenHeight, 0) // Stop HUD from resizing
-// Draw ingame HUD
+
 if (ownerID != noone && !GameStateGet(GameStatePaused)) {
     // Speedlines
     if (ownerID.boostInstance != noone) {
@@ -270,63 +263,62 @@ if (ownerID != noone && !GameStateGet(GameStatePaused)) {
     draw_set_color(c_white);
     draw_set_halign(fa_right);
 
-    // Draw time
-    draw_sprite(sprHUDTime, 0, _viewX - hudOffset, _viewY + 8);
-    draw_text((_viewX - hudOffset) + 100, _viewY + 16, string(floor(global.gameTime/60000)) + ":" + StringNumberFormat(floor(global.gameTime/1000) mod 60,2) + ":" + StringNumberFormat(floor(global.gameTime/10) mod 100,2));
+    // Time
+    draw_sprite(sprHUDTime, 0, _viewX - offset, _viewY + 8);
+    draw_text((_viewX - offset) + 100, _viewY + 16, string(floor(global.gameTime/60000)) + ":" + StringNumberFormat(floor(global.gameTime/1000) mod 60,2) + ":" + StringNumberFormat(floor(global.gameTime/10) mod 100,2));
 
-    // Draw rings
+    // Rings
     draw_set_halign(fa_left);
-    draw_sprite(sprHUDRings, 0, (_viewX - hudOffset), _viewY + 32);
-    draw_text((_viewX - hudOffset) + 37, _viewY + 40, string(global.playerRings));
-    // Red counter
+    draw_sprite(sprHUDRings, 0, (_viewX - offset), _viewY + 32);
+    draw_text((_viewX - offset) + 37, _viewY + 40, string(global.playerRings));
+    // Red fade on ring counter
     if (global.playerRings == 0) {
-        draw_text_color((_viewX - hudOffset) + 37, _viewY + 40, string(global.playerRings), c_red, c_red, c_red, c_red, min(cos(global.gameTime/200), 1));
+        draw_text_color((_viewX - offset) + 37, _viewY + 40, string(global.playerRings), c_red, c_red, c_red, c_red, min(cos(global.gameTime/200), 1));
     }
     if (ownerID.combineActive) {
-        draw_text_color((_viewX - hudOffset) + 37, _viewY + 40, string(global.playerRings), c_aqua, c_blue, c_blue, c_blue, abs(cos(global.gameTime/300)));
+        draw_text_color((_viewX - offset) + 37, _viewY + 40, string(global.playerRings), c_aqua, c_blue, c_blue, c_blue, abs(cos(global.gameTime/300)));
     }
     draw_set_halign(fa_right);
 
-    // Draw energy bar
+    // Energy bar
     gaugeIndex = approach(gaugeIndex, ownerID.energy/4, 1);
     var shake;
-    shake = sin(hudShakeTimer)*3;
-    draw_sprite(sprHUDEnergy, 0, (_viewX - hudOffset), (_viewY + ScreenHeight - 40) + shake)
-    // Draw gauge
-    draw_sprite(sprHUDGauge, floor(gaugeIndex), (_viewX - hudOffset), (_viewY + ScreenHeight - 27) + shake)
+    shake = sin(shakeTimer)*3;
+    draw_sprite(sprHUDEnergy, 0, (_viewX - offset), (_viewY + ScreenHeight - 40) + shake)
+    draw_sprite(sprHUDGauge, floor(gaugeIndex), (_viewX - offset), (_viewY + ScreenHeight - 27) + shake)
 
     // Check if the enemy scale is more than 0
-    if (hudEnemyScale > 0) {
+    if (enemyScale > 0) {
         // Enemy text
-        draw_sprite_ext(sprHUDEnemiesText, 0, _viewX + ScreenWidthHalf, _viewY + 16, 1, hudEnemyScale, 0, c_white, 1);
+        draw_sprite_ext(sprHUDEnemiesText, 0, _viewX + ScreenWidthHalf, _viewY + 16, 1, enemyScale, 0, c_white, 1);
         // Enemies left
-        draw_sprite_ext(sprHUDEnemiesCounter, hudEnemyFrame + 1, _viewX + ScreenWidthHalf, _viewY + 30, hudEnemyScale, hudEnemyScale, 0, c_white, 1);
+        draw_sprite_ext(sprHUDEnemiesCounter, enemyFrame + 1, _viewX + ScreenWidthHalf, _viewY + 30, enemyScale, enemyScale, 0, c_white, 1);
     }
 
-    if (hudButtonKBM != -1) {
+    if (buttonKey != -1) {
         // Keyboard input
         if (!global.gamepad) {
             // Draw input key
-            draw_sprite_ext(sprKeyboardKeys, hudButtonKBM, _viewX + ScreenWidthHalf, _viewY + 64, hudButtonScale, hudButtonScale, 0, c_white, hudButtonAlpha[0]);
+            draw_sprite_ext(sprKeyboardKeys, buttonKey, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[0]);
 
             // Highlight
-            if (hudButtonAlpha[1] > 0) {
+            if (buttonAlpha[1] > 0) {
                 // White version
                 d3d_set_fog(1, c_white, 0, 0)
-                draw_sprite_ext(sprKeyboardKeys, hudButtonKBM, _viewX + ScreenWidthHalf, _viewY + 64, hudButtonScale, hudButtonScale, 0, c_white, hudButtonAlpha[1]);
+                draw_sprite_ext(sprKeyboardKeys, buttonKey, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[1]);
                 d3d_set_fog(0, c_white, 0, 0)
             }
         }
         else {
         // Gamepad input
             // Draw input key
-            draw_sprite_ext(sprGamepadKeys, hudButtonJoystick, _viewX + ScreenWidthHalf, _viewY + 64, hudButtonScale, hudButtonScale, 0, c_white, hudButtonAlpha[0]);
+            draw_sprite_ext(sprGamepadKeys, buttonGamepad, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[0]);
 
             // Highlight
-            if (hudButtonAlpha[1] > 0) {
+            if (buttonAlpha[1] > 0) {
                 // White version
                 d3d_set_fog(1, c_white, 0, 0)
-                draw_sprite_ext(sprGamepadKeys, hudButtonJoystick, _viewX + ScreenWidthHalf, _viewY + 64, hudButtonScale, hudButtonScale, 0, c_white, hudButtonAlpha[1]);
+                draw_sprite_ext(sprGamepadKeys, buttonGamepad, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[1]);
                 d3d_set_fog(0, c_white, 0, 0)
             }
         }
@@ -339,11 +331,10 @@ if (GameStateGet(GameStatePaused) && gamescreen != -1) {
 
     switch (pauseOption) {
         case 1:
-            // Draw black outline
+            // Outline
             draw_sprite_ext(sprPauseOptions, 3, (_viewX + 3) + ScreenWidthHalf, ((_viewY + 3) - 10) + ScreenHeightHalf, pauseOptionOutlineScale, pauseOptionOutlineScale, 0, c_white, 1);
 
-
-            // Draw options
+            // Options
             draw_sprite_ext(sprPauseOptions, 0, _viewX + ScreenWidthHalf, (_viewY - 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_white, 1);
             draw_sprite_ext(sprPauseOptions, 1, _viewX + ScreenWidthHalf, (_viewY + 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
             draw_sprite_ext(sprPauseOptions, 2, _viewX + ScreenWidthHalf, (_viewY + 30) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);

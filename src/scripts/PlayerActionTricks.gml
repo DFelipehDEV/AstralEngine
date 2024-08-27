@@ -1,7 +1,7 @@
 /// PlayerActionTricks()
 
 afterimageTime = 15;
-if (animationIndex == "SPRING") {
+if (animation == "SPRING") {
     animationAngle = point_direction(xprevious, yprevious, x, y)-90;
 }
 

@@ -1,8 +1,9 @@
 /// AnimationInit(AnimationList)
-// Animation variables
 
-animationIndex = "";                // Current animation
-animationIndexPrevious = "";        // Last animation
+animationAnimationList = argument0;
+
+animation = "";                // Current animation
+animationPrevious = "";        // Last animation
 
 animationSprite = 0;                // Current animation sprite
 
@@ -23,5 +24,3 @@ animationFinished = 0;              // Used to check if the animation has ended
 animationAngle = 0;                 // Sprite angle for the animation
 
 animationTime = 0;                  // Time since the animation was last updated
-
-animationAnimationList = argument0;

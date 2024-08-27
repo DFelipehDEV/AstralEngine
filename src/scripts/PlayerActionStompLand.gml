@@ -10,7 +10,7 @@ if angleMode != 0 {
     PlaySound("snd/PlayerSlide");
 }
 
-if (animationIndex == "STOMP_LAND") {
+if (animation == "STOMP_LAND") {
     if (animationFinished) {
         PlayerSetAction(PlayerActionNormal);
     }

@@ -1,5 +1,4 @@
 /// PlayerHandleRails()
-// Handle rails collision
 
 if (action != PlayerActionGrind) {
     var _railNormal, _railLayer0, _railLayer1;

@@ -15,7 +15,7 @@ else {
     y = lerp(y, corkscrewObject.y + 26 + (1+cos(_angleInCorkscrew/sprite_get_width(corkscrewObject.sprite_index)))*(55*0.5), 0.1 + abs(xSpeed)/15)
 
 
-    if (animationIndex == "CORKSCREW") {
+    if (animation == "CORKSCREW") {
         //Change animation frame depending on angle
         animationFrame = abs((radtodeg(degtorad((_relativePosition/sprite_get_width(corkscrewObject.sprite_index))*360))/360*10) mod 11);
     }

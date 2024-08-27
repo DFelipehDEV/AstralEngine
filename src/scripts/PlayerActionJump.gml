@@ -23,7 +23,7 @@ if (ySpeed > 4.5) {
 }
 
 // Animation speed
-if (animationIndex != "LANDING") {
+if (animation != "LANDING") {
     animationFrameSpeed = (0.2 + abs(ySpeed)/7) + abs(xSpeed)/15;
 }
 

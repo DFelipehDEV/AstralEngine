@@ -4,8 +4,8 @@ PlayerXMovement();
 // Check if we are in the ground
 if (ground) {
     // Animation speed while moving on normal action
-    if (((animationIndex == "WALK_1" || animationIndex == "WALK_2" || animationIndex == "JOG_1"
-    || animationIndex == "JOG_2" || animationIndex == "RUN"))) {
+    if (((animation == "WALK_1" || animation == "WALK_2" || animation == "JOG_1"
+    || animation == "JOG_2" || animation == "RUN"))) {
         animationFrameSpeed = min(0.13 + abs(xSpeed)/25, 0.63);
     }
 

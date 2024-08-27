@@ -1,10 +1,8 @@
 /// PlayerHandleProjectile()
-// Handle collison with projectiles
 
 var _projectile;
 _projectile = PlayerCollisionHitbox(x, y, parProjectile);
 
-// Check if is meeting the projectile
 if (_projectile != noone) {
     if (shield == ShieldNormal) {
         // Reflect projectiles with shields
@@ -14,7 +12,6 @@ if (_projectile != noone) {
         }
     }
     else {
-        // Hurt the player
         PlayerHurt();
     }
 }

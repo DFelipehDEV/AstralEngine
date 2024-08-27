@@ -6,7 +6,7 @@ if (ground) {
             case false:
                 // Check if we are in the edge of a solid
                 if (PlayerCollisionLeftEdge(x, y, angle) && !PlayerCollisionRightEdge(x, y, angle)) {
-                    if (animationIndex != "LEDGE_1" && animationIndex != "LEDGE_2") {
+                    if (animation != "LEDGE_1" && animation != "LEDGE_2") {
                         PlayVoice(choose(voiceline[11], voiceline[12], "snd/noone"));
                     }
                     switch (xDirection) {
@@ -20,7 +20,7 @@ if (ground) {
                     }
                 }
                 else if (!PlayerCollisionLeftEdge(x, y, angle) && PlayerCollisionRightEdge(x, y, angle)) {
-                    if (animationIndex != "LEDGE_1" && animationIndex != "LEDGE_2") {
+                    if (animation != "LEDGE_1" && animation != "LEDGE_2") {
                         PlayVoice(choose(voiceline[11], voiceline[12]));
                     }
                     switch (xDirection) {
@@ -37,7 +37,7 @@ if (ground) {
 
             case true:
                 // Check if its not been waiting for a long time
-                if (animationIndex != "IDLE_WAIT" && animationIndex != "IDLE_WAIT_2") {
+                if (animation != "IDLE_WAIT" && animation != "IDLE_WAIT_2") {
                     // Idle animation
                     AnimationApply("IDLE");
 
@@ -75,7 +75,7 @@ if (ground) {
     }
 }
 else {
-    if (animationIndex != "SPRING_TRICK_VERTICAL" && animationIndex != "FALL" && animationIndex != "LAUNCH" && animationIndex != "FLING") {
+    if (animation != "SPRING_TRICK_VERTICAL" && animation != "FALL" && animation != "LAUNCH" && animation != "FLING") {
         // Fall animation
         if (abs(ySpeed) >= 0.2) {
             AnimationApply("LANDING");

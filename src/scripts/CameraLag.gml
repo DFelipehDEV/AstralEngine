@@ -1,4 +1,4 @@
 /// CameraLag(Frames)
-if (camLagTimer < argument0) {
-    camLagTimer = argument0;
+if (delay < argument0) {
+    delay = argument0;
 }

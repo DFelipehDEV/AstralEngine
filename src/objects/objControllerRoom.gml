@@ -61,14 +61,11 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Render optimization
-// "Disable offset" views objects
+/// Deactivate offscreen objects
 
 if (GameStateGet() == GameStatePaused) exit;
 
-// Deactivate all objects
 instance_deactivate_all(true);
-
 instance_activate_object(parTerrain);
 
 // Activate specific instances
@@ -79,12 +76,13 @@ for (_instance = 0; _instance < ds_list_size(global.deactivateExceptions); _inst
 
 instance_deactivate_object(objSpikeMove)
 
-// Activate deactivated objects if they are in the view
+// Activate on view objects
 instance_activate_region(view_xview[0] - 64, view_yview[0] - 32, ScreenWidth + 96, ScreenHeight + 96, 1);
 
 if (instance_exists(objRingDrop)) {
     instance_activate_region(objRingDrop.x - 16, objRingDrop.y - 16, 64, 64, 1);
 }
+
 if (instance_exists(objPlayer)) {
     instance_activate_region(objPlayer.x - 64, objPlayer.y - 64, 128, 128, 1);
 }

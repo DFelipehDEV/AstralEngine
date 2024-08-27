@@ -1,10 +1,8 @@
 /// PlayerHandleCheckpoint()
-//Handle checkpoint collision
 
 var _checkpoint;
 _checkpoint = PlayerCollisionHitbox(x, y, objCheckpoint);
 
-// Check if the player is meeting the checkpoint
 if (_checkpoint != noone) {
     if (!_checkpoint.activated) {
         // Check if the player hasn't passed the checkpoint before

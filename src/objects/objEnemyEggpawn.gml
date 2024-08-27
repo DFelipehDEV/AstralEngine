@@ -59,7 +59,6 @@ else {
 }
 
 switch (action) {
-    // State while turning in a turn sensor
     case "TURN":
         // If the turn timer is not expired, pause the enemy's movement
         if (turnTimer > 0) {
@@ -75,18 +74,19 @@ switch (action) {
             }
         }
     break;
-    
-    // State while patroling
+
     case "NORMAL":
         normalStateX = x;
         // Walk at normal speed
         xSpeed = 1.6 * image_xscale;
 
+        var _nearPlayer;
+        _nearPlayer = instance_nearest(x, y, objPlayer);
+
         // Check if the player is near the enemy
-        if (distance_to_object(global.player[0]) < 100) {
+        if (distance_to_object(_nearPlayer) < 100) {
             // Check if the enemy is looking at the player
-            if (image_xscale == sign(global.player[0].x - x)) {
-                // Player was spotted
+            if (image_xscale == sign(_nearPlayer.x - x)) {
                 action = "SPOTTED";
                 EnemySetAnimation(sprEnemyEggpawn1Idle, 0.2);
             }
@@ -101,12 +101,9 @@ switch (action) {
         }
     break;
 
-    // State while spotting the player
     case "SPOTTED":
-        // Slow down the enemy's speed when in the spotted state
         xSpeed = lerp(xSpeed, 0, 0.12);
 
-        // Play warning sound and spotted effect.
         if (alarm[1] == -1) {
             alarm[1] = 20;
             PlaySound("snd/EnemyWarn");
@@ -114,7 +111,6 @@ switch (action) {
         }
     break;
 
-    // State while chasing the player
     case "CHASE":
         // Set the enemy's speed when in the chase state.
         ownerID = instance_nearest(x, y, objPlayer);
@@ -147,7 +143,7 @@ switch (action) {
     break;
 }
 
-x = clamp(x, objCamera.camBorderLeft, objCamera.camBorderRight);
+x = clamp(x, objCamera.leftBorder, objCamera.rightBorder);
 // Apply invincibility
 EnemyInvincibility();
 #define Draw_0

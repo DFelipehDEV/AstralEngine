@@ -120,7 +120,7 @@ switch (icon) {
             starTimer = 1130;
         }
         with (music) {
-            playTempMusic = "bgmInvincibility";
+            playTempMusic = "bgm/Invincibility";
         }
         FadeMusic(true);
         break;

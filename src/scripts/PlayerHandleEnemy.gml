@@ -1,18 +1,12 @@
 /// PlayerHandleEnemy()
-// Handle enemies collision
 
 var _enemy;
 _enemy = PlayerCollisionHitbox(x, y, parEnemy);
 
-// Check if the player is meeting the enemy and it has no invincibility
 if (_enemy != noone) {
-    // Check if the player is doing any of these actions
     if (attackPossible) {
-        // Check if the enemy does not have invincibility frames
         if (_enemy.enemyBlinkTimer == 0) {
-            // Decrease enemy HP
             if (_enemy.enemyHP > 0) {
-                // Decrease enemy HP and give him small invincibility
                 with (_enemy) {
                     hit = true;
                     enemyBlinkTimer = 20;
@@ -30,7 +24,7 @@ if (_enemy != noone) {
             var _enemyX, _enemyY;
             _enemyX = _enemy.x;
             _enemyY = _enemy.y;
-            // Check if the enemy has no HP
+
             if (_enemy.enemyHP == noone || _enemy.enemyHP <= 0) {
                 // Check if the enemy "bust", in that case it is false so it will just explode
                 if (!_enemy.enemyBust) {
@@ -77,7 +71,7 @@ if (_enemy != noone) {
                             phaseEnemiesCreated = false;
                         }
                     }
-                    objControllerStage.hudEnemyScale = 3;
+                    hud.enemyScale = 3;
                 }
             }
 

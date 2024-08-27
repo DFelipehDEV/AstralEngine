@@ -4,7 +4,6 @@
 if (nodeParallax == -1) nodeParallax = ds_grid_create(16, 1);
 else                     ds_grid_resize(nodeParallax, 16, nodeNumParallax+1);
 
-// Add information to grid
 ds_grid_set(nodeParallax,  0, nodeNumParallax, argument0);
 ds_grid_set(nodeParallax,  1, nodeNumParallax, argument1);
 ds_grid_set(nodeParallax,  2, nodeNumParallax, argument2);
@@ -22,5 +21,4 @@ ds_grid_set(nodeParallax, 13, nodeNumParallax, argument13);
 ds_grid_set(nodeParallax, 14, nodeNumParallax, argument14);
 ds_grid_set(nodeParallax, 15, nodeNumParallax, argument15);
 
-// Done
 nodeNumParallax += 1;

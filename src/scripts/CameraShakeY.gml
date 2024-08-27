@@ -1,2 +1,2 @@
 /// CameraShakeY(Time)
-camYShakeTimer = argument0;
+yShakeTimer = argument0;

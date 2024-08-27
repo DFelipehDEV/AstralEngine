@@ -3,7 +3,7 @@
 
 // Load all sounds and musics
 sound_add_directory_ext("Resources/snd", ".wav", 0, false, "snd/")
-sound_add_directory_ext("Resources/bgm", ".ogg", 1, true, "");
+sound_add_directory_ext("Resources/bgm", ".ogg", 1, true, "bgm/");
 
 // Fonts
 global.fontHUD = font_add_sprite(sprFontHUD, ord("0"), false, -2);

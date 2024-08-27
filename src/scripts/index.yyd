@@ -64,7 +64,7 @@ PlayerHandleLayers
 
 PlayerHandleSprings
 
-PlayerHandleRings
+
 PlayerHandleEnemy
 PlayerHurt
 RingsDrop
@@ -171,3 +171,4 @@ PlayerActionTransform
 SmoothStep
 DrawTiledTexturePos
 ease
+PlayerHandleRings

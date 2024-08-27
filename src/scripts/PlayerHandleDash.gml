@@ -1,10 +1,9 @@
 /// PlayerHandleDash()
-// Handle dash pads, rings and ramps collision
 
 // Dash pads
 var _dashPad, _dashRing, _dashRamp, _dashRail;
-if (PlayerCollisionHitboxFast(x, y, parDashPad)) {
-    _dashPad = instance_nearest(x, y, parDashPad);
+_dashPad = PlayerCollisionHitbox(x, y, parDashPad);
+if (_dashPad != noone) {
     if (terrainPushing && !ground) {
         ground = true;
         PlayerSetAngle(_dashPad.image_angle);
@@ -22,10 +21,8 @@ if (PlayerCollisionHitboxFast(x, y, parDashPad)) {
 }
 
 // Dash ring
-// Check if the player is meeting the dash ring
-if (PlayerCollisionHitboxFast(x, y, parDashRing)) {
-    _dashRing = instance_nearest(x, y, parDashRing);
-
+_dashRing = PlayerCollisionHitbox(x, y, parDashRing);
+if (_dashRing != noone) {
     PlayerSetAngle(0);
     ground = false;
     x = _dashRing.x;
@@ -49,11 +46,11 @@ if (PlayerCollisionHitboxFast(x, y, parDashRing)) {
 
     PlayerSetAction(_dashRing.dashRingPAct);
 
-    // Prevent spam
     with (_dashRing) {
         image_xscale = 0.5;
         image_yscale = 0.5;
     }
+    // Prevent spam
     interactDelay = 8;
 
     // Play sound

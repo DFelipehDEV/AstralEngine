@@ -16,13 +16,11 @@ applies_to=self
 */
 /// Button
 
-if (instance_exists(objControllerStage)) {
-    if (objControllerStage.hudButtonKBM == -1) {
-        objControllerStage.hudButtonKBM = buttonKBM;
-        objControllerStage.hudButtonJoystick = buttonJoystick;
-        objControllerStage.hudButtonTimer = 80;
-        instance_destroy();
-    }
+if (other.hud.buttonKey == -1) {
+    other.hud.buttonKey = buttonKBM;
+    other.hud.buttonGamepad = buttonJoystick;
+    other.hud.buttonTimer = 80;
+    instance_destroy();
 }
 #define Other_4
 /*"/*'/**//* YYD ACTION

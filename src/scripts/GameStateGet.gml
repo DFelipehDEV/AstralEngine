@@ -1,2 +1,3 @@
 /// GameStateGet()
+
 return global.gameState;

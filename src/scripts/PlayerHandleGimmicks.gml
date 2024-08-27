@@ -7,7 +7,7 @@ if (abs(xSpeed) >= 6 && ground) {
     // Check if is coliding with the corkscrew and is going fast in flat ground
     if (_corkscrew != noone && action != PlayerActionCorkscrew) {
         // Check if is not rolling
-        if (animationIndex != "ROLL" && animationIndex != "CORKSCREW") {
+        if (animation != "ROLL" && animation != "CORKSCREW") {
             // If is not rolling, walk on the corkscrew
             AnimationApply("CORKSCREW");
         }

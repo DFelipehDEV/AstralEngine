@@ -13,6 +13,8 @@ applies_to=self
 // enemy[0, 3] = health;
 // enemy[0, 4] = phase;
 
+player = noone;
+
 phaseCurrent = 0;              // Current phase number
 phaseEnemiesRemaining = 0;     // Number of enemies remaining in the current phase
 phaseEnemiesCreated = false;   // Flag to track if enemies have been created for the current phase
@@ -32,13 +34,13 @@ applies_to=self
 /// Handle
 
 // Check if the event is happening
-if (active) {
+if (player != noone && active) {
     delay = max(delay - 1, 0);
 
     // Check if all phases ended and the enemy HUD is gone
     if (ended) {
-        objControllerStage.hudEnemy = false;
-        if (objControllerStage.hudEnemyScale < 0.8) {
+        player.hud.enemy = false;
+        if (player.hud.enemyScale < 0.8) {
             instance_destroy();
         }
         exit;
@@ -46,7 +48,7 @@ if (active) {
 
     // Check if the event delay has reached 0
     if (delay == 0) {
-            // Check if there are no enemies remaining in the current phase
+        // Check if there are no enemies remaining in the current phase
         if (phaseEnemiesRemaining == 0 && !phaseEnemiesCreated) {
             var i;
             // Loop through all enemies
@@ -61,7 +63,6 @@ if (active) {
                         }
                     }
 
-                    // Increase the count of enemies created in the current phase
                     phaseEnemiesRemaining += 1;
                 }
             }
@@ -72,21 +73,18 @@ if (active) {
 
             // Check if there are no more phases left and the event has ended
             if (!ended && phase > phaseMax + 1) {
-                ended = true;
                 // Reset camera
-                with (objCamera) {
-                    camBorderLeft = 0;              // Camera left border
-                    camBorderRight = room_width;     // Camera right border
-                    camBorderTop = 0;              // Camera top border
-                    camBorderBottom = room_height;    // Camera bottom border
-                    camTarget = objPlayer;
-                }
+                ended = true;
+                player.cam.leftBorder = 0;
+                player.cam.rightBorder = room_width;
+                player.cam.topBorder = 0;
+                player.cam.bottomBorder = room_height;
+                player.cam.target = objPlayer;
             }
         }
     }
 
-    // Update the HUD frame
-    objControllerStage.hudEnemyFrame = phaseEnemiesRemaining;
+    player.hud.enemyFrame = phaseEnemiesRemaining;
 }
 #define Collision_objPlayer
 /*"/*'/**//* YYD ACTION
@@ -96,21 +94,22 @@ applies_to=self
 */
 /// Start fight
 
+player = instance_nearest(x, y, objPlayer);
 // Check if all phases have not ended
 if (!ended) {
     // If the event is not active yet, set up the enemy HUD
     if (!active) {
         // Initialize enemy HUD
-        objControllerStage.hudEnemy = true;
-        objControllerStage.hudEnemyScale = 0;
+        player.hud.enemy = true;
+        player.hud.enemyScale = 0;
     }
 
     // Set camera borders to the fight region
     if (delay == 10) {
-        objCamera.camBorderLeft = x;
-        objCamera.camBorderRight = x + image_xscale;
-        objCamera.camBorderTop = y;
-        objCamera.camBorderBottom = y + image_yscale + 1
+        player.cam.leftBorder = x;
+        player.cam.rightBorder = x + image_xscale;
+        player.cam.topBorder = y;
+        player.cam.bottomBorder = y + image_yscale + 1
     }
 }
 

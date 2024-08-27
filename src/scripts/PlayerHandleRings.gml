@@ -1,6 +1,4 @@
 /// PlayerHandleRings()
-// Handle rings collision
-
 
 var _ringNormal, _ringDrop, _ringMagnetic, _ringHyper, _ring5, _ring10, _ringSpecial;
 _ringNormal = PlayerCollisionHitbox(x, y, objRing);
@@ -10,10 +8,9 @@ _ringHyper = PlayerCollisionHitbox(x, y, objRingHyper);
 _ring5 = PlayerCollisionHitbox(x, y, objRing5);
 _ring10 = PlayerCollisionHitbox(x, y, objRing10);
 _ringSpecial = PlayerCollisionHitbox(x, y, objRingSpecial);
-// Collect normal ring
+
 if (_ringNormal != noone) {
     global.playerRings += 1;
-    // Destroy ring and create effect
     with (_ringNormal) {
         instance_create(x, y, objVFXRing);
         PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
@@ -21,16 +18,12 @@ if (_ringNormal != noone) {
     }
 
     if (action != PlayerActionLightspeed) {
-        // Get energy
         PlayerAddEnergy(4);
     }
 }
 
-
-// Collect dropped ring
 if (_ringDrop != noone && (action != PlayerActionHurt && invincibilityTime < 100)) {
     global.playerRings += 1;
-    // Destroy ring and create effect
     with (_ringDrop) {
         instance_create(x, y, objVFXRing);
         PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
@@ -38,23 +31,18 @@ if (_ringDrop != noone && (action != PlayerActionHurt && invincibilityTime < 100
     }
 }
 
-// Collect magnetic ring
 if (_ringMagnetic != noone) {
     global.playerRings += 1;
-    // Destroy ring and create effect
     with (_ringMagnetic) {
         instance_create(x, y, objVFXRing);
         PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
         instance_destroy();
     }
-    // Get energy
     PlayerAddEnergy(4);
 }
 
-// Collect dropped ring
 if (_ringHyper != noone && (action != PlayerActionHurt && invincibilityTime < 100)) {
     global.playerRings += round(_ringHyper.value);
-    // Destroy ring and create effect
     with (_ringHyper) {
         instance_create(x, y, objVFXRing);
         PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
@@ -62,10 +50,8 @@ if (_ringHyper != noone && (action != PlayerActionHurt && invincibilityTime < 10
     }
 }
 
-// Collect dropped ring
 if (_ring5 != noone) {
     global.playerRings += 5;
-    // Destroy ring and create effect
     with (_ring5) {
         with (instance_create(x, y, objVFXRing)) {
             sparkleOffset = 20;
@@ -79,10 +65,8 @@ if (_ring5 != noone) {
     }
 }
 
-// Collect ring 10
 if (_ring10 != noone) {
     global.playerRings += 10;
-    // Destroy ring and create effect
     with (_ring10) {
         with(instance_create(x, y, objVFXRing)) {
             sparkleOffset = 20;
@@ -96,10 +80,8 @@ if (_ring10 != noone) {
     }
 }
 
-// Collect special ring
 if (_ringSpecial != noone) {
     global.playerRings += 50;
-    // Destroy ring and create effect
     with (_ringSpecial) {
         with(instance_create(x, y, objVFXRing)) {
             sparkleOffset = 30;
@@ -107,6 +89,5 @@ if (_ringSpecial != noone) {
         PlaySoundSingle("snd/RingSpecial", global.volumeSounds, 1);
         instance_destroy();
     }
-    // Get energy
     PlayerAddEnergy(4);
 }

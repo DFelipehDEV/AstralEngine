@@ -1,7 +1,7 @@
 /// PlayerActionTransform()
 
 ySpeed = -0.1;
-if (animationIndex == "TRANSFORM") {
+if (animation == "TRANSFORM") {
     if (animationFinished) {
         PlayerSetAction(PlayerActionNormal);
         PlayerSetCharacter(CharacterSuperSonic);

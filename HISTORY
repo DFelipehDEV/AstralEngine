@@ -8,6 +8,8 @@
 - speeded up the titlescreen animations
 - removed global.deactivateExceptionsSize, use ds_list_size(global.deactivateExceptions) instead
 - parTerrain is now always active
+- renamed animation to animation
+- renamed animationPrevious to animationPrevious
 
 ***version 2.0.4 stable***
 - removed LudusLib dependency

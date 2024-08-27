@@ -2,7 +2,7 @@
 
 PlayerXMovement();
 // Animations
-if (animationIndex != "SPRING_TRICK_HORIZONTAL" && animationIndex != "SPRING_TRICK_VERTICAL" && animationIndex != "FLING" && animationIndex != "LANDING" && animationIndex != "FALL") {
+if (animation != "SPRING_TRICK_HORIZONTAL" && animation != "SPRING_TRICK_VERTICAL" && animation != "FLING" && animation != "LANDING" && animation != "FALL") {
     // Spring animation
     if (ySpeed < 0.2) {
         AnimationApply("SPRING");
@@ -14,7 +14,7 @@ if (animationIndex != "SPRING_TRICK_HORIZONTAL" && animationIndex != "SPRING_TRI
     }
 }
 
-if (animationIndex == "SPRING") {
+if (animation == "SPRING") {
     animationAngle = point_direction(xprevious, yprevious, x, y)-90;
 }
 else {
@@ -22,7 +22,7 @@ else {
 }
 
 // Spring tricks!
-if (keySpecial1Pressed && (animationIndex == "SPRING" || animationIndex == "LANDING")) {
+if (keySpecial1Pressed && (animation == "SPRING" || animation == "LANDING")) {
     // Horizontal trick
     if (!keyUp && (keyLeft || keyRight)) {
         if (keyLeft && !keyRight) {

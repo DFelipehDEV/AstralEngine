@@ -84,8 +84,8 @@
 			|PlayerActionDead
 		+Handles
 			|PlayerHandleLayers
-			|PlayerHandleSprings
 			|PlayerHandleRings
+			|PlayerHandleSprings
 			|PlayerHandleEnemy
 			|PlayerHandleHurt
 			|PlayerHandleSpikes

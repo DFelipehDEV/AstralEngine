@@ -38,7 +38,7 @@ if (spindashStrength > 0) {
 // Release spindash and start rolling
 if (!keyDown) {
     // Create release trail if is charging the spindash
-    if (animationIndex == "SPINDASH_CHARGE") {
+    if (animation == "SPINDASH_CHARGE") {
         DummyEffectCreate(floor(x), floor(y), sprVFXSpindashHighRelease, 0.35, 0, 0.1, bm_normal, image_alpha, xDirection, 1, animationAngle);
     }
     xSpeed = (8.2 + spindashStrength) * xDirection;

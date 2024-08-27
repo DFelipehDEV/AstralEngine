@@ -71,10 +71,10 @@ switch (ended) {
 
         // Return to previous state
         ownerID.allowKeys = true;
-        objControllerStage.hudHide = false;
+        ownerID.hud.hidden = false;
 
-        ownerID.cam.camYShift = 0;
-        ownerID.cam.camTarget = objPlayer;
+        ownerID.cam.yShift = 0;
+        ownerID.cam.target = objPlayer;
         ownerID = noone;
         ended = 0;
     break;
@@ -140,11 +140,11 @@ if (!npcChatting) {
         }
 
 
-        ownerID.cam.camYShift = -50;
-        ownerID.cam.camTarget = id;
+        ownerID.cam.yShift = -50;
+        ownerID.cam.target = id;
         PlaySound("snd/DialogueOpen");
 
-        objControllerStage.hudHide = true;
+        ownerID.hud.hidden = true;
         ended = 0;
     }
 }

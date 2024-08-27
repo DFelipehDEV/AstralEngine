@@ -76,7 +76,7 @@ if (!active) {
         goal = true;
     }
 
-    ownerID.cam.camTarget = id;
-    ownerID.cam.camXShift = 0;
-    ownerID.cam.camYShift = 0;
+    ownerID.cam.target = id;
+    ownerID.cam.xShift = 0;
+    ownerID.cam.yShift = 0;
 }

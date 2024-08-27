@@ -82,7 +82,7 @@ if (!terrainPushing) {
                 scalespeed = 0.2;
             }
             // Shake the energy gauge
-            objControllerStage.hudShakeTimer = 30;
+            hud.shakeTimer = 30;
             PlayVoice(voiceline[2]);
         }
     }   

@@ -1,2 +1,2 @@
 /// CameraShakeX(Time)
-camXShakeTimer = argument0;
+xShakeTimer = argument0;
