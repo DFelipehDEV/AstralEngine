@@ -28,106 +28,6 @@
 	|objFadeRoom
 	|objFadeGoal
 +Stage
-	+Common
-		+Spring
-			|parSpring
-			|objSpring01
-		+Ring
-			|objRing
-			|objRing5
-			|objRing10
-			|objRingSpecial
-			+Miscellaneous
-				|objRingDrop
-				|objRingMagnetic
-				|objRingHyper
-		+Checkpoint
-			|objCheckpoint
-		+Dashes
-			|parDashPad
-			|parDashRail
-			|parDashRamp
-			|parDashRing
-			|objDashRing
-			|objDashRingRainbow
-			|objDashPad
-			|objDashRamp
-			|objDashRampRainbow
-		+Handle
-			|objCrane
-			|objHandle
-		+Rails
-			|parRail
-			|parRailLayer0
-			|parRailLayer1
-			|objRail01
-			|objRail02
-			|objRail03
-			+Layer0
-				|objRail02Layer0
-				|objRail03Layer0
-			+Layer1
-				|objRail02Layer1
-				|objRail03Layer1
-		+Way Launcher
-			|objWayLauncher
-		+Monitor
-			|parMonitor
-			|objMonitorEnergy
-			|objMonitorHurt
-			|objMonitorInvincibility
-			|objMonitorRings5
-			|objMonitorRings10
-			|objMonitorRingsRandom
-			|objMonitorCombine
-			|objMonitorShieldElectro
-			|objMonitorShieldNormal
-			|objMonitorIcon
-		+Navigator
-			|objNavigator
-		+Box
-			|objBox1
-			+Miscellaneous
-				|objBoxPart
-		+Goal
-			|objGoalRing
-		+Player
-			|parBody
-			|objPlayerSpawn
-			|objPlayer
-			|objPlayerHUD
-			+Events
-				|objEventTitleCard
-				|objEventResults
-				|objEventQTEKeys
-			+Miscellaneous
-				|objPlayerReticle
-				|objWaterSolid
-	+Obstacles
-		+Hazards
-			|parHurt
-			|parProjectile
-			|objProjectileBuzzer
-			|objSpinnerShock
-		+Interactive
-			|objDestructiveWall
-		+Spikes
-			|objSpike
-			|objSpikeBall
-			+Moving spikes
-				|objSpikeMove
-		+Enemies
-			|parEnemy
-			|objEnemySpinner
-			|objEnemySpinner2
-			|objEnemyEggpawn
-			|objEnemyHeavy
-			|objEnemyChopper
-			|objEnemyBuzzer
-			+Miscellaneous
-				|objEnemyMetal
-				|objEnemyDeath
-				|objEnemyTurn
 	+Sensors
 		+Footstep
 			|objFootstepSensorDirt
@@ -156,6 +56,90 @@
 		+Don't use
 			|objWaterBubble
 			|objWaterBubbleSmall
+	+Spring
+		|parSpring
+		|objSpring01
+	+Ring
+		|objRing
+		|objRing5
+		|objRing10
+		|objRingSpecial
+		+Miscellaneous
+			|objRingDrop
+			|objRingMagnetic
+			|objRingHyper
+	+Checkpoint
+		|objCheckpoint
+	+Dashes
+		|parDashPad
+		|parDashRail
+		|parDashRamp
+		|parDashRing
+		|objDashRing
+		|objDashRingRainbow
+		|objDashPad
+		|objDashRamp
+		|objDashRampRainbow
+	+Handle
+		|objCrane
+		|objHandle
+	+Rails
+		|parRail
+		|parRailLayer0
+		|parRailLayer1
+		|objRail01
+		|objRail02
+		|objRail03
+		+Layer0
+			|objRail02Layer0
+			|objRail03Layer0
+		+Layer1
+			|objRail02Layer1
+			|objRail03Layer1
+	+WayLauncher
+		|objWayLauncher
+	+Monitor
+		|parMonitor
+		|objMonitorEnergy
+		|objMonitorHurt
+		|objMonitorInvincibility
+		|objMonitorRings5
+		|objMonitorRings10
+		|objMonitorRingsRandom
+		|objMonitorCombine
+		|objMonitorShieldElectro
+		|objMonitorShieldNormal
+		|objMonitorIcon
+	+Navigator
+		|objNavigator
+	+Box
+		|objBox1
+		+Miscellaneous
+			|objBoxPart
+	+Goal
+		|objGoalRing
+	+Spikes
+		|objSpike
+		|objSpikeBall
+		+Moving spikes
+			|objSpikeMove
+	+Enemies
+		|parEnemy
+		|objEnemySpinner
+		|objEnemySpinner2
+		|objEnemyEggpawn
+		|objEnemyHeavy
+		|objEnemyChopper
+		|objEnemyBuzzer
+		+Miscellaneous
+			|objEnemyMetal
+			|objEnemyDeath
+			|objEnemyTurn
+	+Hazards
+		|parHurt
+		|parProjectile
+		|objProjectileBuzzer
+		|objSpinnerShock
 	+Gimmicks
 		|objCorkscrew
 		|objBridge
@@ -164,12 +148,13 @@
 		+Don't use
 			|objBridgeLog
 			|objCorkscrewDepth
-	+Level Specific
-		+Decoration
-			|objTestFlower
-		|objCrushingWall
+	+TestStage
+		|objTestFlower
+		|objDestructiveWall
+		|objTZBG
 +Collision
 	+Main
+		|parSolid
 		|objSolidMask01
 		|objSolidMask02
 		|objSolidMask03
@@ -186,28 +171,38 @@
 		|objSolidMask14
 		|objSolidMask15
 	+Platform
+		|parPlatform
+		|parPlatformMove
 		|objPlatformMask01
 		|objPlatformMask01Move
 		|objPlatformMask01Spin
 	+Layer0
+		|parLayer0
 		|objLayer0Mask01
 		|objLayer0Mask02
 		|objLayer0Mask03
 		|objLayer0Mask04
 		|objLayer0Mask05
 	+Layer1
+		|parLayer1
 		|objLayer1Mask01
 		|objLayer1Mask02
 		|objLayer1Mask03
 		|objLayer1Mask04
 		|objLayer1Mask05
 	|parTerrain
-	|parSolid
-	|parLayer0
-	|parLayer1
-	|parPlatform
-	|parPlatformMove
 +Parallax
 	|parParallax
-	|objTZBG
++Player
+	|parBody
+	|objPlayerSpawn
+	|objPlayer
+	|objPlayerHUD
+	+Events
+		|objEventTitleCard
+		|objEventResults
+		|objEventQTEKeys
+	+Miscellaneous
+		|objPlayerReticle
+		|objWaterSolid
 |objCamera

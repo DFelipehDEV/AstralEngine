@@ -208,7 +208,7 @@ objHUDHideSensor
 parSingleton
 parVFX
 
-objCrushingWall
+
 objSwingPole
 parBody
 
