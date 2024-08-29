@@ -80,6 +80,7 @@ if (player != noone && active) {
                 player.cam.target = objPlayer;
             }
         }
+
     }
 
     player.hud.enemyFrame = phaseEnemiesRemaining;

@@ -1,15 +1,31 @@
-***version 2.0.5 stable***
+***version 2.1.0 stable***
 - replaced title card font by builtin OS font
-- renamed fonts to match their properties (e.g., fontConsolasBold12)
-- improved objAstralTitle code
+- renamed fonts to match their properties/family (e.g., fontConsolasBold12)
+- reworked objAstralTitle
 - LoadSounds removed
-- Changed Resources structure
+- changed Resources structure
 - renamed methods from ObjectThingSet to ObjectSetThing (e.g., from PlayerShieldSet to PlayerSetShield)
-- speeded up the titlescreen animations
+- sped up the titlescreen animations
 - removed global.deactivateExceptionsSize, use ds_list_size(global.deactivateExceptions) instead
-- parTerrain is now always active
-- renamed animation to animation
-- renamed animationPrevious to animationPrevious
+- Terrain is now always active
+- renamed animationIndex to animation
+- renamed animationIndexPrevious to animationPrevious
+- improved folder structure
+- renamed par objects to obj objects
+- renamed objVFX to obj
+- renamed sprVFX to spr
+- renamed visual effects to match their use
+- removed many par* objects with minimal logic and moved them to other objects (e.g., removed parDashPad and moved logic to objDashPad)
+- reworked camera. Renamed variables with cam* (e.g., from camShiftX to xShift)
+- reworked HUD. Moved logic from objControllerStage to objPlayerHUD.
+- moved global.zoom and global.zoomValue to objCamera zoom and zoomTarget
+- objCamera now has a 1 pixel bounding box and can take collision
+- objHUDSensor now checks for camera collision and not the player collision.
+- replaced global.debugIsAThing with objControllerDebug overlay
+- objControllerDebug no longer checks if global.player[0] is defined, now checks for its existance
+- decreased ripple strenght underwater
+- renamed objFightEnemiesSensor to objEnemiesArenaSensor
+- enemies are now always active in an arena
 
 ***version 2.0.4 stable***
 - removed LudusLib dependency

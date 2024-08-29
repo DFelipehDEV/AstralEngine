@@ -4,11 +4,10 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-///   Scale and alpha
+/// Init
 
-image_alpha = 0.6;   //Transperency
+image_alpha = 0.6;
 
-// Scale
 image_xscale = 0.4;
 image_yscale = 0.4;
 #define Step_0
