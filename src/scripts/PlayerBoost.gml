@@ -11,7 +11,7 @@ if (!terrainPushing) {
             PlayVoice(choose("snd/noone", voiceline[0], voiceline[1]));
             PlaySound("snd/PlayerBoostStart")
 
-            DummyEffectCreate(x, y, sprVFXBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, animationAngle);
+            DummyEffectCreate(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, animationAngle);
 
             // Decrease energy gauge
             PlayerAddEnergy(-1.5);
@@ -26,7 +26,7 @@ if (!terrainPushing) {
                 CameraShakeY(20);
             }
 
-            instance_create(x, y, objVFXBoostShockwave);
+            instance_create(x, y, objBoostShockwave);
 
             // Check if the player is in the air
             if (!ground && (_airboostPossible)) {
@@ -35,7 +35,7 @@ if (!terrainPushing) {
                 PlayerSetAction(PlayerActionBoostAir);
 
                 if (boostInstance == noone) {
-                    boostInstance = instance_create(x, y, objVFXBoost);
+                    boostInstance = instance_create(x, y, objBoost);
                     with (boostInstance) {
                         sprite_index = other.boostSprite;
                         image_angle = point_direction(other.xprevious, other.yprevious, x, y);
@@ -57,7 +57,7 @@ if (!terrainPushing) {
             trailTimer = 120;
 
             if (boostInstance == noone) {
-                boostInstance = instance_create(x, y, objVFXBoost);
+                boostInstance = instance_create(x, y, objBoost);
                 with (boostInstance) {
                     sprite_index = other.boostSprite;
                     image_angle = point_direction(other.xprevious, other.yprevious, x, y);
@@ -76,7 +76,7 @@ if (!terrainPushing) {
         // Alert the player that he can't boost
         if (keySpecial1Pressed && !boosting) {
             // Create charge effect
-            with (instance_create(x, y, objVFXSpindashCharge)) {
+            with (instance_create(x, y, objSpindashCharge)) {
                 image_xscale = 0.0006;
                 image_yscale = 0.0006;
                 scalespeed = 0.2;

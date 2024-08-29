@@ -40,12 +40,8 @@ global.stageRank[RankS] = 8500;
 
 // Game state
 global.debug = false;
-global.debugIsAThing = false;
 global.deltaMultiplier = 1; // Time movement multiplier, lower values make objects move slower, higher values make objects move faster, used for slow motion
 global.gameState = GameStateRunning;
-
-global.zoom = 1; // Actual window zoom
-global.zoomValue = global.zoom; // Zoom value to interpolate global.zoom
 
 global.shaderHeat = shdHeat();
 global.shaderColorSwap = shdColorSwap();

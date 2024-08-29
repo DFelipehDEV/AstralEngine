@@ -121,9 +121,8 @@ applies_to=self
 /// Activate debug mode
 
 if (keyboard_check_pressed(vk_caps)) {
-    if (DEBUG == 1 && global.debug == 0) {
-        global.debug = 1;
-        global.debugIsAThing = 1;
+    if (DEBUG == 1 && global.debug == false) {
+        global.debug = true;
         PlaySound("snd/Ring");
         if (!instance_exists(objControllerDebug))
             instance_create(0, 0, objControllerDebug);

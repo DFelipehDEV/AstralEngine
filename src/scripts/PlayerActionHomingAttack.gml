@@ -9,7 +9,7 @@ var _homingTargetDirection;
 _homingTargetDirection = point_direction(x, y, homingReticleTarget.x, homingReticleTarget.y);
 
 // Check if we are not inside terrain
-if (!place_meeting(x, y, parSolid) && !place_meeting(x, y, parPlatform) && actionTimer < 50) {
+if (!place_meeting(x, y, objSolid) && !place_meeting(x, y, objPlatform) && actionTimer < 50) {
     xSpeed = lengthdir_x(homingSpeed, _homingTargetDirection);
     ySpeed = lengthdir_y(homingSpeed, _homingTargetDirection);
 }

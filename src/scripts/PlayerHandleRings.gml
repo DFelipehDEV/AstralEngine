@@ -12,7 +12,7 @@ _ringSpecial = PlayerCollisionHitbox(x, y, objRingSpecial);
 if (_ringNormal != noone) {
     global.playerRings += 1;
     with (_ringNormal) {
-        instance_create(x, y, objVFXRing);
+        instance_create(x, y, objRingCollected);
         PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
         instance_destroy();
     }
@@ -25,7 +25,7 @@ if (_ringNormal != noone) {
 if (_ringDrop != noone && (action != PlayerActionHurt && invincibilityTime < 100)) {
     global.playerRings += 1;
     with (_ringDrop) {
-        instance_create(x, y, objVFXRing);
+        instance_create(x, y, objRingCollected);
         PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
         instance_destroy();
     }
@@ -34,7 +34,7 @@ if (_ringDrop != noone && (action != PlayerActionHurt && invincibilityTime < 100
 if (_ringMagnetic != noone) {
     global.playerRings += 1;
     with (_ringMagnetic) {
-        instance_create(x, y, objVFXRing);
+        instance_create(x, y, objRingCollected);
         PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
         instance_destroy();
     }
@@ -44,7 +44,7 @@ if (_ringMagnetic != noone) {
 if (_ringHyper != noone && (action != PlayerActionHurt && invincibilityTime < 100)) {
     global.playerRings += round(_ringHyper.value);
     with (_ringHyper) {
-        instance_create(x, y, objVFXRing);
+        instance_create(x, y, objRingCollected);
         PlaySoundSingle("snd/Ring", global.volumeSounds, 1);
         instance_destroy();
     }
@@ -53,10 +53,10 @@ if (_ringHyper != noone && (action != PlayerActionHurt && invincibilityTime < 10
 if (_ring5 != noone) {
     global.playerRings += 5;
     with (_ring5) {
-        with (instance_create(x, y, objVFXRing)) {
+        with (instance_create(x, y, objRingCollected)) {
             sparkleOffset = 20;
         }
-        with (instance_create(x, y, objVFXRingNumber)) {
+        with (instance_create(x, y, objRingNumber)) {
             image_index = 0;
             image_speed = 0;
         }
@@ -68,10 +68,10 @@ if (_ring5 != noone) {
 if (_ring10 != noone) {
     global.playerRings += 10;
     with (_ring10) {
-        with(instance_create(x, y, objVFXRing)) {
+        with(instance_create(x, y, objRingCollected)) {
             sparkleOffset = 20;
         }
-        with (instance_create(x, y, objVFXRingNumber)) {
+        with (instance_create(x, y, objRingNumber)) {
             image_index = 1;
             image_speed = 0;
         }
@@ -83,7 +83,7 @@ if (_ring10 != noone) {
 if (_ringSpecial != noone) {
     global.playerRings += 50;
     with (_ringSpecial) {
-        with(instance_create(x, y, objVFXRing)) {
+        with(instance_create(x, y, objRingCollected)) {
             sparkleOffset = 30;
         }
         PlaySoundSingle("snd/RingSpecial", global.volumeSounds, 1);

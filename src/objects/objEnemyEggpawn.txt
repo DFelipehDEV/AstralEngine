@@ -1,7 +1,7 @@
-sprite=sprEnemyEggpawn1Idle
+sprite=sprEnemyEggpawnIdle
 visible=1
 solid=0
 persistent=0
 depth=0
-parent=parEnemy
-mask=sprEnemyEggpawn1Idle
+parent=objEnemy
+mask=sprEnemyEggpawnIdle

@@ -49,14 +49,14 @@ sprLayer0
 sprLayer1
 sprLayerSwitch
 sprSolidMask01
-sprVFXBoostWave
-sprVFXStomp
-sprVFXBoost
-sprVFXBoostShockwave
-sprVFXSpindashCharge
-sprVFXSpindashLow
-sprVFXSpindashHigh
-sprVFXSpindashHighRelease
+sprBoostWave
+sprPlayerStomp
+sprBoost
+sprBoostShockwave
+sprPlayerSpindashCharge
+sprPlayerSpindashLow
+sprPlayerSpindashHigh
+sprPlayerSpindashHighRelease
 sprSolidMask02
 sprSolidMask03
 
@@ -70,7 +70,7 @@ sprSolidMask10
 
 
 
-sprVFXDust1
+sprDust
 sprRing
 sprPlayerSpawn
 sprPlayerReticle
@@ -91,9 +91,9 @@ sprHandle
 sprHandleLine
 sprMonitor
 sprMonitorIcons
-sprRail01
-sprRail02
-sprRail03
+sprRail
+sprRail2
+sprRail3
 
 
 
@@ -101,7 +101,7 @@ sprSpike
 
 
 
-sprSpring01
+sprSpring
 sprWayLauncher
 sprWayLauncherDown
 sprWayLauncherLeft
@@ -143,30 +143,30 @@ sprFootstepSensorStone
 sprFootstepSensorWater
 sprFootstepSensorWood
 sprTrigger
-sprEmpty
+sprNoone
 sprEnemyMetal
-sprVFXEnemyWarn
-sprVFXDustDash
-sprVFXExplosion1
-sprVFXExplosion2
-sprVFXGrind
-sprVFXHit
-sprVFXRainbow
-sprVFXRingRainbow
-sprVFXRingSparkle1
-sprVFXRingSparkle2
-sprVFXRingSparkle3
-sprVFXRingYellow
-sprVFXSpinnerShock
-sprVFXStar1
-sprVFXWaterDrop
-sprVFXWaterSplash
+sprEnemyWarn
+sprDashDust
+sprExplosion
+sprExplosion2
+sprPlayerGrind
+sprHit
+sprRainbow
+sprRingRainbow
+sprRingSparkle
+sprRingSparkle2
+sprRingSparkle3
+sprRingYellow
+sprSpinnerShock
+sprStar
+sprWaterDrop
+sprWaterSplash
 sprDrownTimer
 sprEnemySpinner
-sprEnemyEggpawn1Idle
-sprEnemyEggpawn1Run
-sprEnemyEggpawn1Turn
-sprEnemyEggpawn1Walk
+sprEnemyEggpawnIdle
+sprEnemyEggpawnRun
+sprEnemyEggpawnTurn
+sprEnemyEggpawnWalk
 sprEnemySpinner2
 sprEnemyChopper
 sprEnemyBuzzerAttack
@@ -178,9 +178,9 @@ sprPlatformMask01
 sprAstralLogo2
 sprTZBG3
 sprTZBG2
-sprTZBG1
+sprTZBG
 sprHUDGauge
-sprVFXTrail
+sprPlayerTrail
 sprAstralTitleBG
 sprPressStart
 sprSolidMask04
@@ -209,7 +209,7 @@ sprDialogueBG
 sprFontText
 sprTestFlower
 
-sprBox1
+sprBox
 
 
 sprBoxPart
@@ -230,8 +230,8 @@ sprRingHyper
 sprEnemyHeavyWalk
 sprEnemyHeavyAttack
 sprEnemyHeavyTurn
+sprRingAmount
 sprRingNumber
-sprVFXRingNumber
 sprHUDEnemiesText
 sprHUDEnemiesCounter
 
@@ -245,11 +245,11 @@ sprHUDHideSensor
 sprSwingPole
 sprSonicGrab3
 
-sprPalleteSonic
+sprSonicPalette
 sprSuperSonicRun
 sprSuperSonicIdle
 sprSuperSonicWalk1
 sprSuperSonicWalk2
 sprSuperSonicJog1
-sprVFXBoostSuper
+sprBoostSuper
 sprSonicTransform

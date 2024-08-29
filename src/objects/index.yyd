@@ -6,13 +6,13 @@ objCamera
 
 
 objControllerStage
-parSolid
-parLayer0
-parLayer1
-parPlatform
+objSolid
 objLayer0
-objLayerSwitch
 objLayer1
+objPlatform
+objSwitchLayer0
+objSwitchLayerAlternate
+objSwitchLayer1
 
 
 objSlidepassSensor
@@ -24,10 +24,10 @@ objSolidMask01
 
 
 objDummy
-objVFXAfterimage
-objVFXBoost
-objVFXBoostShockwave
-objVFXSpindashCharge
+objAfterimage
+objBoost
+objBoostShockwave
+objSpindashCharge
 objSolidMask02
 objSolidMask03
 
@@ -42,23 +42,23 @@ objSolidMask06
 
 
 objWaterHorizon
-parTerrain
-parDashPad
-parDashRail
-parDashRamp
-parDashRing
-parEnemy
-parMonitor
-parProjectile
-parRail
-parRailLayer0
-parRailLayer1
-objSpring01
-parSpring
+objTerrain
+
+
+
+
+objEnemy
+objMonitor
+objProjectile
+objRail
+objRailLayer0
+objRailLayer1
+objSpring
+
 objPlayerReticle
 objRing
 objRingDrop
-objVFXRing
+objRingCollected
 objEnemySpinner
 objEnemyMetal
 objEnemyDeath
@@ -114,9 +114,9 @@ objMonitorRingsRandom
 objMonitorShieldElectro
 objMonitorShieldNormal
 objMonitorIcon
-objVFXShieldNormal
-objVFXShieldElectricity
-objVFXRainbow
+objShieldNormal
+objShieldElectricity
+objRainbow
 
 objCorkscrew
 objCorkscrewDepth
@@ -130,7 +130,7 @@ objFadeGoal
 objPlayerSpawn
 objControllerDebug
 objTZBG
-parParallax
+objParallax
 
 objGoalRing
 objEventResults
@@ -159,7 +159,7 @@ objLayer1Mask04
 objLayer1Mask05
 objPlatformMask01Move
 objPlatformAngle
-parPlatformMove
+objPlatformMove
 objPlatformMask01Spin
 objAstralOptions
 objControllerRoom
@@ -184,15 +184,15 @@ objMonitorCombine
 
 objEnemyHeavy
 objRing10
-objVFXRingNumber
+objRingNumber
 objRing5
-objFightEnemiesSensor
+objEnemiesArenaSensor
 
 objSpikeMove
 
 objRingSpecial
 objSpikeBall
-parHurt
+objHurt
 objSpikeBallPivot
 objRail03Layer0
 
@@ -205,12 +205,13 @@ objRail03Layer1
 
 
 objHUDHideSensor
-parSingleton
-parVFX
+objSingleton
+objVFX
 
 
 objSwingPole
-parBody
+objBody
 
 
 objPlayerHUD
+objDashRail

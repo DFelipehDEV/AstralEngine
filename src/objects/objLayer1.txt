@@ -1,7 +1,7 @@
-sprite=sprLayer1
-visible=0
+sprite=
+visible=1
 solid=0
 persistent=0
 depth=0
-parent=
+parent=objTerrain
 mask=

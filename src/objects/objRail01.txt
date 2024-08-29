@@ -1,7 +1,7 @@
-sprite=sprRail01
+sprite=sprRail
 visible=1
 solid=0
 persistent=0
 depth=-2
-parent=parRail
+parent=objRail
 mask=

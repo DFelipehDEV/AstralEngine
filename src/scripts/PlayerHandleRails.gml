@@ -2,9 +2,9 @@
 
 if (action != PlayerActionGrind) {
     var _railNormal, _railLayer0, _railLayer1;
-    _railNormal = PlayerCollisionObjectBottom(x, y, 0, maskBig, parRail);
-    _railLayer0 = PlayerCollisionObjectBottom(x, y, 0, maskBig, parRailLayer0);
-    _railLayer1 = PlayerCollisionObjectBottom(x, y, 0, maskBig, parRailLayer1);
+    _railNormal = PlayerCollisionObjectBottom(x, y, 0, maskBig, objRail);
+    _railLayer0 = PlayerCollisionObjectBottom(x, y, 0, maskBig, objRailLayer0);
+    _railLayer1 = PlayerCollisionObjectBottom(x, y, 0, maskBig, objRailLayer1);
 
     // Rail
     if ((_railNormal != noone)

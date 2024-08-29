@@ -9,7 +9,7 @@ if (shield != _newShield) {
     switch (_newShield) {
         case ShieldNormal:
             shield = ShieldNormal;
-            with (instance_create(x, y, objVFXShieldNormal)) {
+            with (instance_create(x, y, objShieldNormal)) {
                 other.shieldInstance = id;
                 ownerID = other.id; // Assign player ID to the shield
             }
@@ -17,7 +17,7 @@ if (shield != _newShield) {
 
         case ShieldElectricity:
             shield = ShieldElectricity;
-            with (instance_create(x, y, objVFXShieldElectricity)) {
+            with (instance_create(x, y, objShieldElectricity)) {
                 other.shieldInstance = id;
                 ownerID = other.id; // Assign player ID to the shield
             }

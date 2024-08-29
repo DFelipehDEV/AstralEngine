@@ -39,7 +39,7 @@ sparkleAngle += 14;
 createTimer += 1;
 
 if (createTimer mod 4 == 2) {
-    DummyEffectCreate(x + dcos(sparkleAngle)*sparkleOffset, y - dsin(sparkleAngle)*sparkleOffset, choose(sprVFXRingSparkle1, sprVFXRingSparkle2, sprVFXRingSparkle3), 0.5, 0, 1, bm_normal, 1, 1, 1, 0)
+    DummyEffectCreate(x + dcos(sparkleAngle)*sparkleOffset, y - dsin(sparkleAngle)*sparkleOffset, choose(sprRingSparkle, sprRingSparkle2, sprRingSparkle3), 0.5, 0, 1, bm_normal, 1, 1, 1, 0)
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION
@@ -51,7 +51,7 @@ applies_to=self
 
 draw_set_blend_mode(bm_add);
 // Rainbow ring
-draw_sprite_ext(sprVFXRingRainbow, 0, floor(x), floor(y), rainbowScale, rainbowScale, 0, c_white, rainbowAlpha);
+draw_sprite_ext(sprRingRainbow, 0, floor(x), floor(y), rainbowScale, rainbowScale, 0, c_white, rainbowAlpha);
 // Yellow ring
-draw_sprite_ext(sprVFXRingYellow, 0, floor(x), floor(y), yellowScale, yellowScale, 0, c_white, yellowAlpha);
+draw_sprite_ext(sprRingYellow, 0, floor(x), floor(y), yellowScale, yellowScale, 0, c_white, yellowAlpha);
 draw_set_blend_mode(bm_normal);

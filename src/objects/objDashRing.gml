@@ -6,12 +6,24 @@ applies_to=self
 */
 /// Variables
 
-event_inherited();             //Get parent variables
-dashStrength= 8;            //X Strength
-dashRingType= "NORMAL";     //Dash ring type  "NORMAL" - Normal dash ring  "RAINBOW" - Rainbow dash ring
-dashRingPAct= PlayerActionSpring; //Player action when he meets the dash ring
+dashStrength = 8;
+dashRingType = "NORMAL";     //Dash ring type  "NORMAL" - Normal dash ring  "RAINBOW" - Rainbow dash ring
+dashRingPAct = PlayerActionSpring; //Player action when he meets the dash ring
 
-image_speed = 0.3;          //Dash animation speed
+image_speed = 0.3;
+#define Step_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Animation
+
+// Deshrink animation
+if (image_xscale < 1 && image_yscale < 1) {
+    image_xscale = min(image_xscale + 0.04, 1);
+    image_yscale = image_xscale;
+}
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1

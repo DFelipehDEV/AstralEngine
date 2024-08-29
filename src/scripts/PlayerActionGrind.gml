@@ -35,9 +35,9 @@ if (!keyDown) {
 }
 
 // Stop grinding if the player is not colliding with a rail
-if (!PlayerCollisionObjectBottom(x, y, angle, maskBig, parRail) && !PlayerCollisionObjectMain(x, y, parRail)
-&& !PlayerCollisionObjectBottom(x, y, angle, maskBig, parRailLayer0) && !PlayerCollisionObjectMain(x, y, parRailLayer0)
-&& !PlayerCollisionObjectBottom(x, y, angle, maskBig, parRailLayer1) && !PlayerCollisionObjectMain(x, y, parRailLayer1)) {
+if (!PlayerCollisionObjectBottom(x, y, angle, maskBig, objRail) && !PlayerCollisionObjectMain(x, y, objRail)
+&& !PlayerCollisionObjectBottom(x, y, angle, maskBig, objRailLayer0) && !PlayerCollisionObjectMain(x, y, objRailLayer0)
+&& !PlayerCollisionObjectBottom(x, y, angle, maskBig, objRailLayer1) && !PlayerCollisionObjectMain(x, y, objRailLayer1)) {
     PlayerSetAction(PlayerActionNormal);
 }
 

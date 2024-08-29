@@ -23,7 +23,7 @@ applies_to=self
 instance_create(0, 0, objFadeGoal)
 sound_stop_all();
 PlaySound("snd/GoalRingFinish");
-instance_create(x, y, objVFXRainbow)
+instance_create(x, y, objRainbow)
 
 alarm[1] = 60;
 #define Alarm_1

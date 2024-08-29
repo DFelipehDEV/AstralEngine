@@ -1,7 +1,7 @@
 /// PlayerHandleProjectile()
 
 var _projectile;
-_projectile = PlayerCollisionHitbox(x, y, parProjectile);
+_projectile = PlayerCollisionHitbox(x, y, objProjectile);
 
 if (_projectile != noone) {
     if (shield == ShieldNormal) {

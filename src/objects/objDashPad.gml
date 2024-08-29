@@ -6,10 +6,9 @@ applies_to=self
 */
 /// Variables
 
-event_inherited();           //Get parent variables
-dashStrength = 13;          //X Strength
+dashStrength = 13;
 
-image_speed = 0.3;        //Dash animation speed
+image_speed = 0.3;
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1

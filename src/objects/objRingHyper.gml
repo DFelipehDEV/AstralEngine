@@ -34,19 +34,19 @@ applies_to=self
 image_index = global.gameTime div 50;
 
 // Gravity
-if (!place_meeting(x, y, parTerrain)) {
+if (!place_meeting(x, y, objTerrain)) {
     ySpeed += yAcceleration;
 }
 
 // Bounce if collided with a wall
 // Left/Right
-if (place_meeting(x + xSpeed, y - 6, parTerrain)) {
+if (place_meeting(x + xSpeed, y - 6, objTerrain)) {
     xSpeed = -xSpeed;
     xSpeed *= 0.99;
 }
 
 // Up/Bottom
-if (place_meeting(x, y, parTerrain) && ySpeed <= 0 || place_meeting(x, y, parTerrain) && ySpeed >= 0) {
+if (place_meeting(x, y, objTerrain) && ySpeed <= 0 || place_meeting(x, y, objTerrain) && ySpeed >= 0) {
     ySpeed = -ySpeed;
     ySpeed *= 0.99;
 }

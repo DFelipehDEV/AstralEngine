@@ -7,22 +7,15 @@ applies_to=self
 /// Variables
 
 zoom = 1;
-value = global.zoom;
-#define Step_2
+#define Collision_objCamera
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
-/// Check collision
+/// Zoom
 
-with (objPlayer) {
-    // Check if the player is touching a sensor
-    if (place_meeting(x, y, other)) {
-        // Set zoom
-        global.zoomValue = other.zoom;
-    }
-}
+other.zoomTarget = zoom;
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1

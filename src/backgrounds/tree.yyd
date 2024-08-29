@@ -1,8 +1,8 @@
-+Parallax
-	|bgTZBG1
-	|bgTZBG2
++TitleScreen
 	|bgTitle
-+Tileset
++TestStage
 	|tileTZ
 	|tileTZ2
 	|tileTZ3
+	|bgTZ
+	|bgTZ2

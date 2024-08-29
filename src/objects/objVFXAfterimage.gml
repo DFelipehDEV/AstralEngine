@@ -6,10 +6,8 @@ applies_to=self
 */
 /// Fade and destroy
 
-// Fade
 image_alpha -= 0.12 * global.deltaMultiplier;
 
-// Destroy
 if (image_alpha <= 0) {
     instance_destroy();
 }

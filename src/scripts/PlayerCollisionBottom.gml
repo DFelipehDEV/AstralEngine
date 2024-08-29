@@ -19,7 +19,7 @@ collisionTest = PlayerCollision(sensorX, sensorY, terrainLayer);
 if (!collisionTest && ySpeed >= 0 && !ground) {
     collisionTest = place_meeting(sensorX,
                                     sensorY,
-                                    parPlatform) && !place_meeting(floor(argument0), floor(argument1), parPlatform);
+                                    objPlatform) && !place_meeting(floor(argument0), floor(argument1), objPlatform);
 }
 
 // Set to the old mask

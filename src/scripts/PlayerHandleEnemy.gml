@@ -1,7 +1,7 @@
 /// PlayerHandleEnemy()
 
 var _enemy;
-_enemy = PlayerCollisionHitbox(x, y, parEnemy);
+_enemy = PlayerCollisionHitbox(x, y, objEnemy);
 
 if (_enemy != noone) {
     if (attackPossible) {
@@ -29,7 +29,7 @@ if (_enemy != noone) {
                 // Check if the enemy "bust", in that case it is false so it will just explode
                 if (!_enemy.enemyBust) {
                     with(_enemy) {
-                        DummyEffectCreate(x, y, sprVFXExplosion1, 0.35, 0, -0.1, bm_normal, 1, 1, 1, 0);
+                        DummyEffectCreate(x, y, sprExplosion, 0.35, 0, -0.1, bm_normal, 1, 1, 1, 0);
                         PlaySoundExt(choose("snd/Explosion", "snd/Explosion2"), global.volumeAmbient, 1, false);
 
                         repeat(6) {
@@ -62,9 +62,9 @@ if (_enemy != noone) {
                     instance_destroy();
                 }
 
-                // Check if we are in a fight event
-                if (distance_to_object(objFightEnemiesSensor) < 50) {
-                    with instance_nearest(x, y, objFightEnemiesSensor) {
+                // NOTE: The ideal would be to use a observer but that's tricky in legacy gm
+                if (distance_to_object(objEnemiesArenaSensor) < 50) {
+                    with instance_nearest(x, y, objEnemiesArenaSensor) {
                         phaseEnemiesRemaining -= 1;
                         if (phaseEnemiesRemaining == 0) {
                             delay = 70;
@@ -93,7 +93,7 @@ if (_enemy != noone) {
             with (cam)
                 CameraShakeY(17);
 
-            DummyEffectCreate(x, y, sprVFXHit, 0.45, 0, -0.1, bm_add, 1, 1, 1, 0);
+            DummyEffectCreate(x, y, sprHit, 0.45, 0, -0.1, bm_add, 1, 1, 1, 0);
             PlaySound(choose("snd/PlayerEnemyHit", "snd/PlayerEnemyHit2", "snd/PlayerEnemyHit3"));
             PlayerAddEnergy(8);
         }

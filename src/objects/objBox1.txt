@@ -1,7 +1,7 @@
-sprite=sprBox1
+sprite=sprBox
 visible=1
 solid=0
 persistent=0
 depth=-2
-parent=parSolid
+parent=objSolid
 mask=

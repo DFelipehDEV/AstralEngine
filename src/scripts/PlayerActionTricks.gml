@@ -23,7 +23,7 @@ if (allowKeysTimer == 0) {
         PlayerAddEnergy(7);
 
         // Create rainbow effect
-        instance_create(x, y, objVFXRainbow);
+        instance_create(x, y, objRainbow);
 
         PlaySoundExt("snd/Trick", global.volumeSounds, 1 + (trickCombo * 0.0441), 0);
 

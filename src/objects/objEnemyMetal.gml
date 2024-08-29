@@ -34,7 +34,7 @@ applies_to=self
 if (flameTimer == 0) {
     flameTimer = 25;
     // Create explosion
-    DummyEffectCreate(x, y, sprVFXExplosion2, 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
+    DummyEffectCreate(x, y, sprExplosion2, 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
 }
 else {
     flameTimer -= 1;

@@ -8,10 +8,6 @@ applies_to=self
 
 global.roomTick = 0;
 global.deactivateExceptions = ds_list_create();
-DeactivateExceptionsAdd(parPlatformMove);
-DeactivateExceptionsAdd(parVFX);
-DeactivateExceptionsAdd(parSingleton);
-DeactivateExceptionsAdd(gm82core_object);
 
 application_surface_enable(ApplicationSurfacePost)
 #define Alarm_0
@@ -34,17 +30,6 @@ applies_to=self
 if (!GameStateGet(GameStatePaused)) {
     global.roomTick += 1;
 }
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Zoom
-
-if (global.zoom != global.zoomValue) {
-    global.zoom = SmoothStep(global.zoom, global.zoomValue, 0.2);
-    ViewSetZoom(global.zoom);
-}
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -66,7 +51,11 @@ applies_to=self
 if (GameStateGet() == GameStatePaused) exit;
 
 instance_deactivate_all(true);
-instance_activate_object(parTerrain);
+instance_activate_object(objPlatformMove);
+instance_activate_object(objVFX);
+instance_activate_object(objSingleton);
+instance_activate_object(gm82core_object);
+instance_activate_object(objTerrain);
 
 // Activate specific instances
 var _instance;
@@ -95,9 +84,6 @@ applies_to=self
 /// Reset
 
 global.roomTick = 0;
-global.zoom = 1;
-global.zoomValue = 1;
-ViewSetZoom(global.zoom)
 #define Other_5
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -107,10 +93,6 @@ applies_to=self
 /// Clear exceptions
 
 ds_list_clear(global.deactivateExceptions);
-DeactivateExceptionsAdd(parPlatformMove);
-DeactivateExceptionsAdd(parVFX);
-DeactivateExceptionsAdd(parSingleton);
-DeactivateExceptionsAdd(gm82core_object);
 #define Other_10
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -142,7 +124,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Change resolution
+/// Increase resolution
 
 global.screenSize += 1;
 event_user(0);

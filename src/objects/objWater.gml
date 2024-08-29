@@ -30,12 +30,12 @@ if (!surface_exists(surfaceRipple)) {
     surfaceRipple = surface_create(256*image_xscale, 128*image_yscale);
 }
 shader_pixel_set(global.shaderHeat);
-shader_pixel_uniform_f("u_currenttime", global.roomTick/20);
-shader_pixel_uniform_f("u_strenght", 5.0);
+shader_pixel_uniform_f("u_currenttime", global.roomTick/40);
+shader_pixel_uniform_f("u_strenght", 2.0);
 
 var _x, _y;
-_x = (x - view_xview[0]) << 0;
-_y = (y - view_yview[0]) << 0;
+_x = floor(x - view_xview[0]);
+_y = floor(y - view_yview[0]);
 surface_copy(surfaceRipple, 0, 0, application_surface);
-draw_surface_part(surfaceRipple, _x, _y, 256*image_xscale, 128*image_yscale, x << 0, y << 0);
+draw_surface_part(surfaceRipple, _x, _y, 256*image_xscale, 128*image_yscale, floor(x), floor(y));
 shader_reset();

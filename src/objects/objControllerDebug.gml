@@ -9,6 +9,8 @@ applies_to=self
 if (!global.debug) {
     instance_destroy();
 }
+
+overlay = false;
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -19,7 +21,8 @@ applies_to=self
 
 // Activate/deactivate debug overlay
 if (keyboard_check_pressed(vk_tab)) {
-    global.debugIsAThing = -global.debugIsAThing;
+    overlay = !overlay;
+    objPlayer.drawSensors = overlay;
 }
 
 // Restart room
@@ -65,30 +68,28 @@ if (keyboard_check_pressed(vk_pagedown)) {
 }
 
 var _playerExists;
-_playerExists = global.player[0] != noone;
+_playerExists = instance_exists(global.player[0]);
 
-if (mouse_check_button(mb_right)) {
-    if (_playerExists) {
+if (_playerExists) {
+    if (mouse_check_button(mb_right)) {
         global.player[0].x = lerp(global.player[0].x, mouse_x, 0.15);
         global.player[0].y = lerp(global.player[0].y, mouse_y, 0.15);
         global.player[0].xSpeed = 0;
         global.player[0].ySpeed = 0;
         global.player[0].movementAllow = false;
         global.player[0].cam.x = global.player[0].x;
-        global.player[0].cam.y = global.player[0].y;
     }
-}
 
-if (mouse_check_button_released(mb_right)) {
-    if (_playerExists) {
+    if (mouse_check_button_released(mb_right)) {
         global.player[0].movementAllow = true;
     }
 }
 
 if (mouse_check_button_released(mb_left)) {
+    var _cam;
+    _cam = instance_nearest(x, y, objCamera);
     if (collision_point(mouse_x, mouse_y, all, 0, 1)) {
-
-        objCamera.target = instance_nearest(mouse_x, mouse_y, all);
+        _cam.target = instance_nearest(mouse_x, mouse_y, all);
     }
 }
 
@@ -108,8 +109,8 @@ applies_to=self
 */
 /// Debug overlay
 
-if (global.debugIsAThing) {
-    if (global.player[0] != noone) {
+if (overlay) {
+    if (instance_exists(global.player[0])) {
         draw_sprite_ext(sprTrigger, 0, view_xview[0] + 333, view_yview[0] + 103, 179, 185, 0, c_black, 1);
         draw_set_color(c_white)
         draw_set_font(fontConsolas10)
@@ -125,7 +126,7 @@ if (global.debugIsAThing) {
         // Debug overlay
         draw_text
         (view_xview[0] + 333, view_yview[0] + 57+48,
-            string("XSPEED " + string(global.player[0].xSpeed)) + " " + string(floor(global.player[0].x))
+        string("XSPEED " + string(global.player[0].xSpeed)) + " " + string(floor(global.player[0].x))
         + string("#YSPEED " + string(global.player[0].ySpeed)) + " " + string(floor(global.player[0].y))
         + string("#GROUND " + string(global.player[0].ground))
         + string("#DIR " + string(global.player[0].xDirection))

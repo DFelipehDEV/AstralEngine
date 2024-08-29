@@ -14,7 +14,7 @@ else {
         PlayerSetAction(PlayerActionSpindash);
 
         // Create charge effect
-        with (instance_create(x, y, objVFXSpindashCharge)) {
+        with (instance_create(x, y, objSpindashCharge)) {
             image_blend = other.trailColor;
             image_xscale = 0.47;
             image_yscale = 0.47;

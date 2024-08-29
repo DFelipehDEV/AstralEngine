@@ -60,7 +60,7 @@ homingReticleTarget = noone;
 
 // Possible homing targets
 homingObjects = ds_list_create();
-ds_list_add_many(homingObjects, parEnemy, parSpring, parMonitor, objHandle, objSwingPole);
+ds_list_add_many(homingObjects, objEnemy, objSpring, objMonitor, objHandle, objSwingPole);
 
 // Trick timer
 trickCombo = 0;
@@ -156,7 +156,8 @@ cam = instance_create(x, y, objCamera);
 hud = instance_create(x, y, objPlayerHUD);
 hud.ownerID = id;
 
-// Sensor position
+// Sensors
+drawSensors = false;
 PlayerSensorPosUpdate();
 bottomCollision = false;
 edgeCollision = false;
@@ -183,7 +184,7 @@ afterimageTime = 0;
 
 character = CharacterSonic;
 characterPhysics = PlayerPhysicsSonic;
-boostSprite = sprVFXBoost;
+boostSprite = sprBoost;
 
 AnimationInit(AnimationIndexSonic);
 
@@ -214,7 +215,7 @@ applies_to=self
 */
 /// Create dust effect
 
-DummyEffectCreate(x, y, sprVFXDust1, 0.3, 0, -1, bm_normal, 1, 1, 1, animationAngle);
+DummyEffectCreate(x, y, sprDust, 0.3, 0, -1, bm_normal, 1, 1, 1, animationAngle);
 #define Alarm_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -510,7 +511,7 @@ if (homingPossible) {
                 if ((sign(_currentObjectNear.x - x) == xDirection || sign(_currentObjectNear.x - x) == 0) && y < _currentObjectNear.y + 9) {
                     if (!instance_exists(objPlayerReticle)) {
                         // Check if there is no terrain in the trajectory
-                        if (!collision_line(x, y, _currentObjectNear.x, _currentObjectNear.y, parTerrain, 1, 1)) {
+                        if (!collision_line(x, y, _currentObjectNear.x, _currentObjectNear.y, objTerrain, 1, 1)) {
                             // Create reticle at the nearest target
                             homingReticle = instance_create(_currentObjectNear.x, _currentObjectNear.y, objPlayerReticle)
                             homingReticleTarget = _currentObjectNear;
@@ -745,7 +746,7 @@ switch (animation) {
                 PlayerTerrainSndUpdate();
                 // Create water splash if the player is running in the water
                 if (PlayerCollisionObjectBottom(x, y, angle, maskBig, objWaterHorizon)) {
-                    DummyEffectCreate(x, y, sprVFXWaterSplash, 0.45, 0, 1, bm_add, 1, xDirection, 1, 0);
+                    DummyEffectCreate(x, y, sprWaterSplash, 0.45, 0, 1, bm_add, 1, xDirection, 1, 0);
                 }
 
                 // Create dust effect
@@ -791,7 +792,7 @@ trailAlpha > 0.1
 starTimer = max(starTimer - 1, 0);
 // Stars
 if (starTimer > 0 && starTimer mod 5 == 1) {
-    DummyEffectCreate(x + irandom_range(-25, 25), y + irandom_range(-25, 25), sprVFXStar1, 0.25, 0, choose(1, -2), bm_normal, 1, 1, 1, 0);
+    DummyEffectCreate(x + irandom_range(-25, 25), y + irandom_range(-25, 25), sprStar, 0.25, 0, choose(1, -2), bm_normal, 1, 1, 1, 0);
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -868,7 +869,7 @@ if (trailAlpha > 0.1) {
     draw_set_blend_mode(bm_add)
     draw_set_color(trailColor)
     draw_set_alpha(trailAlpha)
-    DrawTrail(sprVFXTrail, 20, 1);
+    DrawTrail(sprPlayerTrail, 20, 1);
     draw_set_alpha(1)
     draw_set_color(c_white)
     draw_set_blend_mode(bm_normal)
@@ -876,15 +877,15 @@ if (trailAlpha > 0.1) {
 
 // Draw grind effect
 if (action == PlayerActionGrind) {
-    draw_sprite_ext(sprVFXGrind, global.gameTime div 30, floor(x), floor(y), xDirection, yDirection, animationAngle, c_white, image_alpha);
+    draw_sprite_ext(sprPlayerGrind, global.gameTime div 30, floor(x), floor(y), xDirection, yDirection, animationAngle, c_white, image_alpha);
 }
 
 // Draw character if the player is not hurt. Blink when hurt
 if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink && (invincibilityTime div 1.5) mod 3 == 1)) {
     if (character == CharacterSuperSonic) {
         shader_pixel_set(global.shaderColorSwap);
-        texture_set_stage("Palette", sprite_get_texture(sprPalleteSonic, ((global.roomTick/10) << 0) mod 2))
-        shader_pixel_uniform_f("u_texHeight", sprite_get_height(sprPalleteSonic) + 1)
+        texture_set_stage("Palette", sprite_get_texture(sprSonicPalette, ((global.roomTick/10) << 0) mod 2))
+        shader_pixel_uniform_f("u_texHeight", sprite_get_height(sprSonicPalette) + 1)
     }
 
     draw_sprite_ext(animationSprite, floor(animationFrame), floor(x), floor(y), xDirection, yDirection, animationAngle, image_blend, image_alpha);
@@ -894,12 +895,12 @@ if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink 
 if (action == PlayerActionSpindash) {
     // Spindash normal dust
     if (animation == "SPINDASH") {
-        draw_sprite_ext(sprVFXSpindashLow, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, animationAngle, c_white, image_alpha);
+        draw_sprite_ext(sprPlayerSpindashLow, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, animationAngle, c_white, image_alpha);
     }
 
     // Spindash charging dust
     if (animation == "SPINDASH_CHARGE") {
-        draw_sprite_ext(sprVFXSpindashHigh, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, animationAngle, c_white, image_alpha);
+        draw_sprite_ext(sprPlayerSpindashHigh, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, animationAngle, c_white, image_alpha);
     }
 }
 
@@ -918,7 +919,7 @@ applies_to=self
 */
 /// DEBUG SENSORS
 
-if (global.debugIsAThing) {
+if (drawSensors) {
     // Draw main masks
     draw_sprite_ext(maskHitbox, 0, floor(x), floor(y), image_xscale, image_yscale, 0, c_white, 0.8);
     draw_sprite_ext(maskMain, 0, floor(x), floor(y), image_xscale, image_yscale, 0, c_white, 0.8);

@@ -6,13 +6,12 @@ applies_to=self
 */
 /// Variables
 
-event_inherited()
-dashXStrength = 11;            // X Strength
-dashYStrength = -11;           // Y Strength
+dashXStrength = 11;
+dashYStrength = -11;
 
-dashRampPAct= PlayerActionNormal; // Player action when he meets the dash ramp
+dashRampPAct = PlayerActionNormal; // Player action when he meets the dash ramp
 
-image_speed = 0.35;          // Dash animation speed
+image_speed = 0.35;
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1

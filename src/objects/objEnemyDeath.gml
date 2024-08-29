@@ -25,9 +25,9 @@ applies_to=self
 /// Destroy
 
 // Explode
-DummyEffectCreate(x + random_range(-30, 30), y + random_range(-30, 30), choose(sprVFXExplosion1, sprVFXExplosion2), 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
-DummyEffectCreate(x + random_range(-30, 30), y + random_range(-30, 30), choose(sprVFXExplosion1, sprVFXExplosion2), 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
-DummyEffectCreate(x + random_range(-30, 30), y + random_range(-30, 30), choose(sprVFXExplosion1, sprVFXExplosion2), 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
+DummyEffectCreate(x + random_range(-30, 30), y + random_range(-30, 30), choose(sprExplosion, sprExplosion2), 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
+DummyEffectCreate(x + random_range(-30, 30), y + random_range(-30, 30), choose(sprExplosion, sprExplosion2), 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
+DummyEffectCreate(x + random_range(-30, 30), y + random_range(-30, 30), choose(sprExplosion, sprExplosion2), 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
 
 // Play sound
 PlaySoundExt(choose("snd/Explosion", "snd/Explosion2"), global.volumeAmbient, 1, false);

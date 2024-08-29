@@ -30,6 +30,9 @@ leftBorder = 0; // Camera left border
 rightBorder = room_width; // Camera right border
 topBorder = 0; // Camera top border
 bottomBorder = room_height; // Camera bottom border
+
+zoom = 1;
+zoomTarget = zoom;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -168,6 +171,17 @@ if (delay == 0 && target != noone) {
 
 x = clamp(x, leftBorder + ScreenWidthHalf, rightBorder - ScreenWidthHalf);
 y = clamp(y, topBorder + ScreenHeightHalf, bottomBorder - ScreenHeightHalf);
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Zoom
+
+if (zoom != zoomTarget) {
+    zoom = SmoothStep(zoom, zoomTarget, 0.2);
+    ViewSetZoom(zoom);
+}
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1

@@ -2,7 +2,7 @@
 
 // Dash pads
 var _dashPad, _dashRing, _dashRamp, _dashRail;
-_dashPad = PlayerCollisionHitbox(x, y, parDashPad);
+_dashPad = PlayerCollisionHitbox(x, y, objDashPad);
 if (_dashPad != noone) {
     if (terrainPushing && !ground) {
         ground = true;
@@ -15,13 +15,13 @@ if (_dashPad != noone) {
     interactDelay = 15;
 
     // Create dust
-    DummyEffectCreate(x, y, sprVFXDustDash, 0.25, 0, -0.1, bm_normal, 1, _dashPad.image_xscale, _dashPad.image_yscale, _dashPad.image_angle);
+    DummyEffectCreate(x, y, sprDashDust, 0.25, 0, -0.1, bm_normal, 1, _dashPad.image_xscale, _dashPad.image_yscale, _dashPad.image_angle);
     // Play sound
     PlaySound("snd/DashPad");
 }
 
 // Dash ring
-_dashRing = PlayerCollisionHitbox(x, y, parDashRing);
+_dashRing = PlayerCollisionHitbox(x, y, objDashRing);
 if (_dashRing != noone) {
     PlayerSetAngle(0);
     ground = false;
@@ -66,7 +66,7 @@ if (_dashRing != noone) {
 }
 
 // Dash ramps
-_dashRamp = PlayerCollisionHitbox(x, y, parDashRamp);
+_dashRamp = PlayerCollisionHitbox(x, y, objDashRamp);
 if (_dashRamp != noone && ground) {
     if ((x >= _dashRamp.x - 45 && _dashRamp.image_xscale == 1) || (x <= _dashRamp.x + 45 && _dashRamp.image_xscale == -1)) {
         if (_dashRamp.dashXStrength != 0) {
@@ -80,7 +80,7 @@ if (_dashRamp != noone && ground) {
 
         PlayerSetAction(_dashRamp.dashRampPAct);
         if (_dashRamp.dashRampPAct == PlayerActionQTEKeys) {
-            dashrnear = instance_nearest(x, y + 1, parDashRamp);
+            dashrnear = instance_nearest(x, y + 1, objDashRamp);
             with (instance_create(0, 0, objEventQTEKeys)) {
                 ownerID = other.id;
                 qteFailedXSpeed = other.dashrnear.dashRampQTEFailedXSpeed
@@ -97,20 +97,4 @@ if (_dashRamp != noone && ground) {
 
         PlaySound("snd/DashRamp");
     }
-}
-
-// Dash rail
-_dashRail = PlayerCollisionHitbox(x, y, parDashRail);
-if (_dashRail != noone && ground && action == PlayerActionGrind) {
-    if (_dashRail.dashStrength != 0) {
-        with (cam)
-            CameraLag(10)
-        xSpeed = _dashRail.dashStrength * _dashRail.image_xscale;
-    }
-
-    interactDelay = 10;
-
-    DummyEffectCreate(x, y, sprVFXDustDash, 0.25, 0, -0.1, bm_normal, 1, xDirection, 1, animationAngle);
-
-    PlaySound("snd/DashPad");
 }

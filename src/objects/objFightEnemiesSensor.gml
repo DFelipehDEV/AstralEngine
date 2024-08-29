@@ -33,11 +33,9 @@ applies_to=self
 */
 /// Handle
 
-// Check if the event is happening
 if (player != noone && active) {
     delay = max(delay - 1, 0);
 
-    // Check if all phases ended and the enemy HUD is gone
     if (ended) {
         player.hud.enemy = false;
         if (player.hud.enemyScale < 0.8) {
@@ -46,7 +44,6 @@ if (player != noone && active) {
         exit;
     }
 
-    // Check if the event delay has reached 0
     if (delay == 0) {
         // Check if there are no enemies remaining in the current phase
         if (phaseEnemiesRemaining == 0 && !phaseEnemiesCreated) {
@@ -56,10 +53,11 @@ if (player != noone && active) {
                 // Create the enemy if he is part of the current phase
                 if (enemy[i, 4] == phaseCurrent) {
                     with (instance_create(enemy[i, 0], enemy[i, 1], enemy[i, 2])) {
+                        DeactivateExceptionsAdd(id);
                         enemyHP = other.enemy[i, 3];
                         enemyHPMax = other.enemy[i, 3];
                         repeat(3) {
-                            DummyEffectCreate(x + random_range(-20, 20), y + random_range(-20, 20), sprVFXStar1, 0.15, 0, choose(-1, 1), bm_normal, 1, 1, 1, 0);
+                            DummyEffectCreate(x + random_range(-20, 20), y + random_range(-20, 20), sprStar, 0.15, 0, choose(-1, 1), bm_normal, 1, 1, 1, 0);
                         }
                     }
 

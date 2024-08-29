@@ -1,5 +1,22 @@
++Player
+	|objBody
+	|objPlayerSpawn
+	|objPlayer
+	|objPlayerHUD
+	|objPlayerReticle
+	+Events
+		|objEventTitleCard
+		|objEventResults
+		|objEventQTEKeys
+	+Miscellaneous
+		|objWaterSolid
+		|objBoost
+		|objSpindashCharge
+		|objBoostShockwave
+		|objShieldNormal
+		|objShieldElectricity
 +Singletons
-	|parSingleton
+	|objSingleton
 	|objControllerInit
 	|objControllerInput
 	|objControllerStage
@@ -9,56 +26,14 @@
 +Splash
 	|objAstralTitle
 	|objAstralOptions
-+VFX
-	|parVFX
-	|objDebris
-	|objDummy
-	|objVFXAfterimage
-	|objVFXBoost
-	|objVFXBoostShockwave
-	|objVFXRainbow
-	|objVFXRing
-	|objVFXRingNumber
-	|objVFXShieldElectricity
-	|objVFXShieldNormal
-	|objVFXSpindashCharge
 +Fade Transitions
 	|objFadeIn
 	|objFadeNext
 	|objFadeRoom
 	|objFadeGoal
 +Stage
-	+Sensors
-		+Footstep
-			|objFootstepSensorDirt
-			|objFootstepSensorGrass
-			|objFootstepSensorMetal
-			|objFootstepSensorStone
-			|objFootstepSensorWater
-			|objFootstepSensorWood
-		+Layer
-			|objLayer0
-			|objLayerSwitch
-			|objLayer1
-		+Player
-			|objSlidepassSensor
-			|objButtonSensor
-			|objWalljumpTrigger
-			|objFightEnemiesSensor
-		+View
-			|objZoomSensor
-			|objHUDHideSensor
-		|objPlatformAngle
-	+Water
-		|objWaterHorizon
-		|objWater
-		|objWaterBubbleGenerator
-		+Don't use
-			|objWaterBubble
-			|objWaterBubbleSmall
 	+Spring
-		|parSpring
-		|objSpring01
+		|objSpring
 	+Ring
 		|objRing
 		|objRing5
@@ -68,38 +43,39 @@
 			|objRingDrop
 			|objRingMagnetic
 			|objRingHyper
+			|objRainbow
+			|objRingCollected
+			|objRingNumber
 	+Checkpoint
 		|objCheckpoint
-	+Dashes
-		|parDashPad
-		|parDashRail
-		|parDashRamp
-		|parDashRing
+	+Dash
 		|objDashRing
 		|objDashRingRainbow
 		|objDashPad
+		|objDashRail
 		|objDashRamp
 		|objDashRampRainbow
 	+Handle
 		|objCrane
 		|objHandle
 	+Rails
-		|parRail
-		|parRailLayer0
-		|parRailLayer1
-		|objRail01
-		|objRail02
-		|objRail03
+		+Main
+			|objRail
+			|objRail01
+			|objRail02
+			|objRail03
 		+Layer0
+			|objRailLayer0
 			|objRail02Layer0
 			|objRail03Layer0
 		+Layer1
+			|objRailLayer1
 			|objRail02Layer1
 			|objRail03Layer1
 	+WayLauncher
 		|objWayLauncher
 	+Monitor
-		|parMonitor
+		|objMonitor
 		|objMonitorEnergy
 		|objMonitorHurt
 		|objMonitorInvincibility
@@ -120,11 +96,10 @@
 		|objGoalRing
 	+Spikes
 		|objSpike
+		|objSpikeMove
 		|objSpikeBall
-		+Moving spikes
-			|objSpikeMove
 	+Enemies
-		|parEnemy
+		|objEnemy
 		|objEnemySpinner
 		|objEnemySpinner2
 		|objEnemyEggpawn
@@ -136,8 +111,8 @@
 			|objEnemyDeath
 			|objEnemyTurn
 	+Hazards
-		|parHurt
-		|parProjectile
+		|objHurt
+		|objProjectile
 		|objProjectileBuzzer
 		|objSpinnerShock
 	+Gimmicks
@@ -150,11 +125,43 @@
 			|objCorkscrewDepth
 	+TestStage
 		|objTestFlower
-		|objDestructiveWall
 		|objTZBG
+	+Destructable
+		|objDebris
+		|objDestructiveWall
+	+VFX
+		|objVFX
+		|objDummy
+		|objAfterimage
+	+Sensors
+		|objFootstepSensorDirt
+		|objFootstepSensorGrass
+		|objFootstepSensorMetal
+		|objFootstepSensorStone
+		|objFootstepSensorWater
+		|objFootstepSensorWood
+		|objSwitchLayer0
+		|objSwitchLayerAlternate
+		|objSwitchLayer1
+		|objSlidepassSensor
+		|objButtonSensor
+		|objWalljumpTrigger
+		|objEnemiesArenaSensor
+		|objZoomSensor
+		|objHUDHideSensor
+		|objPlatformAngle
+	+Water
+		|objWaterHorizon
+		|objWater
+		|objWaterBubbleGenerator
+		+Don't use
+			|objWaterBubble
+			|objWaterBubbleSmall
++Parallax
+	|objParallax
 +Collision
 	+Main
-		|parSolid
+		|objSolid
 		|objSolidMask01
 		|objSolidMask02
 		|objSolidMask03
@@ -171,38 +178,24 @@
 		|objSolidMask14
 		|objSolidMask15
 	+Platform
-		|parPlatform
-		|parPlatformMove
+		|objPlatform
+		|objPlatformMove
 		|objPlatformMask01
 		|objPlatformMask01Move
 		|objPlatformMask01Spin
 	+Layer0
-		|parLayer0
+		|objLayer0
 		|objLayer0Mask01
 		|objLayer0Mask02
 		|objLayer0Mask03
 		|objLayer0Mask04
 		|objLayer0Mask05
 	+Layer1
-		|parLayer1
+		|objLayer1
 		|objLayer1Mask01
 		|objLayer1Mask02
 		|objLayer1Mask03
 		|objLayer1Mask04
 		|objLayer1Mask05
-	|parTerrain
-+Parallax
-	|parParallax
-+Player
-	|parBody
-	|objPlayerSpawn
-	|objPlayer
-	|objPlayerHUD
-	+Events
-		|objEventTitleCard
-		|objEventResults
-		|objEventQTEKeys
-	+Miscellaneous
-		|objPlayerReticle
-		|objWaterSolid
+	|objTerrain
 |objCamera

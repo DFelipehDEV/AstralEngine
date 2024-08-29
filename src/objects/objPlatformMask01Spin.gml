@@ -51,7 +51,7 @@ for (i = 0; i < chainLength; i += sprite_get_width(sprRing)) {
     _x = (_chainPosX) + lengthdir_x(i, point_direction(_chainPosX, _chainPosY, x, y));
     _y = (_chainPosY) + lengthdir_y(i, point_direction(_chainPosX, _chainPosY, x, y));
 
-    draw_sprite(sprVFXRingSparkle3, current_time div 60, _x, _y);
+    draw_sprite(sprRingSparkle3, current_time div 60, _x, _y);
 }
 
 // Draw the platform object

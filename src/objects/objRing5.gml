@@ -25,6 +25,6 @@ applies_to=self
 /// Draw ring 5
 
 // Draw number 5
-draw_sprite(sprVFXRingNumber, 0, x, y);
+draw_sprite(sprRingNumber, 0, x, y);
 // Draw ring
 draw_self();

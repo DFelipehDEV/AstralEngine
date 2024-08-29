@@ -10,7 +10,7 @@ switch (character) {
         afterimageColor1 = c_teal;
         afterimageColor2 = c_blue;
         trailColor = make_color_rgb(25,100,255);
-        boostSprite = sprVFXBoost;
+        boostSprite = sprBoost;
         break;
     case CharacterSuperSonic:
         PlayerSetVoicelines(CharacterSonic);
@@ -21,7 +21,7 @@ switch (character) {
         afterimageColor1 = c_orange;
         afterimageColor2 = c_yellow;
         trailColor = make_color_rgb(255,163,25);
-        boostSprite = sprVFXBoostSuper;
+        boostSprite = sprBoostSuper;
         break;
 }
 PlayerPhysicModeSet(physicsMode);

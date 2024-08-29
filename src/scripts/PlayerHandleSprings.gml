@@ -1,7 +1,7 @@
 /// PlayerHandleSprings()
 
 var _spring;
-_spring = PlayerCollisionHitbox(x, y, parSpring);
+_spring = PlayerCollisionHitbox(x, y, objSpring);
 
 if (_spring != noone) {
     xSpeed = _spring.springStrength * dcos(_spring.image_angle + 90);

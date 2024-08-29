@@ -19,7 +19,7 @@ enemyBust = true;
 
 enemyHP= noone;
 enemyHPMax = noone;
-EnemySetAnimation(sprEnemyEggpawn1Walk, 0.2);
+EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
 
 normalStateX = x;
 #define Alarm_1
@@ -31,7 +31,7 @@ applies_to=self
 /// Start chasing the player
 
 action = "CHASE";
-EnemySetAnimation(sprEnemyEggpawn1Run, 0.3);
+EnemySetAnimation(sprEnemyEggpawnRun, 0.3);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -41,19 +41,19 @@ applies_to=self
 /// Movement
 
 BodyApplyGravity(0.2);
-move_and_collide(xSpeed, ySpeed, parTerrain);
+move_and_collide(xSpeed, ySpeed, objTerrain);
 
 // Vertical movement
 if (!ground) {
     // Check if landing on solid ground
-    if (place_meeting(x, y + 2, parTerrain) && ySpeed >= 0) {
+    if (place_meeting(x, y + 2, objTerrain) && ySpeed >= 0) {
         ground = true;
         ySpeed = 0;
     }
 }
 else {
     // Check if leaving the ground
-    if (!place_meeting(x, y + 5, parTerrain)) {
+    if (!place_meeting(x, y + 5, objTerrain)) {
         ground = false;
     }
 }
@@ -66,11 +66,11 @@ switch (action) {
             xSpeed = 0;
         }
         else {
-            EnemySetAnimation(sprEnemyEggpawn1Turn, 0.2);
+            EnemySetAnimation(sprEnemyEggpawnTurn, 0.2);
             if (image_index >= 1.9) {
                 image_xscale = -image_xscale;
                 action= "NORMAL";
-                EnemySetAnimation(sprEnemyEggpawn1Walk, 0.2);
+                EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
             }
         }
     break;
@@ -88,7 +88,7 @@ switch (action) {
             // Check if the enemy is looking at the player
             if (image_xscale == sign(_nearPlayer.x - x)) {
                 action = "SPOTTED";
-                EnemySetAnimation(sprEnemyEggpawn1Idle, 0.2);
+                EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
             }
         }
         
@@ -97,7 +97,7 @@ switch (action) {
             turnTimer = turnTimerTemp;
             xSpeed = 0;
             action = "TURN";
-            EnemySetAnimation(sprEnemyEggpawn1Idle, 0.2);
+            EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
         }
     break;
 
@@ -107,7 +107,7 @@ switch (action) {
         if (alarm[1] == -1) {
             alarm[1] = 20;
             PlaySound("snd/EnemyWarn");
-            DummyEffectCreate(x - 10 * image_xscale, y - 25, sprVFXEnemyWarn, 0.25, 0, 1, bm_normal, 1, 1,1, 0);
+            DummyEffectCreate(x - 10 * image_xscale, y - 25, sprEnemyWarn, 0.25, 0, 1, bm_normal, 1, 1,1, 0);
         }
     break;
 
@@ -119,7 +119,7 @@ switch (action) {
         // If the player is too far away or too close to the enemy's turn sensor, switch to the normal state.
         if ((distance_to_object(ownerID) > 140 || distance_to_object(ownerID) <= 140 && image_xscale != sign(ownerID.x - x)) || abs(x - normalStateX) > 350) {
             action = "RETURN";
-            EnemySetAnimation(sprEnemyEggpawn1Walk, 0.2);
+            EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
         }
     break;
 

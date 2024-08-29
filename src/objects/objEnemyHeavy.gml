@@ -40,19 +40,19 @@ applies_to=self
 
 // Apply gravity and handle collision with slopes
 BodyApplyGravity(0.2);
-move_and_collide(xSpeed, ySpeed, parTerrain);
+move_and_collide(xSpeed, ySpeed, objTerrain);
 
 // Vertical movement
 if (!ground) {
     // Check if landing on solid ground
-    if (place_meeting(x, y + 1, parTerrain) && ySpeed >= 0) {
+    if (place_meeting(x, y + 1, objTerrain) && ySpeed >= 0) {
         ground = true;
         ySpeed = 0;
     }
 }
 else {
     // Check if leaving the ground
-    if (!place_meeting(x, y + 4, parTerrain)) {
+    if (!place_meeting(x, y + 4, objTerrain)) {
         ground = false;
     }
 }
@@ -102,7 +102,7 @@ switch (action) {
         if (alarm[1] == -1) {
             alarm[1] = 15;
             PlaySound("snd/EnemyWarn");
-            DummyEffectCreate(x - 10 * image_xscale, y - 25, sprVFXEnemyWarn, 0.25, 0, 1, bm_normal, 1, 1, 1, 0);
+            DummyEffectCreate(x - 10 * image_xscale, y - 25, sprEnemyWarn, 0.25, 0, 1, bm_normal, 1, 1, 1, 0);
         }
         break;
 

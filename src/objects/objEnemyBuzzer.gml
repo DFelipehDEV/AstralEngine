@@ -96,7 +96,7 @@ if (action == PlayerActionNormal && !place_meeting(x, y, objEnemyTurn) && global
         if (!nearPlayer) {
             nearPlayer = true;
             PlaySound("snd/EnemyWarn");
-            DummyEffectCreate(x - 15 * image_xscale, y - 20, sprVFXEnemyWarn, 0.2, 0, 1, bm_normal, 1, 1, 1, 0);
+            DummyEffectCreate(x - 15 * image_xscale, y - 20, sprEnemyWarn, 0.2, 0, 1, bm_normal, 1, 1, 1, 0);
         }
     }
     else {
