@@ -52,9 +52,9 @@ energyMax = 87;
 airdashPossible = true;
 
 // Homing attack
+canHome = false;
 homingSpeed = 12;
 homingMaxDistance = 220;
-homingPossible = false;
 homingReticle = noone;
 homingReticleTarget = noone;
 
@@ -499,7 +499,7 @@ applies_to=self
 */
 /// Homing recticle
 
-if (homingPossible) {
+if (canHome) {
     var i;
     for (i = 0; i < ds_list_size(homingObjects); i += 1) {
         var _index;
@@ -534,7 +534,7 @@ applies_to=self
 */
 /// Actions
 
-homingPossible = false;
+canHome = false;
 // Stop boosting
 if (!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || action == PlayerActionRoll || animation == "FLING" || (boostAirTime == 0 && !ground)) && boosting {
     boosting = false;

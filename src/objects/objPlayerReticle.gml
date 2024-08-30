@@ -38,7 +38,7 @@ if (creationTimer > 15) {
 }
 
 
-if (!ownerID.homingPossible || distance_to_object(ownerID) > 210 || ownerID.y > y + 5|| distance_to_object(ownerID) < 4 || ownerID.ground || place_meeting(x, y, ownerID)) {
+if (!ownerID.canHome || distance_to_object(ownerID) > 210 || ownerID.y > y + 5|| distance_to_object(ownerID) < 4 || ownerID.ground || place_meeting(x, y, ownerID)) {
     instance_destroy();
 }
 #define Draw_0
