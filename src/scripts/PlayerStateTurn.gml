@@ -1,9 +1,9 @@
-/// PlayerActionTurn()
+/// PlayerStateTurn()
 
 PlayerXMovement();
 if (animationFinished) {
     xDirection = -xDirection;
-    PlayerSetAction(PlayerActionNormal);
+    PlayerSetState(PlayerStateNormal);
     PlayerAnimationNormal();
 }
 if (ground)

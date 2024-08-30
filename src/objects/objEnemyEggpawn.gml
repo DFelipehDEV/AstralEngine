@@ -10,7 +10,7 @@ event_inherited();
 
 turnTimer = 30;           //How long it takes to turn
 turnTimerTemp = turnTimer;    //Keep the original value on track
-action = "NORMAL";
+state = "NORMAL";
 nearPlayer = 0;            //Checks if the player is near of the enemy
 
 delay = 0;
@@ -30,7 +30,7 @@ applies_to=self
 */
 /// Start chasing the player
 
-action = "CHASE";
+state = "CHASE";
 EnemySetAnimation(sprEnemyEggpawnRun, 0.3);
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -58,7 +58,7 @@ else {
     }
 }
 
-switch (action) {
+switch (state) {
     case "TURN":
         // If the turn timer is not expired, pause the enemy's movement
         if (turnTimer > 0) {
@@ -69,7 +69,7 @@ switch (action) {
             EnemySetAnimation(sprEnemyEggpawnTurn, 0.2);
             if (image_index >= 1.9) {
                 image_xscale = -image_xscale;
-                action= "NORMAL";
+                state = "NORMAL";
                 EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
             }
         }
@@ -87,7 +87,7 @@ switch (action) {
         if (distance_to_object(_nearPlayer) < 100) {
             // Check if the enemy is looking at the player
             if (image_xscale == sign(_nearPlayer.x - x)) {
-                action = "SPOTTED";
+                state = "SPOTTED";
                 EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
             }
         }
@@ -96,7 +96,7 @@ switch (action) {
         if (place_meeting(x, y, objEnemyTurn) && !place_meeting(xprevious, yprevious, objEnemyTurn)) {
             turnTimer = turnTimerTemp;
             xSpeed = 0;
-            action = "TURN";
+            state = "TURN";
             EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
         }
     break;
@@ -118,7 +118,7 @@ switch (action) {
 
         // If the player is too far away or too close to the enemy's turn sensor, switch to the normal state.
         if ((distance_to_object(ownerID) > 140 || distance_to_object(ownerID) <= 140 && image_xscale != sign(ownerID.x - x)) || abs(x - normalStateX) > 350) {
-            action = "RETURN";
+            state = "RETURN";
             EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
         }
     break;
@@ -138,7 +138,7 @@ switch (action) {
         // Check if we are on the previous position before chasing the player
         if (floorto(x, 4) == floorto(normalStateX, 4)) {
             // Start patroling
-            action = "NORMAL";
+            state = "NORMAL";
         }
     break;
 }

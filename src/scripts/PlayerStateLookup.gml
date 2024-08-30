@@ -1,4 +1,4 @@
-/// PlayerActionLookup()
+/// PlayerStateLookup()
 
 // Reset
 if (!keyUp || keyDown) {
@@ -9,7 +9,7 @@ if (!keyUp || keyDown) {
     animationFrame = max(animationFrame - 0.3, animationFrameStart);
 
     if (floor(animationFrame) == 0) {
-        PlayerSetAction(PlayerActionNormal);
+        PlayerSetState(PlayerStateNormal);
     }
 }
 

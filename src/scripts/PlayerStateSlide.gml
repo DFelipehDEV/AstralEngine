@@ -1,4 +1,4 @@
-/// PlayerActionSlide()
+/// PlayerStateSlide()
 
 // Animation speed
 animationFrameSpeed = 0.2 + abs(xSpeed)/18;
@@ -19,9 +19,9 @@ if (distance_to_object(objSlidepassSensor) > 15) {
         slideResetTimer -= 1;
     }
 
-    // Back to the normal action if the player stopped or is not in the ground anymore
+    // Back to the normal state if the player stopped or is not in the ground anymore
     if (!ground || floor(xSpeed) == 0 || !keyDown && slideResetTimer == 0) {
-        PlayerSetAction(PlayerActionNormal);
+        PlayerSetState(PlayerStateNormal);
     }
 }
 else {

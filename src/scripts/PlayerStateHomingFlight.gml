@@ -1,11 +1,11 @@
-/// PlayerActionHomingFlight()
+/// PlayerStateHomingFlight()
 
 PlayerXMovement();
 
 xDirection = esign(xSpeed, xDirection);
 
 if (ground) {
-    PlayerSetAction(PlayerActionNormal);
+    PlayerSetState(PlayerStateNormal);
 }
 PlayerHomingAttack();
 PlayerAirdash();

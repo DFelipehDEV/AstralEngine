@@ -1,4 +1,4 @@
-/// PlayerActionRoll()
+/// PlayerStateRoll()
 
 animationFrameSpeed = 0.2 + abs(xSpeed)/17;
 
@@ -16,7 +16,7 @@ if (distance_to_object(objSlidepassSensor) > 15) {
         // Set the xSpeed to 0 if it got lower than 0 and back to the normal state
         if (xSpeed <= 0) {
             xSpeed = 0;
-            PlayerSetAction(PlayerActionNormal);
+            PlayerSetState(PlayerStateNormal);
         }
     }
     // Check if is going to the left
@@ -48,17 +48,17 @@ if (sign(xSpeed) != sign(angleSin)) {
 
 // Stop rolling
 if (floor(xSpeed) == 0) {
-    PlayerSetAction(PlayerActionNormal);
+    PlayerSetState(PlayerStateNormal);
 }
 
 if (keySpecial1Pressed) {
-    PlayerSetAction(PlayerActionNormal);
+    PlayerSetState(PlayerStateNormal);
 }
 
 
-// Set the jump action if is not in the ground anymore
+// Set the jump state if is not in the ground anymore
 if (!ground) {
-    PlayerSetAction(PlayerActionJump);
+    PlayerSetState(PlayerStateJump);
 }
 
 if (ground)

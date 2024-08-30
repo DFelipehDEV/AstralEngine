@@ -1,9 +1,9 @@
-/// PlayerActionTransform()
+/// PlayerStateTransform()
 
 ySpeed = -0.1;
 if (animation == "TRANSFORM") {
     if (animationFinished) {
-        PlayerSetAction(PlayerActionNormal);
+        PlayerSetState(PlayerStateNormal);
         PlayerSetCharacter(CharacterSuperSonic);
         alarm[1] = 60;
     }

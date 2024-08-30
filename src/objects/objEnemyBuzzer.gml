@@ -13,7 +13,7 @@ ySpeed = 0;
 
 turnTimer = 20;           //How long it takes to turn
 turnTimerTemp = turnTimer;    //Keep the original value on track
-action = PlayerActionNormal;
+state = PlayerStateNormal;
 nearPlayer = 0;            //Checks if the player is near of the enemy
 
 enemyBust = true;
@@ -50,7 +50,7 @@ applies_to=self
 /// Shoot
 
 // Release projectile
-if (action == PlayerActionNormal) {
+if (state == PlayerStateNormal) {
     xSpeed = 0;
 
     shootTimer = 80;
@@ -77,7 +77,7 @@ if (sprite_index != sprEnemyBuzzerAttack) {
     y += ySpeed;
 }
 
-if (action == PlayerActionNormal && !place_meeting(x, y, objEnemyTurn) && global.player) {
+if (state == PlayerStateNormal && !place_meeting(x, y, objEnemyTurn) && global.player) {
     ownerID = instance_nearest(x, y, objPlayer);
     xSpeed = 2 * image_xscale;
 
@@ -106,7 +106,7 @@ if (action == PlayerActionNormal && !place_meeting(x, y, objEnemyTurn) && global
 
 // Turn
 // Check if the enemy is coliding the turn sensor
-if (place_meeting(x, y, objEnemyTurn) && action == PlayerActionNormal) {
+if (place_meeting(x, y, objEnemyTurn) && state == PlayerStateNormal) {
     // Turn
     if (turnTimer > 0) {
         turnTimer -= 1;
@@ -114,7 +114,7 @@ if (place_meeting(x, y, objEnemyTurn) && action == PlayerActionNormal) {
     }
     else {
         if (alarm[0] == -1) {
-            action = PlayerActionTurn;
+            state = PlayerStateTurn;
         }
     }
 }
@@ -139,21 +139,21 @@ if (xSpeed < 0) {
 
 // Animations
 // Move animation
-if (action == PlayerActionNormal) {
+if (state == PlayerStateNormal) {
     sprite_index = sprEnemyBuzzerMove;
     image_speed = 0.32;
 }
 
 
 // Attack animation
-if (action == PlayerActionNormal && alarm[2] < 30 && alarm[2] > 0) {
+if (state == PlayerStateNormal && alarm[2] < 30 && alarm[2] > 0) {
     sprite_index = sprEnemyBuzzerAttack;
     image_speed = 0.15;
 }
 
 
 // Turn animation
-if (action == PlayerActionTurn) {
+if (state == PlayerStateTurn) {
     sprite_index = sprEnemyBuzzerTurn;
     image_speed = 0.25;
 }
@@ -163,13 +163,12 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Back to the normal action
+/// Back to the normal state
 
-
-if (action == PlayerActionTurn) {
+if (state == PlayerStateTurn) {
     image_xscale = -image_xscale;
-    action= PlayerActionNormal;
-    xSpeed= 2.2 * image_xscale;
+    state = PlayerStateNormal;
+    xSpeed = 2.2 * image_xscale;
     if (alarm[0] == -1) {
         alarm[0] = 15;
     }

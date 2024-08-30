@@ -2,7 +2,7 @@
 // Handle collision with boxes
 
 if (attackPossible) {
-    if (action != PlayerActionJump) {
+    if (state != PlayerStateJump) {
         var _box1;
         _box1 = PlayerCollisionObjectBottom(x, y + floor(ySpeed), 0, maskBig, objBox1);
 

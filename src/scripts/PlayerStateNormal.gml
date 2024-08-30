@@ -1,9 +1,9 @@
-/// PlayerActionNormal()
+/// PlayerStateNormal()
 
 PlayerXMovement();
 // Check if we are in the ground
 if (ground) {
-    // Animation speed while moving on normal action
+    // Animation speed while moving on normal state
     if (((animation == "WALK_1" || animation == "WALK_2" || animation == "JOG_1"
     || animation == "JOG_2" || animation == "RUN"))) {
         animationFrameSpeed = min(0.13 + abs(xSpeed)/25, 0.63);
@@ -12,7 +12,7 @@ if (ground) {
     // Turn!
     if (abs(xSpeed) < 1) {
         if ((xDirection == -1 && keyRight) || (xDirection == 1 && keyLeft)) {
-            PlayerSetAction(PlayerActionTurn);
+            PlayerSetState(PlayerStateTurn);
             exit;
         }
     }
@@ -23,28 +23,28 @@ if (ground) {
         if (!keyDown && keyUp) {
             with (cam)
                 CameraLag(20)
-            PlayerSetAction(PlayerActionLookup);
+            PlayerSetState(PlayerStateLookup);
         }
 
         // Crouch!
         if (keyDown && !keyUp) {
             with (cam)
                 CameraLag(20)
-            PlayerSetAction(PlayerActionCrouch);
+            PlayerSetState(PlayerStateCrouch);
         }
     }
 
     // Skid!
     if ((xSpeed >= 4 && keyLeft) || (xSpeed <= -4 && keyRight)) {
         PlayerTerrainSndUpdate();
-        PlayerSetAction(PlayerActionSkid);
+        PlayerSetState(PlayerStateSkid);
         PlaySound(terrainSound[TerSkid]);
     }
 
     // Slide!
     if (abs(xSpeed) > 1 && keyDown) {
         PlayVoice(choose(voiceline[3], voiceline[2]));
-        PlayerSetAction(PlayerActionSlide);
+        PlayerSetState(PlayerStateSlide);
 
         PlaySound("snd/PlayerSlide");
     }
@@ -52,8 +52,8 @@ if (ground) {
 
 xDirection = esign(xSpeed, xDirection);
 
-if (action == PlayerActionNormal) {
-    // Normal action animations
+if (state == PlayerStateNormal) {
+    // Normal state animations
     PlayerAnimationNormal();
 }
 if (!ground)

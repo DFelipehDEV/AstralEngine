@@ -1,7 +1,7 @@
 /// PlayerXMovement()
 
     var _xAcceleration, _xDeceleration, _xFriction;
-    if (ground || action == PlayerActionCorkscrew) {
+    if (ground || state == PlayerStateCorkscrew) {
         _xAcceleration = xAcceleration * global.deltaMultiplier;
         _xDeceleration = xDeceleration * global.deltaMultiplier;
         _xFriction = (xDeceleration * 1.7) * global.deltaMultiplier;

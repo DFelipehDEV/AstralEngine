@@ -35,7 +35,7 @@ if (pull) {
         vspeed = 0;
         with (ownerID) {
             ySpeed = -6;
-            PlayerSetAction(PlayerActionNormal);
+            PlayerSetState(PlayerStateNormal);
             y -= 16;
             canMove = true;
         }

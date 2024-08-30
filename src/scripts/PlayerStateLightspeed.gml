@@ -1,8 +1,8 @@
-/// PlayerActionLightspeed()
+/// PlayerStateLightspeed()
 
 afterimageTimer = 15;
 if (distance_to_object(objRing) > 90 || !instance_exists(objRing) || ground) {
-    PlayerSetAction(PlayerActionNormal);
+    PlayerSetState(PlayerStateNormal);
     xSpeed /= 1.65;
     ySpeed /= 1.2;
 }

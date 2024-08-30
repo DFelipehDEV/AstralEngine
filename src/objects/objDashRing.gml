@@ -8,7 +8,7 @@ applies_to=self
 
 dashStrength = 8;
 dashRingType = "NORMAL";     //Dash ring type  "NORMAL" - Normal dash ring  "RAINBOW" - Rainbow dash ring
-dashRingPAct = PlayerActionSpring; //Player action when he meets the dash ring
+dashRingPAct = PlayerStateSpring; //Player state when he meets the dash ring
 
 image_speed = 0.3;
 #define Step_0

@@ -1,4 +1,4 @@
-/// PlayerActionStompLand()
+/// PlayerStateStompLand()
 
 PlayerJump();
 if angleMode != 0 {
@@ -6,12 +6,12 @@ if angleMode != 0 {
     if abs(xSpeed) < 8 {
         xSpeed = 8 * sign(xSpeed);
     }
-    PlayerSetAction(PlayerActionSlide);
+    PlayerSetState(PlayerStateSlide);
     PlaySound("snd/PlayerSlide");
 }
 
 if (animation == "STOMP_LAND") {
     if (animationFinished) {
-        PlayerSetAction(PlayerActionNormal);
+        PlayerSetState(PlayerStateNormal);
     }
 }

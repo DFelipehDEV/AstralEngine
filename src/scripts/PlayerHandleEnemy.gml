@@ -76,10 +76,10 @@ if (_enemy != noone) {
             }
 
             // Stop homing if the player was homing
-            PlayerHomingReset(PlayerActionHomingFlight, 0, -6.7, 35, _enemyX, _enemyY);
+            PlayerHomingReset(PlayerStateHomingFlight, 0, -6.7, 35, _enemyX, _enemyY);
 
             // Bounce on the enemy
-            if (action == PlayerActionJump && ySpeed >= 0) {
+            if (state == PlayerStateJump && ySpeed >= 0) {
                 // Check if the player is holding the jump key
                 if (keyAction) {
                     ySpeed = -ySpeed * 1.15;

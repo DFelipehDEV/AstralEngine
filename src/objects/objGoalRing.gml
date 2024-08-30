@@ -72,7 +72,7 @@ if (!active) {
     with (ownerID) {
         allowKeys = false;
         keyRight = true;
-        PlayerSetAction(PlayerActionNormal);
+        PlayerSetState(PlayerStateNormal);
         goal = true;
     }
 

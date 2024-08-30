@@ -24,7 +24,7 @@ directionChosen = 0;
 if (ownerID == noone) exit;
 
 // Check if is colliding with the player
-if (ownerID.action == PlayerActionWaylauncher && active) {
+if (ownerID.state == PlayerStateWaylauncher && active) {
     if (timerExit < 140) {
         timerExit += 1;
     }
@@ -33,7 +33,7 @@ if (ownerID.action == PlayerActionWaylauncher && active) {
         active = false;
         with (ownerID) {
             visible = true;
-            PlayerSetAction(PlayerActionHurt);
+            PlayerSetState(PlayerStateHurt);
         }
         sound_stop("snd/WayLauncherWait");
         PlaySoundExt("snd/WayLauncherLaunch", global.volumeSounds, 0.85, false);
@@ -96,7 +96,7 @@ switch (directionChosen) {
             if (ownerID.keyActionPressed) {
                 active = false;
                 with (ownerID) {
-                    PlayerSetAction(PlayerActionSpring);
+                    PlayerSetState(PlayerStateSpring);
                     ySpeed = -9.5;
                     visible = true;
                     starTimer = 50;
@@ -129,7 +129,7 @@ switch (directionChosen) {
             if (ownerID.keyActionPressed) {
                 active = false;
                 with (ownerID) {
-                    PlayerSetAction(PlayerActionNormal);
+                    PlayerSetState(PlayerStateNormal);
                     ySpeed = 9.5;
                     visible = true;
                     starTimer = 50;
@@ -162,7 +162,7 @@ switch (directionChosen) {
             if (ownerID.keyActionPressed) {
                 active = false;
                 with (ownerID) {
-                    PlayerSetAction(PlayerActionNormal);
+                    PlayerSetState(PlayerStateNormal);
                     xDirection = -1;
                     AnimationApply("LAUNCH");
                     noGravityTimer = 16;
@@ -198,7 +198,7 @@ switch (directionChosen) {
             if (ownerID.keyActionPressed) {
                 active = false;
                 with (ownerID) {
-                    PlayerSetAction(PlayerActionNormal);
+                    PlayerSetState(PlayerStateNormal);
                     xDirection = 1;
                     AnimationApply("LAUNCH");
                     noGravityTimer = 16;

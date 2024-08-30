@@ -1,4 +1,4 @@
-/// PlayerActionSpindash()
+/// PlayerStateSpindash()
 
 // Animations
 // Normal animation
@@ -42,7 +42,7 @@ if (!keyDown) {
         DummyEffectCreate(floor(x), floor(y), sprPlayerSpindashHighRelease, 0.35, 0, 0.1, bm_normal, image_alpha, xDirection, 1, animationAngle);
     }
     xSpeed = (8.2 + spindashStrength) * xDirection;
-    PlayerSetAction(PlayerActionRoll);
+    PlayerSetState(PlayerStateRoll);
     trailTimer = 120;
 
     sound_stop("snd/PlayerSpindashCharge");

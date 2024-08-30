@@ -1,4 +1,4 @@
-/// PlayerActionGrind()
+/// PlayerStateGrind()
 
 animationFrameSpeed = min(0.18 + abs(xSpeed)/20, 0.4);
 
@@ -38,7 +38,7 @@ if (!keyDown) {
 if (!PlayerCollisionObjectBottom(x, y, angle, maskBig, objRail) && !PlayerCollisionObjectMain(x, y, objRail)
 && !PlayerCollisionObjectBottom(x, y, angle, maskBig, objRailLayer0) && !PlayerCollisionObjectMain(x, y, objRailLayer0)
 && !PlayerCollisionObjectBottom(x, y, angle, maskBig, objRailLayer1) && !PlayerCollisionObjectMain(x, y, objRailLayer1)) {
-    PlayerSetAction(PlayerActionNormal);
+    PlayerSetState(PlayerStateNormal);
 }
 
 xDirection = esign(xSpeed, xDirection);

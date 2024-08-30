@@ -39,12 +39,12 @@ if (_dashRing != noone) {
     animationAngle = -_dashRing.image_angle;
 
     // Set slow motion
-    if (_dashRing.dashRingPAct == PlayerActionTricks) {
+    if (_dashRing.dashRingPAct == PlayerStateTricks) {
         global.deltaMultiplier = 0.4;
         trickCombo = 0;
     }
 
-    PlayerSetAction(_dashRing.dashRingPAct);
+    PlayerSetState(_dashRing.dashRingPAct);
 
     with (_dashRing) {
         image_xscale = 0.5;
@@ -78,8 +78,8 @@ if (_dashRamp != noone && ground) {
             ground = false;
         }
 
-        PlayerSetAction(_dashRamp.dashRampPAct);
-        if (_dashRamp.dashRampPAct == PlayerActionQTEKeys) {
+        PlayerSetState(_dashRamp.dashRampPAct);
+        if (_dashRamp.dashRampPAct == PlayerStateQTEKeys) {
             dashrnear = instance_nearest(x, y + 1, objDashRamp);
             with (instance_create(0, 0, objEventQTEKeys)) {
                 ownerID = other.id;

@@ -1,9 +1,9 @@
 /// PlayerAirdash()
-// Add this to a action script when you want airdash to be able to be performed
+// Add this to a state script when you want airdash to be able to be performed
 
 // Air dash
 if (keyActionPressed && !ground && canAirdash && !instance_exists(homingReticle)) {
-    PlayerSetAction(PlayerActionAirdash);
+    PlayerSetState(PlayerStateAirdash);
     trailTimer = 60;
 
     PlaySound("snd/PlayerHome");

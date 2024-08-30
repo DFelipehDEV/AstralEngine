@@ -93,8 +93,8 @@ applies_to=self
 if (object_get_name(target) == "objPlayer") {
     var _targetSpeed;
     // Shift x-axis camera position
-    switch(target.action) {
-        case PlayerActionWaylauncher:
+    switch(target.state) {
+        case PlayerStateWaylauncher:
             if (target.keyLeft) {
                 xShift = approach(xShift, -80, 10);
             }
@@ -112,16 +112,16 @@ if (object_get_name(target) == "objPlayer") {
     }
 
     // Shift y-axis camera position
-    switch(target.action) {
-        case PlayerActionLookup:
+    switch(target.state) {
+        case PlayerStateLookup:
             yShift = approach(yShift, -90, 3);
             break;
 
-        case PlayerActionCrouch:
+        case PlayerStateCrouch:
             yShift = approach(yShift, 90, 3);
             break;
 
-        case PlayerActionWaylauncher:
+        case PlayerStateWaylauncher:
             if (target.keyUp) {
                 yShift = approach(yShift, -80, 10);
             }
@@ -133,7 +133,7 @@ if (object_get_name(target) == "objPlayer") {
             }
             break;
 
-        case PlayerActionStomp:
+        case PlayerStateStomp:
             yShift = approach(yShift, 210, 3);
             break;
 
@@ -160,7 +160,7 @@ if (delay == 0 && target != noone) {
     }
     // Follow the player
     else {
-        if (target.action != PlayerActionDead) {
+        if (target.state != PlayerStateDead) {
             // Shift to the player position
             // I could just have used lerp
             x = floor(SmoothStep(x, target.x + xShift, 0.3));

@@ -11,9 +11,9 @@ DeactivateExceptionsAdd(id);
 event_inherited();
 
 index = 0; // Player index
-// Actions
-action = PlayerActionNormal;
-actionTimer = 0;
+// State
+state = PlayerStateNormal;
+stateTimer = 0;
 attackPossible = false;
 
 // Jump
@@ -25,7 +25,7 @@ skidDeceleration = 0.3;
 
 // Slide
 slideDeceleration = 0.11;
-slideResetTimer = 35; // Time to go back to normal action when the player is not holding the slide key
+slideResetTimer = 35; // Time to go back to normal state when the player is not holding the slide key
 
 // Spindash
 spindashStrength = 0;
@@ -223,15 +223,15 @@ applies_to=self
 */
 /// Lose rings
 
-    global.playerRings -= 1;
+global.playerRings -= 1;
 
-    alarm[1] = 60;
-    if (global.playerRings == 0) {
-        alarm[1] = -1;
-        if (character == CharacterSuperSonic) {
-            PlayerSetCharacter(CharacterSonic);
-        }
+alarm[1] = 60;
+if (global.playerRings == 0) {
+    alarm[1] = -1;
+    if (character == CharacterSuperSonic) {
+        PlayerSetCharacter(CharacterSonic);
     }
+}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -240,10 +240,10 @@ applies_to=self
 */
 /// Death handle
 
-if (action != PlayerActionDead) {
+if (state != PlayerStateDead) {
     // Die at bottom of room
     if (y >= room_height) {
-        PlayerSetAction(PlayerActionDead);
+        PlayerSetState(PlayerStateDead);
     }
 }
 /*"/*'/**//* YYD ACTION
@@ -304,7 +304,7 @@ if (canMove) {
         // Crushing
         if (bottomCollision && PlayerCollisionTop(x, y, angle, maskBig)) {
             // Kill player
-            PlayerSetAction(PlayerActionDead);
+            PlayerSetState(PlayerStateDead);
             exit;
         }
 
@@ -330,7 +330,7 @@ if (canMove) {
 
         // Fall if there is not enough speed.
         if (angle >= 75 && angle <= 285 && abs(xSpeed) < 4) {
-            if (action != PlayerActionGrind) {
+            if (state != PlayerStateGrind) {
                 PlayerFlight();
             }
         }
@@ -376,7 +376,7 @@ if (canMove) {
         // Crushing
         if (bottomCollision && PlayerCollisionTop(x, y, angle, maskBig)) {
             // Kill player
-            PlayerSetAction(PlayerActionDead);
+            PlayerSetState(PlayerStateDead);
             exit;                        
         }
         
@@ -418,8 +418,8 @@ if (canMove) {
         }
         
         // Add gravity
-        if (noGravityTimer == 0 && action != PlayerActionCorkscrew && action != PlayerActionAirdash
-        && action != PlayerActionWaylauncher) {
+        if (noGravityTimer == 0 && state != PlayerStateCorkscrew && state != PlayerStateAirdash
+        && state != PlayerStateWaylauncher) {
             ySpeed = min(ySpeed + yAcceleration * global.deltaMultiplier, 15);
         }
     
@@ -456,7 +456,7 @@ if (canMove) {
         xSpeed -= (xDeceleration * 1.2) * sign(xSpeed);
     }
 
-    if (action != PlayerActionRoll) {
+    if (state != PlayerStateRoll) {
         // Acceleration and deceleration on slopes
         if (ground && angle > 35 && angle < 325) {
             if (angle > 40 && angle < 320) {
@@ -466,20 +466,20 @@ if (canMove) {
     }
 
     // Stop when meet a wall/slide pass and isnt sliding
-    if ((xSpeed > 0 && (PlayerCollisionRight(x, y, angle, maskBig))) || (xSpeed > 0 && PlayerCollisionObjectRight(x, y, angle, maskBig, objSlidepassSensor) && action != PlayerActionSlide && action != PlayerActionRoll)) {
+    if ((xSpeed > 0 && (PlayerCollisionRight(x, y, angle, maskBig))) || (xSpeed > 0 && PlayerCollisionObjectRight(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
         xSpeed = 0;
         pushingTerrain = true;
-        if (ground && action != PlayerActionPush && floorto(angle, 22.5) == 0) {
+        if (ground && state != PlayerStatePush && floorto(angle, 22.5) == 0) {
             xDirection = 1;
-            PlayerSetAction(PlayerActionPush);
+            PlayerSetState(PlayerStatePush);
         }
     }
-    else if ((xSpeed < 0 && (PlayerCollisionLeft(x, y, angle, maskBig))) || (xSpeed < 0 && PlayerCollisionObjectLeft(x, y, angle, maskBig, objSlidepassSensor) && action != PlayerActionSlide && action != PlayerActionRoll)) {
+    else if ((xSpeed < 0 && (PlayerCollisionLeft(x, y, angle, maskBig))) || (xSpeed < 0 && PlayerCollisionObjectLeft(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
         xSpeed = 0;
         pushingTerrain = true;
-        if (ground && action != PlayerActionPush && floorto(angle, 22.5) == 0) {
+        if (ground && state != PlayerStatePush && floorto(angle, 22.5) == 0) {
             xDirection = -1;
-            PlayerSetAction(PlayerActionPush);
+            PlayerSetState(PlayerStatePush);
         }
     }
     else {
@@ -535,7 +535,7 @@ applies_to=self
 
 canHome = false;
 // Stop boosting
-if (!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || action == PlayerActionRoll || animation == "FLING" || (boostAirTimer == 0 && !ground)) && boosting {
+if (!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || state == PlayerStateRoll || animation == "FLING" || (boostAirTimer == 0 && !ground)) && boosting {
     boosting = false;
     canBoost = false;
     PlayerPhysicModeSet(physicsMode);
@@ -543,25 +543,25 @@ if (!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || action == PlayerActionRo
 
 if (boosting) {
     if (!ground) {
-        if (action != PlayerActionCorkscrew) {
+        if (state != PlayerStateCorkscrew) {
             boostAirTimer -= 1;
         }
     }
 }
 
-// Perform action script
-script_execute(action);
-actionTimer += 1;
+// Perform state script
+script_execute(state);
+stateTimer += 1;
 
 attackPossible = boosting ||
     invincibility == InvincibilityMonitor ||
-    action == PlayerActionJump ||
-    action == PlayerActionRoll ||
-    action == PlayerActionAirdash ||
-    action == PlayerActionHomingAttack ||
-    action == PlayerActionStomp ||
-    action == PlayerActionSlide ||
-    action == PlayerActionLightspeed
+    state == PlayerStateJump ||
+    state == PlayerStateRoll ||
+    state == PlayerStateAirdash ||
+    state == PlayerStateHomingAttack ||
+    state == PlayerStateStomp ||
+    state == PlayerStateSlide ||
+    state == PlayerStateLightspeed
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -570,7 +570,7 @@ applies_to=self
 /// Object handle
 // Handle collisions with objects
 
-if (action != PlayerActionDead) {
+if (state != PlayerStateDead) {
     interactDelay = max(interactDelay - 1, 0)
 
     PlayerHandleLayers();
@@ -655,7 +655,7 @@ applies_to=self
 /// Underwater
 
 // Check if the player is underwater
-if (physicsMode == PhysicsWater && action != PlayerActionDead) {
+if (physicsMode == PhysicsWater && state != PlayerStateDead) {
     underwaterAirTimer -= 1;
 
     // Spawn some bubbles
@@ -676,7 +676,7 @@ if (physicsMode == PhysicsWater && action != PlayerActionDead) {
         // Check if we have drowned
         if (underwaterDrownFrame >= 5.9 && !sound_isplaying("snd/PlayerDrown")) {
             global.playerRings = 0;
-            PlayerSetAction(PlayerActionDead);
+            PlayerSetState(PlayerStateDead);
 
             sound_stop("snd/PlayerLossingAir");
             PlaySound("snd/PlayerDrown");
@@ -713,7 +713,7 @@ AnimationSystem(animationAnimationList);
 
 // Rotate Sprites
 if (xSpeed == 0 && ground
-|| action == PlayerActionRoll) {
+|| state == PlayerStateRoll) {
     animationAngle = 0;
 }
 else {
@@ -820,7 +820,7 @@ if (invincibility != InvincibilityHurt) {
     }
 }
 else {
-    if (action != PlayerActionHurt) {
+    if (state != PlayerStateHurt) {
         invincibility = InvincibilityNoone;
     }
 }
@@ -875,7 +875,7 @@ if (trailAlpha > 0.1) {
 }
 
 // Draw grind effect
-if (action == PlayerActionGrind) {
+if (state == PlayerStateGrind) {
     draw_sprite_ext(sprPlayerGrind, global.gameTime div 30, floor(x), floor(y), xDirection, yDirection, animationAngle, c_white, image_alpha);
 }
 
@@ -891,7 +891,7 @@ if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink 
     shader_reset();
 }
 
-if (action == PlayerActionSpindash) {
+if (state == PlayerStateSpindash) {
     // Spindash normal dust
     if (animation == "SPINDASH") {
         draw_sprite_ext(sprPlayerSpindashLow, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, animationAngle, c_white, image_alpha);
@@ -906,7 +906,7 @@ if (action == PlayerActionSpindash) {
 // Check if the player is underwater
 if (physicsMode == PhysicsWater) {
     // Check if the player is drowning
-    if (underwaterAirTimer < 120 && action != PlayerActionDead) {
+    if (underwaterAirTimer < 120 && state != PlayerStateDead) {
         // If drowning, show time till you drown
         draw_sprite(sprDrownTimer, floor(underwaterDrownFrame), floor(x) + 16, floor(y) - 12);
     }

@@ -1,4 +1,4 @@
-/// PlayerActionStomp()
+/// PlayerStateStomp()
 
 PlayerXMovement();
 xSpeed = approach(xSpeed, 0, 0.01)
@@ -6,7 +6,7 @@ ySpeed = 16;
 
 // Land
 if (ground) {
-    PlayerSetAction(PlayerActionStompLand);
+    PlayerSetState(PlayerStateStompLand);
     ySpeed = 0;
 
     PlaySound("snd/PlayerStompLand");

@@ -21,11 +21,11 @@ monIcon = instance_create(x, y, objMonitorIcon);
 monIcon.ownerID = other.id;
 monIcon.icon = icon;
 
-if (other.action == PlayerActionJump && other.ySpeed > 0) {
+if (other.state == PlayerStateJump && other.ySpeed > 0) {
     other.ySpeed *= -0.9;
 }
 with (other) {
-    PlayerHomingReset(PlayerActionHomingFlight, 0, -6.7, 0, x, y);
+    PlayerHomingReset(PlayerStateHomingFlight, 0, -6.7, 0, x, y);
 }
 
 // Create explosion

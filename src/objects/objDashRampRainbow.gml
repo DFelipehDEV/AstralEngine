@@ -11,7 +11,7 @@ event_inherited();             //Get parent variables
 dashXStrength = 14;            //X Strength
 dashYStrength = -14;           //Y Strength
 
-dashRampPAct = PlayerActionQTEKeys; //Player action when he meets the dash ramp
+dashRampPAct = PlayerStateQTEKeys; //Player state when he meets the dash ramp
 
 dashRampQTEFailedXSpeed = 6;
 dashRampQTEFailedYSpeed = -3;

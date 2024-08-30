@@ -17,12 +17,12 @@ if (_ringNormal != noone) {
         instance_destroy();
     }
 
-    if (action != PlayerActionLightspeed) {
+    if (state != PlayerStateLightspeed) {
         PlayerAddEnergy(4);
     }
 }
 
-if (_ringDrop != noone && (action != PlayerActionHurt && invincibilityTimer < 100)) {
+if (_ringDrop != noone && (state != PlayerStateHurt && invincibilityTimer < 100)) {
     global.playerRings += 1;
     with (_ringDrop) {
         instance_create(x, y, objRingCollected);
@@ -41,7 +41,7 @@ if (_ringMagnetic != noone) {
     PlayerAddEnergy(4);
 }
 
-if (_ringHyper != noone && (action != PlayerActionHurt && invincibilityTimer < 100)) {
+if (_ringHyper != noone && (state != PlayerStateHurt && invincibilityTimer < 100)) {
     global.playerRings += round(_ringHyper.value);
     with (_ringHyper) {
         instance_create(x, y, objRingCollected);

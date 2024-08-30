@@ -28,7 +28,7 @@
 		|PlayerCollision
 		|PlayerCollisionCache
 	+Util
-		|PlayerSetAction
+		|PlayerSetState
 		|PlayerAirdash
 		|PlayerAirdashReset
 		|PlayerGetAngle
@@ -56,34 +56,34 @@
 		|PlayerBoost
 		|PlayerSetCharacter
 	+Action
-		|PlayerActionNormal
-		|PlayerActionSpring
-		|PlayerActionTurn
-		|PlayerActionJump
-		|PlayerActionAirdash
-		|PlayerActionRoll
-		|PlayerActionCrouch
-		|PlayerActionLookup
-		|PlayerActionSpindash
-		|PlayerActionSkid
-		|PlayerActionHomingAttack
-		|PlayerActionHomingFlight
-		|PlayerActionWalljump
-		|PlayerActionGrind
-		|PlayerActionSlide
-		|PlayerActionStomp
-		|PlayerActionStompLand
-		|PlayerActionCorkscrew
-		|PlayerActionLightspeed
-		|PlayerActionTricks
-		|PlayerActionQTEKeys
-		|PlayerActionPush
-		|PlayerActionWaylauncher
-		|PlayerActionBoostAir
-		|PlayerActionGrab
-		|PlayerActionTransform
-		|PlayerActionHurt
-		|PlayerActionDead
+		|PlayerStateNormal
+		|PlayerStateSpring
+		|PlayerStateTurn
+		|PlayerStateJump
+		|PlayerStateAirdash
+		|PlayerStateRoll
+		|PlayerStateCrouch
+		|PlayerStateLookup
+		|PlayerStateSpindash
+		|PlayerStateSkid
+		|PlayerStateHomingAttack
+		|PlayerStateHomingFlight
+		|PlayerStateWalljump
+		|PlayerStateGrind
+		|PlayerStateSlide
+		|PlayerStateStomp
+		|PlayerStateStompLand
+		|PlayerStateCorkscrew
+		|PlayerStateLightspeed
+		|PlayerStateTricks
+		|PlayerStateQTEKeys
+		|PlayerStatePush
+		|PlayerStateWaylauncher
+		|PlayerStateBoostAir
+		|PlayerStateGrab
+		|PlayerStateTransform
+		|PlayerStateHurt
+		|PlayerStateDead
 	+Handles
 		|PlayerHandleLayers
 		|PlayerHandleRings
@@ -152,7 +152,6 @@
 	|SmoothStep
 	|DrawTiledTexturePos
 	|ease
-+Level
 +Shaders
 	|shdHeat
 	|shdColorSwap

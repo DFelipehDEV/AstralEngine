@@ -9,7 +9,7 @@ applies_to=self
 dashXStrength = 11;
 dashYStrength = -11;
 
-dashRampPAct = PlayerActionNormal; // Player action when he meets the dash ramp
+dashRampPAct = PlayerStateNormal; // Player state when he meets the dash ramp
 
 image_speed = 0.35;
 #define Other_4

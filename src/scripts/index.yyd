@@ -30,32 +30,32 @@ PlayerCollisionObjectMain
 PlayerGetAngle
 PlayerSetAngle
 
-PlayerActionNormal
-PlayerActionSpring
-PlayerActionTurn
-PlayerActionJump
+PlayerStateNormal
+PlayerStateSpring
+PlayerStateTurn
+PlayerStateJump
 DummyEffectCreate
-PlayerActionAirdash
-PlayerActionRoll
-PlayerActionCrouch
+PlayerStateAirdash
+PlayerStateRoll
+PlayerStateCrouch
 CameraLag
-PlayerActionLookup
-PlayerActionSpindash
-PlayerActionSkid
-PlayerActionHomingAttack
-PlayerActionWalljump
-PlayerActionGrind
-PlayerActionSlide
-PlayerActionStomp
+PlayerStateLookup
+PlayerStateSpindash
+PlayerStateSkid
+PlayerStateHomingAttack
+PlayerStateWalljump
+PlayerStateGrind
+PlayerStateSlide
+PlayerStateStomp
 
 CameraShakeX
 CameraShakeY
-PlayerActionStompLand
-PlayerActionCorkscrew
-PlayerActionLightspeed
-PlayerActionTricks
-PlayerActionQTEKeys
-PlayerActionHurt
+PlayerStateStompLand
+PlayerStateCorkscrew
+PlayerStateLightspeed
+PlayerStateTricks
+PlayerStateQTEKeys
+PlayerStateHurt
 
 PlayerHandleLayers
 
@@ -115,11 +115,11 @@ PlayerAirdashReset
 PlayerAddEnergy
 PlayerTerrainSndUpdate
 
-PlayerActionDead
+PlayerStateDead
 PlayerCollisionHitboxFast
 DebrisEffectCreate
 PlayerHandleDestructive
-PlayerActionPush
+PlayerStatePush
 PlayerCollisionCache
 
 ViewSetZoom
@@ -137,13 +137,13 @@ GameStateGet
 GameStateSet
 PlayerHandleHurt
 AfterimageEffectCreate
-PlayerActionWaylauncher
-PlayerActionBoostAir
-PlayerActionGrab
+PlayerStateWaylauncher
+PlayerStateBoostAir
+PlayerStateGrab
 DeactivateExceptionsAdd
 DeactivateExceptionsRemove
 PlayerFlight
-PlayerSetAction
+PlayerSetState
 PlaySoundExt
 
 PlayVoice
@@ -161,13 +161,13 @@ shdHeat
 PlayerXMovement
 PlayerXMovementExt
 
-PlayerActionHomingFlight
+PlayerStateHomingFlight
 PlayerBoost
 shdColorSwap
 AnimationIndexSuperSonic
 PlayerPhysicsSuperSonic
 PlayerSetCharacter
-PlayerActionTransform
+PlayerStateTransform
 SmoothStep
 DrawTiledTexturePos
 ease

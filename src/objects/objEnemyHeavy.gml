@@ -11,7 +11,7 @@ event_inherited();
 image_speed = 0.15;
 turnTimer = 50;           //How long it takes to turn
 turnTimerTemp = turnTimer;    //Keep the original value on track
-action = "NORMAL";
+state = "NORMAL";
 nearPlayer = 0;            //Checks if the player is near of the enemy
 
 enemyBust = true;
@@ -29,7 +29,7 @@ applies_to=self
 */
 /// Start chasing the player
 
-action = "CHASE";
+state = "CHASE";
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -57,7 +57,7 @@ else {
     }
 }
 
-switch (action) {
+switch (state) {
     case "TURN":
         // If the turn timer is not expired, pause the enemy's movement
         if (turnTimer > 0) {
@@ -69,7 +69,7 @@ switch (action) {
             // Check if the animation has ended
             if (image_index >= 2) {
                 image_xscale = -image_xscale;
-                action = "NORMAL";
+                state = "NORMAL";
                 EnemySetAnimation(sprEnemyHeavyWalk, 0.15);
             }
         }
@@ -83,14 +83,14 @@ switch (action) {
         // Check if the player is in front of the enemy
         if ((distance_to_object(objPlayer) < 140 && image_xscale == sign(objPlayer.x - x)) || (hit)) {
             // Player was spotted
-            action = "SPOTTED";
+            state = "SPOTTED";
         }
 
         // Check if the enemy is colliding with the turn sensor
         if (place_meeting(x, y, objEnemyTurn) && !place_meeting(xprevious, yprevious, objEnemyTurn)) {
             turnTimer = turnTimerTemp;
             xSpeed = 0;
-            action = "TURN";
+            state = "TURN";
         }
         break;
 
@@ -115,13 +115,13 @@ switch (action) {
 
         // If the player is too far away or too close to the enemy's turn sensor, switch to the normal state.
         if (distance_to_object(objPlayer) > 160) {
-            action = "NORMAL";
+            state = "NORMAL";
         }
 
         if (distance_to_object(objPlayer) < 30) {
             if (objPlayer.invincibility == InvincibilityNoone) {
                 xSpeed = 0;
-                action = "ATTACK";
+                state = "ATTACK";
                 PlaySoundExt("snd/Wind", global.volumeSounds, random_range(0.5, 0.9), false);
                 EnemySetAnimation(sprEnemyHeavyAttack, 0.17);
             }
@@ -152,13 +152,13 @@ switch (action) {
         // Check if the animation has ended
         if (image_index >= 8) {
             // Check if we are near the player or the player is dead
-            if (distance_to_object(objPlayer) > 150 || objPlayer.action == PlayerActionDead) {
-                action = "RETURN";
+            if (distance_to_object(objPlayer) > 150 || objPlayer.state == PlayerStateDead) {
+                state = "RETURN";
                 EnemySetAnimation(sprEnemyHeavyWalk, 0.15);
             }
             else {
                 // The player is near the enemy so we chase the player
-                action = "CHASE";
+                state = "CHASE";
                 EnemySetAnimation(sprEnemyHeavyWalk, 0.15);
             }
             hammer = false;
@@ -180,7 +180,7 @@ switch (action) {
         // Check if we are on the previous position before chasing the player
         if (floorto(x, 4) == floorto(normalStateX, 4)) {
             // Start patrolling
-            action = "NORMAL";
+            state = "NORMAL";
         }
         break;
 }

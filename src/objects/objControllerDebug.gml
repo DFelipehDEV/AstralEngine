@@ -117,7 +117,7 @@ if (overlay) {
         draw_set_color(c_white)
 
         var _playerAction;
-        _playerAction = string_replace_all(string(script_get_name(global.player[0].action)), "Player", ""); // Remove initial 'Player', (e.g., from PlayerPlayerActionNormal to PlayerActionNormal)
+        _playerAction = string_replace_all(string(script_get_name(global.player[0].state)), "Player", ""); // Remove initial 'Player', (e.g., from PlayerPlayerStateNormal to PlayerStateNormal)
         // Debug overlay
         var _playerText;
         _playerText = "FPS:" + string(fps) + " " + string(fps_real)

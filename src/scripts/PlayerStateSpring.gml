@@ -1,4 +1,4 @@
-/// PlayerActionSpring()
+/// PlayerStateSpring()
 
 PlayerXMovement();
 // Animations
@@ -57,5 +57,5 @@ PlayerStomp();
 
 // Reset after touching the ground
 if (ground) {
-    PlayerSetAction(PlayerActionNormal);
+    PlayerSetState(PlayerStateNormal);
 }

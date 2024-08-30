@@ -1,6 +1,6 @@
 /// PlayerHandleRails()
 
-if (action != PlayerActionGrind) {
+if (state != PlayerStateGrind) {
     var _railNormal, _railLayer0, _railLayer1;
     _railNormal = PlayerCollisionObjectBottom(x, y, 0, maskBig, objRail);
     _railLayer0 = PlayerCollisionObjectBottom(x, y, 0, maskBig, objRailLayer0);
@@ -11,6 +11,6 @@ if (action != PlayerActionGrind) {
     || (_railLayer0 != noone && terrainLayer == 0)
     || (_railLayer1 != noone && terrainLayer == 1)) && ground {
         PlaySound("snd/PlayerGrindStart");
-        PlayerSetAction(PlayerActionGrind);
+        PlayerSetState(PlayerStateGrind);
     }
 }

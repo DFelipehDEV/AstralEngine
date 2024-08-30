@@ -1,4 +1,4 @@
-/// PlayerActionJump()
+/// PlayerStateJump()
 
 PlayerXMovement();
 // Animations
@@ -39,7 +39,7 @@ if(ySpeed < 0 && ySpeed >= -4) {
 }
 
 if (global.playerRings >= 50 && keySpecial3Pressed && character == CharacterSonic) {
-    PlayerSetAction(PlayerActionTransform);
+    PlayerSetState(PlayerStateTransform);
     xSpeed = 0;
 }
 
@@ -51,5 +51,5 @@ PlayerBoost(true);
 
 // Reset after touching the ground
 if (ground) {
-    PlayerSetAction(PlayerActionNormal);
+    PlayerSetState(PlayerStateNormal);
 }

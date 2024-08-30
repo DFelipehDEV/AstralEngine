@@ -6,7 +6,7 @@ if (keySpecial3Pressed && distance_to_object(objRing) <= 40) {
     if (!collision_line(x, y, _nearRing.x, _nearRing.y, objTerrain, 1, 1)) {
         ySpeed = -1;
         ground = false;
-        PlayerSetAction(PlayerActionLightspeed);
+        PlayerSetState(PlayerStateLightspeed);
         PlayerSetAngle(0);
     }
 }

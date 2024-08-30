@@ -1,4 +1,4 @@
-/// PlayerActionTricks()
+/// PlayerStateTricks()
 
 afterimageTimer = 15;
 if (animation == "SPRING") {
@@ -38,7 +38,7 @@ if (keySpecial3Pressed) {
     trickCombo = 0;
     PlayerAddEnergy(21);
 
-    PlayerSetAction(PlayerActionSpring);
+    PlayerSetState(PlayerStateSpring);
     AnimationApply("SPRING_TRICK_HORIZONTAL");
 
     global.deltaMultiplier = 1;
@@ -48,6 +48,6 @@ if (keySpecial3Pressed) {
 
 if (ground) {
     global.deltaMultiplier = 1;
-    PlayerSetAction(PlayerActionNormal);
+    PlayerSetState(PlayerStateNormal);
     allowKeysTimer = 0;
 }

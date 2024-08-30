@@ -1,17 +1,17 @@
-/// PlayerActionCrouch()
+/// PlayerStateCrouch()
 
 // Reset
 if (!keyDown || keyUp) {
     animationFrame = max(animationFrame - 0.25, animationFrameStart);
     animationFrameSpeed = 0;
     if (animationFrame <= 0.25) {
-        PlayerSetAction(PlayerActionNormal);
+        PlayerSetState(PlayerStateNormal);
     }
 }
 else {
     // Spindash!
     if (keyActionPressed) {
-        PlayerSetAction(PlayerActionSpindash);
+        PlayerSetState(PlayerStateSpindash);
 
         // Create charge effect
         with (instance_create(x, y, objSpindashCharge)) {
