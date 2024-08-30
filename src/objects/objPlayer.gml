@@ -108,7 +108,7 @@ sensorSin = dsin(angle);
 interactDelay = 0; // Delay until we are able to interact with specific objects(dashs, swingpole...)
 physicsMode = 0;
 invincibility = 0;
-invincibilityTime = 0;
+invincibilityTimer = 0;
 shield = ShieldNoone;
 shieldInstance = noone;
 combineActive = false;
@@ -117,7 +117,7 @@ goal = false;
 // Water
 waterrunSolid = noone;
 underwaterDrownFrame = 0; // Frame index to drown timer
-underwaterAirTime = 600;
+underwaterAirTimer = 600;
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -657,15 +657,15 @@ applies_to=self
 
 // Check if the player is underwater
 if (physicsMode == PhysicsWater && action != PlayerActionDead) {
-    underwaterAirTime -= 1;
+    underwaterAirTimer -= 1;
 
     // Spawn some bubbles
-    if (underwaterAirTime mod 100 == 60) {
+    if (underwaterAirTimer mod 100 == 60) {
         instance_create(x, y, objWaterBubbleSmall);
     }
 
     // Check if the player is starting to drown
-    if (underwaterAirTime < 120) {
+    if (underwaterAirTimer < 120) {
         // Animate visual drown counter
         underwaterDrownFrame += 0.009;
 
@@ -803,8 +803,8 @@ applies_to=self
 
 // Decrease invincibility time
 if (invincibility != InvincibilityHurt) {
-    if (invincibilityTime > 0) {
-        invincibilityTime -= 1;
+    if (invincibilityTimer > 0) {
+        invincibilityTimer -= 1;
     }
     // End invincibility
     else {
@@ -881,7 +881,7 @@ if (action == PlayerActionGrind) {
 }
 
 // Draw character if the player is not hurt. Blink when hurt
-if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink && (invincibilityTime div 1.5) mod 3 == 1)) {
+if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink && (invincibilityTimer div 1.5) mod 3 == 1)) {
     if (character == CharacterSuperSonic) {
         shader_pixel_set(global.shaderColorSwap);
         texture_set_stage("Palette", sprite_get_texture(sprSonicPalette, ((global.roomTick/10) << 0) mod 2))
@@ -907,7 +907,7 @@ if (action == PlayerActionSpindash) {
 // Check if the player is underwater
 if (physicsMode == PhysicsWater) {
     // Check if the player is drowning
-    if (underwaterAirTime < 120 && action != PlayerActionDead) {
+    if (underwaterAirTimer < 120 && action != PlayerActionDead) {
         // If drowning, show time till you drown
         draw_sprite(sprDrownTimer, floor(underwaterDrownFrame), floor(x) + 16, floor(y) - 12);
     }

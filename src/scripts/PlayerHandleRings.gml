@@ -22,7 +22,7 @@ if (_ringNormal != noone) {
     }
 }
 
-if (_ringDrop != noone && (action != PlayerActionHurt && invincibilityTime < 100)) {
+if (_ringDrop != noone && (action != PlayerActionHurt && invincibilityTimer < 100)) {
     global.playerRings += 1;
     with (_ringDrop) {
         instance_create(x, y, objRingCollected);
@@ -41,7 +41,7 @@ if (_ringMagnetic != noone) {
     PlayerAddEnergy(4);
 }
 
-if (_ringHyper != noone && (action != PlayerActionHurt && invincibilityTime < 100)) {
+if (_ringHyper != noone && (action != PlayerActionHurt && invincibilityTimer < 100)) {
     global.playerRings += round(_ringHyper.value);
     with (_ringHyper) {
         instance_create(x, y, objRingCollected);

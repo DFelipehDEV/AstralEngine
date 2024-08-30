@@ -1,10 +1,10 @@
-/// PlayerHomingReset(action, xSpeed, ySpeed, invincibilityTime, x, y)
+/// PlayerHomingReset(action, xSpeed, ySpeed, invincibilityTimer, x, y)
  // Resets player from a homing state
 
 if (action == PlayerActionHomingAttack) {
     // Avoid death after homing
-    if (invincibilityTime < argument3) {
-        invincibilityTime = argument3;
+    if (invincibilityTimer < argument3) {
+        invincibilityTimer = argument3;
     }
     xSpeed = argument1;
     ySpeed = argument2;

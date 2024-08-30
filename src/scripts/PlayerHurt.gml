@@ -1,5 +1,5 @@
 /// PlayerHurt()
-if (invincibilityTime == 0 && invincibility != InvincibilityHurt && character != CharacterSuperSonic) {
+if (invincibilityTimer == 0 && invincibility != InvincibilityHurt && character != CharacterSuperSonic) {
     // Set player to its opposite direction
     if (sign(xSpeed) != 0) {
         xSpeed = -2.7*sign(xSpeed);

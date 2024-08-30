@@ -116,7 +116,7 @@ switch (icon) {
     case 9:
         with (ownerID) {
             invincibility = InvincibilityMonitor;
-            invincibilityTime = 1150;
+            invincibilityTimer = 1150;
             starTimer = 1130;
         }
         with (music) {

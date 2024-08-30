@@ -21,7 +21,7 @@ if (physicsMode == PhysicsWater) {
     if (!PlayerCollisionObjectMain(x, y, objWater)) {
         PlayerPhysicModeSet(PhysicsNormal);
         underwaterDrownFrame = 0;
-        underwaterAirTime = 600;
+        underwaterAirTimer = 600;
         if (instance_exists(objWaterHorizon)) {
             DummyEffectCreate(x, instance_nearest(x, y, objWaterHorizon).y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
             PlaySoundSingle("snd/WaterSplash", global.volumeSounds, 1);

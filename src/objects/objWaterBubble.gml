@@ -51,7 +51,7 @@ applies_to=self
 with (other) {
     xSpeed = 0;
     ySpeed = 0;
-    underwaterAirTime = 600;
+    underwaterAirTimer = 600;
     underwaterDrownFrame = 0;
 }
 PlaySound("snd/PlayerBreathe");

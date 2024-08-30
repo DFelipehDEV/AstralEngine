@@ -5,6 +5,6 @@ if (ground) {
     // Back to the normal action
     xSpeed = 0;
     invincibility = InvincibilityBlink;
-    invincibilityTime = 170;
+    invincibilityTimer = 170;
     PlayerSetAction(PlayerActionNormal);
 }
