@@ -26,6 +26,8 @@
 - decreased ripple strenght underwater
 - renamed objFightEnemiesSensor to objEnemiesArenaSensor
 - enemies are now always active in an arena
+- renamed SetupDialogue to DialogueAdd
+- renamed SetupFightAddEnemy to EnemiesArenaAddEnemy
 
 ***version 2.0.4 stable***
 - removed LudusLib dependency

@@ -101,7 +101,7 @@ PlayerHomingReset
 
 PlayerHandleBox
 EnemyInvincibility
-SetupDialogue
+DialogueAdd
 PlayerAngleLocals
 
 FadeMusic
@@ -130,7 +130,7 @@ EnemySetAnimation
 
 BodyApplyGravity
 
-SetupFightAddEnemy
+EnemiesArenaAddEnemy
 
 PlaySoundSingle
 GameStateGet

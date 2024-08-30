@@ -113,26 +113,25 @@ if (overlay) {
     if (instance_exists(global.player[0])) {
         draw_sprite_ext(sprTrigger, 0, view_xview[0] + 333, view_yview[0] + 103, 179, 185, 0, c_black, 1);
         draw_set_color(c_white)
-        draw_set_font(fontConsolas10)
+        draw_set_font(fontConsolas8AA1)
         draw_set_halign(fa_left)
-        draw_set_color(c_aqua)
+        draw_set_color(c_white)
 
         // Button guide
-        draw_text(view_xview[0] + 333, view_yview[0] + 1, "TAB:TOGGLE OVERLAY#MOUSE RIGHT:LERP PLAYER POSITION#R:RESTART ROOM#PGUP:NEXT ROOM#PGDN:PREVIOUS ROOM#PAUSE:STOP AUDIO");
+        draw_text(view_xview[0], view_yview[0], "TAB:TOGGLE OVERLAY#MOUSE RIGHT:LERP PLAYER POSITION#R:RESTART ROOM#PGUP:NEXT ROOM#PGDN:PREVIOUS ROOM#PAUSE:STOP AUDIO");
         draw_set_color(c_white)
 
         var _playerAction;
-        _playerAction = string_replace_all(string(script_get_name(global.player[0].action)), "Player", ""); // Remove initial Player, for example from PlayerPlayerActionNormal to PlayerActionNormal
+        _playerAction = string_replace_all(string(script_get_name(global.player[0].action)), "Player", ""); // Remove initial 'Player', (e.g., from PlayerPlayerActionNormal to PlayerActionNormal)
         // Debug overlay
         draw_text
-        (view_xview[0] + 333, view_yview[0] + 57+48,
-        string("XSPEED " + string(global.player[0].xSpeed)) + " " + string(floor(global.player[0].x))
-        + string("#YSPEED " + string(global.player[0].ySpeed)) + " " + string(floor(global.player[0].y))
-        + string("#GROUND " + string(global.player[0].ground))
-        + string("#DIR " + string(global.player[0].xDirection))
-        + string("#ACTION " + _playerAction)
-        + string("#ANGLE " + string(global.player[0].angle) + " " + string(global.player[0].angleCos) + " " + string(global.player[0].angleSin) + " " + string(global.player[0].angleMode))
-        + string("#FPS " + string(fps) + " " + string(fps_real))
+        (view_xview[0] + 333, view_yview[0] + 103,
+        "XSPEED " + string(global.player[0].xSpeed) + " " + string(floor(global.player[0].x))
+        + "#YSPEED " + string(global.player[0].ySpeed) + " " + string(floor(global.player[0].y))
+        + "#GROUND " + string(global.player[0].ground)
+        + "#DIR " + string(global.player[0].xDirection)
+        + "#ACTION " + _playerAction
+        + "#ANGLE " + string(global.player[0].angle) + " " + string(global.player[0].angleCos) + " " + string(global.player[0].angleSin) + " " + string(global.player[0].angleMode)
         )
     }
 }
