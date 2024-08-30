@@ -14,6 +14,7 @@ angle[0] = 0;
 angle[1] = 0;
 
 ownerID = noone;
+target = noone;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

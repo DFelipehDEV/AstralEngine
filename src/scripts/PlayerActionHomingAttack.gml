@@ -1,12 +1,12 @@
 /// PlayerActionHomingAttack()
 
 afterimageTime = 15;
-if (!instance_exists(homingReticleTarget)){ PlayerSetAction(PlayerActionNormal); exit; }
+if (!instance_exists(homingReticle.target)){ PlayerSetAction(PlayerActionNormal); exit; }
 
 animationFrameSpeed = 0.55 + abs(xSpeed)/17;
 
 var _homingTargetDirection;
-_homingTargetDirection = point_direction(x, y, homingReticleTarget.x, homingReticleTarget.y);
+_homingTargetDirection = point_direction(x, y, homingReticle.target.x, homingReticle.target.y);
 
 // Check if we are not inside terrain
 if (!place_meeting(x, y, objSolid) && !place_meeting(x, y, objPlatform) && actionTimer < 50) {

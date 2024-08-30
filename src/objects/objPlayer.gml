@@ -56,7 +56,6 @@ canHome = false;
 homingSpeed = 12;
 homingMaxDistance = 220;
 homingReticle = noone;
-homingReticleTarget = noone;
 
 // Possible homing targets
 homingObjects = ds_list_create();
@@ -75,9 +74,9 @@ xDecelerationTemp = 0;
 xDirection = 1;
 
 // Vertical speed
+noGravityTimer = 0; // This keeps the gravity unexistent
 yAcceleration = 0.21; // Gravity
 yAccelerationCommon = yAcceleration;
-noGravityTimer = 0; // This keeps the gravity unexistent
 yDirection = 1;
 
 // Terrain
@@ -514,9 +513,9 @@ if (canHome) {
                         if (!collision_line(x, y, _currentObjectNear.x, _currentObjectNear.y, objTerrain, 1, 1)) {
                             // Create reticle at the nearest target
                             homingReticle = instance_create(_currentObjectNear.x, _currentObjectNear.y, objPlayerReticle)
-                            homingReticleTarget = _currentObjectNear;
+                            homingReticle.target = _currentObjectNear;
                             with (homingReticle) {
-                                target = other.homingReticleTarget;
+                                target = other.homingReticle.target;
                                 ownerID = other.id;
                             }
                             break;
