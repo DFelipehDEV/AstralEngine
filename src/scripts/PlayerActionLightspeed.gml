@@ -1,6 +1,6 @@
 /// PlayerActionLightspeed()
 
-afterimageTime = 15;
+afterimageTimer = 15;
 if (distance_to_object(objRing) > 90 || !instance_exists(objRing) || ground) {
     PlayerSetAction(PlayerActionNormal);
     xSpeed /= 1.65;

@@ -179,7 +179,7 @@ starTimer = 0;
 // Sound
 grind = 0;
 
-afterimageTime = 0;
+afterimageTimer = 0;
 
 character = CharacterSonic;
 characterPhysics = PlayerPhysicsSonic;
@@ -770,12 +770,12 @@ switch (animation) {
 trailTimer -= 1;
 trailAlpha = lerp(trailAlpha, trailTimer/110, 0.08);
 // AfterImage
-afterimageTime = max(afterimageTime - 1, 0);
-if (abs(xSpeed) >= 11 || abs(ySpeed) >= 11) && afterimageTime == 0 {
-    afterimageTime = 15;
+afterimageTimer = max(afterimageTimer - 1, 0);
+if (abs(xSpeed) >= 11 || abs(ySpeed) >= 11) && afterimageTimer == 0 {
+    afterimageTimer = 15;
 }
 
-if (afterimageTime > 0) {
+if (afterimageTimer > 0) {
     if (round(global.roomTick*global.deltaMultiplier) mod 6 == 1) {
         AfterimageEffectCreate(x, y, animationSprite, animationFrame, 1, xDirection, 1, animationAngle, afterimageColor1, afterimageColor2);
     }

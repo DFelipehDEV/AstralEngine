@@ -1,6 +1,6 @@
 /// PlayerActionHomingAttack()
 
-afterimageTime = 15;
+afterimageTimer = 15;
 if (!instance_exists(homingReticle.target)){ PlayerSetAction(PlayerActionNormal); exit; }
 
 animationFrameSpeed = 0.55 + abs(xSpeed)/17;
