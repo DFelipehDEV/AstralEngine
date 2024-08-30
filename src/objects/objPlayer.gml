@@ -87,7 +87,7 @@ terrainSound[TerFootstep2] = "snd/PlayerFootstepStone2";
 terrainSound[TerLand] = "snd/PlayerLand";
 terrainSound[TerSkid] = "snd/PlayerSkidStone";
 terrainPlatform = false; // Whether we are in a platform
-terrainPushing = false; // Whether the player is pushing into a wall
+pushingTerrain = false; // Whether the player is pushing into a wall
 footstepPlayed = false;
 
 angle = 0;
@@ -468,7 +468,7 @@ if (canMove) {
     // Stop when meet a wall/slide pass and isnt sliding
     if ((xSpeed > 0 && (PlayerCollisionRight(x, y, angle, maskBig))) || (xSpeed > 0 && PlayerCollisionObjectRight(x, y, angle, maskBig, objSlidepassSensor) && action != PlayerActionSlide && action != PlayerActionRoll)) {
         xSpeed = 0;
-        terrainPushing = true;
+        pushingTerrain = true;
         if (ground && action != PlayerActionPush && floorto(angle, 22.5) == 0) {
             xDirection = 1;
             PlayerSetAction(PlayerActionPush);
@@ -476,14 +476,14 @@ if (canMove) {
     }
     else if ((xSpeed < 0 && (PlayerCollisionLeft(x, y, angle, maskBig))) || (xSpeed < 0 && PlayerCollisionObjectLeft(x, y, angle, maskBig, objSlidepassSensor) && action != PlayerActionSlide && action != PlayerActionRoll)) {
         xSpeed = 0;
-        terrainPushing = true;
+        pushingTerrain = true;
         if (ground && action != PlayerActionPush && floorto(angle, 22.5) == 0) {
             xDirection = -1;
             PlayerSetAction(PlayerActionPush);
         }
     }
     else {
-        terrainPushing = false;
+        pushingTerrain = false;
     }
 
     // Decrease gravity freeze timer

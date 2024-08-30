@@ -4,7 +4,7 @@
 var _dashPad, _dashRing, _dashRamp, _dashRail;
 _dashPad = PlayerCollisionHitbox(x, y, objDashPad);
 if (_dashPad != noone) {
-    if (terrainPushing && !ground) {
+    if (pushingTerrain && !ground) {
         ground = true;
         PlayerSetAngle(_dashPad.image_angle);
         ySpeed = 0;

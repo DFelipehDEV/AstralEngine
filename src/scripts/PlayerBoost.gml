@@ -4,7 +4,7 @@ var _aircanBoost;
 _aircanBoost = argument0;
 
 // Check if the player is not colliding with a wall
-if (!terrainPushing) {
+if (!pushingTerrain) {
     if (energy > 0) {
         // Trigger boost dash
         if (keySpecial1Pressed && !boosting) {
