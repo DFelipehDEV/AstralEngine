@@ -140,7 +140,7 @@ switch (action) {
 
     case PlayerActionBoostAir:
         boostAirTime = 80;
-        boostPossible = true;
+        canBoost = true;
         AnimationApply("LAUNCH");
         break;
 

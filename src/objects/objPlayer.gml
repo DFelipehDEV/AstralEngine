@@ -38,8 +38,8 @@ rollDecelerationSlopeUp = 0.06; // Roll deceleration while going up a slope
 rollDecelerationSlopeDown = 0.25; // Roll deceleration while going down a slope
 
 // Boost
+canBoost = true;
 boosting = false;
-boostPossible = true;
 boostStartSpeed = 11.2;
 boostAirTime = 90; // Amount of time the player can boost in the air
 boostInstance = noone;
@@ -538,7 +538,7 @@ canHome = false;
 // Stop boosting
 if (!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || action == PlayerActionRoll || animation == "FLING" || (boostAirTime == 0 && !ground)) && boosting {
     boosting = false;
-    boostPossible = false;
+    canBoost = false;
     PlayerPhysicModeSet(physicsMode);
 }
 

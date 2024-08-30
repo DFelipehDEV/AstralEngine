@@ -1,7 +1,7 @@
-/// PlayerBoost(airboostPossible)
+/// PlayerBoost(aircanBoost)
 
-var _airboostPossible;
-_airboostPossible = argument0;
+var _aircanBoost;
+_aircanBoost = argument0;
 
 // Check if the player is not colliding with a wall
 if (!terrainPushing) {
@@ -29,7 +29,7 @@ if (!terrainPushing) {
             instance_create(x, y, objBoostShockwave);
 
             // Check if the player is in the air
-            if (!ground && (_airboostPossible)) {
+            if (!ground && (_aircanBoost)) {
                 // Air boost dash
                 boosting = true;
                 PlayerSetAction(PlayerActionBoostAir);
@@ -47,12 +47,12 @@ if (!terrainPushing) {
                 PlayerPhysicModeSet(physicsMode);
             }
             else {
-                boostPossible = true;
+                canBoost = true;
             }
         }
 
         // Keep boosting
-        if (keySpecial1 && boostPossible) {
+        if (keySpecial1 && canBoost) {
             boosting = true;
             trailTimer = 120;
 
