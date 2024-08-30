@@ -41,7 +41,7 @@ rollDecelerationSlopeDown = 0.25; // Roll deceleration while going down a slope
 canBoost = true;
 boosting = false;
 boostStartSpeed = 11.2;
-boostAirTime = 90; // Amount of time the player can boost in the air
+boostAirTimer = 90; // Amount of time the player can boost in the air
 boostAura = noone;
 
 // Energy
@@ -441,7 +441,7 @@ if (canMove) {
             
             ySpeed = 0;
             ground = true;
-            boostAirTime = 90;
+            boostAirTimer = 90;
         }
     
         // Check if we're on the air but we collided with the ceiling
@@ -535,7 +535,7 @@ applies_to=self
 
 canHome = false;
 // Stop boosting
-if (!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || action == PlayerActionRoll || animation == "FLING" || (boostAirTime == 0 && !ground)) && boosting {
+if (!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || action == PlayerActionRoll || animation == "FLING" || (boostAirTimer == 0 && !ground)) && boosting {
     boosting = false;
     canBoost = false;
     PlayerPhysicModeSet(physicsMode);
@@ -544,7 +544,7 @@ if (!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || action == PlayerActionRo
 if (boosting) {
     if (!ground) {
         if (action != PlayerActionCorkscrew) {
-            boostAirTime -= 1;
+            boostAirTimer -= 1;
         }
     }
 }
