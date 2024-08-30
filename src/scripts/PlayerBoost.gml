@@ -34,9 +34,9 @@ if (!terrainPushing) {
                 boosting = true;
                 PlayerSetAction(PlayerActionBoostAir);
 
-                if (boostInstance == noone) {
-                    boostInstance = instance_create(x, y, objBoost);
-                    with (boostInstance) {
+                if (boostAura == noone) {
+                    boostAura = instance_create(x, y, objBoost);
+                    with (boostAura) {
                         sprite_index = other.boostSprite;
                         image_angle = point_direction(other.xprevious, other.yprevious, x, y);
                         ownerID = other.id;
@@ -56,9 +56,9 @@ if (!terrainPushing) {
             boosting = true;
             trailTimer = 120;
 
-            if (boostInstance == noone) {
-                boostInstance = instance_create(x, y, objBoost);
-                with (boostInstance) {
+            if (boostAura == noone) {
+                boostAura = instance_create(x, y, objBoost);
+                with (boostAura) {
                     sprite_index = other.boostSprite;
                     image_angle = point_direction(other.xprevious, other.yprevious, x, y);
                     ownerID = other.id;

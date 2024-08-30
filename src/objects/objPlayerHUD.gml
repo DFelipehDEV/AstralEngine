@@ -256,8 +256,8 @@ d3d_set_projection_ortho(_viewX, _viewY, ScreenWidth, ScreenHeight, 0) // Stop H
 
 if (ownerID != noone && instance_exists(ownerID) && !GameStateGet(GameStatePaused)) {
     // Speedlines
-    if (ownerID.boostInstance != noone) {
-        draw_sprite_ext(sprHUDSpeedlines, global.gameTime div 40, _viewX, _viewY, 1, 1, 0, c_white, (ownerID.boostInstance.image_alpha / 1.8))
+    if (ownerID.boostAura != noone) {
+        draw_sprite_ext(sprHUDSpeedlines, global.gameTime div 40, _viewX, _viewY, 1, 1, 0, c_white, (ownerID.boostAura.image_alpha / 1.8))
     }
     draw_set_font(global.fontHUD);
     draw_set_color(c_white);

@@ -42,7 +42,7 @@ canBoost = true;
 boosting = false;
 boostStartSpeed = 11.2;
 boostAirTime = 90; // Amount of time the player can boost in the air
-boostInstance = noone;
+boostAura = noone;
 
 // Energy
 energy = 87;

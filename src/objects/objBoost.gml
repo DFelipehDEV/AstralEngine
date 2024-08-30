@@ -21,7 +21,7 @@ applies_to=self
 
 sound_stop("snd/PlayerBoostLoop");
 sound_stop("snd/PlayerBoostContinue");
-ownerID.boostInstance = noone;
+ownerID.boostAura = noone;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
