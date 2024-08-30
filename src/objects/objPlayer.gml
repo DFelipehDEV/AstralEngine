@@ -496,33 +496,48 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Homing recticle
+/// Homing reticle
 
 if (canHome) {
-    var i;
+    var i, _currentObjectNear, _index;
+
     for (i = 0; i < ds_list_size(homingObjects); i += 1) {
-        var _index;
         _index = ds_list_find_value(homingObjects, i);
+
         if (instance_exists(_index)) {
-            var _currentObjectNear;
-            _currentObjectNear = instance_nearest(x + xDirection, y + 4, _index);
-            if (distance_to_object(_currentObjectNear) <= homingMaxDistance) {
-                if ((sign(_currentObjectNear.x - x) == xDirection || sign(_currentObjectNear.x - x) == 0) && y < _currentObjectNear.y + 9) {
-                    if (!instance_exists(objPlayerReticle)) {
-                        // Check if there is no terrain in the trajectory
-                        if (!collision_line(x, y, _currentObjectNear.x, _currentObjectNear.y, objTerrain, 1, 1)) {
-                            // Create reticle at the nearest target
-                            homingReticle = instance_create(_currentObjectNear.x, _currentObjectNear.y, objPlayerReticle)
-                            homingReticle.target = _currentObjectNear;
-                            with (homingReticle) {
-                                target = other.homingReticle.target;
-                                ownerID = other.id;
-                            }
-                            break;
-                        }
-                    }
+            _currentObjectNear = instance_nearest(x, y, _index);
+
+            if (!instance_exists(homingReticle)
+            && distance_to_object(_currentObjectNear) <= homingMaxDistance
+            && (sign(_currentObjectNear.x - x) == xDirection || sign(_currentObjectNear.x - x) == 0)
+            && y < _currentObjectNear.y + 9
+            && !collision_line(x, y, _currentObjectNear.x, _currentObjectNear.y, objTerrain, 1, 1)) {
+
+                // Create reticle at the nearest target
+                homingReticle = instance_create(_currentObjectNear.x, _currentObjectNear.y, objPlayerReticle);
+                homingReticle.target = _currentObjectNear;
+                homingReticle.ownerID = id;
+                break;
+            }
+        }
+    }
+
+    if (instance_exists(homingReticle)) {
+        if (instance_exists(homingReticle.target)) {
+            if (distance_to_object(homingReticle.target) > homingMaxDistance
+            || sign(homingReticle.target.x - x) != xDirection
+            || y >= homingReticle.target.y + 9
+            || collision_line(x, y, homingReticle.target.x, homingReticle.target.y, objTerrain, 1, 1)) {
+                // Destroy reticle if the target is no longer valid and not in the homing attack state
+                if (state != PlayerStateHomingAttack) {
+                    instance_destroy_id(homingReticle);
+                    homingReticle = noone;
                 }
             }
+        } else if (state != PlayerStateHomingAttack) {
+            // Destroy the reticle if the target no longer exists
+            instance_destroy_id(homingReticle);
+            homingReticle = noone;
         }
     }
 }

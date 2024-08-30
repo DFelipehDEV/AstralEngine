@@ -6,6 +6,7 @@ applies_to=self
 */
 /// Variables
 
+DeactivateExceptionsAdd(id);
 scale = 5;
 
 creationTimer = 0;
@@ -15,6 +16,15 @@ angle[1] = 0;
 
 ownerID = noone;
 target = noone;
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Destroy
+
+DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -24,8 +34,10 @@ applies_to=self
 /// Animation
 
 if (instance_exists(target)) {
-    x = lerp(x, target.x, 0.4);
-    y = lerp(y, target.y, 0.4);
+    x = target.x;
+    y = target.y;
+} else {
+    instance_destroy();
 }
 creationTimer = min(creationTimer + 1, 20);
 scale = ease(creationTimer, 5, -4, 20, "OutBack");
@@ -36,11 +48,6 @@ if (creationTimer == 4) {
 if (creationTimer > 15) {
     angle[0] += 1;
     angle[1] += 4;
-}
-
-
-if (!ownerID.canHome || distance_to_object(ownerID) > 210 || ownerID.y > y + 5|| distance_to_object(ownerID) < 4 || ownerID.ground || place_meeting(x, y, ownerID)) {
-    instance_destroy();
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION
