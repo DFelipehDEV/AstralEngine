@@ -165,7 +165,7 @@ switch (directionChosen) {
                     PlayerSetAction(PlayerActionNormal);
                     xDirection = -1;
                     AnimationApply("LAUNCH");
-                    yStuckTimer = 16;
+                    noGravityTimer = 16;
                     xSpeed = -9;
                     visible = true;
                     starTimer = 50;
@@ -201,7 +201,7 @@ switch (directionChosen) {
                     PlayerSetAction(PlayerActionNormal);
                     xDirection = 1;
                     AnimationApply("LAUNCH");
-                    yStuckTimer = 16;
+                    noGravityTimer = 16;
                     xSpeed = 9;
                     visible = true;
                     starTimer = 50;

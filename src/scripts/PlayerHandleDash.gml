@@ -35,7 +35,7 @@ if (_dashRing != noone) {
         xDirection = sign(xSpeed);
     }
 
-    yStuckTimer = 18;
+    noGravityTimer = 18;
     animationAngle = -_dashRing.image_angle;
 
     // Set slow motion

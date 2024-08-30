@@ -77,7 +77,7 @@ xDirection = 1;
 // Vertical speed
 yAcceleration = 0.21; // Gravity
 yAccelerationCommon = yAcceleration;
-yStuckTimer = 0; // This keeps the gravity unexistent
+noGravityTimer = 0; // This keeps the gravity unexistent
 yDirection = 1;
 
 // Terrain
@@ -419,7 +419,7 @@ if (canMove) {
         }
         
         // Add gravity
-        if (yStuckTimer == 0 && action != PlayerActionCorkscrew && action != PlayerActionAirdash
+        if (noGravityTimer == 0 && action != PlayerActionCorkscrew && action != PlayerActionAirdash
         && action != PlayerActionWaylauncher) {
             ySpeed = min(ySpeed + yAcceleration * global.deltaMultiplier, 15);
         }
@@ -488,8 +488,8 @@ if (canMove) {
     }
 
     // Decrease gravity freeze timer
-    if (yStuckTimer > 0) {
-        yStuckTimer -= 1;
+    if (noGravityTimer > 0) {
+        noGravityTimer -= 1;
     }
 }
 /*"/*'/**//* YYD ACTION
