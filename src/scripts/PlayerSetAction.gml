@@ -44,7 +44,7 @@ switch (action) {
         break;
 
     case PlayerActionAirdash:
-        airdashPossible = false;
+        canAirdash = false;
         AnimationApply("JUMP");
         if (keyLeft) {
             xSpeed = -11;

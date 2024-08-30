@@ -49,7 +49,7 @@ energy = 87;
 energyMax = 87;
 
 // Airdash
-airdashPossible = true;
+canAirdash = true;
 
 // Homing attack
 canHome = false;

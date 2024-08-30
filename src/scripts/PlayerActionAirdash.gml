@@ -6,6 +6,6 @@ if (ground || PlayerCollisionLeft(x, y, 0, maskBig) || PlayerCollisionRight(x, y
     xSpeed = 5 * xDirection;
     ground = false;
     PlayerSetAction(PlayerActionJump);
-    airdashPossible = false;
+    canAirdash = false;
 }
 xDirection = esign(xSpeed, xDirection);

@@ -2,7 +2,7 @@
 // Add this to a action script when you want airdash to be able to be performed
 
 // Air dash
-if (keyActionPressed && !ground && airdashPossible && !instance_exists(homingReticle)) {
+if (keyActionPressed && !ground && canAirdash && !instance_exists(homingReticle)) {
     PlayerSetAction(PlayerActionAirdash);
     trailTimer = 60;
 
