@@ -76,12 +76,12 @@ if (_playerExists) {
         global.player[0].y = lerp(global.player[0].y, mouse_y, 0.15);
         global.player[0].xSpeed = 0;
         global.player[0].ySpeed = 0;
-        global.player[0].movementAllow = false;
+        global.player[0].canMove = false;
         global.player[0].cam.x = global.player[0].x;
     }
 
     if (mouse_check_button_released(mb_right)) {
-        global.player[0].movementAllow = true;
+        global.player[0].canMove = true;
     }
 }
 

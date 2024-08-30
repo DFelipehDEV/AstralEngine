@@ -96,7 +96,7 @@ angleHolder = 0;
 angleCos = 0;
 angleSin = 0;
 angleMode = 0;
-movementAllow = true;
+canMove = true;
 
 // Sensors
 sensorX = x;
@@ -256,7 +256,7 @@ applies_to=self
 
 PlayerAngleLocals();
 
-if (movementAllow) {
+if (canMove) {
     x += (angleCos * xSpeed) * global.deltaMultiplier;
     y -= (angleSin * xSpeed) * global.deltaMultiplier;
 

@@ -37,7 +37,7 @@ if (pull) {
             ySpeed = -6;
             PlayerSetAction(PlayerActionNormal);
             y -= 16;
-            movementAllow = true;
+            canMove = true;
         }
         if (!sound_isplaying("snd/PlayerJump")) {
             PlaySoundExt("snd/PlayerJump", global.volumeSounds, 1.1, false);

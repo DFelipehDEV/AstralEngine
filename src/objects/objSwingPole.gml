@@ -37,7 +37,7 @@ if (active) {
             ySpeed = -dsin(_rot)*10*xDirection;
             x += xSpeed;
             y += ySpeed;
-            movementAllow = true;
+            canMove = true;
             animationAngle = 0;
             interactDelay = 15;
 

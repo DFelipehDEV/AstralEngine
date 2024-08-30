@@ -21,7 +21,7 @@ var _swing;
 _swing = PlayerCollisionObjectMain(x, y, objSwingPole);
 
 if (_swing != noone && action != PlayerActionGrab && interactDelay == 0) {
-    movementAllow = false;
+    canMove = false;
     xSpeed = 0;
     ySpeed = 0;
 

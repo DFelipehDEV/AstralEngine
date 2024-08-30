@@ -159,7 +159,7 @@ switch (action) {
     case PlayerActionDead:
         ySpeed = -6;
         ground = false;
-        movementAllow = false;
+        canMove = false;
         AnimationApply("DEAD");
         AnimationUpdate();
         PlaySound("snd/PlayerHurt");
