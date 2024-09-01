@@ -17,10 +17,10 @@ with (objControllerRoom) {
     ini_close();
 }
 ini_open("configf.ini");
-global.volumeSounds = ini_read_real("config", "sfxvolume", 0.5);
-global.volumeMusic = ini_read_real("config", "bgmvolume", 0.5);
-global.volumeVoice = ini_read_real("config", "voicevolume", 0.5);
-global.volumeAmbient = ini_read_real("config", "ambientvolume", 0.5);
+global.soundVolume = ini_read_real("config", "sfxvolume", 0.5);
+global.musicVolume = ini_read_real("config", "bgmvolume", 0.5);
+global.voiceVolume = ini_read_real("config", "voicevolume", 0.5);
+global.ambientVolume = ini_read_real("config", "ambientvolume", 0.5);
 
 PlaySound("snd/DialogueOpen");
 alarm[0] = 3;
@@ -61,10 +61,10 @@ if (keyboard_check(vk_alt) && keyboard_check(ord("R"))) {
         event_user(0);
         ini_close();
     }
-    global.volumeSounds = 1;
-    global.volumeMusic = 1;
-    global.volumeVoice = 1;
-    global.volumeAmbient = 1;
+    global.soundVolume = 1;
+    global.musicVolume = 1;
+    global.voiceVolume = 1;
+    global.ambientVolume = 1;
     ini_open("configf.ini");
     ini_write_real("config", "sfxvolume", 1);
     ini_write_real("config", "bgmvolume", 1);

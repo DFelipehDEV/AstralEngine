@@ -28,7 +28,6 @@ ParallaxBGVertical=6
 ParallaxBG=7
 CollisionSolid=0
 input=objInputManager
-music=objControllerMusic
 GameStateRunning=0
 GameStatePaused=1
 GameStateCutscene=2

@@ -27,7 +27,7 @@ if (keyActionPressed) {
         image_yscale = 0.0006;
         scalespeed = max(0.2, 0.2 + other.spindashStrength/50);
     }
-    PlaySoundSingle("snd/PlayerSpindashCharge", global.volumeSounds, 1 + (spindashStrength * 0.043));
+    PlaySoundSingle("snd/PlayerSpindashCharge", global.soundVolume, 1 + (spindashStrength * 0.043));
 }
 
 // Decrease strength while doing nothing

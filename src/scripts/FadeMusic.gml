@@ -1,12 +1,12 @@
 /// FadeMusic(fadeOut?)
 
-if (instance_exists(objControllerMusic)) {
+if (instance_exists(objMusicManager)) {
     if (argument0) {
-        objControllerMusic.fadeIn = false;
-        objControllerMusic.fadeOut = true;
+        objMusicManager.fadeIn = false;
+        objMusicManager.fadeOut = true;
     }
     else {
-        objControllerMusic.fadeIn = true;
-        objControllerMusic.fadeOut = false;
+        objMusicManager.fadeIn = true;
+        objMusicManager.fadeOut = false;
     }
 }

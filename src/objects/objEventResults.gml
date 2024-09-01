@@ -11,11 +11,11 @@ DeactivateExceptionsAdd(id);
 global.gameTimeAllow = false
 
 // Play victory music
-PlaySound("bgm/Victory", global.volumeMusic, 1, false);
+PlaySound("bgm/Victory", global.musicVolume, 1, false);
 
 // Stop music
-if (instance_exists(objControllerMusic)) {
-    objControllerMusic.fadeOut = true;
+if (instance_exists(objMusicManager)) {
+    objMusicManager.fadeOut = true;
 }
 
 overlaysHeight = 0;                 //Overlays sprite height being drawn
@@ -147,14 +147,14 @@ if (resultsTimer > 110) {
             // Check if the score is still being written
             if (!scoreFinished) {
                 if (!sound_isplaying("snd/ResultsScoreCount")) {
-                    PlaySound("snd/ResultsScoreCount", global.volumeSounds, 1, true);
+                    PlaySound("snd/ResultsScoreCount", global.soundVolume, 1, true);
                 }
             }
 
             if (resultsTimer > 370) {
                 // Play the results music after victory music ended
                 if (!sound_isplaying("bgm/Results")) {
-                    PlaySound("bgm/Results", global.volumeMusic, 1, false);
+                    PlaySound("bgm/Results", global.musicVolume, 1, false);
                 }
             }
 

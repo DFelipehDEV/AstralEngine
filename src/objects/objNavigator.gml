@@ -196,7 +196,7 @@ if (npcChatting) {
             textTotal = string_insert(_lettertofind, string(textTotal), letter)
             if (letterSoundTimer == 0) {
                 sound_stop("snd/DialogueType")
-                PlaySound("snd/DialogueType", global.volumeSounds, 1, false)
+                PlaySound("snd/DialogueType", global.soundVolume, 1, false)
                 letterSoundTimer = 4;
             }
         }

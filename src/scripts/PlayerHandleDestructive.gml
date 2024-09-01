@@ -5,7 +5,7 @@
 if (attackPossible && ground) {
     if (PlayerCollisionObjectRight(x + xSpeed, y, angle, maskBig, objDestructiveWall) != noone || PlayerCollisionObjectLeft(x + xSpeed, y, angle, maskBig, objDestructiveWall) != noone) {
         with (instance_nearest(x + xSpeed, y, objDestructiveWall)) {
-            PlaySoundExt(snd, global.volumeAmbient, 1, false);
+            PlaySoundExt(snd, global.ambientVolume, 1, false);
 
             // Spawn debris parts
             var _randomRange, _absRange;

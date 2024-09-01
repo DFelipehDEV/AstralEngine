@@ -91,7 +91,7 @@ objFootstepSensorMetal
 objFootstepSensorStone
 objFootstepSensorWater
 objFootstepSensorWood
-objControllerMusic
+objMusicManager
 objRail01
 objRail02
 objRail03

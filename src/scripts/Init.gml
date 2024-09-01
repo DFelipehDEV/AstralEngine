@@ -17,13 +17,10 @@ global.screenVSync = true;
 global.gamepad = joystick_count();
 
 // Volume
-global.volumeSounds = 1;
-global.volumeMusic = 1;
-global.volumeVoice = 1;
-global.volumeAmbient = 1;
-
-// Music
-global.bgmSound = -1;
+global.soundVolume = 1;
+global.musicVolume = 1;
+global.voiceVolume = 1;
+global.ambientVolume = 1;
 
 // Player
 global.player[0] = noone; // Player instance
@@ -49,7 +46,30 @@ global.shaderColorSwap = shdColorSwap();
 // Create essential controllers
 if (!instance_exists(objInputManager))
     instance_create(0, 0, objInputManager);
-if (!instance_exists(objControllerMusic))
-    instance_create(0, 0, objControllerMusic);
+if (!instance_exists(objMusicManager))
+    instance_create(0, 0, objMusicManager);
 if (!instance_exists(objControllerRoom))
     instance_create(0, 0, objControllerRoom);
+
+// Load configurations
+with (objControllerRoom) {
+    ini_open("configf.ini");
+    global.screenSize = ini_read_real("config", "screen", 1);
+    global.screenVSync = ini_read_real("config", "vsync", 1);
+    event_user(0);
+    ini_close();
+}
+ini_open("configf.ini");
+global.soundVolume = ini_read_real("config", "sfxvolume", 0.5);
+global.musicVolume = ini_read_real("config", "bgmvolume", 0.5);
+global.voiceVolume = ini_read_real("config", "voicevolume", 0.5);
+global.ambientVolume = ini_read_real("config", "ambientvolume", 0.5);
+ini_close();
+
+// Finish initialization and start the game
+if (!debug_mode) {
+    room_goto_next();
+}
+else {
+    room_goto(rmTest);
+}

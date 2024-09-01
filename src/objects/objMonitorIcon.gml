@@ -68,21 +68,21 @@ switch (icon) {
     // 5 Rings
     case 2:
         global.playerRings += 5;
-        PlaySoundSingle("snd/RingMonitor", global.volumeSounds, 1);
+        PlaySoundSingle("snd/RingMonitor", global.soundVolume, 1);
         break;
 
 
     // 10 Rings
     case 3:
         global.playerRings += 10;
-        PlaySoundSingle("snd/RingMonitor", global.volumeSounds, 1);
+        PlaySoundSingle("snd/RingMonitor", global.soundVolume, 1);
         break;
 
 
     // Random rings
     case 4:
         global.playerRings += irandom_range(1, 25);
-        PlaySoundSingle("snd/RingMonitor", global.volumeSounds, 1);
+        PlaySoundSingle("snd/RingMonitor", global.soundVolume, 1);
         break;
 
 
@@ -90,7 +90,7 @@ switch (icon) {
     case 5:
         with (ownerID) {
             PlayerAddEnergy(80);
-            PlaySoundSingle("snd/Trick", global.volumeSounds, 1);
+            PlaySoundSingle("snd/Trick", global.soundVolume, 1);
         }
         break;
 
@@ -99,7 +99,7 @@ switch (icon) {
     case 6:
         with (ownerID) {
             PlayerSetShield(ShieldNormal);
-            PlaySoundSingle("snd/ShieldMonitor", global.volumeSounds, 1);
+            PlaySoundSingle("snd/ShieldMonitor", global.soundVolume, 1);
         }
         break;
 
@@ -108,7 +108,7 @@ switch (icon) {
     case 7:
         with (ownerID) {
             PlayerSetShield(ShieldElectricity);
-            PlaySoundSingle("snd/ShieldMonitor", global.volumeSounds, 1.1);
+            PlaySoundSingle("snd/ShieldMonitor", global.soundVolume, 1.1);
         }
         break;
 
@@ -119,9 +119,7 @@ switch (icon) {
             invincibilityTimer = 1150;
             starTimer = 1130;
         }
-        with (music) {
-            playTempMusic = "bgm/Invincibility";
-        }
+        objMusicManager.playTempMusic = "bgm/Invincibility";
         FadeMusic(true);
         break;
 
@@ -130,7 +128,7 @@ switch (icon) {
         with (ownerID) {
             combineActive = true;
         }
-        PlaySoundSingle("snd/RingMonitor", global.volumeSounds, 0.75);
+        PlaySoundSingle("snd/RingMonitor", global.soundVolume, 0.75);
         break;
 }
 

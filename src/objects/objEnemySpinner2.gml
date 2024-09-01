@@ -33,13 +33,13 @@ applies_to=self
 if (point_in_rectangle(x, y, view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0])) {
     shockTimer += 1;
     if (shockTimer == 70) {
-        PlaySoundExt("snd/EnemySpinnerShockCharge", global.volumeSounds, 1, false)
+        PlaySoundExt("snd/EnemySpinnerShockCharge", global.soundVolume, 1, false)
     }
 
 
     if (shockTimer == 120) {
         sound_stop("snd/EnemySpinnerShockCharge")
-        PlaySoundExt("snd/EnemySpinnerShockActive", global.volumeSounds, 1, false)
+        PlaySoundExt("snd/EnemySpinnerShockActive", global.soundVolume, 1, false)
         shockTimer = 0
         instance_create_depth(x, y, -1, objSpinnerShock);
         y = ystart;

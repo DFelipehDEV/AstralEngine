@@ -686,7 +686,7 @@ if (physicsMode == PhysicsWater && state != PlayerStateDead) {
 
         if (global.roomTick mod 30 == 1) {
             // Play sound effect until you drown
-            PlaySoundSingle("snd/PlayerLossingAir", global.volumeSounds, 1);
+            PlaySoundSingle("snd/PlayerLossingAir", global.soundVolume, 1);
         }
 
         // Check if we have drowned
@@ -769,7 +769,7 @@ switch (animation) {
                 }
                 sound_stop(terrainSound[TerFootstep1])
                 sound_stop(terrainSound[TerFootstep2])
-                PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]), global.volumeAmbient, 1, false);
+                PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]), global.ambientVolume, 1, false);
                 footstepPlayed = true;
             }
         }
@@ -823,8 +823,8 @@ if (invincibility != InvincibilityHurt) {
     // End invincibility
     else {
         if (invincibility == InvincibilityMonitor) {
-            if (instance_exists(objControllerMusic)) {
-                with (objControllerMusic) {
+            if (instance_exists(objMusicManager)) {
+                with (objMusicManager) {
                     sound_stop("bgm/Invincibility");
                     playTempMusic = "null";
                 }

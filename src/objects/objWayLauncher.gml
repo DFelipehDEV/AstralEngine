@@ -36,7 +36,7 @@ if (ownerID.state == PlayerStateWaylauncher && active) {
             PlayerSetState(PlayerStateHurt);
         }
         sound_stop("snd/WayLauncherWait");
-        PlaySoundExt("snd/WayLauncherLaunch", global.volumeSounds, 0.85, false);
+        PlaySoundExt("snd/WayLauncherLaunch", global.soundVolume, 0.85, false);
     }
 
     // Up Direction

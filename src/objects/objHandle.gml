@@ -40,7 +40,7 @@ if (pull) {
             canMove = true;
         }
         if (!sound_isplaying("snd/PlayerJump")) {
-            PlaySoundExt("snd/PlayerJump", global.volumeSounds, 1.1, false);
+            PlaySoundExt("snd/PlayerJump", global.soundVolume, 1.1, false);
         }
         sound_stop("snd/HandleMove");
         exit;
@@ -48,7 +48,7 @@ if (pull) {
     else {
         // Go to crane position
         if (!sound_isplaying("snd/HandleMove")) {
-            PlaySoundExt("snd/HandleMove", global.volumeSounds, 1, true);
+            PlaySoundExt("snd/HandleMove", global.soundVolume, 1, true);
         }
     }
 

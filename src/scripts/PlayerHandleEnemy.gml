@@ -30,7 +30,7 @@ if (_enemy != noone) {
                 if (!_enemy.enemyBust) {
                     with(_enemy) {
                         DummyEffectCreate(x, y, sprExplosion, 0.35, 0, -0.1, bm_normal, 1, 1, 1, 0);
-                        PlaySoundExt(choose("snd/Explosion", "snd/Explosion2"), global.volumeAmbient, 1, false);
+                        PlaySoundExt(choose("snd/Explosion", "snd/Explosion2"), global.ambientVolume, 1, false);
 
                         repeat(6) {
                             var _metal;

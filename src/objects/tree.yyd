@@ -19,8 +19,8 @@
 	|objSingleton
 	|objInit
 	|objInputManager
+	|objMusicManager
 	|objControllerStage
-	|objControllerMusic
 	|objControllerRoom
 	|objControllerDebug
 +Splash

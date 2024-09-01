@@ -101,18 +101,18 @@ switch(optionSelected) {
         }
 
         if (InputGet(InputRight, 0)) {
-            with (objControllerMusic) {
-                global.volumeMusic = approach(global.volumeMusic, 1, 0.01);
-                musicVolumeReal = global.volumeMusic;
-                sound_volume(global.bgmSound, global.volumeMusic)
+            with (objMusicManager) {
+                global.musicVolume = approach(global.musicVolume, 1, 0.01);
+                musicVolumeReal = global.musicVolume;
+                sound_volume(objMusicManager.music, global.musicVolume)
             }
         }
 
         if (InputGet(InputLeft, 0)) {
-            with (objControllerMusic) {
-                global.volumeMusic = approach(global.volumeMusic, 0, 0.01);
-                musicVolumeReal = global.volumeMusic;
-                sound_volume(global.bgmSound, global.volumeMusic)
+            with (objMusicManager) {
+                global.musicVolume = approach(global.musicVolume, 0, 0.01);
+                musicVolumeReal = global.musicVolume;
+                sound_volume(objMusicManager.music, global.musicVolume)
             }
         }
         break;
@@ -135,11 +135,11 @@ switch(optionSelected) {
         }
 
         if (InputGet(InputRight, 0)) {
-            global.volumeSounds = approach(global.volumeSounds, 1, 0.01);
+            global.soundVolume = approach(global.soundVolume, 1, 0.01);
         }
 
         if (InputGet(InputLeft, 0)) {
-            global.volumeSounds = approach(global.volumeSounds, 0, 0.01);
+            global.soundVolume = approach(global.soundVolume, 0, 0.01);
         }
         break;
 
@@ -161,11 +161,11 @@ switch(optionSelected) {
         }
 
         if (InputGet(InputRight, 0)) {
-            global.volumeVoice = approach(global.volumeVoice, 1, 0.01);
+            global.voiceVolume = approach(global.voiceVolume, 1, 0.01);
         }
 
         if (InputGet(InputLeft, 0)) {
-            global.volumeVoice = approach(global.volumeVoice, 0, 0.01);
+            global.voiceVolume = approach(global.voiceVolume, 0, 0.01);
         }
         break;
 
@@ -187,11 +187,11 @@ switch(optionSelected) {
         }
 
         if (InputGet(InputRight, 0)) {
-            global.volumeAmbient = approach(global.volumeAmbient, 1, 0.01);
+            global.ambientVolume = approach(global.ambientVolume, 1, 0.01);
         }
 
         if (InputGet(InputLeft, 0)) {
-            global.volumeAmbient = approach(global.volumeAmbient, 0, 0.01);
+            global.ambientVolume = approach(global.ambientVolume, 0, 0.01);
         }
         break;
 
@@ -249,10 +249,10 @@ switch(optionSelected) {
                 ini_open("configf.ini");
                 ini_write_real("config", "screen", global.screenSize);
                 ini_write_real("config", "vsync", global.screenVSync);
-                ini_write_real("config", "sfxvolume", global.volumeSounds);
-                ini_write_real("config", "bgmvolume", global.volumeMusic);
-                ini_write_real("config", "voicevolume", global.volumeVoice);
-                ini_write_real("config", "ambientvolume", global.volumeAmbient);
+                ini_write_real("config", "sfxvolume", global.soundVolume);
+                ini_write_real("config", "bgmvolume", global.musicVolume);
+                ini_write_real("config", "voicevolume", global.voiceVolume);
+                ini_write_real("config", "ambientvolume", global.ambientVolume);
                 ini_close();
 
             }
@@ -327,10 +327,10 @@ draw_sprite_ext(sprTrigger, 0, view_xview, view_yview, ScreenWidth, ScreenHeight
 
 // Draw options
 var _volumeMusic, _volumeSound, _volumeVoice, _volumeAmbient;
-_volumeMusic = floor(global.volumeMusic * 100);
-_volumeSound = floor(global.volumeSounds * 100);
-_volumeVoice = floor(global.volumeVoice * 100);
-_volumeAmbient = floor(global.volumeAmbient * 100);
+_volumeMusic = floor(global.musicVolume * 100);
+_volumeSound = floor(global.soundVolume * 100);
+_volumeVoice = floor(global.voiceVolume * 100);
+_volumeAmbient = floor(global.ambientVolume * 100);
 draw_set_alpha(image_alpha)
 var _colorLine;
 _colorLine = $e09915;

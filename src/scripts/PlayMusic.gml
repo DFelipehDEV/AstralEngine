@@ -11,7 +11,7 @@ _loops = argument4;
 
 sound_stop_all();
 
-musicVolumeReal = global.volumeMusic;
+musicVolumeReal = global.musicVolume;
 
 // Check if the loop argument is true
 if (_loops) {
@@ -23,11 +23,11 @@ if (_loops) {
 
     sound_set_loop(_music, loopStart, loopEnd, false);
     // Loop music
-    global.bgmSound = sound_loop(_music);
-    sound_volume(global.bgmSound, musicVolumeReal);
+    objMusicManager.music = sound_loop(_music);
+    sound_volume(objMusicManager.music, musicVolumeReal);
 
 }
 else {
     // Play the music
-    global.bgmSound = sound_play_ex(_music, musicVolumeReal, _pitch, 0);
+    objMusicManager.music = sound_play_ex(_music, musicVolumeReal, _pitch, 0);
 }

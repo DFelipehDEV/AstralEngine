@@ -9,7 +9,7 @@ if ((state == PlayerStateJump || state == PlayerStateNormal || state == PlayerSt
         PlayerSetState(PlayerStateWalljump)
 
         xDirection = 1;
-        PlaySoundExt("snd/Grab", global.volumeSounds, 0.8, false);
+        PlaySoundExt("snd/Grab", global.soundVolume, 0.8, false);
     }
 
         _wallR = PlayerCollisionObjectRight(x, y, 0, maskBig, objWalljumpTrigger)
@@ -19,6 +19,6 @@ if ((state == PlayerStateJump || state == PlayerStateNormal || state == PlayerSt
         PlayerSetState(PlayerStateWalljump)
 
         xDirection = -1;
-        PlaySoundExt("snd/Grab", global.volumeSounds, 0.8, false);
+        PlaySoundExt("snd/Grab", global.soundVolume, 0.8, false);
     }
 }

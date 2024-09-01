@@ -8,13 +8,13 @@ var _pitch;
 _pitch = min(max(0.6, abs(xSpeed)/8), 1.2);
 if (grind == 0) {
     if (!sound_isplaying("snd/PlayerGrindContinue")) {
-        grind = PlaySoundExt("snd/PlayerGrindContinue", global.volumeSounds, _pitch, false);
+        grind = PlaySoundExt("snd/PlayerGrindContinue", global.soundVolume, _pitch, false);
     }
 }
 else {
     sound_pitch(grind, _pitch);
     if (!sound_isplaying("snd/PlayerGrindContinue")) {
-        grind = PlaySoundExt("snd/PlayerGrindContinue", global.volumeSounds, _pitch, false);
+        grind = PlaySoundExt("snd/PlayerGrindContinue", global.soundVolume, _pitch, false);
     }
 }
 

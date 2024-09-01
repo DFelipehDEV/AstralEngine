@@ -122,7 +122,7 @@ switch (state) {
             if (objPlayer.invincibility == InvincibilityNoone) {
                 xSpeed = 0;
                 state = "ATTACK";
-                PlaySoundExt("snd/Wind", global.volumeSounds, random_range(0.5, 0.9), false);
+                PlaySoundExt("snd/Wind", global.soundVolume, random_range(0.5, 0.9), false);
                 EnemySetAnimation(sprEnemyHeavyAttack, 0.17);
             }
         }

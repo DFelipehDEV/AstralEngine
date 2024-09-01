@@ -1,3 +1,3 @@
 /// PlayVoice(Sound)
 
-sound_play_ex(argument0, global.volumeVoice, 1, 0);
+sound_play_ex(argument0, global.voiceVolume, 1, 0);

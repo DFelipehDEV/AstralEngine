@@ -33,15 +33,15 @@ if (keyboard_check_pressed(ord("R"))) {
 // Skip music to near loop point
 if (keyboard_check_pressed(vk_end)) {
     var _loopstart;
-    _loopstart = objControllerMusic.loopStart;
-    sound_set_pos(global.bgmSound, _loopstart - 10, true)
+    _loopstart = objMusicManager.loopStart;
+    sound_set_pos(objMusicManager.music, _loopstart - 10, true)
 }
 
 // Skip music to near loop point
 if (keyboard_check_pressed(vk_home)) {
     var _loopend;
-    _loopend = objControllerMusic.loopEnd;
-    sound_set_pos(global.bgmSound, _loopend - 10, true)
+    _loopend = objMusicManager.loopEnd;
+    sound_set_pos(objMusicManager.music, _loopend - 10, true)
 }
 
 // Stop all sounds
