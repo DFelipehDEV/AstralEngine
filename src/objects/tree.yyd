@@ -21,7 +21,7 @@
 	|objInputManager
 	|objMusicManager
 	|objControllerRoom
-	|objControllerDebug
+	|objDebugMode
 +Splash
 	|objAstralTitle
 	|objAstralOptions

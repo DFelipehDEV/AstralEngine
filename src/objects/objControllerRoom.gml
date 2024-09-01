@@ -90,6 +90,7 @@ applies_to=self
 /// Reset
 
 global.roomTick = 0;
+global.gameTime = global.playerCheckTime;
 #define Other_5
 /*"/*'/**//* YYD ACTION
 lib_id=1

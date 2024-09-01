@@ -128,7 +128,7 @@ objFadeNext
 objFadeRoom
 objFadeGoal
 objPlayerSpawn
-objControllerDebug
+objDebugMode
 objTZBG
 objParallax
 
