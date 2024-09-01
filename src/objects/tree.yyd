@@ -1,3 +1,4 @@
+|objInit
 +Player
 	|objBody
 	|objPlayerSpawn
@@ -17,7 +18,6 @@
 		|objShieldElectricity
 +Singletons
 	|objSingleton
-	|objInit
 	|objInputManager
 	|objMusicManager
 	|objRoomManager

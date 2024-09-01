@@ -152,6 +152,7 @@ applies_to=self
 /// Misc
 
 cam = instance_create(x, y, objCamera);
+cam.target = id;
 hud = instance_create(x, y, objPlayerHUD);
 hud.ownerID = id;
 
@@ -856,6 +857,61 @@ if ((_distance < 32 && boosting) || (_distance < 65 && shield == ShieldElectrici
         with (instance_create(x, y, objRingMagnetic)) {
             ownerID = objPlayer;
         }
+    }
+}
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Camera
+
+if (cam.target == id) {
+    var _targetSpeed;
+    _targetSpeed = (((x - xprevious)/global.deltaMultiplier) * 12);
+    if (state != PlayerStateWaylauncher)
+        cam.xShift = approach(cam.xShift, round(_targetSpeed/2)*2, 7);
+
+    switch(state) {
+        case PlayerStateLookup:
+            cam.yShift = approach(cam.yShift, -90, 3);
+            break;
+
+        case PlayerStateCrouch:
+            cam.yShift = approach(cam.yShift, 90, 3);
+            break;
+
+        case PlayerStateWaylauncher:
+            if (keyLeft) {
+                cam.xShift = approach(cam.xShift, -80, 10);
+            }
+            else if (keyRight) {
+                cam.xShift = approach(cam.xShift, 80, 10);
+            }
+            else {
+                cam.xShift = approach(cam.xShift, 0, 10);
+            }
+
+            if (keyUp) {
+                cam.yShift = approach(cam.yShift, -80, 10);
+            }
+            else if (keyDown) {
+                cam.yShift = approach(cam.yShift, 80, 10);
+            }
+            else {
+                cam.yShift = approach(cam.yShift, 0, 10);
+            }
+            break;
+
+        case PlayerStateStomp:
+            cam.yShift = approach(cam.yShift, 210, 3);
+            break;
+
+        default:
+            if (cam.yShakeTimer == 0) {
+                _targetSpeed = ((y - yprevious)/global.deltaMultiplier) * 5
+                cam.yShift = approach(cam.yShift, round(_targetSpeed/2)*2, 6);
+            }
     }
 }
 #define Other_40
