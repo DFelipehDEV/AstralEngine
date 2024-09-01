@@ -47,8 +47,8 @@ global.shaderHeat = shdHeat();
 global.shaderColorSwap = shdColorSwap();
 
 // Create essential controllers
-if (!instance_exists(objControllerInput))
-    instance_create(0, 0, objControllerInput);
+if (!instance_exists(objInputManager))
+    instance_create(0, 0, objInputManager);
 if (!instance_exists(objControllerMusic))
     instance_create(0, 0, objControllerMusic);
 if (!instance_exists(objControllerRoom))

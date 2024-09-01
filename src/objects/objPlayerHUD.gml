@@ -129,7 +129,7 @@ switch (GameStateGet(GameStatePaused)) {
 
             // Stop all objects
             instance_deactivate_all(1)
-            instance_activate_object(objControllerInput);
+            instance_activate_object(objInputManager);
             instance_activate_object(objControllerMusic);
             instance_activate_object(objControllerRoom);
 

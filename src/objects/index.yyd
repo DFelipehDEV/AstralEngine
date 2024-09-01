@@ -82,7 +82,7 @@ objDashPad
 objDashRamp
 objDashRampRainbow
 objEventQTEKeys
-objControllerInput
+objInputManager
 objCrane
 objHandle
 objFootstepSensorDirt
@@ -174,7 +174,7 @@ objBoxPart
 objDebris
 objDestructiveWall
 
-objControllerInit
+objInit
 objBridge
 objBridgeLog
 objWaterSolid

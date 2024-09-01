@@ -17,8 +17,8 @@
 		|objShieldElectricity
 +Singletons
 	|objSingleton
-	|objControllerInit
-	|objControllerInput
+	|objInit
+	|objInputManager
 	|objControllerStage
 	|objControllerMusic
 	|objControllerRoom

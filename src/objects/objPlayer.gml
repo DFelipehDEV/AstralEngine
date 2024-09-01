@@ -662,6 +662,7 @@ if (allowKeys) {
         keyRight = false;
     }
 }
+#define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -698,7 +699,6 @@ if (physicsMode == PhysicsWater && state != PlayerStateDead) {
         }
     }
 }
-#define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
