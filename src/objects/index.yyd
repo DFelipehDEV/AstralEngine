@@ -162,7 +162,7 @@ objPlatformAngle
 objPlatformMove
 objPlatformMask01Spin
 objAstralOptions
-objControllerRoom
+objRoomManager
 objNavigator
 objTestFlower
 objBox1

@@ -9,7 +9,7 @@ applies_to=self
 Init();
 
 // Load configurations
-with (objControllerRoom) {
+with (objRoomManager) {
     ini_open("configf.ini");
     global.screenSize = ini_read_real("config", "screen", 1);
     global.screenVSync = ini_read_real("config", "vsync", 1);
@@ -52,7 +52,7 @@ applies_to=self
 
 // Alt + R resets config
 if (keyboard_check(vk_alt) && keyboard_check(ord("R"))) {
-    with (objControllerRoom) {
+    with (objRoomManager) {
         global.screenSize = 1;
         global.screenVSync = true;
         ini_open("configf.ini");

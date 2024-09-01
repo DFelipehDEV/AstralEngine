@@ -63,7 +63,7 @@ switch(optionSelected) {
             }
 
             if (InputGet(InputRight, 0)) {
-                with (objControllerRoom) {
+                with (objRoomManager) {
                     global.screenSize += 1;
                     event_user(0);
                 }
@@ -71,7 +71,7 @@ switch(optionSelected) {
             }
 
             if (InputGet(InputLeft, 0) && global.screenSize > 1) {
-                with (objControllerRoom) {
+                with (objRoomManager) {
                     global.screenSize -= 1;
                     event_user(0);
                 }

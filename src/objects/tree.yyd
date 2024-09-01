@@ -20,7 +20,7 @@
 	|objInit
 	|objInputManager
 	|objMusicManager
-	|objControllerRoom
+	|objRoomManager
 	|objDebugMode
 +Splash
 	|objAstralTitle

@@ -131,7 +131,7 @@ switch (GameStateGet(GameStatePaused)) {
             instance_deactivate_all(1)
             instance_activate_object(objInputManager);
             instance_activate_object(objMusicManager);
-            instance_activate_object(objControllerRoom);
+            instance_activate_object(objRoomManager);
 
             objMusicManager.fadeOut = true;
 

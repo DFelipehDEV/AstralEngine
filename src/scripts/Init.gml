@@ -48,11 +48,11 @@ if (!instance_exists(objInputManager))
     instance_create(0, 0, objInputManager);
 if (!instance_exists(objMusicManager))
     instance_create(0, 0, objMusicManager);
-if (!instance_exists(objControllerRoom))
-    instance_create(0, 0, objControllerRoom);
+if (!instance_exists(objRoomManager))
+    instance_create(0, 0, objRoomManager);
 
 // Load configurations
-with (objControllerRoom) {
+with (objRoomManager) {
     ini_open("configf.ini");
     global.screenSize = ini_read_real("config", "screen", 1);
     global.screenVSync = ini_read_real("config", "vsync", 1);
