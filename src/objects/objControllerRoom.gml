@@ -8,6 +8,8 @@ applies_to=self
 
 global.roomTick = 0;
 global.deactivateExceptions = ds_list_create();
+global.gameTimeAllow = true;
+global.gameTime = global.playerCheckTime;
 
 application_surface_enable(ApplicationSurfacePost)
 #define Alarm_0
@@ -29,6 +31,10 @@ applies_to=self
 
 if (!GameStateGet(GameStatePaused)) {
     global.roomTick += 1;
+}
+
+if (global.gameTimeAllow) {
+    global.gameTime += 1000 / 60 * global.deltaMultiplier;
 }
 #define Step_1
 /*"/*'/**//* YYD ACTION

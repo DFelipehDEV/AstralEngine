@@ -20,7 +20,6 @@
 	|objInit
 	|objInputManager
 	|objMusicManager
-	|objControllerStage
 	|objControllerRoom
 	|objControllerDebug
 +Splash
