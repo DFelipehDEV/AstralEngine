@@ -8,13 +8,13 @@ applies_to=self
 
 event_inherited();             //Get parent variables
 
-dashXStrength = 14;            //X Strength
-dashYStrength = -14;           //Y Strength
+xStrength = 14;            //X Strength
+yStrength = -14;           //Y Strength
 
-dashRampPAct = PlayerStateQTEKeys; //Player state when he meets the dash ramp
+playerAction = PlayerStateQTEKeys; //Player state when he meets the dash ramp
 
-dashRampQTEFailedXSpeed = 6;
-dashRampQTEFailedYSpeed = -3;
+qteFailedXSpeed = 6;
+qteFailedYSpeed = -3;
 
 
 image_speed = 0.3;          //Dash animation speed
@@ -25,8 +25,8 @@ action_id=603
 applies_to=self
 */
 /// Fields
-//field dashXStrength: value
-//field dashYStrength: value
-//field dashRampPAct: value
-//field dashRampQTEFailedXSpeed: value
-//field dashRampQTEFailedYSpeed: value
+//field xStrength: value
+//field yStrength: value
+//field playerAction: value
+//field qteFailedXSpeed: value
+//field qteFailedYSpeed: value

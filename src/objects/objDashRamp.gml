@@ -6,10 +6,10 @@ applies_to=self
 */
 /// Variables
 
-dashXStrength = 11;
-dashYStrength = -11;
+xStrength = 11;
+yStrength = -11;
 
-dashRampPAct = PlayerStateNormal; // Player state when he meets the dash ramp
+playerAction = PlayerStateNormal; // Player state when he meets the dash ramp
 
 image_speed = 0.35;
 #define Other_4
@@ -19,6 +19,6 @@ action_id=603
 applies_to=self
 */
 /// Fields
-//field dashXStrength: value
-//field dashYStrength: value
-//field dashRampPAct: value
+//field xStrength: value
+//field yStrength: value
+//field playerAction: value

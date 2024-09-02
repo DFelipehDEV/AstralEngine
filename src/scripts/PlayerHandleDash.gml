@@ -9,8 +9,8 @@ if (_dashPad != noone) {
         PlayerSetAngle(_dashPad.image_angle);
         ySpeed = 0;
     }
-    if (_dashPad.dashStrength != 0) {
-        xSpeed = _dashPad.dashStrength * _dashPad.image_xscale;
+    if (_dashPad.strength != 0) {
+        xSpeed = _dashPad.strength * _dashPad.image_xscale;
     }
     interactDelay = 15;
 
@@ -27,8 +27,8 @@ if (_dashRing != noone) {
     ground = false;
     x = _dashRing.x;
     y = _dashRing.y;
-    xSpeed = _dashRing.dashStrength * dcos(_dashRing.image_angle+90);
-    ySpeed = -_dashRing.dashStrength * dsin(_dashRing.image_angle+90);
+    xSpeed = _dashRing.strength * dcos(_dashRing.image_angle+90);
+    ySpeed = -_dashRing.strength * dsin(_dashRing.image_angle+90);
 
     allowKeysTimer = 20;
     if (abs(xSpeed) >= 1) {
@@ -39,12 +39,12 @@ if (_dashRing != noone) {
     animationAngle = -_dashRing.image_angle;
 
     // Set slow motion
-    if (_dashRing.dashRingPAct == PlayerStateTricks) {
+    if (_dashRing.playerAction == PlayerStateTricks) {
         global.deltaMultiplier = 0.4;
         trickCombo = 0;
     }
 
-    PlayerSetState(_dashRing.dashRingPAct);
+    PlayerSetState(_dashRing.playerAction);
 
     with (_dashRing) {
         image_xscale = 0.5;
@@ -54,7 +54,7 @@ if (_dashRing != noone) {
     interactDelay = 8;
 
     // Play sound
-    switch(_dashRing.dashRingType) {
+    switch(_dashRing.type) {
         case "NORMAL":
             PlaySound("snd/DashRing");
             break;
@@ -69,22 +69,22 @@ if (_dashRing != noone) {
 _dashRamp = PlayerCollisionHitbox(x, y, objDashRamp);
 if (_dashRamp != noone && ground) {
     if ((x >= _dashRamp.x - 45 && _dashRamp.image_xscale == 1) || (x <= _dashRamp.x + 45 && _dashRamp.image_xscale == -1)) {
-        if (_dashRamp.dashXStrength != 0) {
-            xSpeed = _dashRamp.dashXStrength * _dashRamp.image_xscale;
+        if (_dashRamp.xStrength != 0) {
+            xSpeed = _dashRamp.xStrength * _dashRamp.image_xscale;
         }
 
-        if (_dashRamp.dashYStrength != 0) {
-            ySpeed = _dashRamp.dashYStrength;
+        if (_dashRamp.yStrength != 0) {
+            ySpeed = _dashRamp.yStrength;
             ground = false;
         }
 
-        PlayerSetState(_dashRamp.dashRampPAct);
-        if (_dashRamp.dashRampPAct == PlayerStateQTEKeys) {
+        PlayerSetState(_dashRamp.playerAction);
+        if (_dashRamp.playerAction == PlayerStateQTEKeys) {
             dashrnear = instance_nearest(x, y + 1, objDashRamp);
             with (instance_create(0, 0, objEventQTEKeys)) {
                 ownerID = other.id;
-                qteFailedXSpeed = other.dashrnear.dashRampQTEFailedXSpeed
-                qteFailedYSpeed = other.dashrnear.dashRampQTEFailedYSpeed
+                qteFailedXSpeed = other.dashrnear.qteFailedXSpeed
+                qteFailedYSpeed = other.dashrnear.qteFailedYSpeed
             }
         }
         PlayerSetAngle(0);

@@ -6,9 +6,9 @@ applies_to=self
 */
 /// Variables
 
-dashStrength = 8;
-dashRingType = "NORMAL";     //Dash ring type  "NORMAL" - Normal dash ring  "RAINBOW" - Rainbow dash ring
-dashRingPAct = PlayerStateSpring; //Player state when he meets the dash ring
+strength = 8;
+type = "NORMAL";     //Dash ring type  "NORMAL" - Normal dash ring  "RAINBOW" - Rainbow dash ring
+playerAction = PlayerStateSpring; //Player state when he meets the dash ring
 
 image_speed = 0.3;
 #define Step_0
@@ -31,5 +31,5 @@ action_id=603
 applies_to=self
 */
 /// Fields
-//field dashStrength: value
-//field dashRingPAct: value
+//field strength: value
+//field playerAction: value

@@ -14,4 +14,4 @@ action_id=603
 applies_to=self
 */
 /// Fields
-//field dashStrength: value
+//field strength: value

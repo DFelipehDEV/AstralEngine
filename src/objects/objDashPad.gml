@@ -6,7 +6,7 @@ applies_to=self
 */
 /// Variables
 
-dashStrength = 13;
+strength = 13;
 
 image_speed = 0.3;
 #define Other_4
@@ -16,4 +16,4 @@ action_id=603
 applies_to=self
 */
 /// Fields
-//field dashStrength: value
+//field strength: value

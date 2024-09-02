@@ -1,4 +1,4 @@
 //gm82 fields begin
-dashStrength=12
-dashRingPAct=PlayerStateTricks
+strength=12
+playerAction=PlayerStateTricks
 //gm82 fields end

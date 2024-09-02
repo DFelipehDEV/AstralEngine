@@ -1,4 +1,4 @@
 //gm82 fields begin
-dashStrength=15
-dashRingPAct=PlayerStateSpring
+strength=15
+playerAction=PlayerStateSpring
 //gm82 fields end

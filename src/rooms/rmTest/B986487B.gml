@@ -1,7 +1,7 @@
 //gm82 fields begin
-dashXStrength=13
-dashYStrength=-13
-dashRampPAct=PlayerStateQTEKeys
-dashRampQTEFailedXSpeed=-7
-dashRampQTEFailedYSpeed=-3
+xStrength=13
+yStrength=-13
+playerAction=PlayerStateQTEKeys
+qteFailedXSpeed=-7
+qteFailedYSpeed=-3
 //gm82 fields end
