@@ -707,14 +707,14 @@ applies_to=self
 */
 /// Stay in screen
 
-if (x < objCamera.leftBorder + 12) {
+if (x < cam.leftBorder + 12) {
     xSpeed = 0;
-    x = objCamera.leftBorder + 12;
+    x = cam.leftBorder + 12;
 }
 
-if (x > objCamera.rightBorder - 12) {
+if (x > cam.rightBorder - 12) {
     xSpeed = 0;
-    x = objCamera.rightBorder - 12;
+    x = cam.rightBorder - 12;
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
