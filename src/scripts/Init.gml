@@ -26,8 +26,7 @@ global.ambientVolume = 1;
 global.player[0] = noone; // Player instance
 global.playerRings = 0;
 global.playerCheckTime = 0;
-global.playerCheckX = 0;
-global.playerCheckY = 0;
+global.playerCheckpoint = noone;
 
 // Rank requirements
 global.stageRank[RankC] = 2500;

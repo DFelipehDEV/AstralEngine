@@ -8,17 +8,13 @@ applies_to=self
 
 DeactivateExceptionsAdd(id);
 player = instance_number(objPlayer);
-if (global.playerCheckX == 0 && global.playerCheckY == 0) {
+if (!instance_exists(global.playerCheckpoint)) {
     global.player[player] = instance_create(x, y - 12, objPlayer);
-    with (player) {
-        xDirection = other.image_xscale;
-    }
+    global.player[player].xDirection = sign(image_xscale);
 }
 else {
-    player = instance_create(global.playerCheckX, global.playerCheckY - 17, objPlayer);
-    with (player) {
-        xDirection = instance_nearest(x, y, objCheckpoint).image_xscale;
-    }
+    global.player[player] = instance_create(global.playerCheckpoint.x, global.playerCheckpoint.y - 17, objPlayer);
+    player.xDirection = sign(global.playerCheckpoint.image_xscale);
 }
 
 instance_destroy();

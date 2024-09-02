@@ -141,7 +141,7 @@ if (cardTimer < 40) {
         cardBackAlpha -= 0.02;
     }
 
-    if (global.player[0] != noone && cardTimer > 0 && global.playerCheckX == 0) {
+    if (global.player[0] != noone && cardTimer > 0 && global.playerCheckpoint == noone) {
         global.player[0].xSpeed = 8;
     }
 }

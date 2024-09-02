@@ -6,13 +6,12 @@ _checkpoint = PlayerCollisionHitbox(x, y, objCheckpoint);
 if (_checkpoint != noone) {
     if (!_checkpoint.activated) {
         // Check if the player hasn't passed the checkpoint before
-        if (global.playerCheckX != _checkpoint.x && global.playerCheckY != _checkpoint.y) {
+        if (global.playerCheckpoint != _checkpoint) {
             // Respawn point
             global.playerCheckTime = global.gameTime;
-            global.playerCheckX = _checkpoint.x;
-            global.playerCheckY = _checkpoint.y;
+            global.playerCheckpoint = _checkpoint;
 
-            with (_checkpoint){
+            with (_checkpoint) {
                 sprite_index = sprCheckpointActivated;
                 image_speed = 0.3;
                 image_index = 0;
