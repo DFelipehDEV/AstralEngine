@@ -40,8 +40,14 @@ action_id=603
 applies_to=self
 */
 /// Preview
+//field icon: value
 /*preview
-draw_sprite(Sprite("sprMonitorIcons", 0), 0, x, y);
+    if (!FieldDefined("icon")) exit;
+
+    var _index;
+    _index = Field("icon")
+
+    draw_sprite(Sprite("sprMonitorIcons", _index), 0, x, y);
 */
 #define Draw_0
 /*"/*'/**//* YYD ACTION

@@ -6,7 +6,7 @@ applies_to=self
 */
 /// Variables
 
-activated = false; //Checks if the player has pass throught the Checkpoint
+activated = false;
 
 image_speed = 0.3;
 #define Other_7

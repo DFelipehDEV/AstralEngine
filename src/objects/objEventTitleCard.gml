@@ -43,6 +43,8 @@ cardResultOffset = 0;
 
 delay = 30;
 shapeTimer = 0;
+
+player = global.player[0];
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -62,10 +64,8 @@ applies_to=self
 
 if (delay == 29) {
     // Disable player control
-    if (global.player[0] != noone) {
-        with (global.player[0]) {
-            allowKeys = false;
-        }
+    if (player != noone) {
+        player.allowKeys = false;
     }
 }
 /*"/*'/**//* YYD ACTION
@@ -118,8 +118,8 @@ if (cardTimer < 30) {
         cardReturnOffset += 4;
         cardResultOffset = lerp(cardResultOffset, cardReturnOffset, 0.1);
         // Give player control
-        if (global.player[0] != noone) {
-            global.player[0].allowKeys = true;
+        if (player != noone) {
+            player.allowKeys = true;
             global.gameTimeAllow = true;
         }
     }
@@ -139,10 +139,6 @@ if (cardTimer < 30) {
 if (cardTimer < 40) {
     if (cardBackAlpha > 0) {
         cardBackAlpha -= 0.02;
-    }
-
-    if (global.player[0] != noone && cardTimer > 0 && global.playerCheckpoint == noone) {
-        global.player[0].xSpeed = 8;
     }
 }
 

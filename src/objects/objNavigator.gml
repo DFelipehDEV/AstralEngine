@@ -11,7 +11,6 @@ dialogueAlpha = 0;
 dialogueColor = c_white;
 dialogueOffsetX = 400;
 dialogueOffsetY = 400;
-drawOffsetY = 0;
 
 // NPC chat variables
 ended = 0;
@@ -28,7 +27,7 @@ textTotal = "";
 
 // Avatar settings
 avatarSprite = sprDialogueAvatarNavigator;
-avatarIndex = 0; // Avatar Image Index
+avatarIndex = 0;
 
 // Input related variables
 inputAlpha = 0;
@@ -74,7 +73,7 @@ switch (ended) {
         ownerID.hud.hidden = false;
 
         ownerID.cam.yShift = 0;
-        ownerID.cam.target = objPlayer;
+        ownerID.cam.target = ownerID;
         ownerID = noone;
         ended = 0;
     break;

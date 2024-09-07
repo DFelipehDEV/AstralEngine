@@ -9,14 +9,6 @@ applies_to=self
 depth = -10;
 
 surfaceRipple = surface_create(256*image_xscale, 128*image_yscale);
-#define Other_4
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/*preview
-*/
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

@@ -15,7 +15,7 @@ loopTotal = -1;
 musicVolumeReal = global.musicVolume;
 fadeIn = false;
 fadeOut = false;
-playTempMusic= "null";
+playTempMusic= "";
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -45,7 +45,7 @@ applies_to=self
 */
 /// Temp music
 
-if (playTempMusic != "null") {
+if (playTempMusic != "") {
     if (!sound_isplaying(playTempMusic)) {
         PlaySoundExt(playTempMusic, global.musicVolume, 1, false);
     }
@@ -58,7 +58,7 @@ applies_to=self
 */
 /// Stop audio
 
-playTempMusic = "null";
+playTempMusic = "";
 fadeOut = false;
 fadeIn = false;
 // This will only stop common sounds and will not stop the music

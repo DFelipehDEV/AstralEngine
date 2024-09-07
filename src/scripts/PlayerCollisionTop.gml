@@ -1,5 +1,4 @@
 /// PlayerCollisionTop( x, y, angle, mask );
-// This function returns if the top sensor has collided
 
 // Store the actual mask for setting it up later
 maskTemp = mask_index;

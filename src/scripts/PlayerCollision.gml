@@ -1,5 +1,4 @@
 /// PlayerCollision(x, y, terrainLayer)
-// Check for terrain
 
 if (place_meeting(argument0, argument1, objSolid)) {
     terrainPlatform = false;

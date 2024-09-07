@@ -207,6 +207,7 @@ ds_list_destroy(trailal);
 global.player[index] = noone;
 instance_destroy_id(shieldInstance);
 instance_destroy_id(cam);
+instance_destroy_id(boostAura);
 #define Alarm_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -827,7 +828,7 @@ if (invincibility != InvincibilityHurt) {
             if (instance_exists(objMusicManager)) {
                 with (objMusicManager) {
                     sound_stop("bgm/Invincibility");
-                    playTempMusic = "null";
+                    playTempMusic = "";
                 }
             }
             FadeMusic(false);

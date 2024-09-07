@@ -25,7 +25,7 @@
 +Splash
 	|objAstralTitle
 	|objAstralOptions
-+Fade Transitions
++Fade
 	|objFadeIn
 	|objFadeNext
 	|objFadeRoom
@@ -197,4 +197,5 @@
 		|objLayer1Mask04
 		|objLayer1Mask05
 	|objTerrain
-|objCamera
++Camera
+	|objCamera
