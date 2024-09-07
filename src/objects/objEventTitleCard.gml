@@ -44,7 +44,7 @@ cardResultOffset = 0;
 delay = 30;
 shapeTimer = 0;
 
-player = global.player[0];
+player = noone;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

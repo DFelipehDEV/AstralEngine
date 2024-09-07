@@ -10,7 +10,6 @@ DeactivateExceptionsAdd(id);
 
 event_inherited();
 
-index = 0; // Player index
 // State
 state = PlayerStateNormal;
 stateTimer = 0;
@@ -204,7 +203,6 @@ ds_list_destroy(trailx);
 ds_list_destroy(traily);
 ds_list_destroy(trailal);
 
-global.player[index] = noone;
 instance_destroy_id(shieldInstance);
 instance_destroy_id(cam);
 instance_destroy_id(boostAura);

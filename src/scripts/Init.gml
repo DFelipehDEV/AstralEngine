@@ -23,7 +23,6 @@ global.voiceVolume = 1;
 global.ambientVolume = 1;
 
 // Player
-global.player[0] = noone; // Player instance
 global.playerRings = 0;
 global.playerCheckTime = 0;
 global.playerCheckpoint = noone;

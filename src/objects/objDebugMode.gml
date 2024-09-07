@@ -11,6 +11,8 @@ if (!global.debug) {
 }
 
 overlay = false;
+
+player = noone;
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -19,10 +21,11 @@ applies_to=self
 */
 /// Debug
 
+player = instance_find(objPlayer, 0);
 // Activate/deactivate debug overlay
 if (keyboard_check_pressed(vk_tab)) {
     overlay = !overlay;
-    objPlayer.drawSensors = overlay;
+    player.drawSensors = overlay;
 }
 
 // Restart room
@@ -68,20 +71,20 @@ if (keyboard_check_pressed(vk_pagedown)) {
 }
 
 var _playerExists;
-_playerExists = instance_exists(global.player[0]);
+_playerExists = instance_exists(player);
 
 if (_playerExists) {
     if (mouse_check_button(mb_right)) {
-        global.player[0].x = lerp(global.player[0].x, mouse_x, 0.15);
-        global.player[0].y = lerp(global.player[0].y, mouse_y, 0.15);
-        global.player[0].xSpeed = 0;
-        global.player[0].ySpeed = 0;
-        global.player[0].canMove = false;
-        global.player[0].cam.x = global.player[0].x;
+        player.x = lerp(player.x, mouse_x, 0.15);
+        player.y = lerp(player.y, mouse_y, 0.15);
+        player.xSpeed = 0;
+        player.ySpeed = 0;
+        player.canMove = false;
+        player.cam.x = player.x;
     }
 
     if (mouse_check_button_released(mb_right)) {
-        global.player[0].canMove = true;
+        player.canMove = true;
     }
 }
 
@@ -110,23 +113,23 @@ applies_to=self
 /// Debug overlay
 
 if (overlay) {
-    if (instance_exists(global.player[0])) {
+    if (instance_exists(player)) {
         draw_rect(view_xview[0] + 333, view_yview[0] + 103, 179, 185, c_black, 0.5, 0);
         draw_set_font(fontConsolas8)
         draw_set_halign(fa_left)
         draw_set_color(c_white)
 
         var _playerAction;
-        _playerAction = string_replace_all(string(script_get_name(global.player[0].state)), "Player", ""); // Remove initial 'Player', (e.g., from PlayerPlayerStateNormal to PlayerStateNormal)
+        _playerAction = string_replace_all(string(script_get_name(player.state)), "Player", ""); // Remove initial 'Player', (e.g., from PlayerStateNormal to StateNormal)
         // Debug overlay
         var _playerText;
         _playerText = "FPS:" + string(fps) + " " + string(fps_real)
         + "#TAB:TOGGLE OVERLAY#MOUSE RIGHT:LERP PLAYER POSITION#R:RESTART ROOM#PGUP:NEXT ROOM#PGDN:PREVIOUS ROOM#PAUSE:STOP AUDIO"
-        + "#X:" + string(floor(global.player[0].x)) + " " + string(global.player[0].xSpeed)
-        + "#Y:" + string(floor(global.player[0].y)) + " " + string(global.player[0].ySpeed)
-        + "#GROUND:" + string(global.player[0].ground)
-        + "#ANGLE:" + string(global.player[0].angle) + " " + string(global.player[0].angleCos) + " " + string(global.player[0].angleSin) + " " + string(global.player[0].angleMode)
-        + "#DIR:" + string(global.player[0].xDirection)
+        + "#X:" + string(floor(player.x)) + " " + string(player.xSpeed)
+        + "#Y:" + string(floor(player.y)) + " " + string(player.ySpeed)
+        + "#GROUND:" + string(player.ground)
+        + "#ANGLE:" + string(player.angle) + " " + string(player.angleCos) + " " + string(player.angleSin) + " " + string(player.angleMode)
+        + "#DIR:" + string(player.xDirection)
         + "#ACTION:" + _playerAction
         draw_text(view_xview[0] + 333, view_yview[0] + 103, _playerText);
     }
