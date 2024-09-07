@@ -1,7 +1,0 @@
-sprite=sprDialogueAvatarNavigator
-visible=1
-solid=0
-persistent=0
-depth=-12
-parent=
-mask=
