@@ -199,3 +199,6 @@
 	|objTerrain
 +Camera
 	|objCamera
++Client
+	|objRemotePlayer
+	|objServer

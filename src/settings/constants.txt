@@ -1,3 +1,5 @@
+limit_write_data_length=5000
+max_write_data_length=10000
 DEBUG=1
 ShieldNoone=0
 ShieldNormal=1
@@ -53,3 +55,4 @@ InputSpecial2Pressed=16
 InputSpecial3Pressed=17
 CharacterSonic=0
 CharacterSuperSonic=1
+PlayerMessagesMove=1
