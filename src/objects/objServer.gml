@@ -41,7 +41,7 @@ applies_to=self
 */
 /// Sync
 
-var s, xx, yy, xxscale, anim;
+var s;
 
 // send position and speed
 buffer_clear(global.buffer);
@@ -66,19 +66,19 @@ while socket_read_message(socket, global.buffer) {
             break;
 
         case 2: // move remote players
-            var _id;
+            var _id, _x, _y, _xscale, _anim;
             while !buffer_at_end(global.buffer) {
                 _id = buffer_read_u32(global.buffer);
-                xx = buffer_read_u16(global.buffer);
-                yy = buffer_read_u16(global.buffer);
-                xxscale = buffer_read_float(global.buffer);
-                anim = buffer_read_string(global.buffer);
+                _x = buffer_read_u16(global.buffer);
+                _y = buffer_read_u16(global.buffer);
+                _xscale = buffer_read_float(global.buffer);
+                _anim = buffer_read_string(global.buffer);
                 with objRemotePlayer {
                     if server_id = _id {
-                        x = xx;
-                        y = yy;
-                        image_xscale = xxscale;
-                        AnimationApply(anim);
+                        x = _x;
+                        y = _y;
+                        image_xscale = _xscale;
+                        AnimationApply(_anim);
                     }
                 }
             }
