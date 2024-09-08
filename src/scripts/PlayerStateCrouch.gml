@@ -2,8 +2,8 @@
 
 // Reset
 if (!keyDown || keyUp) {
-    animationFrame = max(animationFrame - 0.25, animationFrameStart);
-    animationFrameSpeed = 0;
+    animationFrame = max(animationFrame - 0.25, animationStartFrame);
+    animationSpeed = 0;
     if (animationFrame <= 0.25) {
         PlayerSetState(PlayerStateNormal);
     }

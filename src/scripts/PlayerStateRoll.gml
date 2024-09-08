@@ -1,6 +1,6 @@
 /// PlayerStateRoll()
 
-animationFrameSpeed = 0.2 + abs(xSpeed)/17;
+animationSpeed = 0.2 + abs(xSpeed)/17;
 
 if (distance_to_object(objSlidepassSensor) > 15) {
     // Check if is going to the right

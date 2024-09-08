@@ -43,23 +43,23 @@ switch(animation) {
         break;
 
     case "WALK_1":
-        AnimationSet(sprSonicWalk1, 0, -1, -1, 0, 0, 1, -1, "");
+        AnimationSet(sprSonicWalk1, 0, -1, -1, 0.13, 0, 1, -1, "");
         break;
 
     case "WALK_2":
-        AnimationSet(sprSonicWalk2, 0, -1, -1, 0, 0, 1, -1, "");
+        AnimationSet(sprSonicWalk2, 0, -1, -1, 0.13, 0, 1, -1, "");
         break;
 
     case "JOG_1":
-        AnimationSet(sprSonicJog1, 0, -1, -1, 0, 0, 1, -1, "");
+        AnimationSet(sprSonicJog1, 0, -1, -1, 0.13, 0, 1, -1, "");
         break;
 
     case "JOG_2":
-        AnimationSet(sprSonicJog2, 0, -1, -1, 0, 0, 1, -1, "");
+        AnimationSet(sprSonicJog2, 0, -1, -1, 0.13, 0, 1, -1, "");
         break;
 
     case "RUN":
-        AnimationSet(sprSonicRun, 0, -1, -1, 0, 0, 1, -1, "");
+        AnimationSet(sprSonicRun, 0, -1, -1, 0.13, 0, 1, -1, "");
         break;
 
     case "JUMP":

@@ -1,6 +1,6 @@
 /// PlayerStateGrind()
 
-animationFrameSpeed = min(0.18 + abs(xSpeed)/20, 0.4);
+animationSpeed = min(0.18 + abs(xSpeed)/20, 0.4);
 
 PlayerXMovementExt(xAcceleration, 0, xSpeedTop);
 

@@ -1,7 +1,7 @@
 /// PlayerStateSlide()
 
 // Animation speed
-animationFrameSpeed = 0.2 + abs(xSpeed)/18;
+animationSpeed = 0.2 + abs(xSpeed)/18;
 
 if (distance_to_object(objSlidepassSensor) > 15) {
     // Decelerate while going to the left

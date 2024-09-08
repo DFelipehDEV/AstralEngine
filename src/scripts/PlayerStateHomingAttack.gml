@@ -4,7 +4,7 @@ canHome = true;
 afterimageTimer = 15;
 if (!instance_exists(homingReticle)){ PlayerSetState(PlayerStateNormal); exit; }
 
-animationFrameSpeed = 0.55 + abs(xSpeed)/17;
+animationSpeed = 0.55 + abs(xSpeed)/17;
 
 var _homingTargetDirection;
 _homingTargetDirection = point_direction(x, y, homingReticle.x, homingReticle.y);

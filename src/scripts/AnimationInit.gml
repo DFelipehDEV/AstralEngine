@@ -1,26 +1,26 @@
 /// AnimationInit(AnimationList)
 
-animationAnimationList = argument0;
+animationList = argument0;
 
-animation = "";                // Current animation
-animationPrevious = "";        // Last animation
+animation = "";
+animationPrevious = "";
 
-animationSprite = 0;                // Current animation sprite
+animationSprite = 0;
+animationFrame = 0;
+animationStartFrame = 0; // First animation frame
+animationEndFrame = 0; // Last animation frame
+animationLoopFrame = 0; // Loop animation frame
 
-animationFrame = 0;                 // Current animation frame
+animationRepeat = false;
+animationRepeatTimes = 0; // How many times the animation repeats
+animationResetFrame = false; // If true and the animation ended, back to the normal frame
 
-animationFrameStart = 0;            // First animation frame
-animationFrameEnd = 0;              // Last animation frame
-animationFrameLoop = 0;             // Looping animation frame
-animationFrameRepeat = 0;           // Checks if the animation repeats
-animationFrameRepeatTimes = 0;      // How many times the animation repeats
+animationSpeed = 0; // Animation speed
+animationSpeedIncremental = 0; // Incremented animation speed. Useful for walking animation based on speed
 
-animationFrameSpeed = 0;            // Animation speed
-animationFrameReset = 0;            // If true and the animation ended, back to the normal frame
+animationLinkedTo = "";
 
-animationLinkedTo = "";             // Animation linked to...
+animationFinished = false;
+animationAngle = 0;
 
-animationFinished = 0;              // Used to check if the animation has ended
-animationAngle = 0;                 // Sprite angle for the animation
-
-animationTime = 0;                  // Time since the animation was last updated
+animationTime = 0; // Time since the animation was last changed

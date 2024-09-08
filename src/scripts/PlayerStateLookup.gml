@@ -6,7 +6,7 @@ if (!keyUp || keyDown) {
     if (!keyUp && animationFrame > 2) {
         animationFrame = 2;
     }
-    animationFrame = max(animationFrame - 0.3, animationFrameStart);
+    animationFrame = max(animationFrame - 0.3, animationStartFrame);
 
     if (floor(animationFrame) == 0) {
         PlayerSetState(PlayerStateNormal);
