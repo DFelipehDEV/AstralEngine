@@ -77,7 +77,7 @@ if (sprite_index != sprEnemyBuzzerAttack) {
     y += ySpeed;
 }
 
-if (state == PlayerStateNormal && !place_meeting(x, y, objEnemyTurn)) {
+if (state == PlayerStateNormal && !place_meeting(x, y, objEnemyTurn) && global.player) {
     ownerID = instance_nearest(x, y, objPlayer);
     xSpeed = 2 * image_xscale;
 

@@ -10,7 +10,6 @@ DeactivateExceptionsAdd(id);
 
 event_inherited();
 
-sID = 0;
 // State
 state = PlayerStateNormal;
 stateTimer = 0;
