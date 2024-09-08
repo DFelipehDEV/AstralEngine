@@ -16,7 +16,6 @@ animationRepeatTimes = 0; // How many times the animation repeats
 animationResetFrame = false; // If true and the animation ended, back to the normal frame
 
 animationSpeed = 0; // Animation speed
-animationSpeedIncremental = 0; // Incremented animation speed. Useful for walking animation based on speed
 
 animationLinkedTo = "";
 

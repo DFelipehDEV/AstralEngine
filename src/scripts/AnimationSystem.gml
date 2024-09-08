@@ -1,13 +1,10 @@
 /// AnimationSystem(Animations)
 // Animation system
 
-// Increase the timer since the animation started
 animationTime += 1;
 
-// Check if the animation has not ended
 if (!animationFinished) {
-    // Animate
-    animationFrame += (animationSpeed + animationSpeedIncremental) * global.deltaMultiplier;
+    animationFrame += (animationSpeed) * global.deltaMultiplier;
 
     if (floor(animationFrame) > animationEndFrame) {
         // Repeat animation
@@ -29,7 +26,6 @@ if (!animationFinished) {
                 // If it is linked to another animation, set that animation
                 animationFrame = animationEndFrame;
 
-                // Update animation status
                 animationPrevious = animation;
                 animation = animationLinkedTo;
 
