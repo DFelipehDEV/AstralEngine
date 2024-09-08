@@ -724,7 +724,7 @@ applies_to=self
 // Handle animations and rotation
 
 // Animation system
-AnimationSystem(animationAnimationList);
+AnimationSystem(animationList);
 
 // Rotate Sprites
 if (xSpeed == 0 && ground

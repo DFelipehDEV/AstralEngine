@@ -5,7 +5,7 @@ switch (character) {
         PlayerSetVoicelines(CharacterSonic);
         character = CharacterSonic;
         characterPhysics = PlayerPhysicsSonic;
-        animationAnimationList = AnimationIndexSonic;
+        animationList = AnimationIndexSonic;
 
         afterimageColor1 = c_teal;
         afterimageColor2 = c_blue;
@@ -16,7 +16,7 @@ switch (character) {
         PlayerSetVoicelines(CharacterSonic);
         character = CharacterSuperSonic;
         characterPhysics = PlayerPhysicsSuperSonic;
-        animationAnimationList = AnimationIndexSuperSonic;
+        animationList = AnimationIndexSuperSonic;
 
         afterimageColor1 = c_orange;
         afterimageColor2 = c_yellow;

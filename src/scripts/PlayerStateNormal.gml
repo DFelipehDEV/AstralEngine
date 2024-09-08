@@ -6,7 +6,7 @@ if (ground) {
     // Animation speed while moving on normal state
     if (((animation == "WALK_1" || animation == "WALK_2" || animation == "JOG_1"
     || animation == "JOG_2" || animation == "RUN"))) {
-        animationFrameSpeed = min(0.13 + abs(xSpeed)/25, 0.63);
+        animationSpeedIncremental = min(abs(xSpeed)/25, 0.50);
     }
 
     // Turn!

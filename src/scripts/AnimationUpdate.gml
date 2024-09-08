@@ -1,4 +1,4 @@
 /// AnimationUpdate()
 
 // Update animations
-script_execute(animationAnimationList);
+script_execute(animationList);

@@ -24,7 +24,7 @@ if (ySpeed > 4.5) {
 
 // Animation speed
 if (animation != "LANDING") {
-    animationFrameSpeed = (0.2 + abs(ySpeed)/7) + abs(xSpeed)/15;
+    animationSpeed = (0.2 + abs(ySpeed)/7) + abs(xSpeed)/15;
 }
 
 // Variable jump

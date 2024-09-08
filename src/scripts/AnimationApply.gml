@@ -5,8 +5,8 @@ if (animation != argument0) {
     AnimationUpdate();
 
     // Reset the animation frame if needed
-    if (animationFrameReset) {
-        animationFrame = animationFrameStart;
+    if (animationResetFrame) {
+        animationFrame = animationStartFrame;
     }
 
     // Reset animation state
