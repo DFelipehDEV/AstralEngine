@@ -121,7 +121,6 @@ if s = 5 or socket_get_write_data_length(socket) > max_write_data_length {
     } else {
         show_message("Could not connect to server.");
     }
-    game_end();
     exit;
 }
 
