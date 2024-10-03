@@ -750,9 +750,9 @@ applies_to=self
 
 // Footsteps
 switch (animation) {
-    case "WALK_1":
+    case "WALK":
     case "WALK_2":
-    case "JOG_1":
+    case "JOG":
     case "JOG_2":
     case "RUN":
         if(floor(animationFrame) == 3 || floor(animationFrame) == 7) {

@@ -4,7 +4,7 @@
 animationTime += 1;
 
 if (!animationFinished) {
-    animationFrame += (animationSpeed) * global.deltaMultiplier;
+    animationFrame += animationSpeed * global.deltaMultiplier;
 
     if (floor(animationFrame) > animationEndFrame) {
         // Repeat animation

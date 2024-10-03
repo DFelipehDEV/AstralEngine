@@ -6,12 +6,12 @@ if (ground) {
             case false:
                 // Check if we are in the edge of a solid
                 if (PlayerCollisionLeftEdge(x, y, angle) && !PlayerCollisionRightEdge(x, y, angle)) {
-                    if (animation != "LEDGE_1" && animation != "LEDGE_2") {
+                    if (animation != "LEDGE" && animation != "LEDGE_2") {
                         PlayVoice(choose(voiceline[11], voiceline[12], "snd/noone"));
                     }
                     switch (xDirection) {
                         case 1:
-                            AnimationApply("LEDGE_1");
+                            AnimationApply("LEDGE");
                             break;
 
                         case -1:
@@ -20,7 +20,7 @@ if (ground) {
                     }
                 }
                 else if (!PlayerCollisionLeftEdge(x, y, angle) && PlayerCollisionRightEdge(x, y, angle)) {
-                    if (animation != "LEDGE_1" && animation != "LEDGE_2") {
+                    if (animation != "LEDGE" && animation != "LEDGE_2") {
                         PlayVoice(choose(voiceline[11], voiceline[12]));
                     }
                     switch (xDirection) {
@@ -29,7 +29,7 @@ if (ground) {
                             break;
 
                         case -1:
-                            AnimationApply("LEDGE_1");
+                            AnimationApply("LEDGE");
                             break;
                     }
                 }
@@ -51,7 +51,7 @@ if (ground) {
 
     // Walk animation
     if abs(xSpeed) > 0 && abs(xSpeed) < 2.4 {
-        AnimationApply("WALK_1");
+        AnimationApply("WALK");
     }
 
     // Walk 2 animation
@@ -61,7 +61,7 @@ if (ground) {
 
     // Jog animation
     if (abs(xSpeed) >= 4 && abs(xSpeed) < 6.1) {
-        AnimationApply("JOG_1");
+        AnimationApply("JOG");
     }
 
     // Jog 2 animation

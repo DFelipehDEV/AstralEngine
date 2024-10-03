@@ -16,6 +16,6 @@ if (_handle != noone && ySpeed >= 0) {
     ySpeed = 0;
 
     PlayerSetState(PlayerStateGrab);
-    AnimationApply("HANG_1")
+    AnimationApply("HANG")
     canMove = false;
 }

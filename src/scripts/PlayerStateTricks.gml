@@ -17,7 +17,7 @@ if (allowKeysTimer == 0) {
         }
 
         animationFrame = 0;
-        AnimationApply(choose("HOMED_1", "HOMED_2", "SPRING_TRICK_HORIZONTAL", "SPRING_TRICK_VERTICAL"));
+        AnimationApply(choose("HOMED", "HOMED_2", "SPRING_TRICK_HORIZONTAL", "SPRING_TRICK_VERTICAL"));
 
         // Get energy
         PlayerAddEnergy(7);

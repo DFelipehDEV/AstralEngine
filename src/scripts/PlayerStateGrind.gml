@@ -31,7 +31,7 @@ if (keyDown && abs(xSpeed) > 0.1) {
 }
 
 if (!keyDown) {
-    AnimationApply("GRIND_1");
+    AnimationApply("GRIND");
 }
 
 // Stop grinding if the player is not colliding with a rail

@@ -186,7 +186,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         
                         with (ownerID) {
                             PlayerSetState(PlayerStateHomingFlight);
-                            AnimationApply("HOMED_1");
+                            AnimationApply("HOMED");
                             allowKeysTimer = 60;
                         }
                         PlayVoice(ownerID.voiceline[8]);
@@ -205,7 +205,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         
                         with (ownerID) {
                             PlayerSetState(PlayerStateHomingFlight);
-                            AnimationApply("HOMED_1");
+                            AnimationApply("HOMED");
                             allowKeysTimer = 60;
                         }
                         PlayVoice(ownerID.voiceline[8]);
@@ -224,7 +224,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         
                         with (ownerID) {
                             PlayerSetState(PlayerStateHomingFlight);
-                            AnimationApply("HOMED_1");
+                            AnimationApply("HOMED");
                             allowKeysTimer = 60;
                         }
                         PlayVoice(ownerID.voiceline[8]);

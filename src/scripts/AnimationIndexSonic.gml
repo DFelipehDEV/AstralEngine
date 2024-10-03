@@ -42,7 +42,7 @@ switch(animation) {
         AnimationSet(sprSonicSpindashCharge, 0, -1, -1, 0.4, 1, 1, -1, "");
         break;
 
-    case "WALK_1":
+    case "WALK":
         AnimationSet(sprSonicWalk1, 0, -1, -1, 0.13, 0, 1, -1, "");
         break;
 
@@ -50,7 +50,7 @@ switch(animation) {
         AnimationSet(sprSonicWalk2, 0, -1, -1, 0.13, 0, 1, -1, "");
         break;
 
-    case "JOG_1":
+    case "JOG":
         AnimationSet(sprSonicJog1, 0, -1, -1, 0.13, 0, 1, -1, "");
         break;
 
@@ -78,7 +78,7 @@ switch(animation) {
         AnimationSet(sprSonicSlide, 0, -1, 1, 0.3, 1, 1, -1, "");
         break;
 
-    case "GRIND_1":
+    case "GRIND":
         AnimationSet(sprSonicGrind, 0, -1, -1, 0.3, 1, 1, -1, "");
         break;
 
@@ -110,7 +110,7 @@ switch(animation) {
         AnimationSet(sprSonicFall, 0, -1, 2, 0.3, 1, 1, -1, "");
         break;
 
-    case "HOMED_1":
+    case "HOMED":
         AnimationSet(sprSonicHomed1, 0, -1, -1, 0.5, 1, 0, 0, "FALL");
         break;
 
@@ -118,7 +118,7 @@ switch(animation) {
         AnimationSet(sprSonicHomed2, 0, -1, -1, 0.45, 1, 0, 0, "FALL");
         break;
 
-    case "HANG_1":
+    case "HANG":
         AnimationSet(sprSonicGrab1, 0, -1, -1, 0.3, 1, 1, -1, "");
         break;
 
@@ -158,7 +158,7 @@ switch(animation) {
         AnimationSet(sprSonicDie, 0, -1, 3, 0.26, 1, 1, -1, "");
         break;
 
-    case "LEDGE_1":
+    case "LEDGE":
         AnimationSet(sprSonicLedge1, 0, -1, 1, 0.2, 1, 1, -1, "");
         break;
 

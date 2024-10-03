@@ -82,7 +82,7 @@ switch (state) {
         break;
 
     case PlayerStateHomingFlight:
-        AnimationApply(choose("HOMED_1", "HOMED_2", "SPRING_TRICK_VERTICAL"));
+        AnimationApply(choose("HOMED", "HOMED_2", "SPRING_TRICK_VERTICAL"));
         allowKeysTimer = 20;
         break;
     case PlayerStateWalljump:
@@ -91,7 +91,7 @@ switch (state) {
         break;
 
     case PlayerStateGrind:
-        AnimationApply("GRIND_1");
+        AnimationApply("GRIND");
         grind = 0;
         break;
 
