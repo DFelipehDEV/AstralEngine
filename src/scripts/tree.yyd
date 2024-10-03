@@ -28,15 +28,14 @@
 		|PlayerCollision
 		|PlayerCollisionCache
 	+Util
-		|PlayerSetState
+		|PlayerAddEnergy
 		|PlayerAirdash
 		|PlayerAirdashReset
-		|PlayerGetAngle
-		|PlayerSetAngle
 		|PlayerAngleLocals
 		|PlayerAnimationNormal
-		|PlayerAddEnergy
+		|PlayerBoost
 		|PlayerFlight
+		|PlayerGetAngle
 		|PlayerGlobalsReset
 		|PlayerHomingAttack
 		|PlayerHomingReset
@@ -47,14 +46,15 @@
 		|PlayerPhysicsSonic
 		|PlayerPhysicsSuperSonic
 		|PlayerSensorPosUpdate
+		|PlayerSetAngle
+		|PlayerSetCharacter
 		|PlayerSetShield
+		|PlayerSetState
+		|PlayerSetVoicelines
 		|PlayerStomp
 		|PlayerTerrainSndUpdate
-		|PlayerSetVoicelines
 		|PlayerXMovement
 		|PlayerXMovementExt
-		|PlayerBoost
-		|PlayerSetCharacter
 	+Action
 		|PlayerStateNormal
 		|PlayerStateSpring
