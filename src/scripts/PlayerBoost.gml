@@ -22,7 +22,7 @@ if (!pushingTerrain) {
             }
 
             with (cam) {
-                CameraLag(20);
+                CameraLag(16);
                 CameraShakeY(20);
             }
 

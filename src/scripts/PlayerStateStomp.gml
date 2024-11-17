@@ -2,7 +2,7 @@
 
 PlayerXMovement();
 xSpeed = approach(xSpeed, 0, 0.01)
-ySpeed = 16;
+ySpeed = 15;
 
 // Land
 if (ground) {

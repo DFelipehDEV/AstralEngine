@@ -13,7 +13,7 @@ if (physicsMode == PhysicsNormal) {
         xDeceleration = 0.09;
     }
 
-    yAcceleration = 0.24;
+    yAcceleration = 0.235;
     jumpStrength = -7.5;
 }
 
