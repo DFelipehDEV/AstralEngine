@@ -264,7 +264,7 @@ if (ownerID != noone && instance_exists(ownerID) && !GameStateGet(GameStatePause
 
     // Time
     draw_sprite(sprHUDTime, 0, _leftHUDX, _viewY + 8);
-    draw_text(_leftHUDX + 84, _viewY + 16, string(floor(global.gameTime/60000)) + ":" + StringNumberFormat(floor(global.gameTime/1000) mod 60,2) + ":" + StringNumberFormat(floor(global.gameTime/10) mod 100,2));
+    draw_text(_leftHUDX + 95, _viewY + 16, StringNumberFormat(floor(global.gameTime/60000), 2) + ":" + StringNumberFormat(floor(global.gameTime/1000) mod 60,2) + ":" + StringNumberFormat(floor(global.gameTime/10) mod 100,2));
 
     // Rings
     draw_set_halign(fa_left);
@@ -283,15 +283,15 @@ if (ownerID != noone && instance_exists(ownerID) && !GameStateGet(GameStatePause
     gaugeIndex = approach(gaugeIndex, ownerID.energy/4, 1);
     var shake;
     shake = sin(shakeTimer)*3;
-    draw_sprite(sprHUDEnergy, 0, _leftHUDX, (_viewY + ScreenHeight - 32) + shake)
-    draw_sprite(sprHUDGauge, floor(gaugeIndex), _leftHUDX - 8, (_viewY + ScreenHeight - 19) + shake)
+    draw_sprite(sprHUDEnergy, 0, _leftHUDX, (_viewY + ScreenHeight - 40) + shake)
+    draw_sprite(sprHUDGauge, floor(gaugeIndex), _leftHUDX - 8, (_viewY + ScreenHeight - 27) + shake)
 
     // Check if the enemy scale is more than 0
     if (enemyScale > 0) {
         // Enemy text
         draw_sprite_ext(sprHUDEnemiesText, 0, _viewX + ScreenWidthHalf, _viewY + 16, 1, enemyScale, 0, c_white, 1);
         // Enemies left
-        draw_sprite_ext(sprHUDEnemiesCounter, enemyFrame + 1, _viewX + ScreenWidthHalf, _viewY + 30, enemyScale, enemyScale, 0, c_white, 1);
+        draw_sprite_ext(sprHUDEnemiesCounter, enemyFrame, _viewX + ScreenWidthHalf, _viewY + 30, enemyScale, enemyScale, 0, c_white, 1);
     }
 
     if (buttonKey != -1) {
