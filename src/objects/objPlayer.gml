@@ -769,7 +769,7 @@ switch (animation) {
                 }
                 sound_stop(terrainSound[TerFootstep1])
                 sound_stop(terrainSound[TerFootstep2])
-                PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]), global.ambientVolume, 1, false);
+                PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]), global.soundVolume, 1, false);
                 footstepPlayed = true;
             }
         }

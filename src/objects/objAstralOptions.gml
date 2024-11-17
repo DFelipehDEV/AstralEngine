@@ -10,7 +10,7 @@ DeactivateExceptionsAdd(id);
 fontSpace = 14;
 image_alpha = 0;
 
-optionMax = 7;
+optionMax = 6;
 var i;
 for (i = 0; i < optionMax; i += 1) {
     optionX[i] = -400;
@@ -169,34 +169,8 @@ switch(optionSelected) {
         }
         break;
 
-    // Ambient
-    case 4:
-        // Change option
-        if ((InputGet(InputUp, 0)) && delay == 0) {
-            optionSelected -= 1;
-            PlaySound("snd/MenuSelect");
-            scale = 0;
-            delay = 20;
-        }
-        // Change option
-        if ((InputGet(InputDown, 0)) && delay == 0) {
-            optionSelected += 1;
-            PlaySound("snd/MenuSelect");
-            scale = 0;
-            delay = 20;
-        }
-
-        if (InputGet(InputRight, 0)) {
-            global.ambientVolume = approach(global.ambientVolume, 1, 0.01);
-        }
-
-        if (InputGet(InputLeft, 0)) {
-            global.ambientVolume = approach(global.ambientVolume, 0, 0.01);
-        }
-        break;
-
     // VSync
-    case 5:
+    case 4:
         // Change option
         if ((InputGet(InputUp, 0))&& delay == 0) {
             optionSelected -= 1;
@@ -252,7 +226,6 @@ switch(optionSelected) {
                 ini_write_real("config", "sfxvolume", global.soundVolume);
                 ini_write_real("config", "bgmvolume", global.musicVolume);
                 ini_write_real("config", "voicevolume", global.voiceVolume);
-                ini_write_real("config", "ambientvolume", global.ambientVolume);
                 ini_close();
 
             }
@@ -330,7 +303,6 @@ var _volumeMusic, _volumeSound, _volumeVoice, _volumeAmbient;
 _volumeMusic = floor(global.musicVolume * 100);
 _volumeSound = floor(global.soundVolume * 100);
 _volumeVoice = floor(global.voiceVolume * 100);
-_volumeAmbient = floor(global.ambientVolume * 100);
 draw_set_alpha(image_alpha)
 var _colorLine;
 _colorLine = $e09915;
@@ -343,7 +315,6 @@ draw_text(optionX[0], view_yview + optionY[0], "Screen Resolution: " + string(wi
 draw_text(optionX[1], view_yview + optionY[1], "Music Volume: " + string(_volumeMusic));
 draw_text(optionX[2], view_yview + optionY[2], "Sound Volume: " + string(_volumeSound));
 draw_text(optionX[3], view_yview + optionY[3], "Voice Volume: " + string(_volumeVoice));
-draw_text(optionX[4], view_yview + optionY[4], "Ambient Volume: " + string(_volumeAmbient));
 var _vsync;
 if (global.screenVSync) {
     _vsync = "ON";
@@ -351,7 +322,7 @@ if (global.screenVSync) {
 else {
     _vsync = "OFF";
 }
-draw_text(optionX[5], view_yview + optionY[5], "VSync: " + _vsync);
+draw_text(optionX[4], view_yview + optionY[4], "VSync: " + _vsync);
 draw_text(optionX[optionMax - 1], view_yview + optionY[optionMax - 1], "Save and Exit");
 draw_set_halign(-1);
 draw_set_font(1);

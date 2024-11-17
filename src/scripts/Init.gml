@@ -20,7 +20,6 @@ global.gamepad = joystick_count();
 global.soundVolume = 1;
 global.musicVolume = 1;
 global.voiceVolume = 1;
-global.ambientVolume = 1;
 
 // Player
 global.playerRings = 0;
@@ -61,7 +60,6 @@ ini_open("configf.ini");
 global.soundVolume = ini_read_real("config", "sfxvolume", 0.5);
 global.musicVolume = ini_read_real("config", "bgmvolume", 0.5);
 global.voiceVolume = ini_read_real("config", "voicevolume", 0.5);
-global.ambientVolume = ini_read_real("config", "ambientvolume", 0.5);
 ini_close();
 
 // Finish initialization and start the game
