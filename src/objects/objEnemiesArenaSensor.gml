@@ -77,7 +77,6 @@ if (player != noone && active) {
                 player.cam.rightBorder = room_width;
                 player.cam.topBorder = 0;
                 player.cam.bottomBorder = room_height;
-                player.cam.target = objPlayer;
             }
         }
 

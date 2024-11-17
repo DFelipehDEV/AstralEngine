@@ -33,7 +33,7 @@ if (ground) {
                             break;
                     }
                 }
-            break;
+                break;
 
             case true:
                 // Check if its not been waiting for a long time
@@ -45,33 +45,23 @@ if (ground) {
                         AnimationApply(choose("IDLE_WAIT", "IDLE_WAIT_2"));
                     }
                 }
-            break;
+                break;
         }
     }
 
-    // Walk animation
-    if abs(xSpeed) > 0 && abs(xSpeed) < 2.4 {
-        AnimationApply("WALK");
-    }
-
-    // Walk 2 animation
-    if (abs(xSpeed) >= 2.4 && abs(xSpeed) < 4) {
-        AnimationApply("WALK_2");
-    }
-
-    // Jog animation
-    if (abs(xSpeed) >= 4 && abs(xSpeed) < 6.1) {
-        AnimationApply("JOG");
-    }
-
-    // Jog 2 animation
-    if (abs(xSpeed) >= 6.1 && abs(xSpeed) < 10) {
-        AnimationApply("JOG_2");
-    }
-
-    // Run animation
-    if (abs(xSpeed) >= 10) {
-        AnimationApply("RUN");
+    // Moving animations
+    if (abs(xSpeed) > 0) {
+        if (abs(xSpeed) < 2) {
+            AnimationApply("WALK");
+        } else if (abs(xSpeed) < 2.7) {
+            AnimationApply("WALK_2");
+        } else if (abs(xSpeed) < 4) {
+            AnimationApply("JOG");
+        } else if (abs(xSpeed) < 9.7) {
+            AnimationApply("JOG_2");
+        } else {
+            AnimationApply("RUN");
+        }
     }
 }
 else {

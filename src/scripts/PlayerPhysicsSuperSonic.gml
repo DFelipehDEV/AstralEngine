@@ -3,14 +3,13 @@
 if (physicsMode == PhysicsNormal) {
     if (!boosting) {
         xSpeedTop = 12;
-        xSpeedMax = 14;
+        xSpeedMax = 13.2;
         xAcceleration = 0.11;
         xDeceleration = 0.09;
-    }
-    else {
-        xSpeedTop = 15;
-        xSpeedMax = 16;
-        xAcceleration = 0.2;
+    } else {
+        xSpeedTop = 14.04;
+        xSpeedMax = 14.04;
+        xAcceleration = 0.18;
         xDeceleration = 0.09;
     }
 
@@ -21,16 +20,15 @@ if (physicsMode == PhysicsNormal) {
 // Water physics
 if (physicsMode == PhysicsWater) {
     if (!boosting) {
-        xSpeedTop = 10;
+        xSpeedTop = 9.984;
         xSpeedMax = 12;
-        xAcceleration = 0.062;
-        xDeceleration = 0.06;
-    }
-    else {
-        xSpeedTop = 12;
-        xSpeedMax = 13;
-        xAcceleration = 0.095;
-        xDeceleration = 0.06;
+        xAcceleration = 0.078;
+        xDeceleration = 0.09;
+    } else {
+        xSpeedTop = 12.78;
+        xSpeedMax = 14.04;
+        xAcceleration = 0.18;
+        xDeceleration = 0.09;
     }
 
     yAcceleration = 0.12;

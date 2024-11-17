@@ -337,7 +337,7 @@ if (GameStateGet(GameStatePaused) && gamescreen != -1) {
             draw_sprite_ext(sprPauseOptions, 0, _viewX + ScreenWidthHalf, (_viewY - 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_white, 1);
             draw_sprite_ext(sprPauseOptions, 1, _viewX + ScreenWidthHalf, (_viewY + 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
             draw_sprite_ext(sprPauseOptions, 2, _viewX + ScreenWidthHalf, (_viewY + 30) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
-        break;
+            break;
 
         case 2:
             draw_sprite_ext(sprPauseOptions, 3, (_viewX + 3) + ScreenWidthHalf, ((_viewY + 3) + 10) + ScreenHeightHalf, pauseOptionOutlineScale, pauseOptionOutlineScale, 0, c_white, 1);
@@ -346,7 +346,7 @@ if (GameStateGet(GameStatePaused) && gamescreen != -1) {
             draw_sprite_ext(sprPauseOptions, 0, _viewX + ScreenWidthHalf, (_viewY - 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
             draw_sprite_ext(sprPauseOptions, 1, _viewX + ScreenWidthHalf, (_viewY + 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_white, 1);
             draw_sprite_ext(sprPauseOptions, 2, _viewX + ScreenWidthHalf, (_viewY + 30) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
-        break;
+            break;
 
         case 3:
             // Draw black outline
@@ -356,7 +356,7 @@ if (GameStateGet(GameStatePaused) && gamescreen != -1) {
             draw_sprite_ext(sprPauseOptions, 0, _viewX + ScreenWidthHalf, (_viewY - 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
             draw_sprite_ext(sprPauseOptions, 1, _viewX + ScreenWidthHalf, (_viewY + 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
             draw_sprite_ext(sprPauseOptions, 2, _viewX + ScreenWidthHalf, (_viewY + 30) + ScreenHeightHalf, titleScale, titleScale, 0, c_white, 1);
-        break;
+            break;
     }
 }
 draw_sprite_ext(sprPauseTitle, 0, _viewX + ScreenWidthHalf, (_viewY - 40) + ScreenHeightHalf, round(titleScale/0.2)*0.2, round(titleScale/0.2)*0.2, 0, c_white, 1);
