@@ -259,20 +259,23 @@ if (ownerID != noone && instance_exists(ownerID) && !GameStateGet(GameStatePause
     draw_set_color(c_white);
     draw_set_halign(fa_right);
 
+    var _leftHUDX;
+    _leftHUDX = (_viewX - offset) + 16;
+
     // Time
-    draw_sprite(sprHUDTime, 0, _viewX - offset, _viewY + 8);
-    draw_text((_viewX - offset) + 100, _viewY + 16, string(floor(global.gameTime/60000)) + ":" + StringNumberFormat(floor(global.gameTime/1000) mod 60,2) + ":" + StringNumberFormat(floor(global.gameTime/10) mod 100,2));
+    draw_sprite(sprHUDTime, 0, _leftHUDX, _viewY + 8);
+    draw_text(_leftHUDX + 84, _viewY + 16, string(floor(global.gameTime/60000)) + ":" + StringNumberFormat(floor(global.gameTime/1000) mod 60,2) + ":" + StringNumberFormat(floor(global.gameTime/10) mod 100,2));
 
     // Rings
     draw_set_halign(fa_left);
-    draw_sprite(sprHUDRings, 0, (_viewX - offset), _viewY + 32);
-    draw_text((_viewX - offset) + 37, _viewY + 40, string(global.playerRings));
+    draw_sprite(sprHUDRings, 0, _leftHUDX, _viewY + 32);
+    draw_text(_leftHUDX + 20, _viewY + 40, string(global.playerRings));
     // Red fade on ring counter
     if (global.playerRings == 0) {
-        draw_text_color((_viewX - offset) + 37, _viewY + 40, string(global.playerRings), c_red, c_red, c_red, c_red, min(cos(global.gameTime/200), 1));
+        draw_text_color(_leftHUDX + 20, _viewY + 40, string(global.playerRings), c_red, c_red, c_red, c_red, min(cos(global.gameTime/200), 1));
     }
     if (ownerID.combineActive) {
-        draw_text_color((_viewX - offset) + 37, _viewY + 40, string(global.playerRings), c_aqua, c_blue, c_blue, c_blue, abs(cos(global.gameTime/300)));
+        draw_text_color(_leftHUDX + 20, _viewY + 40, string(global.playerRings), c_aqua, c_blue, c_blue, c_blue, abs(cos(global.gameTime/300)));
     }
     draw_set_halign(fa_right);
 
@@ -280,8 +283,8 @@ if (ownerID != noone && instance_exists(ownerID) && !GameStateGet(GameStatePause
     gaugeIndex = approach(gaugeIndex, ownerID.energy/4, 1);
     var shake;
     shake = sin(shakeTimer)*3;
-    draw_sprite(sprHUDEnergy, 0, (_viewX - offset), (_viewY + ScreenHeight - 40) + shake)
-    draw_sprite(sprHUDGauge, floor(gaugeIndex), (_viewX - offset), (_viewY + ScreenHeight - 27) + shake)
+    draw_sprite(sprHUDEnergy, 0, _leftHUDX, (_viewY + ScreenHeight - 32) + shake)
+    draw_sprite(sprHUDGauge, floor(gaugeIndex), _leftHUDX - 8, (_viewY + ScreenHeight - 19) + shake)
 
     // Check if the enemy scale is more than 0
     if (enemyScale > 0) {
