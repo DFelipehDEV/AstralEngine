@@ -7,8 +7,8 @@ applies_to=self
 /// Variables
 
 strength = 8;
-type = "NORMAL";     //Dash ring type  "NORMAL" - Normal dash ring  "RAINBOW" - Rainbow dash ring
 playerAction = PlayerStateSpring; //Player state when he meets the dash ring
+interactSound = "snd/DashRing";
 
 image_speed = 0.3;
 #define Step_0

@@ -54,15 +54,7 @@ if (_dashRing != noone) {
     interactDelay = 8;
 
     // Play sound
-    switch(_dashRing.type) {
-        case "NORMAL":
-            PlaySound("snd/DashRing");
-            break;
-
-        case "RAINBOW":
-            PlaySound("snd/DashRingRainbow");
-            break;
-    }
+    PlaySound(_dashRing.interactSound);
 }
 
 // Dash ramps

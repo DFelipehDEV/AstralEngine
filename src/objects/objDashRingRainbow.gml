@@ -6,12 +6,12 @@ applies_to=self
 */
 /// Variables
 
-event_inherited();             //Get parent variables
-strength= 10;            //X Strength
-type= "RAINBOW";     //Dash ring type  "NORMAL" - Normal dash ring  "RAINBOW" - Rainbow dash ring
+event_inherited();
+strength = 10;
 playerAction= PlayerStateSpring; //Player state when he meets the dash ring
+interactSound = "snd/DashRingRainbow";
 
-image_speed = 0.3;          //Dash animation speed
+image_speed = 0.3;
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1
