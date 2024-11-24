@@ -4,12 +4,12 @@
 animationTime += 1;
 
 if (!animationFinished) {
-    animationFrame += animationSpeed * global.deltaMultiplier;
+    image_index += animationSpeed * global.deltaMultiplier;
 
-    if (floor(animationFrame) > animationEndFrame) {
+    if (floor(image_index) > animationEndFrame) {
         // Repeat animation
         if (animationRepeat && (animationRepeatTimes > 0 || animationRepeatTimes == -1)) {
-            animationFrame = animationLoopFrame;
+            image_index = animationLoopFrame;
 
             if (animationRepeatTimes > 0) {
                 animationRepeatTimes -= 1;
@@ -19,12 +19,12 @@ if (!animationFinished) {
             // Stop animation
             // If the animation is not linked to another animation, end animation
             if (animationLinkedTo == "") {
-                animationFrame = animationEndFrame;
+                image_index = animationEndFrame;
                 animationFinished = true;
             }
             else {
                 // If it is linked to another animation, set that animation
-                animationFrame = animationEndFrame;
+                image_index = animationEndFrame;
 
                 animationPrevious = animation;
                 animation = animationLinkedTo;
@@ -36,7 +36,7 @@ if (!animationFinished) {
 
                 // Reset the frame if animationResetFrame is toggled
                 if (animationResetFrame) {
-                    animationFrame = animationStartFrame;
+                    image_index = animationStartFrame;
                 }
             }
         }

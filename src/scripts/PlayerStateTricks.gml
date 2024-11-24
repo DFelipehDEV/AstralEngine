@@ -16,7 +16,7 @@ if (allowKeysTimer == 0) {
             trickCombo += 1;
         }
 
-        animationFrame = 0;
+        image_index = 0;
         AnimationApply(choose("HOMED", "HOMED_2", "SPRING_TRICK_HORIZONTAL", "SPRING_TRICK_VERTICAL"));
 
         // Get energy

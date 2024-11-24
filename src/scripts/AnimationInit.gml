@@ -2,11 +2,10 @@
 
 animationList = argument0;
 
+image_speed = 0;
 animation = "";
 animationPrevious = "";
 
-animationSprite = 0;
-animationFrame = 0;
 animationStartFrame = 0; // First animation frame
 animationEndFrame = 0; // Last animation frame
 animationLoopFrame = 0; // Loop animation frame

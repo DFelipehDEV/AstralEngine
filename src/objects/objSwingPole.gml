@@ -27,7 +27,7 @@ if (active) {
 
         // Create afterimage when changing the rotation
         if (other.rotPrevious != _rot) {
-            AfterimageEffectCreate(x + dcos(_rot)*26*xDirection, y - dsin(_rot)*20*xDirection, animationSprite, animationFrame, 1, xDirection, 1, _rot, c_teal, c_blue);
+            AfterimageEffectCreate(x + dcos(_rot)*26*xDirection, y - dsin(_rot)*20*xDirection, sprite_index, image_index, 1, xDirection, 1, _rot, c_teal, c_blue);
         }
 
         // Jump

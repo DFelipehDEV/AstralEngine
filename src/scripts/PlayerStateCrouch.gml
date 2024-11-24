@@ -2,9 +2,9 @@
 
 // Reset
 if (!keyDown || keyUp) {
-    animationFrame = max(animationFrame - 0.25, animationStartFrame);
+    image_index = max(image_index - 0.25, animationStartFrame);
     animationSpeed = 0;
-    if (animationFrame <= 0.25) {
+    if (image_index <= 0.25) {
         PlayerSetState(PlayerStateNormal);
     }
 }

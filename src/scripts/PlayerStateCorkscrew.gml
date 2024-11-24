@@ -17,7 +17,7 @@ else {
 
     if (animation == "CORKSCREW") {
         //Change animation frame depending on angle
-        animationFrame = abs((radtodeg(degtorad((_relativePosition/sprite_get_width(corkscrewObject.sprite_index))*360))/360*10) mod 11);
+        image_index = abs((radtodeg(degtorad((_relativePosition/sprite_get_width(corkscrewObject.sprite_index))*360))/360*10) mod 11);
     }
 }
 

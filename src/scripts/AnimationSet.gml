@@ -1,5 +1,5 @@
 /// AnimationSet(Sprite, frameStart, frameEnd, frameLoop, frameSpeed, frameReset, frameRepeat, repeatTimes, linkedAnimation)
-animationSprite = argument0;
+sprite_index = argument0;
 animationStartFrame = argument1;
 
 // Check if the end frame is specified (-1 means use the last frame of the sprite)

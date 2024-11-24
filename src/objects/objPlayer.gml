@@ -755,7 +755,7 @@ switch (animation) {
     case "JOG":
     case "JOG_2":
     case "RUN":
-        if(floor(animationFrame) == 3 || floor(animationFrame) == 7) {
+        if(floor(image_index) == 3 || floor(image_index) == 7) {
             if (!footstepPlayed) {
                 PlayerTerrainSndUpdate();
                 // Create water splash if the player is running in the water
@@ -792,7 +792,7 @@ if (abs(xSpeed) >= 11 || abs(ySpeed) >= 11) && afterimageTimer == 0 {
 
 if (afterimageTimer > 0) {
     if (round(global.roomTick*global.deltaMultiplier) mod 6 == 1) {
-        AfterimageEffectCreate(x, y, animationSprite, animationFrame, 1, xDirection, 1, animationAngle, afterimageColor1, afterimageColor2);
+        AfterimageEffectCreate(x, y, sprite_index, image_index, 1, xDirection, 1, animationAngle, afterimageColor1, afterimageColor2);
     }
 }
 
@@ -957,7 +957,7 @@ if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink 
         shader_pixel_uniform_f("u_texHeight", sprite_get_height(sprSonicPalette) + 1)
     }
 
-    draw_sprite_ext(animationSprite, floor(animationFrame), floor(x), floor(y), xDirection, yDirection, animationAngle, image_blend, image_alpha);
+    draw_sprite_ext(sprite_index, floor(image_index), floor(x), floor(y), xDirection, yDirection, animationAngle, image_blend, image_alpha);
     shader_reset();
 }
 

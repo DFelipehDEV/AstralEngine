@@ -6,7 +6,7 @@ if (animation != argument0) {
 
     // Reset the animation frame if needed
     if (animationResetFrame) {
-        animationFrame = animationStartFrame;
+        image_index = animationStartFrame;
     }
 
     // Reset animation state
