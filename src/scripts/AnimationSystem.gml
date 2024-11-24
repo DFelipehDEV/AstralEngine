@@ -1,7 +1,7 @@
 /// AnimationSystem(Animations)
 // Animation system
 
-animationTime += 1;
+animationTime += global.deltaMultiplier;
 
 if (!animationFinished) {
     image_index += animationSpeed * global.deltaMultiplier;
