@@ -15,7 +15,7 @@ if (animation != "SPRING_TRICK_HORIZONTAL" && animation != "SPRING_TRICK_VERTICA
 }
 
 if (animation == "SPRING") {
-    animationAngle = point_direction(xprevious, yprevious, x, y)-90;
+    image_angle = point_direction(xprevious, yprevious, x, y)-90;
 }
 else {
     xDirection = esign(xSpeed, xDirection);
@@ -36,7 +36,7 @@ if (keySpecial1Pressed && (animation == "SPRING" || animation == "LANDING")) {
 
         AnimationApply("SPRING_TRICK_HORIZONTAL")
         PlaySound("snd/PlayerSpringTrick");
-        animationAngle = 0;
+        image_angle = 0;
     }
 
 
@@ -47,7 +47,7 @@ if (keySpecial1Pressed && (animation == "SPRING" || animation == "LANDING")) {
 
         AnimationApply("SPRING_TRICK_VERTICAL")
         PlaySound("snd/PlayerSpringTrick");
-        animationAngle = 0;
+        image_angle = 0;
     }
 }
 

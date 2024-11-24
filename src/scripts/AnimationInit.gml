@@ -19,6 +19,5 @@ animationSpeed = 0; // Animation speed
 animationLinkedTo = "";
 
 animationFinished = false;
-animationAngle = 0;
 
 animationTime = 0; // Time since the animation was last changed

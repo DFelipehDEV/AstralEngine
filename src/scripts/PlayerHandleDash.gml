@@ -36,7 +36,7 @@ if (_dashRing != noone) {
     }
 
     noGravityTimer = 18;
-    animationAngle = -_dashRing.image_angle;
+    image_angle = -_dashRing.image_angle;
 
     // Set slow motion
     if (_dashRing.playerAction == PlayerStateTricks) {

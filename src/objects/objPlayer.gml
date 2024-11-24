@@ -214,7 +214,7 @@ applies_to=self
 */
 /// Create dust effect
 
-DummyEffectCreate(x, y, sprDust, 0.3, 0, -1, bm_normal, 1, 1, 1, animationAngle);
+DummyEffectCreate(x, y, sprDust, 0.3, 0, -1, bm_normal, 1, 1, 1, image_angle);
 #define Alarm_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -729,16 +729,16 @@ AnimationSystem(animationList);
 // Rotate Sprites
 if (xSpeed == 0 && ground
 || state == PlayerStateRoll) {
-    animationAngle = 0;
+    image_angle = 0;
 }
 else {
     if (ground) {
         // Rotate while moving on the ground
-        animationAngle = approach_angle(animationAngle, angle, 3 + abs(xSpeed))
+        image_angle = approach_angle(image_angle, angle, 3 + abs(xSpeed))
     }
     // Rotate until reaches to the normal angle
     else {
-        animationAngle = approach_angle(animationAngle, 0, 4);
+        image_angle = approach_angle(image_angle, 0, 4);
     }
 }
 /*"/*'/**//* YYD ACTION
@@ -792,7 +792,7 @@ if (abs(xSpeed) >= 11 || abs(ySpeed) >= 11) && afterimageTimer == 0 {
 
 if (afterimageTimer > 0) {
     if (round(global.roomTick*global.deltaMultiplier) mod 6 == 1) {
-        AfterimageEffectCreate(x, y, sprite_index, image_index, 1, xDirection, 1, animationAngle, afterimageColor1, afterimageColor2);
+        AfterimageEffectCreate(x, y, sprite_index, image_index, 1, xDirection, 1, image_angle, afterimageColor1, afterimageColor2);
     }
 }
 
@@ -946,7 +946,7 @@ if (trailAlpha > 0.1) {
 
 // Draw grind effect
 if (state == PlayerStateGrind) {
-    draw_sprite_ext(sprPlayerGrind, global.gameTime div 30, floor(x), floor(y), xDirection, yDirection, animationAngle, c_white, image_alpha);
+    draw_sprite_ext(sprPlayerGrind, global.gameTime div 30, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
 }
 
 // Draw character if the player is not hurt. Blink when hurt
@@ -957,19 +957,19 @@ if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink 
         shader_pixel_uniform_f("u_texHeight", sprite_get_height(sprSonicPalette) + 1)
     }
 
-    draw_sprite_ext(sprite_index, floor(image_index), floor(x), floor(y), xDirection, yDirection, animationAngle, image_blend, image_alpha);
+    draw_sprite_ext(sprite_index, floor(image_index), floor(x), floor(y), xDirection, yDirection, image_angle, image_blend, image_alpha);
     shader_reset();
 }
 
 if (state == PlayerStateSpindash) {
     // Spindash normal dust
     if (animation == "SPINDASH") {
-        draw_sprite_ext(sprPlayerSpindashLow, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, animationAngle, c_white, image_alpha);
+        draw_sprite_ext(sprPlayerSpindashLow, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, image_angle, c_white, image_alpha);
     }
 
     // Spindash charging dust
     if (animation == "SPINDASH_CHARGE") {
-        draw_sprite_ext(sprPlayerSpindashHigh, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, animationAngle, c_white, image_alpha);
+        draw_sprite_ext(sprPlayerSpindashHigh, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, image_angle, c_white, image_alpha);
     }
 }
 

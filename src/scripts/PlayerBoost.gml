@@ -11,7 +11,7 @@ if (!pushingTerrain) {
             PlayVoice(choose("snd/noone", voiceline[0], voiceline[1]));
             PlaySound("snd/PlayerBoostStart")
 
-            DummyEffectCreate(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, animationAngle);
+            DummyEffectCreate(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, image_angle);
 
             // Decrease energy gauge
             PlayerAddEnergy(-1.5);

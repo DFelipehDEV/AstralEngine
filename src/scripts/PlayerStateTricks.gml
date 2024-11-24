@@ -2,7 +2,7 @@
 
 afterimageTimer = 15;
 if (animation == "SPRING") {
-    animationAngle = point_direction(xprevious, yprevious, x, y)-90;
+    image_angle = point_direction(xprevious, yprevious, x, y)-90;
 }
 
 // Check if the delay has ended

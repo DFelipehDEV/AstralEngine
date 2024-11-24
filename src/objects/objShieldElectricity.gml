@@ -20,7 +20,7 @@ x = floor(ownerID.x);
 y = floor(ownerID.y);
 
 // Rotate
-image_angle = ownerID.animationAngle;
+image_angle = ownerID.image_angle;
 
 // Depth
 if (floor(image_index) mod 2 == 0) {

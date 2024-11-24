@@ -21,7 +21,7 @@ x = floor(ownerID.x);
 y = floor(ownerID.y);
 
 // Rotate
-image_angle = ownerID.animationAngle;
+image_angle = ownerID.image_angle;
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

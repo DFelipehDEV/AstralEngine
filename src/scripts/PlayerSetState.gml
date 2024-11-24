@@ -106,7 +106,7 @@ switch (state) {
         ySpeed = 13;
         trailTimer = 80;
         sensorBottomDistance = 14;
-        animationAngle = 0;
+        image_angle = 0;
         break;
 
     case PlayerStateStompLand:

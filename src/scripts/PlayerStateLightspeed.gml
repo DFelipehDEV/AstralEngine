@@ -11,5 +11,5 @@ else {
     ringDir = point_direction(x, y, ringNear.x, ringNear.y);
     xSpeed = lerp(xSpeed, lengthdir_x(12, ringDir), 0.4);
     ySpeed = lerp(ySpeed, lengthdir_y(12, ringDir), 0.4);
-    animationAngle = point_direction(xprevious, yprevious, x, y)-90
+    image_angle = point_direction(xprevious, yprevious, x, y)-90
 }

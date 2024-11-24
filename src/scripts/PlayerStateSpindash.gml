@@ -39,7 +39,7 @@ if (spindashStrength > 0) {
 if (!keyDown) {
     // Create release trail if is charging the spindash
     if (animation == "SPINDASH_CHARGE") {
-        DummyEffectCreate(floor(x), floor(y), sprPlayerSpindashHighRelease, 0.35, 0, 0.1, bm_normal, image_alpha, xDirection, 1, animationAngle);
+        DummyEffectCreate(floor(x), floor(y), sprPlayerSpindashHighRelease, 0.35, 0, 0.1, bm_normal, image_alpha, xDirection, 1, image_angle);
     }
     xSpeed = (8.2 + spindashStrength) * xDirection;
     PlayerSetState(PlayerStateRoll);
