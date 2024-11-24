@@ -34,7 +34,7 @@ if (!GameStateGet(GameStatePaused)) {
 }
 
 if (global.gameTimeAllow) {
-    global.gameTime += 1000 / 60 * global.deltaMultiplier;
+    global.gameTime += 1000 / 60 * global.timeScale;
 }
 #define Step_1
 /*"/*'/**//* YYD ACTION

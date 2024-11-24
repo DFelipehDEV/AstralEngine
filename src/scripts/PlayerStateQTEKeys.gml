@@ -1,5 +1,5 @@
 /// PlayerStateQTEKeys()
 
-global.deltaMultiplier = approach(global.deltaMultiplier, 0.04, 0.02)
+global.timeScale = approach(global.timeScale, 0.04, 0.02)
 
 xDirection = esign(xSpeed, xDirection);

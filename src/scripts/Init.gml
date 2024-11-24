@@ -34,7 +34,7 @@ global.stageRank[RankS] = 8500;
 
 // Game state
 global.debug = false;
-global.deltaMultiplier = 1; // Time movement multiplier, lower values make objects move slower, higher values make objects move faster, used for slow motion
+global.timeScale = 1; // Time movement multiplier, lower values make objects move slower, higher values make objects move faster, used for slow motion
 global.gameState = GameStateRunning;
 
 global.shaderHeat = shdHeat();

@@ -40,7 +40,7 @@ if (_dashRing != noone) {
 
     // Set slow motion
     if (_dashRing.playerAction == PlayerStateTricks) {
-        global.deltaMultiplier = 0.4;
+        global.timeScale = 0.4;
         trickCombo = 0;
     }
 

@@ -2,12 +2,12 @@
 
     var _xAcceleration, _xDeceleration, _xFriction;
     if (ground || state == PlayerStateCorkscrew) {
-        _xAcceleration = xAcceleration * global.deltaMultiplier;
-        _xDeceleration = xDeceleration * global.deltaMultiplier;
-        _xFriction = (xDeceleration * 1.7) * global.deltaMultiplier;
+        _xAcceleration = xAcceleration * global.timeScale;
+        _xDeceleration = xDeceleration * global.timeScale;
+        _xFriction = (xDeceleration * 1.7) * global.timeScale;
     }
     else {
-        _xAcceleration = (xAcceleration * 1.2) * global.deltaMultiplier;
+        _xAcceleration = (xAcceleration * 1.2) * global.timeScale;
         _xDeceleration = 0;
         _xFriction = 0;
     }

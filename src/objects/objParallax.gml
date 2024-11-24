@@ -82,7 +82,7 @@ viewX = view_xview[view_current];
 viewY = view_yview[view_current];
 
 var frame;
-frame = image_index * global.deltaMultiplier;
+frame = image_index * global.timeScale;
 for (nodeCurrent = 0; nodeCurrent < nodeNumParallax; nodeCurrent += 1) {
     // Retrieve values and store them in temporary variables
     tileDir = ds_grid_get(nodeParallax, constParallaxTileDirection, nodeCurrent);

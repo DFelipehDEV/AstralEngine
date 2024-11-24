@@ -1,9 +1,9 @@
 /// PlayerXMovementExt(xAcceleration, xDeceleration, xSpeedTop)
 
     var _xAcceleration, _xDeceleration, _xFriction, _xSpeedTop;
-    _xAcceleration = argument0 * global.deltaMultiplier;
-    _xDeceleration = argument1 * global.deltaMultiplier;
-    _xFriction = (argument1 * 1.7) * global.deltaMultiplier;
+    _xAcceleration = argument0 * global.timeScale;
+    _xDeceleration = argument1 * global.timeScale;
+    _xFriction = (argument1 * 1.7) * global.timeScale;
     _xSpeedTop = argument2;
 
     // Acceleration

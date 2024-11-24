@@ -256,8 +256,8 @@ applies_to=self
 PlayerAngleLocals();
 
 if (canMove) {
-    x += (angleCos * xSpeed) * global.deltaMultiplier;
-    y -= (angleSin * xSpeed) * global.deltaMultiplier;
+    x += (angleCos * xSpeed) * global.timeScale;
+    y -= (angleSin * xSpeed) * global.timeScale;
 
     repFactor = 1;
 
@@ -368,7 +368,7 @@ if (canMove) {
     
     // Vertical movement        
     if (!ground) {                   
-        y += ySpeed * global.deltaMultiplier;
+        y += ySpeed * global.timeScale;
         
         // Cache collision
         PlayerCollisionCache();
@@ -420,7 +420,7 @@ if (canMove) {
         // Add gravity
         if (noGravityTimer == 0 && state != PlayerStateCorkscrew && state != PlayerStateAirdash
         && state != PlayerStateWaylauncher) {
-            ySpeed = min(ySpeed + yAcceleration * global.deltaMultiplier, 15);
+            ySpeed = min(ySpeed + yAcceleration * global.timeScale, 15);
         }
     
         PlayerCollisionCache();
@@ -791,7 +791,7 @@ if (abs(xSpeed) >= 11 || abs(ySpeed) >= 11) && afterimageTimer == 0 {
 }
 
 if (afterimageTimer > 0) {
-    if (round(global.roomTick*global.deltaMultiplier) mod 6 == 1) {
+    if (round(global.roomTick*global.timeScale) mod 6 == 1) {
         AfterimageEffectCreate(x, y, sprite_index, image_index, 1, xDirection, 1, image_angle, afterimageColor1, afterimageColor2);
     }
 }
@@ -867,7 +867,7 @@ applies_to=self
 
 if (cam.target == id) {
     var _targetSpeed;
-    _targetSpeed = (((x - xprevious)/global.deltaMultiplier) * 12);
+    _targetSpeed = (((x - xprevious)/global.timeScale) * 12);
     if (state != PlayerStateWaylauncher)
         cam.xShift = approach(cam.xShift, round(_targetSpeed/2)*2, 7);
 
@@ -908,7 +908,7 @@ if (cam.target == id) {
 
         default:
             if (cam.yShakeTimer == 0) {
-                _targetSpeed = ((y - yprevious)/global.deltaMultiplier) * 5
+                _targetSpeed = ((y - yprevious)/global.timeScale) * 5
                 cam.yShift = approach(cam.yShift, round(_targetSpeed/2)*2, 6);
             }
     }

@@ -66,7 +66,7 @@ if (qteWon == 0) {
 
         image_alpha = max(image_alpha - 0.1, 0)
         hudBackScale = max(hudBackScale - 0.2, 0)
-        global.deltaMultiplier = min(global.deltaMultiplier + 0.2, 1)
+        global.timeScale = min(global.timeScale + 0.2, 1)
 
         if (!sound_isplaying("snd/PlayerHurt")) {
             PlaySound("snd/PlayerHurt");
@@ -85,7 +85,7 @@ if (qteWon == 0) {
 else {
     image_alpha = max(image_alpha - 0.1, 0)
     hudBackScale = max(hudBackScale - 0.2, 0)
-    global.deltaMultiplier = min(global.deltaMultiplier + 0.2, 1)
+    global.timeScale = min(global.timeScale + 0.2, 1)
 
     if (image_alpha == 0) {
         instance_destroy();

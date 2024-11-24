@@ -1,10 +1,10 @@
 /// AnimationSystem(Animations)
 // Animation system
 
-animationTime += global.deltaMultiplier;
+animationTime += global.timeScale;
 
 if (!animationFinished) {
-    image_index += animationSpeed * global.deltaMultiplier;
+    image_index += animationSpeed * global.timeScale;
 
     if (floor(image_index) > animationEndFrame) {
         // Repeat animation

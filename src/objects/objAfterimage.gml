@@ -6,7 +6,7 @@ applies_to=self
 */
 /// Fade and destroy
 
-image_alpha -= 0.12 * global.deltaMultiplier;
+image_alpha -= 0.12 * global.timeScale;
 
 if (image_alpha <= 0) {
     instance_destroy();

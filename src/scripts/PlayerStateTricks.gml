@@ -27,8 +27,8 @@ if (allowKeysTimer == 0) {
 
         PlaySoundExt("snd/Trick", global.soundVolume, 1 + (trickCombo * 0.0441), 0);
 
-        if (global.deltaMultiplier == 0.4) {
-            global.deltaMultiplier = 1;
+        if (global.timeScale == 0.4) {
+            global.timeScale = 1;
         }
     }
 }
@@ -41,13 +41,13 @@ if (keySpecial3Pressed) {
     PlayerSetState(PlayerStateSpring);
     AnimationApply("SPRING_TRICK_HORIZONTAL");
 
-    global.deltaMultiplier = 1;
+    global.timeScale = 1;
     PlaySound("snd/Trick");
 }
 
 
 if (ground) {
-    global.deltaMultiplier = 1;
+    global.timeScale = 1;
     PlayerSetState(PlayerStateNormal);
     allowKeysTimer = 0;
 }
