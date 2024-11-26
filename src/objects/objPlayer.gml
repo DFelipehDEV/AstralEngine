@@ -566,7 +566,7 @@ if (boosting) {
 
 // Perform state script
 script_execute(state);
-stateTimer += 1;
+stateTimer += global.timeScale;
 
 attackPossible = boosting ||
     invincibility == InvincibilityMonitor ||
