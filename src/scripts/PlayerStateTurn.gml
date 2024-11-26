@@ -1,7 +1,7 @@
 /// PlayerStateTurn()
 
 PlayerXMovement();
-if (animationFinished) {
+if (stateTimer > 8) {
     xDirection = -xDirection;
     PlayerSetState(PlayerStateNormal);
     PlayerAnimationNormal();

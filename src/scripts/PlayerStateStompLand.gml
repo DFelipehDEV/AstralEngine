@@ -11,7 +11,7 @@ if angleMode != 0 {
 }
 
 if (animation == "STOMP_LAND") {
-    if (animationFinished) {
+    if (stateTimer > 17) {
         PlayerSetState(PlayerStateNormal);
     }
 }

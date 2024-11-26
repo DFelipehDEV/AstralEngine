@@ -2,7 +2,7 @@
 
 ySpeed = -0.1;
 if (animation == "TRANSFORM") {
-    if (animationFinished) {
+    if (stateTimer > 60) {
         PlayerSetState(PlayerStateNormal);
         PlayerSetCharacter(CharacterSuperSonic);
         alarm[1] = 60;
