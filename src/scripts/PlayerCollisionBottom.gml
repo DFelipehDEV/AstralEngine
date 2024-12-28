@@ -13,7 +13,7 @@ sensorX = floor(argument0 + sensorSin * sensorBottomDistance);
 sensorY = floor(argument1 + sensorCos * sensorBottomDistance);
 
 // Test collision
-collisionTest = PlayerCollision(sensorX, sensorY, terrainLayer);
+collisionTest = PlayerCollision(sensorX, sensorY);
 
 // Test platform collision
 if (!collisionTest && ySpeed >= 0 && !ground) {

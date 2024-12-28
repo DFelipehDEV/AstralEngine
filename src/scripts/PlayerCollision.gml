@@ -1,32 +1,21 @@
-/// PlayerCollision(x, y, terrainLayer)
+/// PlayerCollision(x, y)
 
-if (place_meeting(argument0, argument1, objSolid)) {
-    terrainPlatform = false;
+var _x, _y;
+_x = argument0;
+_y = argument1;
+
+terrainPlatform = false;
+
+if (place_meeting(_x, _y, objSolid)
+|| (place_meeting(_x, _y, objLayer0) && terrainLayer == 0)
+|| (place_meeting(_x, _y, objLayer1) && terrainLayer == 1)) {
     return true;
 }
 
 // Check for platform
-if (place_meeting(argument0, argument1, objPlatform) && ground) {
+if (place_meeting(_x, _y, objPlatform) && ground) {
     terrainPlatform = true;
     return true;
-}
-
-switch (argument2) {
-    // Check for low layer
-    case 0:
-        if (place_meeting(argument0, argument1, objLayer0)) {
-            terrainPlatform = false;
-            return true;
-        }
-        break;
-
-    // Check for high layer
-    case 1:
-        if (place_meeting(argument0, argument1, objLayer1)) {
-            terrainPlatform = false;
-            return true;
-        }
-        break;
 }
 
 return false;

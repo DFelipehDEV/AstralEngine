@@ -13,7 +13,7 @@ sensorX = floor(argument0 - sensorCos * sensorLeftDistance);
 sensorY = floor(argument1 + sensorSin * sensorLeftDistance);
 
 // Test collision
-collisionTest = PlayerCollision(sensorX, sensorY, terrainLayer);
+collisionTest = PlayerCollision(sensorX, sensorY);
 
 // Set to the old mask
 mask_index = maskTemp;
