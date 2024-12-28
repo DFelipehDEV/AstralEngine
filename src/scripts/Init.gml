@@ -67,5 +67,5 @@ if (!debug_mode) {
     room_goto_next();
 }
 else {
-    room_goto(rmTest);
+    room_goto(rmSpaceColony);
 }

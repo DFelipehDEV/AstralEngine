@@ -13,30 +13,37 @@ if (debug_mode) {
     exit;
 }
 
-cardZoneScale = 1;            //Scale of the zone card (when it starts to fade it it starts to split)
+stageName = string_upper(room_get_name(room));
 
-cardCenterX = ScreenWidthHalf;          //X screen center
-cardCenterY = ScreenHeightHalf;         //Y screen center
+stageName = string_delete(stageName, 1, 2); // Remove the initial 'rm' from the name
+stageName = string_replace_all(stageName, "_", " "); // Replace all '_' by whitespaces
 
-cardColor1 = make_color_rgb(21,153,224);   //Main color used
-cardColor2 = make_color_rgb(120,228,225);  //Second main color used
+cardZoneScale = 1;
 
-cardBackAlpha = 1;                             //Background alpha
-cardLineAlpha = 1;                             //Lines and card alpha
+cardCenterX = ScreenWidthHalf;
+cardCenterY = ScreenHeightHalf;
 
-cardTimer = 230;                           //Frames to end
+cardColor1 = make_color_rgb(21,153,224);
+cardColor2 = make_color_rgb(120,228,225);
 
-cardCharX = 0;                             //Character pose speed
-cardCharSpeed = 1;                             //Character pose speed
+cardBackAlpha = 1;
+cardLineAlpha = 1;
+
+cardTimer = 230; // Duration
+
+cardCharX = 0;
+cardCharSpeed = 1;
 cardCharAlpha = 1;
 
-cardDashX = 0;                             //"dash" signs position
+cardDashX = 0; // "Arrows" sign position
 
-cardShape1X = cardCenterX;                   //Bottom Shape x
-cardShape1Y = cardCenterY;                   //Bottom Shape y
+// Bottom Shape
+cardShape1X = cardCenterX;
+cardShape1Y = cardCenterY;
 
-cardShape2X = cardCenterX;                   //Top Shape x
-cardShape2Y = cardCenterY;                   //Top Shape y
+// Top Shape
+cardShape2X = cardCenterX;
+cardShape2Y = cardCenterY;
 
 cardReturnOffset = 0;
 cardResultOffset = 0;
@@ -190,7 +197,7 @@ if (cardResultOffset == 0) {
 // Draw text
 draw_set_font(fontImpact24);
 draw_set_halign(fa_center);
-draw_text(view_xview[0] + cardCharX + cardResultOffset*7, (view_yview[0]) + cardCenterY, string(global.stageName));
+draw_text(view_xview[0] + cardCharX + cardResultOffset*7, (view_yview[0]) + cardCenterY, stageName);
 draw_set_halign(-1);
 draw_set_font(1);
 
