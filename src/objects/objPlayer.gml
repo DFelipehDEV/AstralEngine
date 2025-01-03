@@ -284,18 +284,18 @@ if (canMove) {
 
     if (ground) {
         repeat (repFactor) {
-            if (PlayerCollisionMain(x, y) && edgeCollision) {
-                do {
+            if (edgeCollision) {
+                while (PlayerCollisionMain(x, y)) {
                     x -= angleSin;
                     y -= angleCos;
-                }until(!PlayerCollisionMain(x, y))
+                }
             }
 
             if (PlayerCollisionSlope(x, y, angle, maskMid) && !PlayerCollisionMain(x, y)) {
-                do {
+                while (!PlayerCollisionMain(x, y)) {
                     x += angleSin;
                     y += angleCos;
-                }until(PlayerCollisionMain(x, y))
+                }
             }
         }
 

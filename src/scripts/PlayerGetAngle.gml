@@ -8,16 +8,9 @@ _angle = argument2;
 // Limit the angle to 32 directions to maintain stability and reduce jittering
 _angle = round(_angle / 11.25) * 11.25;
 
-// Exit early
-var _movementDir;
-_movementDir = round(point_direction(xprevious, yprevious, x, y) / 11.25) * 11.25
-if (_movementDir == _angle)
-    return _movementDir;
-
 // Store temporary values
 maskTemp = mask_index
 mask_index = maskDot;
-
 
 var _angleCOS, _angleSIN;
 _angleCOS = dcos(_angle);
