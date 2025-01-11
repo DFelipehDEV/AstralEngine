@@ -247,44 +247,18 @@ if (leaved) {
     }
     if (instance_exists(objAstralTitle)) {
         with (objAstralTitle) {
-            shift= 0;
-
-            cardDashX= 0;
-            cardDashY= view_yview + ScreenHeight - 75;
-
-
-            // Go to the center of the room
-            x = room_width / 2;
-            y = room_height / 2;
-
-            cardXScale = ScreenWidth;
-            cardYScale = 1;
-
-            cardX = view_xview;
-            cardY = view_yview + ScreenHeight - 75;
-
-            menu = 0;
-
-            echoAlpha = 0;
-            echoScale = 1;
-
-            menuTimer = 0;
-
-            titleOffset = 0;
-            titleNameScale = 1;
-            titleY = y;
-            startAlpha = 1;
+            menu = 1;
 
             menuOption = 1;
-
-            delay = 0;
-            logoAlpha = 1;
-            returnDelay = 50;
-            optionY[0] = ScreenHeight;
-            optionY[1] = ScreenHeight + 32;
-            optionY[2] = ScreenHeight + 64;
+            option[0, 0] = finalOptionY[0];
+            option[1, 0] = finalOptionY[1];
+            option[2, 0] = finalOptionY[2];
 
             optionMainAlpha = 1;
+            cardDashY = option[menuOption, 0] - 2;
+            cardYScale = 4;
+            cardY = view_yview + ScreenHeight - 120;
+            delay = 20;
         }
     }
 }
