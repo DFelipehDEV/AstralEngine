@@ -93,8 +93,10 @@ if (_playerExists) {
 if (mouse_check_button_released(mb_left)) {
     var _cam;
     _cam = instance_nearest(x, y, objCamera);
-    if (collision_point(mouse_x, mouse_y, all, 0, 1)) {
-        _cam.target = instance_nearest(mouse_x, mouse_y, all);
+    if (_cam != noone) {
+        if (collision_point(mouse_x, mouse_y, all, 0, 1)) {
+            _cam.target = instance_nearest(mouse_x, mouse_y, all);
+        }
     }
 }
 
