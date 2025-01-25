@@ -22,10 +22,15 @@ applies_to=self
 /// Debug
 
 player = instance_find(objPlayer, 0);
+
+var _playerExists;
+_playerExists = instance_exists(player);
+
 // Activate/deactivate debug overlay
 if (keyboard_check_pressed(vk_tab)) {
     overlay = !overlay;
-    player.drawSensors = overlay;
+    if (_playerExists)
+        player.drawSensors = overlay;
 }
 
 // Restart room
@@ -69,9 +74,6 @@ if (keyboard_check_pressed(vk_pagedown)) {
         PlayerGlobalsReset();
     }
 }
-
-var _playerExists;
-_playerExists = instance_exists(player);
 
 if (_playerExists) {
     if (mouse_check_button(mb_right)) {
