@@ -113,7 +113,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 0:
                     if (_inputActionPressed) {
                         hudInputCounter += 1;
-                        PlaySound();
+                        PlaySound(sndQTEPress);
                     }
                     break;
                 
@@ -122,7 +122,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 1:
                     if (_inputSpecial1Pressed) {
                         hudInputCounter += 1;
-                        PlaySound();
+                        PlaySound(sndQTEPress);
                     }
                     break;
                 
@@ -131,7 +131,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 2:
                     if (_inputSpecial2Pressed) {
                         hudInputCounter += 1;
-                        PlaySound();
+                        PlaySound(sndQTEPress);
                     }
                     break;
                     
@@ -145,7 +145,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 0:
                     if (_inputActionPressed) {
                         hudInputCounter += 1;
-                        PlaySound();
+                        PlaySound(sndQTEPress);
                     }
                     break;
                 
@@ -154,7 +154,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 1:
                     if (_inputSpecial1Pressed) {
                         hudInputCounter += 1;
-                        PlaySound();
+                        PlaySound(sndQTEPress);
                     }
                     break;
                 
@@ -163,7 +163,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 2:
                     if (_inputSpecial2Pressed) {
                         hudInputCounter += 1;
-                        PlaySound();
+                        PlaySound(sndQTEPress);
                     }
                     break;
                     
@@ -180,7 +180,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 0:
                     if (_inputActionPressed) {
                         hudInputCounter += 1;
-                        PlaySound();
+                        PlaySound(sndQTEPress);
                         qteWon = 1;
                         PlaySound(sndQTEWin);
                         
@@ -199,7 +199,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 1:
                     if (_inputSpecial1Pressed) {
                         hudInputCounter += 1;
-                        PlaySound();
+                        PlaySound(sndQTEPress);
                         qteWon = 1;
                         PlaySound(sndQTEWin);
                         
@@ -218,7 +218,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                 case 2:
                     if (_inputSpecial2Pressed) {
                         hudInputCounter += 1;
-                        PlaySound();
+                        PlaySound(sndQTEPress);
                         qteWon = 1;
                         PlaySound(sndQTEWin);
                         
