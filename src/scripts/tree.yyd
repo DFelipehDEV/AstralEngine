@@ -128,7 +128,6 @@
 		|PlaySoundExt
 		|PlaySoundSingle
 		|PlayMusic
-		|FadeMusic
 	+VFX
 		|DummyEffectCreate
 		|AfterimageEffectCreate

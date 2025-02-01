@@ -15,5 +15,5 @@ if (_spring != noone) {
     _spring.image_index = 1;
     interactDelay = 11;
 
-    PlaySound("snd/Spring");
+    PlaySound(sndSpring);
 }

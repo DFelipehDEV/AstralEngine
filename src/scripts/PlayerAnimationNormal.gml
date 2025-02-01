@@ -7,7 +7,7 @@ if (ground) {
                 // Check if we are in the edge of a solid
                 if (PlayerCollisionLeftEdge(x, y, angle) && !PlayerCollisionRightEdge(x, y, angle)) {
                     if (animation != "LEDGE" && animation != "LEDGE_2") {
-                        PlayVoice(choose(voiceline[11], voiceline[12], "snd/noone"));
+                        PlayVoice(choose(voiceline[11], voiceline[12], sndNoone));
                     }
                     switch (xDirection) {
                         case 1:

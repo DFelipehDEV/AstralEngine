@@ -57,7 +57,7 @@ switch(optionSelected) {
             // Change option
             if InputGet(InputDown, 0) {
                 optionSelected += 1;
-                PlaySound("snd/MenuSelect");
+                PlaySound(sndMenuSelect);
                 scale = 0;
                 delay = 20;
             }
@@ -86,7 +86,7 @@ switch(optionSelected) {
             // Change option
             if (InputGet(InputUp, 0) && delay == 0) {
                 optionSelected -= 1;
-                PlaySound("snd/MenuSelect");
+                PlaySound(sndMenuSelect);
                 scale = 0;
                 delay = 20;
             }
@@ -94,7 +94,7 @@ switch(optionSelected) {
             // Change option
             if (InputGet(InputDown, 0)) {
                 optionSelected += 1;
-                PlaySound("snd/MenuSelect");
+                PlaySound(sndMenuSelect);
                 scale = 0;
                 delay = 20;
             }
@@ -103,16 +103,14 @@ switch(optionSelected) {
         if (InputGet(InputRight, 0)) {
             with (objMusicManager) {
                 global.musicVolume = approach(global.musicVolume, 1, 0.01);
-                musicVolumeReal = global.musicVolume;
-                sound_volume(objMusicManager.music, global.musicVolume)
+                audio_set_volume(music, global.musicVolume);
             }
         }
 
         if (InputGet(InputLeft, 0)) {
             with (objMusicManager) {
                 global.musicVolume = approach(global.musicVolume, 0, 0.01);
-                musicVolumeReal = global.musicVolume;
-                sound_volume(objMusicManager.music, global.musicVolume)
+                audio_set_volume(music, global.musicVolume);
             }
         }
         break;
@@ -122,14 +120,14 @@ switch(optionSelected) {
         // Change option
         if (InputGet(InputUp, 0) && delay == 0) {
             optionSelected -= 1;
-            PlaySound("snd/MenuSelect");
+            PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
         // Change option
         if (InputGet(InputDown, 0) && delay == 0) {
             optionSelected += 1;
-            PlaySound("snd/MenuSelect");
+            PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
@@ -148,14 +146,14 @@ switch(optionSelected) {
         // Change option
         if ((InputGet(InputUp, 0)) && delay == 0) {
             optionSelected -= 1;
-            PlaySound("snd/MenuSelect");
+            PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
         // Change option
         if ((InputGet(InputDown, 0)) && delay == 0) {
             optionSelected += 1;
-            PlaySound("snd/MenuSelect");
+            PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
@@ -174,14 +172,14 @@ switch(optionSelected) {
         // Change option
         if ((InputGet(InputUp, 0))&& delay == 0) {
             optionSelected -= 1;
-            PlaySound("snd/MenuSelect");
+            PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
         // Change option
         if ((InputGet(InputDown, 0)) && delay == 0) {
             optionSelected += 1;
-            PlaySound("snd/MenuSelect");
+            PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
@@ -202,20 +200,20 @@ switch(optionSelected) {
         if (delay == 0) {
             if (InputGet(InputUp, 0)) {
                 optionSelected -= 1;
-                PlaySound("snd/MenuSelect");
+                PlaySound(sndMenuSelect);
                 scale = 0;
                 delay = 20;
             }
             // Change option
             if (InputGet(InputDown, 0)) {
                 optionSelected = 0;
-                PlaySound("snd/MenuSelect");
+                PlaySound(sndMenuSelect);
                 scale = 0;
                 delay = 20;
             }
 
             if (InputGet(InputAction)) {
-                PlaySound("snd/MenuAccept");
+                PlaySound(sndMenuAccept);
                 delay = 120;
                 leaved = true;
 

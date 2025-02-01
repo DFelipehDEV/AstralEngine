@@ -20,8 +20,8 @@ applies_to=self
 */
 /// Stop sound effects
 
-sound_stop("snd/EnemySpinnerShockActive")
-sound_stop("snd/EnemySpinnerShockCharge")
+audio_stop(sndEnemySpinnerShock)
+audio_stop(sndEnemySpinnerShockCharge)
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -33,21 +33,21 @@ applies_to=self
 if (point_in_rectangle(x, y, view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0])) {
     shockTimer += 1;
     if (shockTimer == 70) {
-        PlaySoundExt("snd/EnemySpinnerShockCharge", global.soundVolume, 1, false)
+        PlaySoundExt(sndEnemySpinnerShockCharge, global.soundVolume, 1, false)
     }
 
 
     if (shockTimer == 120) {
-        sound_stop("snd/EnemySpinnerShockCharge")
-        PlaySoundExt("snd/EnemySpinnerShockActive", global.soundVolume, 1, false)
+        audio_stop(sndEnemySpinnerShockCharge)
+        PlaySoundExt(sndEnemySpinnerShock, global.soundVolume, 1, false)
         shockTimer = 0
         instance_create_depth(x, y, -1, objSpinnerShock);
         y = ystart;
     }
 
 
-    if (shockTimer == 35 && sound_isplaying("snd/EnemySpinnerShockActive")) {
-        sound_stop("snd/EnemySpinnerShockActive")
+    if (shockTimer == 35 && audio_isplaying(sndEnemySpinnerShock)) {
+        audio_stop(sndEnemySpinnerShock)
     }
 
     // Apply invincibility

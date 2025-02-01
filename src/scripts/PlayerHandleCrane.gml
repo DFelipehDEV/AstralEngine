@@ -7,7 +7,7 @@ _handle = PlayerCollisionObjectMain(x, y, objHandle);
 //Check if is meeting the fling sensor
 if (_handle != noone && ySpeed >= 0) {
     if (state != PlayerStateGrab) {
-        PlaySound("snd/PlayerGrab");
+        PlaySound(sndGrab);
     }
     _handle.ownerID = id;
     x = _handle.x;

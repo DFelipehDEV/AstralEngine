@@ -2,10 +2,10 @@
 // Exit state
 switch (state) {
     case PlayerStateGrind:
-        sound_stop("snd/PlayerGrindContinue");
+        audio_stop(sndPlayerGrind);
         break;
     case PlayerStateSlide:
-        sound_stop("snd/PlayerSlide");
+        audio_stop(sndPlayerSlide);
         break;
     case PlayerStateStomp:
         PlayerSensorPosUpdate();
@@ -162,7 +162,7 @@ switch (state) {
         canMove = false;
         AnimationApply("DEAD");
         AnimationUpdate();
-        PlaySound("snd/PlayerHurt");
+        PlaySound(sndPlayerHurt);
         PlaySound(voiceline[4]);
         break;
 }

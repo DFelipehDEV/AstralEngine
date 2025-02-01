@@ -45,7 +45,7 @@ if (active) {
             other.active = false;
             other.ownerID = noone;
 
-            PlaySound("snd/PlayerSpin");
+            PlaySound(sndPlayerSpin);
         }
     }
     rotPrevious = _rot; // Update previous rot to new rot

@@ -8,8 +8,8 @@ if (!pushingTerrain) {
     if (energy > 0) {
         // Trigger boost dash
         if (keySpecial1Pressed && !boosting) {
-            PlayVoice(choose("snd/noone", voiceline[0], voiceline[1]));
-            PlaySound("snd/PlayerBoostStart")
+            PlayVoice(choose(sndNoone, voiceline[0], voiceline[1]));
+            PlaySound(sndPlayerBoost)
 
             DummyEffectCreate(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, image_angle);
 

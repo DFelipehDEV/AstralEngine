@@ -9,8 +9,8 @@ applies_to=self
 image_alpha = 0.1; // Animation alpha
 
 // Play boost sounds
-PlaySound("snd/PlayerBoostContinue");
-PlaySoundExt("snd/PlayerBoostLoop", global.soundVolume, 1, true)
+PlaySound(sndPlayerBoostContinue);
+PlaySoundExt(sndPlayerBoostLoop, global.soundVolume, 1, true)
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -19,8 +19,8 @@ applies_to=self
 */
 /// Stop the sounds
 
-sound_stop("snd/PlayerBoostLoop");
-sound_stop("snd/PlayerBoostContinue");
+audio_stop(sndPlayerBoostLoop);
+audio_stop(sndPlayerBoostContinue);
 ownerID.boostAura = noone;
 #define Step_0
 /*"/*'/**//* YYD ACTION

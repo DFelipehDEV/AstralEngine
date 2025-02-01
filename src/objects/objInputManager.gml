@@ -123,7 +123,7 @@ applies_to=self
 if (keyboard_check_pressed(vk_caps)) {
     if (DEBUG == 1 && global.debug == false) {
         global.debug = true;
-        PlaySound("snd/Ring");
+        PlaySound(sndRing);
         if (!instance_exists(objDebugMode))
             instance_create(0, 0, objDebugMode);
     }

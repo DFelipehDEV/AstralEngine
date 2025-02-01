@@ -54,7 +54,7 @@ with (other) {
     underwaterAirTimer = 600;
     underwaterDrownFrame = 0;
 }
-PlaySound("snd/PlayerBreathe");
+PlaySound(sndPlayerBubble);
 instance_destroy();
 #define Draw_0
 /*"/*'/**//* YYD ACTION

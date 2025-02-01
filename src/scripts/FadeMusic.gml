@@ -2,11 +2,9 @@
 
 if (instance_exists(objMusicManager)) {
     if (argument0) {
-        objMusicManager.fadeIn = false;
-        objMusicManager.fadeOut = true;
+        audio_music_stop(15);
     }
     else {
-        objMusicManager.fadeIn = true;
-        objMusicManager.fadeOut = false;
+        audio_music_play(music, 15);
     }
 }

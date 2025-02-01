@@ -43,7 +43,7 @@ creationTimer = min(creationTimer + 1, 20);
 scale = ease(creationTimer, 5, -4, 20, "OutBack");
 
 if (creationTimer == 4) {
-    PlaySound("snd/LockOn");
+    PlaySound(sndLockOn);
 }
 if (creationTimer > 15) {
     angle[0] += 1;

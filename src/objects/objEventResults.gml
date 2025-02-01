@@ -11,7 +11,7 @@ DeactivateExceptionsAdd(id);
 global.gameTimeAllow = false
 
 // Play victory music
-PlaySound("bgm/Victory", global.musicVolume, 1, false);
+PlaySound(bgmVictory, global.musicVolume, 1, false);
 
 // Stop music
 if (instance_exists(objMusicManager)) {
@@ -87,7 +87,7 @@ if (resultsTimer > 80) {
 if (resultsTimer > 110) {
     // Skip everything
     if (InputGet(InputAction, 0) && !scoreFinished) {
-        sound_stop("bgm/Victory");
+        audio_stop(bgmVictory);
 
         // Skip everything
         resultsTimer = 290;
@@ -100,7 +100,7 @@ if (resultsTimer > 110) {
         scoreBonusTime = scoreValueTime;
         scoreBonusRing = scoreValueRing;
         scoreFinished = true;
-        sound_stop("snd/ResultsScoreCount")
+        audio_stop(sndResultsScoreCount)
     }
 
     // Show the score bar underlay on the screen
@@ -139,22 +139,22 @@ if (resultsTimer > 110) {
             if (!scoreFinished && scoreBonusTime == scoreValueTime
             && scoreBonusRing == scoreValueRing) {
                 scoreFinished = true;
-                PlaySound("snd/ResultsScoreTotal");
-                sound_stop("snd/ResultsScoreCount")
+                PlaySound(sndResultsScoreTotal);
+                audio_stop(sndResultsScoreCount)
             }
 
 
             // Check if the score is still being written
             if (!scoreFinished) {
-                if (!sound_isplaying("snd/ResultsScoreCount")) {
-                    PlaySound("snd/ResultsScoreCount", global.soundVolume, 1, true);
+                if (!audio_isplaying(sndResultsScoreCount)) {
+                    PlaySound(sndResultsScoreCount, global.soundVolume, 1, true);
                 }
             }
 
             if (resultsTimer > 370) {
                 // Play the results music after victory music ended
-                if (!sound_isplaying("bgm/Results")) {
-                    PlaySound("bgm/Results", global.musicVolume, 1, false);
+                if (!audio_isplaying(bgmResults)) {
+                    PlaySound(bgmResults, global.musicVolume, 1, false);
                 }
             }
 
@@ -193,28 +193,24 @@ if (resultsTimer > 110) {
                         DummyEffectCreate(view_xview[0] + 280 + random_range(-20, 20), view_yview[0] + 221 + random_range(-20, 20), sprStar, 0.2, 0, -999999991, bm_normal, 1, 1, 1, 0);
                     }
 
-                    // Check if the rank animation is near ended
                     if (rankTime == 50) {
+                        PlaySound(sndResultsRanked);
                         // Play different voicelines for each rank
                         switch (rankIndex) {
                             case RankS:
-                                PlaySound("snd/ResultsRanked");
-                                PlaySound(choose("snd/SonicVoice7", "snd/SonicVoice8"));
+                                PlaySound(choose(sndSonicVoice7, sndSonicVoice8));
                                 break;
 
                             case RankA:
-                                PlaySound("snd/ResultsRanked");
-                                PlaySound("snd/SonicVoice9");
+                                PlaySound(sndSonicVoice9);
                                 break;
 
                             case RankB:
-                                PlaySound("snd/ResultsRanked");
-                                PlaySound("snd/SonicVoice10");
+                                PlaySound(sndSonicVoice10);
                                 break;
 
                             case RankC:
-                                PlaySound("snd/ResultsRanked");
-                                PlaySound("snd/SonicVoice11");
+                                PlaySound(sndSonicVoice11);
                                 break;
                         }
                     }

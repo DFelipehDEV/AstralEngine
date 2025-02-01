@@ -85,7 +85,7 @@ if (buttonKey != -1) {
         buttonAlpha[0] = min(buttonAlpha[0] + 0.2, 1);
 
         if (buttonAlpha[0] == 0.4) {
-            PlaySound("snd/MenuWarn");
+            PlaySound(sndMenuWarn);
         }
 
         buttonScale = lerp(buttonScale, 2, 0.2);

@@ -77,7 +77,7 @@ switch (menu) {
         if (InputGet(InputActionPressed, 0) && returnDelay < 0) {
             menu = 1;
             echoAlpha = 1;
-            PlaySound("snd/MenuAccept");
+            PlaySound(sndMenuAccept);
         }
         break;
 
@@ -120,14 +120,14 @@ switch (menu) {
                             menuOption += 1;
                             delay = 25;
 
-                            PlaySound("snd/MenuSelect");
+                            PlaySound(sndMenuSelect);
                         }
                         // Check if the player has pressed the start button
                         if InputGet(InputActionPressed, 0) && !instance_exists(objFadeNext) {
                             with (instance_create(0, 0, objFadeNext)) {
                                 color = c_white;
                             }
-                            PlaySound("snd/MenuAccept");
+                            PlaySound(sndMenuAccept);
                         }
                         break;
 
@@ -137,19 +137,19 @@ switch (menu) {
                         if (InputGet(InputUpPressed, 0) != 0) {
                             menuOption -= 1;
                             delay = 25;
-                            PlaySound("snd/MenuSelect");
+                            PlaySound(sndMenuSelect);
                         }
                         // Change selection
                         if (InputGet(InputDown, 0)) {
                             menuOption += 1;
                             delay = 25;
-                            PlaySound("snd/MenuSelect");
+                            PlaySound(sndMenuSelect);
                         }
 
                         // Go to options menu
                         if (InputGet(InputAction, 0)) {
                             menu = 3;
-                            PlaySound("snd/MenuAccept");
+                            PlaySound(sndMenuAccept);
                         }
                         break;
 
@@ -159,7 +159,7 @@ switch (menu) {
                         if (InputGet(InputUp, 0)) {
                             menuOption -= 1;
                             delay = 25;
-                            PlaySound("snd/MenuSelect");
+                            PlaySound(sndMenuSelect);
                         }
 
                         // Check if the player has pressed the start button

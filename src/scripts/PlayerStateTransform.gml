@@ -9,8 +9,8 @@ if (animation == "TRANSFORM") {
     }
 
 
-    if (round(image_index) == 5 && !sound_isplaying("snd/PlayerTransform")) {
-        PlaySound("snd/PlayerTransform")
+    if (round(image_index) == 5 && !audio_isplaying(sndPlayerTransform)) {
+        PlaySound(sndPlayerTransform)
         instance_create(x, y, objBoostShockwave);
         with (cam)
             CameraShakeY(20);

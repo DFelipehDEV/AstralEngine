@@ -51,7 +51,7 @@ switch (ended) {
                 npcStringCurrent = min((npcStringCurrent + 1), (npcStringLength - 1));
                 textTotal = "";
                 letter = 1;
-                PlaySound("snd/DialogueOpen");
+                PlaySound(sndDialogueOpen);
                 textOffset = -12;
             }
             else {
@@ -141,7 +141,7 @@ if (!npcChatting) {
 
         ownerID.cam.yShift = -50;
         ownerID.cam.target = id;
-        PlaySound("snd/DialogueOpen");
+        PlaySound(sndDialogueOpen);
 
         ownerID.hud.hidden = true;
         ended = 0;
@@ -194,8 +194,8 @@ if (npcChatting) {
             _lettertofind = string_char_at(npcString[npcStringCurrent], letter)
             textTotal = string_insert(_lettertofind, string(textTotal), letter)
             if (letterSoundTimer == 0) {
-                sound_stop("snd/DialogueType")
-                PlaySound("snd/DialogueType", global.soundVolume, 1, false)
+                audio_stop(sndDialogueType)
+                PlaySound(sndDialogueType, global.soundVolume, 1, false)
                 letterSoundTimer = 4;
             }
         }

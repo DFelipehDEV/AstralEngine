@@ -17,7 +17,7 @@ if (_dashPad != noone) {
     // Create dust
     DummyEffectCreate(x, y, sprDashDust, 0.25, 0, -0.1, bm_normal, 1, _dashPad.image_xscale, _dashPad.image_yscale, _dashPad.image_angle);
     // Play sound
-    PlaySound("snd/DashPad");
+    PlaySound(sndDashPad);
 }
 
 // Dash ring
@@ -87,6 +87,6 @@ if (_dashRamp != noone && ground) {
 
         interactDelay = 10;
 
-        PlaySound("snd/DashRamp");
+        PlaySound(sndDashRamp);
     }
 }

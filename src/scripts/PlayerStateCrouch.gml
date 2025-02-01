@@ -20,6 +20,6 @@ else {
             image_yscale = 0.47;
         }
 
-        PlaySound("snd/PlayerSpindashCharge");
+        PlaySound(sndPlayerSpindash);
     }
 }

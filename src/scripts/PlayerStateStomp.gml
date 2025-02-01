@@ -9,10 +9,10 @@ if (ground) {
     PlayerSetState(PlayerStateStompLand);
     ySpeed = 0;
 
-    PlaySound("snd/PlayerStompLand");
+    PlaySound(sndPlayerStompLand);
     with (cam)
         CameraShakeY(20);
-    sound_stop("snd/PlayerStompStart");
+    audio_stop(sndPlayerStomp);
 
     DummyEffectCreate(x, y, sprPlayerStomp, 0.45, 0, -0.1, bm_normal, image_alpha, 1, 1, image_angle)
 }

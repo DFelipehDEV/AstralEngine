@@ -1,0 +1,136 @@
+|sndNoone
++Title
+	|bgmTitle
++Test
+	|bgmTest
++Player
+	|sndPlayerBoost
+	|sndPlayerBoostContinue
+	|sndPlayerBoostLoop
+	|sndPlayerBubble
+	|sndPlayerDrown
+	|sndPlayerGrind
+	|sndPlayerGrindLand
+	|sndPlayerHome
+	|sndPlayerHurt
+	|sndPlayerJump
+	|sndPlayerLoseAir
+	|sndPlayerLoseRings
+	|sndPlayerRoll
+	|sndPlayerSlide
+	|sndPlayerSpin
+	|sndPlayerSpindash
+	|sndPlayerSpindashRelease
+	|sndPlayerStomp
+	|sndPlayerStompLand
+	|sndPlayerTransform
+	|sndPlayerTrick
+	+Sonic
+		+Voicelines
+			|sndSonicVoice
+			|sndSonicVoice2
+			|sndSonicVoice3
+			|sndSonicVoice4
+			|sndSonicVoice5
+			|sndSonicVoice6
+			|sndSonicVoice7
+			|sndSonicVoice8
+			|sndSonicVoice9
+			|sndSonicVoice10
+			|sndSonicVoice11
+			|sndSonicVoice12
+			|sndSonicVoice13
++Crane
+	|sndHandleMove
+	|sndGrab
++Ring
+	|sndRing
+	|sndRingSpecial
+	|sndRingSuper
++Dash
+	|sndDashPad
+	|sndDashRing
+	|sndDashRingRainbow
+	|sndDashRamp
++Enemy
+	|sndShot
+	|sndEnemyHit
+	|sndEnemyHit2
+	|sndEnemyHit3
+	|sndEnemyBuzzer
+	|sndEnemyHeavyAttack
+	|sndEnemySpinnerFly
+	|sndEnemySpinnerShock
+	|sndEnemySpinnerShockCharge
+	|sndEnemyWarn
++Menu
+	|sndMenuAccept
+	|sndMenuSelect
+	|sndMenuStartup
+	|sndMenuWarn
++Monitor
+	|bgmInvincibility
+	|sndMonitor
+	|sndRingMonitor
+	|sndShieldMonitor
++QTE
+	|sndQTEPress
+	|sndQTEWin
++Results
+	|bgmResults
+	|bgmVictory
+	|sndResultsRanked
+	|sndResultsScoreCount
+	|sndResultsScoreTotal
++Terrain
+	+Footsteps
+		|sndFootstepDirt
+		|sndFootstepDirt2
+		|sndFootstepGrass
+		|sndFootstepGrass2
+		|sndFootstepMetal
+		|sndFootstepMetal2
+		|sndFootstepStone
+		|sndFootstepStone2
+		|sndFootstepWater
+		|sndFootstepWood
+		|sndFootstepWood2
+	+Land
+		|sndLandDirt
+		|sndLandGrass
+		|sndLandMetal
+		|sndLandStone
+		|sndLandWater
+		|sndLandWood
+	+Skid
+		|sndSkidDirt
+		|sndSkidGrass
+		|sndSkidMetal
+		|sndSkidStone
+		|sndSkidWater
+		|sndSkidWood
++GoalRing
+	|sndGoalRingSpin
+	|sndGoalRingFinish
++WayLauncher
+	|sndWayLauncherWait
+	|sndWayLauncherChangeDir
+	|sndWayLauncherLaunch
++Dialogue
+	|sndDialogueOpen
+	|sndDialogueType
++Spike
+	|sndSpikeMove
++Spring
+	|sndSpring
++Checkpoint
+	|sndCheckpoint
+|sndExplosion
+|sndExplosion2
+|sndLockOn
+|sndBreakBox
+|sndWallBreak
+|sndWaterSplash
+|sndWind
+|sndFlail
+|sndTrick

@@ -1,4 +1,3 @@
 /// PlaySound(Sound)
 
-// Play a sound
-sound_play_ex(argument0, global.soundVolume, 1, 0);
+audio_play_ext(argument0, global.soundVolume, 0, 1, false);

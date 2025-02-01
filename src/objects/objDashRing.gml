@@ -8,7 +8,7 @@ applies_to=self
 
 strength = 8;
 playerAction = PlayerStateSpring; //Player state when he meets the dash ring
-interactSound = "snd/DashRing";
+interactSound = sndDashRing;
 
 image_speed = 0.3;
 #define Step_0

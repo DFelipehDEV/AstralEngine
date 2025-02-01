@@ -12,7 +12,7 @@ if (_waterHorizon != noone) {
         PlayerPhysicModeSet(PhysicsWater);
 
         DummyEffectCreate(x, _waterHorizon.y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
-        PlaySoundSingle("snd/WaterSplash", global.soundVolume, 1);
+        PlaySoundSingle(sndWaterSplash, global.soundVolume, 1);
     }
 }
 
@@ -24,7 +24,7 @@ if (physicsMode == PhysicsWater) {
         underwaterAirTimer = 600;
         if (instance_exists(objWaterHorizon)) {
             DummyEffectCreate(x, instance_nearest(x, y, objWaterHorizon).y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
-            PlaySoundSingle("snd/WaterSplash", global.soundVolume, 1);
+            PlaySoundSingle(sndWaterSplash, global.soundVolume, 1);
         }
     }
 }
@@ -33,6 +33,6 @@ else {
     if (_waterTrigger != noone && !_waterHorizon) {
         PlayerPhysicModeSet(PhysicsWater);
 
-        PlaySoundSingle("snd/WaterSplash", global.soundVolume, 1);
+        PlaySoundSingle(sndWaterSplash, global.soundVolume, 1);
     }
 }

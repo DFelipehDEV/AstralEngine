@@ -46,7 +46,7 @@ if (ground) {
         PlayVoice(choose(voiceline[3], voiceline[2]));
         PlayerSetState(PlayerStateSlide);
 
-        PlaySound("snd/PlayerSlide");
+        PlaySound(sndPlayerSlide);
     }
 }
 

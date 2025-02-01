@@ -101,7 +101,7 @@ switch (state) {
         // Play warning sound and spotted effect.
         if (alarm[1] == -1) {
             alarm[1] = 15;
-            PlaySound("snd/EnemyWarn");
+            PlaySound(sndEnemyWarn);
             DummyEffectCreate(x - 10 * image_xscale, y - 25, sprEnemyWarn, 0.25, 0, 1, bm_normal, 1, 1, 1, 0);
         }
         break;
@@ -122,7 +122,7 @@ switch (state) {
             if (objPlayer.invincibility == InvincibilityNoone) {
                 xSpeed = 0;
                 state = "ATTACK";
-                PlaySoundExt("snd/Wind", global.soundVolume, random_range(0.5, 0.9), false);
+                PlaySoundExt(sndWind, global.soundVolume, random_range(0.5, 0.9), false);
                 EnemySetAnimation(sprEnemyHeavyAttack, 0.17);
             }
         }
@@ -137,7 +137,7 @@ switch (state) {
             // Check if we haven't used the hammer
             if (!hammer) {
                 hammer = true;
-                PlaySound("snd/EnemyHeavyAttack");
+                PlaySound(sndEnemyHeavyAttack);
                 with (ownerID.cam)
                     CameraShakeY(40);
             }

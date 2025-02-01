@@ -30,7 +30,7 @@ if (_enemy != noone) {
                 if (!_enemy.enemyBust) {
                     with(_enemy) {
                         DummyEffectCreate(x, y, sprExplosion, 0.35, 0, -0.1, bm_normal, 1, 1, 1, 0);
-                        PlaySoundExt(choose("snd/Explosion", "snd/Explosion2"), global.soundVolume, 1, false);
+                        PlaySoundExt(choose(sndExplosion, sndExplosion2), global.soundVolume, 1, false);
 
                         repeat(6) {
                             var _metal;
@@ -94,7 +94,7 @@ if (_enemy != noone) {
                 CameraShakeY(17);
 
             DummyEffectCreate(x, y, sprHit, 0.45, 0, -0.1, bm_add, 1, 1, 1, 0);
-            PlaySound(choose("snd/PlayerEnemyHit", "snd/PlayerEnemyHit2", "snd/PlayerEnemyHit3"));
+            PlaySound(choose(sndEnemyHit, sndEnemyHit2, sndEnemyHit3));
             PlayerAddEnergy(8);
         }
     }

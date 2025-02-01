@@ -35,8 +35,8 @@ if (ownerID.state == PlayerStateWaylauncher && active) {
             visible = true;
             PlayerSetState(PlayerStateHurt);
         }
-        sound_stop("snd/WayLauncherWait");
-        PlaySoundExt("snd/WayLauncherLaunch", global.soundVolume, 0.85, false);
+        audio_stop(sndWayLauncherWait);
+        PlaySoundExt(sndWayLauncherLaunch, global.soundVolume, 0.85, false);
     }
 
     // Up Direction
@@ -82,7 +82,7 @@ switch (directionChosen) {
         if (sprite_index != sprWayLauncherUp) {
             sprite_index = sprWayLauncherUp;
             image_index = 0;
-            PlaySound("snd/WayLauncherChangeDir");
+            PlaySound(sndWayLauncherChangeDir);
         }
 
         // Animation
@@ -102,9 +102,9 @@ switch (directionChosen) {
                     starTimer = 50;
                     allowKeysTimer = 17;
 
-                    sound_stop("snd/WayLauncherWait");
-                    PlaySound("snd/Trick");
-                    PlaySound("snd/WayLauncherLaunch");
+                    audio_stop(sndWayLauncherWait);
+                    PlaySound(sndTrick);
+                    PlaySound(sndWayLauncherLaunch);
                 }
             }
         }
@@ -115,7 +115,7 @@ switch (directionChosen) {
         if (sprite_index != sprWayLauncherDown) {
             sprite_index = sprWayLauncherDown;
             image_index = 0;
-            PlaySound("snd/WayLauncherChangeDir");
+            PlaySound(sndWayLauncherChangeDir);
         }
 
         // Animation
@@ -135,9 +135,9 @@ switch (directionChosen) {
                     starTimer = 50;
                     allowKeysTimer = 17;
 
-                    sound_stop("snd/WayLauncherWait");
-                    PlaySound("snd/Trick");
-                    PlaySound("snd/WayLauncherLaunch");
+                    audio_stop(sndWayLauncherWait);
+                    PlaySound(sndTrick);
+                    PlaySound(sndWayLauncherLaunch);
                 }
             }
         }
@@ -148,7 +148,7 @@ switch (directionChosen) {
         if (sprite_index != sprWayLauncherLeft) {
             sprite_index = sprWayLauncherLeft;
             image_index = 0;
-            PlaySound("snd/WayLauncherChangeDir");
+            PlaySound(sndWayLauncherChangeDir);
         }
 
         // Animation
@@ -171,9 +171,9 @@ switch (directionChosen) {
                     starTimer = 50;
                     allowKeysTimer = 17;
 
-                    sound_stop("snd/WayLauncherWait");
-                    PlaySound("snd/Trick");
-                    PlaySound("snd/WayLauncherLaunch");
+                    audio_stop(sndWayLauncherWait);
+                    PlaySound(sndTrick);
+                    PlaySound(sndWayLauncherLaunch);
                 }
             }
         }
@@ -184,7 +184,7 @@ switch (directionChosen) {
         if sprite_index != sprWayLauncherRight {
             sprite_index = sprWayLauncherRight;
             image_index = 0;
-            PlaySound("snd/WayLauncherChangeDir");
+            PlaySound(sndWayLauncherChangeDir);
         }
 
         // Animation
@@ -207,9 +207,9 @@ switch (directionChosen) {
                     starTimer = 50;
                     allowKeysTimer = 17;
 
-                    sound_stop("snd/WayLauncherWait");
-                    PlaySound("snd/Trick");
-                    PlaySound("snd/WayLauncherLaunch");
+                    audio_stop(sndWayLauncherWait);
+                    PlaySound(sndTrick);
+                    PlaySound(sndWayLauncherLaunch);
                 }
             }
         }

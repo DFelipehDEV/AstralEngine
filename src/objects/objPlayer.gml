@@ -81,10 +81,10 @@ yDirection = 1;
 // Terrain
 terrainLayer = 0;
 terrainType = "";
-terrainSound[TerFootstep1] = "snd/PlayerFootstepStone";
-terrainSound[TerFootstep2] = "snd/PlayerFootstepStone2";
-terrainSound[TerLand] = "snd/PlayerLand";
-terrainSound[TerSkid] = "snd/PlayerSkidStone";
+terrainSound[TerFootstep1] = sndFootstepStone;
+terrainSound[TerFootstep2] = sndFootstepStone2;
+terrainSound[TerLand] = sndLandStone;
+terrainSound[TerSkid] = sndSkidStone;
 terrainPlatform = false; // Whether we are in a platform
 pushingTerrain = false; // Whether the player is pushing into a wall
 footstepPlayed = false;
@@ -686,16 +686,16 @@ if (physicsMode == PhysicsWater && state != PlayerStateDead) {
 
         if (global.roomTick mod 30 == 1) {
             // Play sound effect until you drown
-            PlaySoundSingle("snd/PlayerLossingAir", global.soundVolume, 1);
+            PlaySoundSingle(sndPlayerLoseAir, global.soundVolume, 1);
         }
 
         // Check if we have drowned
-        if (underwaterDrownFrame >= 5.9 && !sound_isplaying("snd/PlayerDrown")) {
+        if (underwaterDrownFrame >= 5.9 && !audio_isplaying(sndPlayerDrown)) {
             global.playerRings = 0;
             PlayerSetState(PlayerStateDead);
 
-            sound_stop("snd/PlayerLossingAir");
-            PlaySound("snd/PlayerDrown");
+            audio_stop(sndPlayerLoseAir);
+            PlaySound(sndPlayerDrown);
         }
     }
 }
@@ -767,8 +767,8 @@ switch (animation) {
                 if (terrainType != "WATER" && alarm[0] == -1) {
                     alarm[0] = 1;
                 }
-                sound_stop(terrainSound[TerFootstep1])
-                sound_stop(terrainSound[TerFootstep2])
+                audio_stop(terrainSound[TerFootstep1])
+                audio_stop(terrainSound[TerFootstep2])
                 PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]), global.soundVolume, 1, false);
                 footstepPlayed = true;
             }
@@ -825,11 +825,10 @@ if (invincibility != InvincibilityHurt) {
         if (invincibility == InvincibilityMonitor) {
             if (instance_exists(objMusicManager)) {
                 with (objMusicManager) {
-                    sound_stop("bgm/Invincibility");
-                    playTempMusic = "";
+                    //audio_music_stop();
+                    //audio_music_play(music, 5);
                 }
             }
-            FadeMusic(false);
         }
         invincibility = InvincibilityNoone;
     }
