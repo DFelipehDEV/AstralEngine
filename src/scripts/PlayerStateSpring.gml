@@ -3,21 +3,21 @@
 PlayerXMovement();
 // Animations
 if (animation != "SPRING_TRICK_HORIZONTAL" && animation != "SPRING_TRICK_VERTICAL" && animation != "FLING" && animation != "LANDING" && animation != "FALL") {
-    // Spring animation
-    if (ySpeed < 0.2) {
+    if (stateTimer < 15) {
         AnimationApply("SPRING");
-    }
-
-    // Fall animation
-    if (ySpeed >= 0.2) {
-        AnimationApply("LANDING");
+    } else {
+        // Spring animation
+        if (ySpeed < 0.2) {
+            AnimationApply("SPRING");
+        } else { // Fall animation
+            AnimationApply("LANDING");
+        }
     }
 }
 
 if (animation == "SPRING") {
     image_angle = point_direction(xprevious, yprevious, x, y)-90;
-}
-else {
+} else {
     xDirection = esign(xSpeed, xDirection);
 }
 

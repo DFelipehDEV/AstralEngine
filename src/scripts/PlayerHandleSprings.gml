@@ -11,7 +11,6 @@ if (_spring != noone) {
         ground = false;
         PlayerSetAngle(0);
     }
-    allowKeysTimer = 6;
     _spring.image_speed = 0.25;
     _spring.image_index = 1;
     interactDelay = 11;
