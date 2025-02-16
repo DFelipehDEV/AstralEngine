@@ -160,6 +160,7 @@ switch (state) {
         ySpeed = -6;
         ground = false;
         canMove = false;
+        if (cam.target == id) cam.target = noone;
         AnimationApply("DEAD");
         AnimationUpdate();
         PlaySound(sndPlayerHurt);
