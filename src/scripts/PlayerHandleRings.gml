@@ -17,9 +17,7 @@ if (_ringNormal != noone) {
         instance_destroy();
     }
 
-    if (state != PlayerStateLightspeed) {
-        PlayerAddEnergy(4);
-    }
+    PlayerAddEnergy(4);
 }
 
 if (_ringDrop != noone && (state != PlayerStateHurt && invincibilityTimer < 100)) {
