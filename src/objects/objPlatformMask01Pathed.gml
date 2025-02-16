@@ -4,11 +4,11 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Variables
+/// Path
 
-ySpeed = 0;
-xSpeed = 0;
-#define Step_1
+path = noone;
+path_speed = 0;
+#define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -16,20 +16,13 @@ applies_to=self
 */
 /// Move
 
-x += xSpeed;
-y += ySpeed;
-
-xSpeed = approach(xSpeed, 2 * dcos(direction), 0.1);
-ySpeed = approach(ySpeed, 2 * -dsin(direction), 0.1);
-
-
 // Move the player to our position
 var _ownerID;
 _ownerID = instance_place(x, y - 5, objPlayer);
 if (_ownerID != noone) {
     if (_ownerID.ySpeed >= 0 && _ownerID.ground) {
         _ownerID.x += x - xprevious;
-        _ownerID.y = bbox_top - 12;
+        _ownerID.y = bbox_top - 11;
     }
 }
 #define Collision_objPlatformAngle
@@ -41,3 +34,17 @@ applies_to=self
 /// Change direction
 
 direction = other.image_angle;
+#define Other_4
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+//field path: path
+//field path_speed: number
+//field pathAction: enum(path_action_continue,path_action_restart,path_action_reverse,path_action_stop)
+//field pathAbsolute: false
+
+if (path != noone) {
+    path_start(path, path_speed, pathAction, pathAbsolute);
+}

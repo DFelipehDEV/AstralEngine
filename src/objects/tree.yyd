@@ -180,6 +180,7 @@
 		|objPlatformMove
 		|objPlatformMask01
 		|objPlatformMask01Move
+		|objPlatformMask01Pathed
 		|objPlatformMask01Spin
 	+Layer0
 		|objLayer0
