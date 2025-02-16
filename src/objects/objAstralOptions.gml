@@ -55,14 +55,14 @@ switch(optionSelected) {
     case 0:
         if (delay = 0) {
             // Change option
-            if InputGet(InputDown, 0) {
+            if (sysinput_get("down")) {
                 optionSelected += 1;
                 PlaySound(sndMenuSelect);
                 scale = 0;
                 delay = 20;
             }
 
-            if (InputGet(InputRight, 0)) {
+            if (sysinput_get("right"))  {
                 with (objRoomManager) {
                     global.screenSize += 1;
                     event_user(0);
@@ -70,7 +70,7 @@ switch(optionSelected) {
                 delay = 25;
             }
 
-            if (InputGet(InputLeft, 0) && global.screenSize > 1) {
+            if ((sysinput_get("left"))  && global.screenSize > 1) {
                 with (objRoomManager) {
                     global.screenSize -= 1;
                     event_user(0);
@@ -84,7 +84,7 @@ switch(optionSelected) {
     case 1:
         if (delay == 0) {
             // Change option
-            if (InputGet(InputUp, 0) && delay == 0) {
+            if (sysinput_get("up") && delay == 0) {
                 optionSelected -= 1;
                 PlaySound(sndMenuSelect);
                 scale = 0;
@@ -92,7 +92,7 @@ switch(optionSelected) {
             }
 
             // Change option
-            if (InputGet(InputDown, 0)) {
+            if (sysinput_get("down")) {
                 optionSelected += 1;
                 PlaySound(sndMenuSelect);
                 scale = 0;
@@ -100,14 +100,14 @@ switch(optionSelected) {
             }
         }
 
-        if (InputGet(InputRight, 0)) {
+        if (sysinput_get("right")) {
             with (objMusicManager) {
                 global.musicVolume = approach(global.musicVolume, 1, 0.01);
                 audio_set_volume(music, global.musicVolume);
             }
         }
 
-        if (InputGet(InputLeft, 0)) {
+        if (sysinput_get("left")) {
             with (objMusicManager) {
                 global.musicVolume = approach(global.musicVolume, 0, 0.01);
                 audio_set_volume(music, global.musicVolume);
@@ -118,25 +118,25 @@ switch(optionSelected) {
     // Sounds
     case 2:
         // Change option
-        if (InputGet(InputUp, 0) && delay == 0) {
+        if (sysinput_get("up") && delay == 0) {
             optionSelected -= 1;
             PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
         // Change option
-        if (InputGet(InputDown, 0) && delay == 0) {
+        if (sysinput_get("down") && delay == 0) {
             optionSelected += 1;
             PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
 
-        if (InputGet(InputRight, 0)) {
+        if (sysinput_get("right")) {
             global.soundVolume = approach(global.soundVolume, 1, 0.01);
         }
 
-        if (InputGet(InputLeft, 0)) {
+        if (sysinput_get("left")) {
             global.soundVolume = approach(global.soundVolume, 0, 0.01);
         }
         break;
@@ -144,25 +144,25 @@ switch(optionSelected) {
     // Voicelines
     case 3:
         // Change option
-        if ((InputGet(InputUp, 0)) && delay == 0) {
+        if (sysinput_get("up") && delay == 0) {
             optionSelected -= 1;
             PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
         // Change option
-        if ((InputGet(InputDown, 0)) && delay == 0) {
+        if (sysinput_get("down") && delay == 0) {
             optionSelected += 1;
             PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
 
-        if (InputGet(InputRight, 0)) {
+        if (sysinput_get("right")) {
             global.voiceVolume = approach(global.voiceVolume, 1, 0.01);
         }
 
-        if (InputGet(InputLeft, 0)) {
+        if (sysinput_get("left")) {
             global.voiceVolume = approach(global.voiceVolume, 0, 0.01);
         }
         break;
@@ -170,26 +170,26 @@ switch(optionSelected) {
     // VSync
     case 4:
         // Change option
-        if ((InputGet(InputUp, 0))&& delay == 0) {
+        if (sysinput_get("up")&& delay == 0) {
             optionSelected -= 1;
             PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
         // Change option
-        if ((InputGet(InputDown, 0)) && delay == 0) {
+        if (sysinput_get("down") && delay == 0) {
             optionSelected += 1;
             PlaySound(sndMenuSelect);
             scale = 0;
             delay = 20;
         }
 
-        if (InputGet(InputRight, 0)) {
+        if (sysinput_get("right")) {
             set_synchronization(true);
             global.screenVSync = true;
         }
 
-        if (InputGet(InputLeft, 0)) {
+        if (sysinput_get("left")) {
             set_synchronization(false);
             global.screenVSync = false;
         }
@@ -198,21 +198,21 @@ switch(optionSelected) {
     // Exit and saving
     case optionMax - 1:
         if (delay == 0) {
-            if (InputGet(InputUp, 0)) {
+            if (sysinput_get("up")) {
                 optionSelected -= 1;
                 PlaySound(sndMenuSelect);
                 scale = 0;
                 delay = 20;
             }
             // Change option
-            if (InputGet(InputDown, 0)) {
+            if (sysinput_get("down")) {
                 optionSelected = 0;
                 PlaySound(sndMenuSelect);
                 scale = 0;
                 delay = 20;
             }
 
-            if (InputGet(InputAction)) {
+            if (sysinput_get("accept")) {
                 PlaySound(sndMenuAccept);
                 delay = 120;
                 leaved = true;

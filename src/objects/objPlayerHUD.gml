@@ -115,9 +115,9 @@ applies_to=self
 
 delay = max(delay - 1, 0)
 
-switch (GameStateGet(GameStatePaused)) {
+switch (GameStateGet()) {
     case GameStateRunning:
-        if (InputGet(InputStartPressed, 0)) {
+        if (sysinput_get_pressed("accept")) {
             pauseTimeAllowPrevious = global.gameTimeAllow;
             global.gameTimeAllow = false;
             // Free the previous print screen
@@ -129,11 +129,8 @@ switch (GameStateGet(GameStatePaused)) {
 
             // Stop all objects
             instance_deactivate_all(1)
-            instance_activate_object(objInputManager);
             instance_activate_object(objMusicManager);
             instance_activate_object(objRoomManager);
-
-            objMusicManager.fadeOut = true;
 
             GameStateSet(GameStatePaused);
         }
@@ -151,14 +148,14 @@ switch (GameStateGet(GameStatePaused)) {
                 pauseOptionOutlineScale = lerp(pauseOptionOutlineScale, 1, 0.2);
                 if (delay == 0) {
                     // Restart option
-                    if (InputGet(InputDown, 0)) {
+                    if (sysinput_get("down")) {
                         delay = 20;
                         pauseOption = 2;
                         pauseOptionOutlineScale = 0;
                     }
 
                     // Continue
-                    if (InputGet(InputAction)) {
+                    if (sysinput_get_pressed("accept")) {
                         delay = 20;
                         // Activate all objects
                         instance_activate_all();
@@ -174,8 +171,6 @@ switch (GameStateGet(GameStatePaused)) {
                                 }
                             }
                         }
-                        objMusicManager.fadeOut = false;
-                        objMusicManager.fadeIn = true;
                     }
                 }
                 break;
@@ -184,7 +179,7 @@ switch (GameStateGet(GameStatePaused)) {
                 pauseOptionOutlineScale = lerp(pauseOptionOutlineScale, 1, 0.2);
                 if (delay == 0) {
                     // Continue option
-                    if (InputGet(InputUp, 0)) {
+                    if (sysinput_get("up")) {
                         delay = 20;
                         pauseOption = 1;
                         pauseOptionOutlineScale = 0;
@@ -192,14 +187,14 @@ switch (GameStateGet(GameStatePaused)) {
 
 
                     // Exit option
-                    if (InputGet(InputDown, 0)) {
+                    if (sysinput_get("down")) {
                         delay = 20;
                         pauseOption = 3;
                         pauseOptionOutlineScale = 0;
                     }
 
                     // Restart
-                    if (InputGet(InputAction)) {
+                    if (sysinput_get_pressed("accept")) {
                         delay = 20;
                         GameStateSet(GameStateRunning);
                         instance_activate_all()
@@ -215,14 +210,14 @@ switch (GameStateGet(GameStatePaused)) {
                 pauseOptionOutlineScale = lerp(pauseOptionOutlineScale, 1, 0.2);
                 if (delay == 0) {
                     // Restart option
-                    if (InputGet(InputUp, 0)) {
+                    if (sysinput_get("up")) {
                         delay = 20;
                         pauseOption = 2;
                         pauseOptionOutlineScale = 0;
                     }
 
                     // Exit
-                    if (InputGet(InputAction)) {
+                    if (sysinput_get_pressed("accept")) {
                         GameStateSet(GameStateRunning);
                         delay = 20;
                         instance_activate_all()

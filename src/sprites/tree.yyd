@@ -105,10 +105,7 @@
 		|sprRail3
 	+WayLauncher
 		|sprWayLauncher
-		|sprWayLauncherDown
-		|sprWayLauncherLeft
-		|sprWayLauncherRight
-		|sprWayLauncherUp
+		|sprWayLauncherDirection
 	+Monitor
 		|sprMonitor
 		|sprMonitorIcons

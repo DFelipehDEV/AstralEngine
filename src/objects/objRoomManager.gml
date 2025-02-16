@@ -36,6 +36,21 @@ if (!GameStateGet(GameStatePaused)) {
 if (global.gameTimeAllow) {
     global.gameTime += 1000 / 60 * global.timeScale;
 }
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Activate debug mode
+
+if (keyboard_check_pressed(vk_caps)) {
+    if (DEBUG && !global.debug) {
+        global.debug = true;
+        PlaySound(sndRing);
+        if (!instance_exists(objDebugMode))
+            instance_create(0, 0, objDebugMode);
+    }
+}
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1

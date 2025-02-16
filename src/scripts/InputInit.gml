@@ -1,12 +1,7 @@
-#define Create_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Inputs
-
+/// InputInit()
 sysinput_init();
+joystick_set_deadzone(0.9);
+
 sysinput_add_key("accept", vk_enter);
 
 sysinput_add_key("left", vk_left);
@@ -29,25 +24,3 @@ sysinput_add_key("qte_2", ord('S'));
 //sysinput_add_button("qte_2", 1);
 sysinput_add_key("qte_3", ord('D'));
 //sysinput_add_button("qte_3", 2);
-
-inputs = true;
-
-inputDevice[0] = 0;
-
-joystick_set_deadzone(0.9);
-#define Step_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Activate debug mode
-
-if (keyboard_check_pressed(vk_caps)) {
-    if (DEBUG == 1 && global.debug == false) {
-        global.debug = true;
-        PlaySound(sndRing);
-        if (!instance_exists(objDebugMode))
-            instance_create(0, 0, objDebugMode);
-    }
-}

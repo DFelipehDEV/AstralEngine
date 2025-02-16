@@ -82,7 +82,7 @@ objDashPad
 objDashRamp
 objDashRampRainbow
 objEventQTEKeys
-objInputManager
+
 objCrane
 objHandle
 objFootstepSensorDirt

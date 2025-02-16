@@ -1,6 +1,8 @@
 /// Init()
 // Initialize the game
 
+InputInit();
+
 // Fonts
 global.fontHUD = font_add_sprite(sprFontHUD, ord("0"), false, -2);
 global.fontText = font_add_sprite(sprFontText, ord(","), true, 0);
@@ -37,8 +39,6 @@ global.shaderHeat = shdHeat();
 global.shaderColorSwap = shdColorSwap();
 
 // Create essential controllers
-if (!instance_exists(objInputManager))
-    instance_create(0, 0, objInputManager);
 if (!instance_exists(objMusicManager))
     instance_create(0, 0, objMusicManager);
 if (!instance_exists(objRoomManager))

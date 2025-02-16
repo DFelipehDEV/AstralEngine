@@ -6,18 +6,14 @@ if (state != PlayerStateHurt && !ground) {
     _waylauncher = PlayerCollisionHitbox(x, y, objWayLauncher)
 
     if (_waylauncher != noone) {
-        if (!_waylauncher.active && _waylauncher.sprite_index == sprWayLauncher) {
+        if (_waylauncher.player == noone && _waylauncher.timerExit == 0) {
             x = _waylauncher.x;
             y = _waylauncher.y;
             visible = false;
 
             PlayerSetState(PlayerStateWaylauncher);
 
-            with (_waylauncher) {
-                active = true;
-                timerExit = 0;
-                ownerID = other.id;
-            }
+            _waylauncher.player = id;
 
             AnimationApply("");
             PlaySound(sndWayLauncherChangeDir);

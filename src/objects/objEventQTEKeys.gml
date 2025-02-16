@@ -99,9 +99,9 @@ applies_to=self
 /// Inputs
 
 var _inputActionPressed, _inputSpecial1Pressed, _inputSpecial2Pressed;
-_inputActionPressed = InputGet(InputActionPressed, 0);
-_inputSpecial1Pressed = InputGet(InputSpecial1Pressed, 0);
-_inputSpecial2Pressed = InputGet(InputSpecial2Pressed, 0);
+_inputActionPressed = sysinput_get_pressed("qte_1");
+_inputSpecial1Pressed = sysinput_get_pressed("qte_2");
+_inputSpecial2Pressed = sysinput_get_pressed("qte_3");
 
 // Check if we haven't won the event yet
 if (qteWon == 0 && image_alpha > 0.7) {

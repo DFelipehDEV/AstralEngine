@@ -132,7 +132,6 @@ keyUp = 0;
 keyDown = 0;
 keyAction = 0;
 keySpecial1 = 0;
-keySpecial2 = 0;
 keySpecial3 = 0;
 
 keyLeftPressed = 0;
@@ -141,7 +140,6 @@ keyUpPressed= 0;
 keyDownPressed = 0;
 keyActionPressed = 0;
 keySpecial1Pressed = 0;
-keySpecial2Pressed = 0;
 keySpecial3Pressed = 0;
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -615,26 +613,21 @@ applies_to=self
 
 allowKeysTimer = max(allowKeysTimer - 1, 0);
 if (allowKeys) {
-    var _thisInput;
-    _thisInput = input.inputDevice[0];
+    keyLeft = sysinput_get("left");
+    keyRight = sysinput_get("right");
+    keyUp = sysinput_get("up");
+    keyDown = sysinput_get("down");
+    keyAction = sysinput_get("p_jump");
+    keySpecial1 = sysinput_get("p_boost");
+    keySpecial3 = sysinput_get("p_lightspeed");
 
-    keyLeft = _thisInput & (1 << InputLeft);
-    keyRight = _thisInput & (1 << InputRight);
-    keyUp = _thisInput & (1 << InputUp);;
-    keyDown = _thisInput & (1 << InputDown);
-    keyAction = _thisInput & (1 << InputAction);
-    keySpecial1 = _thisInput & (1 << InputSpecial1);
-    keySpecial2 = _thisInput & (1 << InputSpecial2);
-    keySpecial3 = _thisInput & (1 << InputSpecial3);
-
-    keyLeftPressed = _thisInput & (1 << InputLeftPressed);
-    keyRightPressed = _thisInput & (1 << InputRightPressed);
-    keyUpPressed = _thisInput & (1 << InputUpPressed);
-    keyDownPressed = _thisInput & (1 << InputDownPressed);
-    keyActionPressed = _thisInput & (1 << InputActionPressed);
-    keySpecial1Pressed = _thisInput & (1 << InputSpecial1Pressed);
-    keySpecial2Pressed = _thisInput & (1 << InputSpecial2Pressed);
-    keySpecial3Pressed = _thisInput & (1 << InputSpecial3Pressed);
+    keyLeftPressed = sysinput_get_pressed("left");
+    keyRightPressed = sysinput_get_pressed("right");
+    keyUpPressed = sysinput_get_pressed("up");
+    keyDownPressed = sysinput_get_pressed("down");
+    keyActionPressed = sysinput_get_pressed("p_jump");
+    keySpecial1Pressed = sysinput_get_pressed("p_boost");
+    keySpecial3Pressed = sysinput_get_pressed("p_lightspeed");
 
     if (allowKeysTimer > 0) {
         keyLeft = 0;
@@ -643,7 +636,6 @@ if (allowKeys) {
         keyDown = 0;
         keyAction = 0;
         keySpecial1 = 0;
-        keySpecial2 = 0;
         keySpecial3 = 0;
 
         keyLeftPressed = 0;
@@ -652,7 +644,6 @@ if (allowKeys) {
         keyDownPressed = 0;
         keyActionPressed = 0;
         keySpecial1Pressed = 0;
-        keySpecial2Pressed = 0;
         keySpecial3Pressed = 0;
     }
 
@@ -880,25 +871,23 @@ if (cam.target == id) {
             break;
 
         case PlayerStateWaylauncher:
+            // Define target shifts based on key input
+            var targetXShift, targetYShift;
+            targetXShift = 0;
+            targetYShift = 0;
+
             if (keyLeft) {
-                cam.xShift = approach(cam.xShift, -80, 10);
-            }
-            else if (keyRight) {
-                cam.xShift = approach(cam.xShift, 80, 10);
-            }
-            else {
-                cam.xShift = approach(cam.xShift, 0, 10);
+                targetXShift = -80;
+            } else if (keyRight) {
+                targetXShift = 80;
+            } else if (keyUp) {
+                targetYShift = -80;
+            } else if (keyDown) {
+                targetYShift = 80;
             }
 
-            if (keyUp) {
-                cam.yShift = approach(cam.yShift, -80, 10);
-            }
-            else if (keyDown) {
-                cam.yShift = approach(cam.yShift, 80, 10);
-            }
-            else {
-                cam.yShift = approach(cam.yShift, 0, 10);
-            }
+            cam.xShift = approach(cam.xShift, targetXShift, 10);
+            cam.yShift = approach(cam.yShift, targetYShift, 10);
             break;
 
         case PlayerStateStomp:

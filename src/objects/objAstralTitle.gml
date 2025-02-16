@@ -74,7 +74,7 @@ switch (menu) {
     case 0:
         returnDelay -= 1;
         // Check if the player has pressed the start button
-        if (InputGet(InputActionPressed, 0) && returnDelay < 0) {
+        if (sysinput_get_pressed("accept") && returnDelay < 0) {
             menu = 1;
             echoAlpha = 1;
             PlaySound(sndMenuAccept);
@@ -116,14 +116,14 @@ switch (menu) {
                     // Start option
                     case 0:
                         // Change selection
-                        if (InputGet(InputDown, 0)) {
+                        if (sysinput_get("down")) {
                             menuOption += 1;
                             delay = 25;
 
                             PlaySound(sndMenuSelect);
                         }
                         // Check if the player has pressed the start button
-                        if InputGet(InputActionPressed, 0) && !instance_exists(objFadeNext) {
+                        if sysinput_get_pressed("accept") && !instance_exists(objFadeNext) {
                             with (instance_create(0, 0, objFadeNext)) {
                                 color = c_white;
                             }
@@ -134,20 +134,20 @@ switch (menu) {
                     // Options option
                     case 1:
                         // Change selection
-                        if (InputGet(InputUpPressed, 0) != 0) {
+                        if (sysinput_get("up")) {
                             menuOption -= 1;
                             delay = 25;
                             PlaySound(sndMenuSelect);
                         }
                         // Change selection
-                        if (InputGet(InputDown, 0)) {
+                        if (sysinput_get("down")) {
                             menuOption += 1;
                             delay = 25;
                             PlaySound(sndMenuSelect);
                         }
 
                         // Go to options menu
-                        if (InputGet(InputAction, 0)) {
+                        if (sysinput_get_pressed("accept")) {
                             menu = 3;
                             PlaySound(sndMenuAccept);
                         }
@@ -156,14 +156,14 @@ switch (menu) {
                     // Exit option
                     case 2:
                         // Change selection
-                        if (InputGet(InputUp, 0)) {
+                        if (sysinput_get("up")) {
                             menuOption -= 1;
                             delay = 25;
                             PlaySound(sndMenuSelect);
                         }
 
                         // Check if the player has pressed the start button
-                        if (InputGet(InputAction, 0)) {
+                        if (sysinput_get_pressed("accept")) {
                             game_end();
                         }
                         break;

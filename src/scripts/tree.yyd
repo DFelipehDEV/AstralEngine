@@ -1,7 +1,31 @@
 |Init
++Animation
+	+Lists
+		|AnimationIndexSonic
+		|AnimationIndexSuperSonic
+	|AnimationInit
+	|AnimationSystem
+	|AnimationUpdate
+	|AnimationSet
+	|AnimationApply
++Body
+	|BodyApplyGravity
++Camera
+	|CameraLag
+	|CameraShakeX
+	|CameraShakeY
++Deactivation
+	|DeactivateExceptionsAdd
+	|DeactivateExceptionsRemove
++Dialogue
+	|DialogueAdd
++EnemiesArena
+	|EnemiesArenaAddEnemy
 +GameState
 	|GameStateGet
 	|GameStateSet
++Parallax
+	|ParallaxAddNode
 +Player
 	+Collision
 		+Bottom
@@ -102,36 +126,17 @@
 		|PlayerHandleGimmicks
 		|PlayerHandleBox
 		|PlayerHandleDestructive
-+Camera
-	|CameraLag
-	|CameraShakeX
-	|CameraShakeY
-+Input
-	|InputGet
-+Body
-	|BodyApplyGravity
-+Parallax
-	|ParallaxAddNode
-+Animation
-	+Lists
-		|AnimationIndexSonic
-		|AnimationIndexSuperSonic
-	|AnimationInit
-	|AnimationSystem
-	|AnimationUpdate
-	|AnimationSet
-	|AnimationApply
++Shaders
+	|shdHeat
+	|shdColorSwap
+	|ApplicationSurfacePost
++Sound
+	|PlaySound
+	|PlayVoice
+	|PlaySoundExt
+	|PlaySoundSingle
+	|PlayMusic
 +Utils
-	+Sound
-		|PlaySound
-		|PlayVoice
-		|PlaySoundExt
-		|PlaySoundSingle
-		|PlayMusic
-	+VFX
-		|DummyEffectCreate
-		|AfterimageEffectCreate
-		|DebrisEffectCreate
 	|DrawTrail
 	|DrawCircularBar
 	|DrawSpriteTiledHorizontalPart
@@ -146,16 +151,11 @@
 	|EnemySetAnimation
 	|RingsDrop
 	|RingsDropHyper
-	|DeactivateExceptionsAdd
-	|DeactivateExceptionsRemove
 	|SmoothStep
 	|DrawTiledTexturePos
 	|ease
-+Shaders
-	|shdHeat
-	|shdColorSwap
-	|ApplicationSurfacePost
-+Dialogue
-	|DialogueAdd
-+EnemiesArena
-	|EnemiesArenaAddEnemy
+	|DummyEffectCreate
+	|AfterimageEffectCreate
+	|DebrisEffectCreate
++Input
+	|InputInit

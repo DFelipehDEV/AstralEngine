@@ -44,7 +44,7 @@ applies_to=self
 switch (ended) {
     // In case the dialogue has not ended
     case 0:
-        if InputGet(InputActionPressed, 0) && npcChatting {
+        if sysinput_get_pressed("accept") && npcChatting {
             // Check if its not in the final dialogue
             if (npcStringCurrent < npcStringLength - 1) {
                 // Next Dialogue
@@ -111,7 +111,7 @@ applies_to=self
 // Check if we are not in a dialogue
 if (!npcChatting) {
     // Check if we pressed the input to start talking
-    if (InputGet(InputSpecial3Pressed, 0)) {
+    if (other.keySpecial3Pressed) {
         ownerID = other.id;
         npcChatting = true;
 
@@ -125,7 +125,6 @@ if (!npcChatting) {
             keyDown = 0;
             keyAction = 0;
             keySpecial1 = 0;
-            keySpecial2 = 0;
             keySpecial3 = 0;
 
             keyLeftPressed = 0;
@@ -134,7 +133,6 @@ if (!npcChatting) {
             keyDownPressed = 0;
             keyActionPressed = 0;
             keySpecial1Pressed = 0;
-            keySpecial2Pressed = 0;
             keySpecial3Pressed = 0;
         }
 

@@ -103,10 +103,10 @@ sprSpike
 
 sprSpring
 sprWayLauncher
-sprWayLauncherDown
-sprWayLauncherLeft
-sprWayLauncherRight
-sprWayLauncherUp
+
+
+
+sprWayLauncherDirection
 sprCorkscrew
 sprCorkscrewDepth
 sprEnemyTurn

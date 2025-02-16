@@ -86,7 +86,7 @@ if (resultsTimer > 80) {
 // Score bars
 if (resultsTimer > 110) {
     // Skip everything
-    if (InputGet(InputAction, 0) && !scoreFinished) {
+    if (sysinput_get("accept") && !scoreFinished) {
         audio_stop(bgmVictory);
 
         // Skip everything
@@ -217,7 +217,7 @@ if (resultsTimer > 110) {
 
 
                     // End results screen
-                    if (InputGet(InputAction, 0) && !instance_exists(objFadeNext)) {
+                    if (sysinput_get("accept") && !instance_exists(objFadeNext)) {
                         // Fade to next room
                         with (instance_create(0, 0, objFadeNext)) {
                             color = c_white;
