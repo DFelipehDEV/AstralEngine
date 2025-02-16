@@ -6,9 +6,10 @@ applies_to=self
 */
 /// Variables
 
-ySpeed = 0;
-xSpeed = 0;
-#define Step_1
+dir = 0;
+acceleration = 0.1;
+spd = 2;
+#define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -16,12 +17,8 @@ applies_to=self
 */
 /// Move
 
-x += xSpeed;
-y += ySpeed;
-
-xSpeed = approach(xSpeed, 2 * dcos(direction), 0.1);
-ySpeed = approach(ySpeed, 2 * -dsin(direction), 0.1);
-
+hspeed = approach(hspeed, spd * dcos(dir), acceleration);
+vspeed = approach(vspeed, spd * -dsin(dir), acceleration);
 
 // Move the player to our position
 var _ownerID;
@@ -40,4 +37,13 @@ applies_to=self
 */
 /// Change direction
 
-direction = other.image_angle;
+dir = other.image_angle;
+#define Other_4
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Fields
+//field acceleration : number
+//field spd : number
