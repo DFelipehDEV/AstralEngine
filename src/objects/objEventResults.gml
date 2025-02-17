@@ -7,8 +7,6 @@ applies_to=self
 /// Variables
 
 DeactivateExceptionsAdd(id);
-// Stop the game time from progressing
-global.gameTimeAllow = false
 
 // Play victory music
 PlaySound(bgmVictory, global.musicVolume, 1, false);
