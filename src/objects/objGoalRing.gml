@@ -14,6 +14,11 @@ speedval = 4.131999
 maxTimeScore = 8000;
 ringScoreMultiplier = 35;
 
+minimumScoreC = 2500;
+minimumScoreB = 4000;
+minimumScoreA = 6000;
+minimumScoreS = 8500;
+
 ownerID = noone;
 #define Alarm_0
 /*"/*'/**//* YYD ACTION
@@ -42,6 +47,10 @@ with (instance_create(0, 0, objEventResults)) {
     ringScoreMultiplier = other.ringScoreMultiplier;
     scoreValueTime = max(0, maxTimeScore-floor(global.gameTime/50000)*4500);
     scoreValueRing = max(0, global.playerRings*ringScoreMultiplier);
+    minimumScore[RankC] = other.minimumScoreC;
+    minimumScore[RankB] = other.minimumScoreB;
+    minimumScore[RankA] = other.minimumScoreA;
+    minimumScore[RankS] = other.minimumScoreS;
 }
 global.gameTimeAllow = false;
 
@@ -102,3 +111,7 @@ applies_to=self
 /// Fields
 //field maxTimeScore: number
 //field ringScoreMultiplier: number
+//field minimumScoreC : number
+//field minimumScoreB : number
+//field minimumScoreA : number
+//field minimumScoreS : number

@@ -48,6 +48,11 @@ scoreFinished = false;                 //Check if the score has reached its valu
 rankIndex = -1;                     //Index of the rank you got dependent on your score
 rankScale = 24;                     //Rank scale on screen when it shows up
 rankTime = 0;                       //Used for rank animation when it pops up
+
+minimumScores[RankC] = 2500;
+minimumScores[RankB] = 4000;
+minimumScores[RankA] = 6000;
+minimumScores[RankS] = 8500;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -161,23 +166,15 @@ if (resultsTimer > 110) {
             && scoreFinished) {
                 // Check if the rank has not been given
                 if (rankIndex == -1) {
-                    // C Rank
-                    if (scoreBonusTime + scoreBonusRing < global.stageRank[RankB]) {
+                    var _totalScore;
+                    _totalScore = scoreBonusTime + scoreBonusRing;
+                    if (_totalScore < minimumScore[RankB]) {
                         rankIndex = RankC;
-                    }
-
-                    // B Rank
-                    if (scoreBonusTime + scoreBonusRing >= global.stageRank[RankB] && scoreBonusTime + scoreBonusRing < global.stageRank[RankA]) {
+                    } else if (_totalScore < minimumScore[RankA]) {
                         rankIndex = RankB;
-                    }
-
-                    // A Rank
-                    if (scoreBonusTime + scoreBonusRing >= global.stageRank[RankA] && scoreBonusTime + scoreBonusRing < global.stageRank[RankS]) {
+                    } else if (_totalScore < minimumScore[RankS]) {
                         rankIndex = RankA;
-                    }
-
-                    // S Rank
-                    if (scoreBonusTime + scoreBonusRing >= global.stageRank[RankS]) {
+                    } else {
                         rankIndex = RankS;
                     }
                 }
@@ -221,6 +218,7 @@ if (resultsTimer > 110) {
                             color = c_white;
                             PlayerGlobalsReset();
                         }
+                        global.gameTimeAllow = true;
                     }
 
                 }

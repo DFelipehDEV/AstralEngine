@@ -24,12 +24,6 @@ global.playerRings = 0;
 global.playerCheckTime = 0;
 global.playerCheckpoint = noone;
 
-// Rank requirements
-global.stageRank[RankC] = 2500;
-global.stageRank[RankB] = 4000;
-global.stageRank[RankA] = 6000;
-global.stageRank[RankS] = 8500;
-
 // Game state
 global.debug = false;
 global.timeScale = 1; // Time movement multiplier, lower values make objects move slower, higher values make objects move faster, used for slow motion
