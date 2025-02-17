@@ -21,15 +21,11 @@ if (ground) {
     if (xSpeed == 0) {
         // Look up!
         if (!keyDown && keyUp) {
-            with (cam)
-                CameraLag(20)
             PlayerSetState(PlayerStateLookup);
         }
 
         // Crouch!
         if (keyDown && !keyUp) {
-            with (cam)
-                CameraLag(20)
             PlayerSetState(PlayerStateCrouch);
         }
     }

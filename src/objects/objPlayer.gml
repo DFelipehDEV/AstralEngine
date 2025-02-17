@@ -863,11 +863,13 @@ if (cam.target == id) {
 
     switch(state) {
         case PlayerStateLookup:
-            cam.yShift = approach(cam.yShift, -90, 3);
+            if (stateTimer > 30)
+                cam.yShift = approach(cam.yShift, -90, 4);
             break;
 
         case PlayerStateCrouch:
-            cam.yShift = approach(cam.yShift, 90, 3);
+            if (stateTimer > 30)
+                cam.yShift = approach(cam.yShift, 90, 4);
             break;
 
         case PlayerStateWaylauncher:
