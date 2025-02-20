@@ -115,7 +115,8 @@ goal = false;
 // Water
 waterrunSolid = noone;
 underwaterDrownFrame = 0; // Frame index to drown timer
-underwaterAirTimer = 600;
+underwaterTime = 0;
+underwaterTimeToDrown = 60 * 25;
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -674,29 +675,27 @@ applies_to=self
 
 // Check if the player is underwater
 if (physicsMode == PhysicsWater && state != PlayerStateDead) {
-    underwaterAirTimer -= 1;
+    underwaterTime += 1;
 
-    // Spawn some bubbles
-    if (underwaterAirTimer mod 100 == 60) {
+    if (underwaterTime mod 120 == 1) {
         instance_create(x, y, objWaterBubbleSmall);
     }
 
-    // Check if the player is starting to drown
-    if (underwaterAirTimer < 120) {
-        // Animate visual drown counter
-        underwaterDrownFrame += 0.009;
+    // Started to drown
+    if (underwaterTime >= underwaterTimeToDrown) {
+        // It should take 2 seconds to decrease a second in the drown timer
+        if (floor(underwaterTime) mod 120 == 1) {
+            underwaterDrownFrame += 1;
 
-        if (global.roomTick mod 30 == 1) {
-            // Play sound effect until you drown
             PlaySoundSingle(sndPlayerLoseAir, global.soundVolume, 1);
         }
 
-        // Check if we have drowned
-        if (underwaterDrownFrame >= 5.9 && !audio_isplaying(sndPlayerDrown)) {
+        // Drown
+        if (underwaterDrownFrame == 6) {
+            physicsMode = PhysicsNormal;
             global.playerRings = 0;
             PlayerSetState(PlayerStateDead);
 
-            audio_stop(sndPlayerLoseAir);
             PlaySound(sndPlayerDrown);
         }
     }
@@ -787,13 +786,13 @@ switch (animation) {
 trailTimer -= 1;
 trailAlpha = lerp(trailAlpha, trailTimer/110, 0.08);
 // AfterImage
-afterimageTimer = max(afterimageTimer - 1, 0);
+afterimageTimer = max(afterimageTimer - 1 * global.timeScale, 0);
 if (abs(xSpeed) >= 11 || abs(ySpeed) >= 11) && afterimageTimer == 0 {
     afterimageTimer = 15;
 }
 
 if (afterimageTimer > 0) {
-    if (round(global.roomTick*global.timeScale) mod 6 == 1) {
+    if (floor(afterimageTimer) mod 6 == 1) {
         AfterimageEffectCreate(x, y, sprite_index, image_index, 1, xDirection, 1, image_angle, afterimageColor1, afterimageColor2);
     }
 }
@@ -977,7 +976,7 @@ if (state == PlayerStateSpindash) {
 // Check if the player is underwater
 if (physicsMode == PhysicsWater) {
     // Check if the player is drowning
-    if (underwaterAirTimer < 120 && state != PlayerStateDead) {
+    if (underwaterTime >= underwaterTimeToDrown) {
         // If drowning, show time till you drown
         draw_sprite(sprDrownTimer, floor(underwaterDrownFrame), floor(x) + 16, floor(y) - 12);
     }
