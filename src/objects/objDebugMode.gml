@@ -124,8 +124,6 @@ if (overlay) {
         draw_set_halign(fa_left)
         draw_set_color(c_white)
 
-        var _playerAction;
-        _playerAction = string_replace_all(string(script_get_name(player.state)), "Player", ""); // Remove initial 'Player', (e.g., from PlayerStateNormal to StateNormal)
         // Debug overlay
         var _playerText;
         _playerText = "FPS:" + string(fps) + " " + string(fps_real)
@@ -135,7 +133,7 @@ if (overlay) {
         + "#GROUND:" + string(player.ground)
         + "#ANGLE:" + string(player.angle) + " " + string(player.angleCos) + " " + string(player.angleSin) + " " + string(player.angleMode)
         + "#DIR:" + string(player.xDirection)
-        + "#ACTION:" + _playerAction
+        + "#STATE:" + script_get_name(player.state)
         draw_text(view_xview[0] + 333, view_yview[0] + 103, _playerText);
     }
 }
