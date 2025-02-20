@@ -53,11 +53,6 @@ if (keyboard_check_pressed(vk_home)) {
     audio_music_set_pos(_loopend - 10)
 }*/
 
-// Stop all sounds
-if (keyboard_check_pressed(vk_pause)) {
-    audio_global_stop();
-}
-
 // Go to next room
 if (keyboard_check_pressed(vk_pageup)) {
     // Check if there is a next room
@@ -127,13 +122,13 @@ if (overlay) {
         // Debug overlay
         var _playerText;
         _playerText = "FPS:" + string(fps) + " " + string(fps_real)
-        + "#TAB:TOGGLE OVERLAY#MOUSE RIGHT:LERP PLAYER POSITION#R:RESTART ROOM#PGUP:NEXT ROOM#PGDN:PREVIOUS ROOM#PAUSE:STOP AUDIO"
-        + "#X:" + string(floor(player.x)) + " " + string(player.xSpeed)
-        + "#Y:" + string(floor(player.y)) + " " + string(player.ySpeed)
-        + "#GROUND:" + string(player.ground)
-        + "#ANGLE:" + string(player.angle) + " " + string(player.angleCos) + " " + string(player.angleSin) + " " + string(player.angleMode)
-        + "#DIR:" + string(player.xDirection)
-        + "#STATE:" + script_get_name(player.state)
+        + "#TAB:TOGGLE OVERLAY#RMB:LERP PLAYER POSITION#R:RESTART ROOM#PGUP:NEXT ROOM#PGDN:PREVIOUS ROOM"
+        + "#x:" + string(floor(player.x)) + " " + string(player.xSpeed)
+        + "#y:" + string(floor(player.y)) + " " + string(player.ySpeed)
+        + "#ground:" + string(player.ground)
+        + "#angle:" + string(player.angle) + " " + string(player.angleCos) + " " + string(player.angleSin) + " " + string(player.angleMode)
+        + "#xDirection:" + string(player.xDirection)
+        + "#state:" + script_get_name(player.state)
         draw_text(view_xview[0] + 333, view_yview[0] + 103, _playerText);
     }
 }
