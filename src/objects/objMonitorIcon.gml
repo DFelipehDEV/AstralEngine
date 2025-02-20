@@ -117,7 +117,7 @@ switch (icon) {
         with (ownerID) {
             invincibility = InvincibilityMonitor;
             invincibilityTimer = 1150;
-            starTimer = 1130;
+            starTimer = invincibilityTimer;
         }
         audio_music_play(bgmInvincibility);
         break;

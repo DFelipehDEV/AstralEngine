@@ -71,3 +71,12 @@ dropTimer -= 1;
 if (dropTimer < 90) {
     visible = (dropTimer mod 2)
 }
+#define Step_1
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Activate
+
+instance_activate_region(bbox_left, bbox_top, 32, 32, 1)

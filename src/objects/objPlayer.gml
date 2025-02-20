@@ -133,6 +133,7 @@ keyDown = 0;
 keyAction = 0;
 keySpecial1 = 0;
 keySpecial3 = 0;
+keyStomp = 0;
 
 keyLeftPressed = 0;
 keyRightPressed = 0;
@@ -618,6 +619,7 @@ if (allowKeys) {
     keyUp = sysinput_get("up");
     keyDown = sysinput_get("down");
     keyAction = sysinput_get("p_jump");
+    keyStomp = sysinput_get("p_stomp");
     keySpecial1 = sysinput_get("p_boost");
     keySpecial3 = sysinput_get("p_lightspeed");
 
@@ -635,6 +637,7 @@ if (allowKeys) {
         keyUp = 0;
         keyDown = 0;
         keyAction = 0;
+        keyStomp = 0;
         keySpecial1 = 0;
         keySpecial3 = 0;
 
@@ -653,6 +656,14 @@ if (allowKeys) {
         keyRight = false;
     }
 }
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Activate
+
+instance_activate_region(bbox_left, bbox_top, 128, 128, true);
 #define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -816,8 +827,8 @@ if (invincibility != InvincibilityHurt) {
         if (invincibility == InvincibilityMonitor) {
             if (instance_exists(objMusicManager)) {
                 with (objMusicManager) {
-                    //audio_music_stop();
-                    //audio_music_play(music, 5);
+                    audio_music_stop();
+                    audio_music_play(music, 5);
                 }
             }
         }

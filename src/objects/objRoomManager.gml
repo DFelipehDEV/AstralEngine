@@ -79,24 +79,16 @@ if (global.roomTick > 2) {
     instance_activate_object(gm82core_object);
     instance_activate_object(objTerrain);
 
+    instance_deactivate_object(objSpikeMove)
+
     // Activate specific instances
     var _instance;
     for (_instance = 0; _instance < ds_list_size(global.deactivateExceptions); _instance += 1) {
         instance_activate_object(ds_list_find_value(global.deactivateExceptions, _instance));
     }
 
-    instance_deactivate_object(objSpikeMove)
-
     // Activate on view objects
     instance_activate_region(view_xview[0] - 64, view_yview[0] - 32, ScreenWidth + 96, ScreenHeight + 96, 1);
-
-    if (instance_exists(objRingDrop)) {
-        instance_activate_region(objRingDrop.x - 16, objRingDrop.y - 16, 64, 64, 1);
-    }
-
-    if (instance_exists(objPlayer)) {
-        instance_activate_region(objPlayer.x - 64, objPlayer.y - 64, 128, 128, 1);
-    }
 }
 #define Other_4
 /*"/*'/**//* YYD ACTION

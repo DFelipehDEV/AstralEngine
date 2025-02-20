@@ -117,7 +117,7 @@ delay = max(delay - 1, 0)
 
 switch (GameStateGet()) {
     case GameStateRunning:
-        if (sysinput_get_pressed("accept")) {
+        if (sysinput_get_pressed("pause")) {
             pauseTimeAllowPrevious = global.gameTimeAllow;
             global.gameTimeAllow = false;
             // Free the previous print screen
