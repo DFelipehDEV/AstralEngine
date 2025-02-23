@@ -1,0 +1,7 @@
+sprite=sprPauseTitle
+visible=1
+solid=0
+persistent=0
+depth=-99999
+parent=objSingleton
+mask=

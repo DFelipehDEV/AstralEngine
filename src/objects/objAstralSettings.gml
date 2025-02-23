@@ -63,18 +63,14 @@ switch(optionSelected) {
             }
 
             if (sysinput_get("right"))  {
-                with (objRoomManager) {
-                    global.screenSize += 1;
-                    event_user(0);
-                }
+                global.screenSize += 1;
+                global.screenSize = WindowSetScale(global.screenSize);
                 delay = 25;
             }
 
-            if ((sysinput_get("left"))  && global.screenSize > 1) {
-                with (objRoomManager) {
-                    global.screenSize -= 1;
-                    event_user(0);
-                }
+            if (sysinput_get("left") && global.screenSize > 1) {
+                global.screenSize -= 1;
+                global.screenSize = WindowSetScale(global.screenSize);
                 delay = 25;
             }
         }
@@ -101,17 +97,13 @@ switch(optionSelected) {
         }
 
         if (sysinput_get("right")) {
-            with (objMusicManager) {
-                global.musicVolume = approach(global.musicVolume, 1, 0.01);
-                audio_set_volume(music, global.musicVolume);
-            }
+            global.musicVolume = approach(global.musicVolume, 1, 0.01);
+            audio_music_volume(global.musicVolume);
         }
 
         if (sysinput_get("left")) {
-            with (objMusicManager) {
-                global.musicVolume = approach(global.musicVolume, 0, 0.01);
-                audio_set_volume(music, global.musicVolume);
-            }
+            global.musicVolume = approach(global.musicVolume, 0, 0.01);
+            audio_music_volume(global.musicVolume);
         }
         break;
 
@@ -170,7 +162,7 @@ switch(optionSelected) {
     // VSync
     case 4:
         // Change option
-        if (sysinput_get("up")&& delay == 0) {
+        if (sysinput_get("up") && delay == 0) {
             optionSelected -= 1;
             PlaySound(sndMenuSelect);
             scale = 0;
@@ -268,7 +260,7 @@ applies_to=self
 */
 /// Draw options
 
-draw_sprite_ext(sprTrigger, 0, view_xview, view_yview, ScreenWidth, ScreenHeight, 0, c_blue, image_alpha);
+draw_sprite_ext(sprTrigger, 0, view_xview[0], view_yview[0], ScreenWidth, ScreenHeight, 0, c_blue, image_alpha);
 
 // Draw options
 var _volumeMusic, _volumeSound, _volumeVoice, _volumeAmbient;
@@ -278,15 +270,15 @@ _volumeVoice = floor(global.voiceVolume * 100);
 draw_set_alpha(image_alpha)
 var _colorLine;
 _colorLine = $e09915;
-draw_line_width_color(view_xview, optionY[optionSelected] + 10, view_xview + scale, optionY[optionSelected] + 10, fontSpace, _colorLine, _colorLine);
+draw_line_width_color(view_xview[0], view_yview[0] + optionY[optionSelected] + 10, view_xview[0] + scale, view_yview[0] + optionY[optionSelected] + 10, fontSpace, _colorLine, _colorLine);
 draw_set_font(fontConsolasBold12)
 draw_set_halign(fa_left);
 
 // Draw options
-draw_text(optionX[0], view_yview + optionY[0], "Screen Resolution: " + string(window_get_width()) + "X" + string(window_get_height()));
-draw_text(optionX[1], view_yview + optionY[1], "Music Volume: " + string(_volumeMusic));
-draw_text(optionX[2], view_yview + optionY[2], "Sound Volume: " + string(_volumeSound));
-draw_text(optionX[3], view_yview + optionY[3], "Voice Volume: " + string(_volumeVoice));
+draw_text(view_xview[0] + optionX[0], view_yview[0] + optionY[0], "Screen Resolution: " + string(window_get_width()) + "X" + string(window_get_height()));
+draw_text(view_xview[0] + optionX[1], view_yview[0] + optionY[1], "Music Volume: " + string(_volumeMusic));
+draw_text(view_xview[0] + optionX[2], view_yview[0] + optionY[2], "Sound Volume: " + string(_volumeSound));
+draw_text(view_xview[0] + optionX[3], view_yview[0] + optionY[3], "Voice Volume: " + string(_volumeVoice));
 var _vsync;
 if (global.screenVSync) {
     _vsync = "ON";
@@ -294,8 +286,8 @@ if (global.screenVSync) {
 else {
     _vsync = "OFF";
 }
-draw_text(optionX[4], view_yview + optionY[4], "VSync: " + _vsync);
-draw_text(optionX[optionMax - 1], view_yview + optionY[optionMax - 1], "Save and Exit");
+draw_text(view_xview[0] + optionX[4], view_yview[0] + optionY[4], "VSync: " + _vsync);
+draw_text(view_xview[0] + optionX[optionMax - 1], view_yview[0] + optionY[optionMax - 1], "Save and Exit");
 draw_set_halign(-1);
 draw_set_font(1);
 draw_set_alpha(1);

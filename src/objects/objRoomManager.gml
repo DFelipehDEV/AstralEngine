@@ -12,15 +12,6 @@ global.gameTimeAllow = true;
 global.gameTime = global.playerCheckTime;
 
 application_surface_enable(ApplicationSurfacePost)
-#define Alarm_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Center window
-
-window_center();
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -109,31 +100,6 @@ applies_to=self
 /// Clear exceptions
 
 ds_list_clear(global.deactivateExceptions);
-#define Other_10
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Resize
-
-// Set to the minimum size if the window is too big
-if (global.screenSize >= 4 || global.screenSize != 3 && window_get_fullscreen()) {
-    global.screenSize = 1;
-    window_set_fullscreen(false);
-}
-
-window_set_size(ScreenWidth * global.screenSize, ScreenHeight * global.screenSize);
-window_set_region_size(ScreenWidth, ScreenHeight, 1);
-
-// Fullscreen
-if (global.screenSize == 3) {
-    window_set_size(ScreenWidth, ScreenHeight);
-    window_set_fullscreen(true);
-}
-
-// Center window
-alarm[0] = 2;
 #define KeyPress_115
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -143,4 +109,4 @@ applies_to=self
 /// Increase resolution
 
 global.screenSize += 1;
-event_user(0);
+global.screenSize = WindowSetScale(global.screenSize);

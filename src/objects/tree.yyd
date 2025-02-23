@@ -21,9 +21,10 @@
 	|objMusicManager
 	|objRoomManager
 	|objDebugMode
+	|objPauseMenu
 +Splash
 	|objAstralTitle
-	|objAstralOptions
+	|objAstralSettings
 +Fade
 	|objFadeIn
 	|objFadeNext

@@ -161,7 +161,7 @@ objPlatformMask01Move
 objPlatformAngle
 objPlatformMove
 objPlatformMask01Spin
-objAstralOptions
+objAstralSettings
 objRoomManager
 objNavigator
 objTestFlower
@@ -218,3 +218,4 @@ objDashRail
 
 
 objPlatformMask01Pathed
+objPauseMenu

@@ -28,16 +28,6 @@ offset = 0;
 enemy = 0;
 enemyFrame = 0;
 enemyScale = 0;
-
-pauseOption = 1;
-pauseOptionOutlineScale = 0;
-pauseTimeAllowPrevious = true;
-
-titleScale = 0;
-
-gamescreen = -1;
-
-delay = 0;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -113,121 +103,12 @@ applies_to=self
 */
 /// Game State
 
-delay = max(delay - 1, 0)
-
 switch (GameStateGet()) {
     case GameStateRunning:
         if (sysinput_get_pressed("pause")) {
-            pauseTimeAllowPrevious = global.gameTimeAllow;
-            global.gameTimeAllow = false;
-            // Free the previous print screen
-            if (gamescreen != -1) {
-                background_delete(gamescreen);
-            }
-            // Create a "print screen" of the screen before pausing
-            gamescreen = background_create_from_screen(0, 0, ScreenWidth, ScreenHeight, 0, 0);
-
-            // Stop all objects
-            instance_deactivate_all(1)
-            instance_activate_object(objMusicManager);
-            instance_activate_object(objRoomManager);
+            instance_create(0, 0, objPauseMenu);
 
             GameStateSet(GameStatePaused);
-        }
-
-        if (titleScale > 0) {
-            titleScale = lerp(titleScale, 0, 0.2);;
-        }
-        break;
-
-    case GameStatePaused:
-        titleScale = lerp(titleScale, 1, 0.2);
-
-        switch (pauseOption) {
-            case 1:
-                pauseOptionOutlineScale = lerp(pauseOptionOutlineScale, 1, 0.2);
-                if (delay == 0) {
-                    // Restart option
-                    if (sysinput_get("down")) {
-                        delay = 20;
-                        pauseOption = 2;
-                        pauseOptionOutlineScale = 0;
-                    }
-
-                    // Continue
-                    if (sysinput_get_pressed("accept")) {
-                        delay = 20;
-                        // Activate all objects
-                        instance_activate_all();
-
-                        // Remove pause screen
-                        GameStateSet(GameStateRunning);
-                        global.gameTimeAllow = pauseTimeAllowPrevious;
-
-                        if (ownerID != noone) {
-                            with (ownerID) {
-                                if (allowKeysTimer < 15) {
-                                    allowKeysTimer = 15;
-                                }
-                            }
-                        }
-                    }
-                }
-                break;
-
-            case 2:
-                pauseOptionOutlineScale = lerp(pauseOptionOutlineScale, 1, 0.2);
-                if (delay == 0) {
-                    // Continue option
-                    if (sysinput_get("up")) {
-                        delay = 20;
-                        pauseOption = 1;
-                        pauseOptionOutlineScale = 0;
-                    }
-
-
-                    // Exit option
-                    if (sysinput_get("down")) {
-                        delay = 20;
-                        pauseOption = 3;
-                        pauseOptionOutlineScale = 0;
-                    }
-
-                    // Restart
-                    if (sysinput_get_pressed("accept")) {
-                        delay = 20;
-                        GameStateSet(GameStateRunning);
-                        instance_activate_all()
-                        with (instance_create(0, 0, objFadeRoom)) {
-                            roomgo = room;
-                        }
-                        PlayerGlobalsReset();
-                    }
-                }
-                break;
-
-            case 3:
-                pauseOptionOutlineScale = lerp(pauseOptionOutlineScale, 1, 0.2);
-                if (delay == 0) {
-                    // Restart option
-                    if (sysinput_get("up")) {
-                        delay = 20;
-                        pauseOption = 2;
-                        pauseOptionOutlineScale = 0;
-                    }
-
-                    // Exit
-                    if (sysinput_get_pressed("accept")) {
-                        GameStateSet(GameStateRunning);
-                        delay = 20;
-                        instance_activate_all()
-                        with (instance_create(0, 0, objFadeRoom)) {
-                            roomgo = rmTitleScreen;
-                        }
-                        PlayerGlobalsReset();
-                    }
-                }
-                break;
         }
         break;
 }
@@ -318,40 +199,3 @@ if (ownerID != noone && instance_exists(ownerID) && !GameStateGet(GameStatePause
         }
     }
 }
-
-// Draw pause screen
-if (GameStateGet(GameStatePaused) && gamescreen != -1) {
-    draw_background_ext(gamescreen, _viewX, _viewY, 1, 1, 0, c_gray, 1)
-
-    switch (pauseOption) {
-        case 1:
-            // Outline
-            draw_sprite_ext(sprPauseOptions, 3, (_viewX + 3) + ScreenWidthHalf, ((_viewY + 3) - 10) + ScreenHeightHalf, pauseOptionOutlineScale, pauseOptionOutlineScale, 0, c_white, 1);
-
-            // Options
-            draw_sprite_ext(sprPauseOptions, 0, _viewX + ScreenWidthHalf, (_viewY - 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_white, 1);
-            draw_sprite_ext(sprPauseOptions, 1, _viewX + ScreenWidthHalf, (_viewY + 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
-            draw_sprite_ext(sprPauseOptions, 2, _viewX + ScreenWidthHalf, (_viewY + 30) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
-            break;
-
-        case 2:
-            draw_sprite_ext(sprPauseOptions, 3, (_viewX + 3) + ScreenWidthHalf, ((_viewY + 3) + 10) + ScreenHeightHalf, pauseOptionOutlineScale, pauseOptionOutlineScale, 0, c_white, 1);
-
-            // Draw options
-            draw_sprite_ext(sprPauseOptions, 0, _viewX + ScreenWidthHalf, (_viewY - 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
-            draw_sprite_ext(sprPauseOptions, 1, _viewX + ScreenWidthHalf, (_viewY + 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_white, 1);
-            draw_sprite_ext(sprPauseOptions, 2, _viewX + ScreenWidthHalf, (_viewY + 30) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
-            break;
-
-        case 3:
-            // Draw black outline
-            draw_sprite_ext(sprPauseOptions, 3, (_viewX + 3) + ScreenWidthHalf, ((_viewY + 3) + 30) + ScreenHeightHalf, pauseOptionOutlineScale, pauseOptionOutlineScale, 0, c_white, 1);
-
-            // Draw options
-            draw_sprite_ext(sprPauseOptions, 0, _viewX + ScreenWidthHalf, (_viewY - 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
-            draw_sprite_ext(sprPauseOptions, 1, _viewX + ScreenWidthHalf, (_viewY + 10) + ScreenHeightHalf, titleScale, titleScale, 0, c_gray, 1);
-            draw_sprite_ext(sprPauseOptions, 2, _viewX + ScreenWidthHalf, (_viewY + 30) + ScreenHeightHalf, titleScale, titleScale, 0, c_white, 1);
-            break;
-    }
-}
-draw_sprite_ext(sprPauseTitle, 0, _viewX + ScreenWidthHalf, (_viewY - 40) + ScreenHeightHalf, round(titleScale/0.2)*0.2, round(titleScale/0.2)*0.2, 0, c_white, 1);

@@ -159,3 +159,5 @@
 	|DebrisEffectCreate
 +Input
 	|InputInit
++Window
+	|WindowSetScale

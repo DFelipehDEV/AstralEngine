@@ -178,8 +178,8 @@ switch (menu) {
         cardYScale += 1;
         optionMainAlpha -= 0.07;
 
-        if (!instance_exists(objAstralOptions)) {
-            instance_create(x, y, objAstralOptions)
+        if (!instance_exists(objAstralSettings)) {
+            instance_create(x, y, objAstralSettings)
         }
         break;
 }
