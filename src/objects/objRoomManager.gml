@@ -34,13 +34,9 @@ applies_to=self
 */
 /// Activate debug mode
 
-if (keyboard_check_pressed(vk_caps)) {
-    if (DEBUG && !global.debug) {
-        global.debug = true;
-        PlaySound(sndRing);
-        if (!instance_exists(objDebugMode))
-            instance_create(0, 0, objDebugMode);
-    }
+if (keyboard_check_pressed(vk_tab) && !instance_exists(objDebugMode) && DEBUG) {
+    PlaySound(sndRing);
+    instance_create(0, 0, objDebugMode);
 }
 #define Step_1
 /*"/*'/**//* YYD ACTION

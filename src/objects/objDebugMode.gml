@@ -6,10 +6,6 @@ applies_to=self
 */
 /// Debug
 
-if (!global.debug) {
-    instance_destroy();
-}
-
 overlay = false;
 
 player = noone;

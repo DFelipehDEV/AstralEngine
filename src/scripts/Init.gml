@@ -25,7 +25,6 @@ global.playerCheckTime = 0;
 global.playerCheckpoint = noone;
 
 // Game state
-global.debug = false;
 global.timeScale = 1; // Time movement multiplier, lower values make objects move slower, higher values make objects move faster, used for slow motion
 global.gameState = GameStateRunning;
 
