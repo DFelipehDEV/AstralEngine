@@ -824,12 +824,7 @@ if (invincibility != InvincibilityHurt) {
     // End invincibility
     else {
         if (invincibility == InvincibilityMonitor) {
-            if (instance_exists(objMusicManager)) {
-                with (objMusicManager) {
-                    audio_music_stop();
-                    audio_music_play(music, 5);
-                }
-            }
+            audio_music_resume();
         }
         invincibility = InvincibilityNoone;
     }
