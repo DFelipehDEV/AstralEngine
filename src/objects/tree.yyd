@@ -158,6 +158,8 @@
 			|objWaterBubbleSmall
 +Parallax
 	|objParallax
+	|objParallaxLayer
+	|objParallaxLayerAnimated
 +Collision
 	+Main
 		|objSolid
