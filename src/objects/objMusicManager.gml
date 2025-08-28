@@ -16,4 +16,4 @@ applies_to=self
 /// Stop audio
 
 // This will only stop common sounds and will not stop the music
-audio_global_stop(false);
+audio_sfx_stop();

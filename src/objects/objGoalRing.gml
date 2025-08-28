@@ -29,7 +29,7 @@ applies_to=self
 /// Create results
 
 instance_create(0, 0, objFadeGoal)
-audio_global_stop();
+audio_sfx_stop();
 PlaySound(sndGoalRingFinish);
 instance_create(x, y, objRainbow)
 

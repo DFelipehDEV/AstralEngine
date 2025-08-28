@@ -165,7 +165,7 @@ objAstralSettings
 objRoomManager
 objNavigator
 objTestFlower
-objBox1
+objBox
 
 
 objBoxPart
@@ -221,3 +221,4 @@ objPlatformMask01Pathed
 objPauseMenu
 objParallaxLayer
 objParallaxLayerAnimated
+objPushableBox

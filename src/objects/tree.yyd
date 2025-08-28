@@ -33,7 +33,7 @@
 +Stage
 	+Spring
 		|objSpring
-	+Ring
+	+Rings
 		|objRing
 		|objRing5
 		|objRing10
@@ -47,7 +47,7 @@
 			|objRingNumber
 	+Checkpoint
 		|objCheckpoint
-	+Dash
+	+Dashes
 		|objDashRing
 		|objDashRingRainbow
 		|objDashPad
@@ -73,7 +73,7 @@
 			|objRail03Layer1
 	+WayLauncher
 		|objWayLauncher
-	+Monitor
+	+Monitors
 		|objMonitor
 		|objMonitorEnergy
 		|objMonitorHurt
@@ -87,8 +87,9 @@
 		|objMonitorIcon
 	+Navigator
 		|objNavigator
-	+Box
-		|objBox1
+	+Boxes
+		|objBox
+		|objPushableBox
 		+Miscellaneous
 			|objBoxPart
 	+Goal

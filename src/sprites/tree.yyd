@@ -75,7 +75,7 @@
 +Stage
 	+Spring
 		|sprSpring
-	+Ring
+	+Rings
 		|sprRing
 		|sprRingHyper
 		|sprRingAmount
@@ -89,7 +89,7 @@
 	+Checkpoint
 		|sprCheckpoint
 		|sprCheckpointActivated
-	+Dash
+	+Dashes
 		|sprDashPad
 		|sprDashRail
 		|sprDashRamp
@@ -100,21 +100,22 @@
 		|sprCrane
 		|sprHandle
 		|sprHandleLine
-	+Rail
+	+Rails
 		|sprRail
 		|sprRail2
 		|sprRail3
 	+WayLauncher
 		|sprWayLauncher
 		|sprWayLauncherDirection
-	+Monitor
+	+Monitors
 		|sprMonitor
 		|sprMonitorIcons
 	+Navigator
 		|sprNavigator
-	+Box
+	+Boxes
 		|sprBox
 		|sprBoxPart
+		|sprMetalBox
 	+Goal
 		|sprGoalRing
 	+Spikes

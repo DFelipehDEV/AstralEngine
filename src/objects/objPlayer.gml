@@ -487,7 +487,7 @@ if (canMove) {
     if ((xSpeed > 0 && (PlayerCollisionRight(x, y, angle, maskBig))) || (xSpeed > 0 && PlayerCollisionObjectRight(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
         xSpeed = 0;
         pushingWall = true;
-        if (ground && state != PlayerStatePush && floorto(angle, 22.5) == 0) {
+        if (ground && state != PlayerStatePush) {
             xDirection = 1;
             PlayerSetState(PlayerStatePush);
         }
@@ -495,7 +495,7 @@ if (canMove) {
     else if ((xSpeed < 0 && (PlayerCollisionLeft(x, y, angle, maskBig))) || (xSpeed < 0 && PlayerCollisionObjectLeft(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
         xSpeed = 0;
         pushingWall = true;
-        if (ground && state != PlayerStatePush && floorto(angle, 22.5) == 0) {
+        if (ground && state != PlayerStatePush) {
             xDirection = -1;
             PlayerSetState(PlayerStatePush);
         }
@@ -767,38 +767,45 @@ applies_to=self
 */
 /// Effects(Footsteps, Trail, Afterimage, Stars)
 
-// Footsteps
+var _frame;
+_frame = floor(image_index);
+playFootstep = false;
+
 switch (animation) {
     case "WALK":
     case "WALK_2":
     case "JOG":
     case "JOG_2":
     case "RUN":
-        if(floor(image_index) == 3 || floor(image_index) == 7) {
-            if (!footstepPlayed) {
-                PlayerTerrainSndUpdate();
-                // Create water splash if the player is running in the water
-                if (PlayerCollisionObjectBottom(x, y, angle, maskBig, objWaterHorizon)) {
-                    DummyEffectCreate(x, y, sprWaterSplash, 0.45, 0, 1, bm_add, 1, xDirection, 1, 0);
-                }
-
-                // Create dust effect
-                if (terrainType != "WATER" && alarm[0] == -1) {
-                    alarm[0] = 1;
-                }
-                audio_stop(terrainSound[TerFootstep1]);
-                audio_stop(terrainSound[TerFootstep2]);
-                PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]), global.soundVolume, 1, false);
-                footstepPlayed = true;
-            }
-        }
-        else {
-            footstepPlayed = false;
-        }
+        if (_frame == 3 || _frame == 7) playFootstep = true;
         break;
 
-    default:
-        footstepPlayed = false;
+    case "PUSH":
+        if (_frame == 1 || _frame == 6) playFootstep = true;
+        break;
+}
+
+// Footsteps
+if (playFootstep) {
+    if (!footstepPlayed) {
+        PlayerTerrainSndUpdate();
+        // Create water splash if the player is running in the water
+        if (PlayerCollisionObjectBottom(x, y, angle, maskBig, objWaterHorizon)) {
+            DummyEffectCreate(x, y, sprWaterSplash, 0.45, 0, 1, bm_add, 1, xDirection, 1, 0);
+        }
+
+        // Create dust effect
+        if (terrainType != "WATER" && alarm[0] == -1) {
+            alarm[0] = 1;
+        }
+        audio_stop(terrainSound[TerFootstep1]);
+        audio_stop(terrainSound[TerFootstep2]);
+        PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]), global.soundVolume, 1, false);
+        footstepPlayed = true;
+    }
+}
+else {
+    footstepPlayed = false;
 }
 
 trailTimer -= 1;
