@@ -26,6 +26,7 @@
 		|sprSonicCrouch
 		|sprSonicRoll
 		|sprSonicJump
+		|sprSonicBreathe
 		|sprSonicSkid
 		|sprSonicSlide
 		|sprSonicSpindash

@@ -70,6 +70,10 @@ switch(animation) {
         AnimationSet(sprSonicRoll, 0, -1, -1, 0, 1, 1, -1, "");
         break;
 
+    case "BREATHE":
+        AnimationSet(sprSonicBreathe, 0, -1, -1, 0.12, 1, 0, -1, "");
+        break;
+
     case "SKID":
         AnimationSet(sprSonicSkid, 0, -1, 3, 0.35, 1, 1, -1, "");
         break;

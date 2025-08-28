@@ -1,9 +1,10 @@
 /// PlayerHandleWater()
 // Handle water collision
 
-var _waterHorizon, _waterTrigger;
+var _waterHorizon, _waterTrigger, _waterBubble;
 _waterHorizon = PlayerCollisionObjectBottom(x, y, 0, maskMain, objWaterHorizon);
 _waterTrigger = PlayerCollisionObjectBottom(x, y, 0, maskMain, objWater);
+_waterBubble = PlayerCollisionHitbox(x, y, objWaterBubble);
 
 // Water mode
 if (_waterHorizon != noone) {
@@ -15,7 +16,6 @@ if (_waterHorizon != noone) {
         PlaySoundSingle(sndWaterSplash, global.soundVolume, 1);
     }
 }
-
 
 if (physicsMode == PhysicsWater) {
     if (!PlayerCollisionObjectMain(x, y, objWater)) {
@@ -36,4 +36,12 @@ else {
 
         PlaySoundSingle(sndWaterSplash, global.soundVolume, 1);
     }
+}
+
+if (_waterBubble != noone) {
+    underwaterTime = 0;
+    underwaterDrownFrame = 0;
+    AnimationApply("BREATHE");
+    PlaySound(sndPlayerBubble);
+    instance_destroy_id(_waterBubble);
 }

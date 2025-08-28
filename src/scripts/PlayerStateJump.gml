@@ -13,18 +13,13 @@ if (keyRight) {
 }
 
 // Jump animation
-if (ySpeed < 2.5) {
-    AnimationApply("JUMP");
-}
-
-// Land animation
-if (ySpeed > 4.5) {
-    AnimationApply("LANDING");
-}
-
-// Animation speed
-if (animation != "LANDING") {
-    animationSpeed = (0.2 + abs(ySpeed)/7) + abs(xSpeed)/15;
+if (animation != "BREATHE") {
+    if (ySpeed < 2) {
+        AnimationApply("JUMP");
+        animationSpeed = (0.2 + abs(ySpeed)/7) + abs(xSpeed)/15;
+    } else {
+        AnimationApply("LANDING");
+    }
 }
 
 // Variable jump
