@@ -39,6 +39,7 @@ if (depth != sign(spikeBall.x - spikeBall.xprevious)) {
 }
 
 depth = sign(spikeBall.x - spikeBall.xprevious);
+spikeBall.canHurt = depth == 1;
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1
