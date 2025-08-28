@@ -2,7 +2,7 @@
 // Handle collision with destructive objects
 
 // Check if we are in a state that we can destroy the wall
-if (attackPossible && ground) {
+if (canAttack && ground) {
     if (PlayerCollisionObjectRight(x + xSpeed, y, angle, maskBig, objDestructiveWall) != noone || PlayerCollisionObjectLeft(x + xSpeed, y, angle, maskBig, objDestructiveWall) != noone) {
         with (instance_nearest(x + xSpeed, y, objDestructiveWall)) {
             PlaySoundExt(snd, global.soundVolume, 1, false);

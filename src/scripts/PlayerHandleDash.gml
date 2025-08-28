@@ -4,19 +4,20 @@
 var _dashPad, _dashRing, _dashRamp, _dashRail;
 _dashPad = PlayerCollisionHitbox(x, y, objDashPad);
 if (_dashPad != noone) {
-    if (pushingTerrain && !ground) {
+    if (pushingWall && !ground) {
         ground = true;
         PlayerSetAngle(_dashPad.image_angle);
         ySpeed = 0;
     }
+
     if (_dashPad.strength != 0) {
         xSpeed = _dashPad.strength * _dashPad.image_xscale;
     }
-    interactDelay = 15;
 
-    // Create dust
+    interactCooldown = 15;
+
     DummyEffectCreate(x, y, sprDashDust, 0.25, 0, -0.1, bm_normal, 1, _dashPad.image_xscale, _dashPad.image_yscale, _dashPad.image_angle);
-    // Play sound
+
     PlaySound(sndDashPad);
 }
 
@@ -31,6 +32,7 @@ if (_dashRing != noone) {
     ySpeed = -_dashRing.strength * dsin(_dashRing.image_angle+90);
 
     allowKeysTimer = 20;
+
     if (abs(xSpeed) >= 1) {
         xDirection = sign(xSpeed);
     }
@@ -50,10 +52,9 @@ if (_dashRing != noone) {
         image_xscale = 0.5;
         image_yscale = 0.5;
     }
-    // Prevent spam
-    interactDelay = 8;
 
-    // Play sound
+    interactCooldown = 8;
+
     PlaySound(_dashRing.interactSound);
 }
 
@@ -85,7 +86,7 @@ if (_dashRamp != noone && ground) {
 
         allowKeysTimer = 40;
 
-        interactDelay = 10;
+        interactCooldown = 10;
 
         PlaySound(sndDashRamp);
     }

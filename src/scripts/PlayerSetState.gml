@@ -97,7 +97,7 @@ switch (state) {
         break;
 
     case PlayerStateSlide:
-        slideResetTimer = 35;
+        slideCancelTimer = 35;
         AnimationApply("SLIDE");
         break;
 

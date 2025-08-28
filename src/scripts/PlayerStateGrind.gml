@@ -2,7 +2,7 @@
 
 animationSpeed = min(0.18 + abs(xSpeed)/20, 0.4);
 
-PlayerXMovementExt(xAcceleration, 0, xSpeedTop);
+PlayerXMovementExt(xAcceleration, 0, xTopSpeed);
 
 var _pitch;
 _pitch = min(max(0.6, abs(xSpeed)/8), 1.2);
@@ -23,10 +23,10 @@ if (keyDown && abs(xSpeed) > 0.1) {
     xSpeed -= 0.06 * xDirection;
     // Physics
     if (sign(xSpeed) == sign(angleSin)) {
-        xSpeed -= rollDecelerationSlopeUp * angleSin;
+        xSpeed -= rollUphillFriction * angleSin;
     }
     if (sign(xSpeed) != sign(angleSin)) {
-        xSpeed -= rollDecelerationSlopeDown * angleSin;
+        xSpeed -= rollDownhillForce * angleSin;
     }
 }
 

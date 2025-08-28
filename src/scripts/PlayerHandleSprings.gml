@@ -13,7 +13,7 @@ if (_spring != noone) {
     }
     _spring.image_speed = 0.25;
     _spring.image_index = 1;
-    interactDelay = 11;
+    interactCooldown = 11;
 
     PlaySound(sndSpring);
 }

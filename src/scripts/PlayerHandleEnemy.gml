@@ -4,7 +4,7 @@ var _enemy;
 _enemy = PlayerCollisionHitbox(x, y, objEnemy);
 
 if (_enemy != noone) {
-    if (attackPossible) {
+    if (canAttack) {
         if (_enemy.enemyBlinkTimer == 0) {
             if (_enemy.enemyHP > 0) {
                 with (_enemy) {

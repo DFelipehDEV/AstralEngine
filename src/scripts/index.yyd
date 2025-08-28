@@ -136,7 +136,7 @@ PlaySoundSingle
 GameStateGet
 GameStateSet
 PlayerHandleHurt
-AfterimageEffectCreate
+AfterImageEffectCreate
 PlayerStateWaylauncher
 PlayerStateBoostAir
 PlayerStateGrab

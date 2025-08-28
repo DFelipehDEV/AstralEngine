@@ -11,7 +11,7 @@ image_speed = 0;
 
 xSpeed = 0;         // Horizontal speed
 ySpeed = 0;         // Vertical speed
-yAcceleration = 0.1863;      // Gravity
+yGravity = 0.1863;      // Gravity
 dropTimer = 120;    // Amount of time that the ring can live
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
@@ -34,7 +34,7 @@ image_index = global.gameTime div 50;
 
 // Gravity
 if (!place_meeting(x, y, objTerrain)) {
-    ySpeed += yAcceleration;
+    ySpeed += yGravity;
 }
 
 // Bounce if collided with a wall

@@ -108,7 +108,7 @@
 		|PlayerStateTransform
 		|PlayerStateHurt
 		|PlayerStateDead
-	+Handles
+	+Object Collision
 		|PlayerHandleLayers
 		|PlayerHandleRings
 		|PlayerHandleSprings
@@ -155,7 +155,7 @@
 	|DrawTiledTexturePos
 	|ease
 	|DummyEffectCreate
-	|AfterimageEffectCreate
+	|AfterImageEffectCreate
 	|DebrisEffectCreate
 +Input
 	|InputInit

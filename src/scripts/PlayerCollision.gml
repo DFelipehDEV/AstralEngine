@@ -4,7 +4,7 @@ var _x, _y;
 _x = argument0;
 _y = argument1;
 
-terrainPlatform = false;
+onPlatform = false;
 
 if (place_meeting(_x, _y, objSolid)
 || (place_meeting(_x, _y, objLayer0) && terrainLayer == 0)
@@ -14,7 +14,7 @@ if (place_meeting(_x, _y, objSolid)
 
 // Check for platform
 if (place_meeting(_x, _y, objPlatform) && ground) {
-    terrainPlatform = true;
+    onPlatform = true;
     return true;
 }
 
