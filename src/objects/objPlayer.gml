@@ -11,6 +11,7 @@ DeactivateExceptionsAdd(id);
 event_inherited();
 
 // State
+previousState = PlayerStateNormal;
 state = PlayerStateNormal;
 stateTimer = 0;
 attackPossible = false;

@@ -12,6 +12,7 @@ switch (state) {
         break;
 }
 
+previousState = state;
 state = argument0;
 stateTimer = 0;
 

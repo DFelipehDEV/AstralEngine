@@ -6,8 +6,6 @@ applies_to=self
 */
 /// Debug
 
-overlay = false;
-
 player = noone;
 #define Step_1
 /*"/*'/**//* YYD ACTION
@@ -24,9 +22,9 @@ _playerExists = instance_exists(player);
 
 // Activate/deactivate debug overlay
 if (keyboard_check_pressed(vk_tab)) {
-    overlay = !overlay;
+    visible = !visible;
     if (_playerExists)
-        player.drawSensors = overlay;
+        player.drawSensors = visible;
 }
 
 // Restart room
@@ -108,23 +106,22 @@ applies_to=self
 */
 /// Debug overlay
 
-if (overlay) {
-    if (instance_exists(player)) {
-        draw_rect(view_xview[0] + 333, view_yview[0] + 103, 179, 185, c_black, 0.5, 0);
-        draw_set_font(fontConsolas8)
-        draw_set_halign(fa_left)
-        draw_set_color(c_white)
+draw_rect(view_xview[0] + 333, view_yview[0] + 103, 179, 185, c_black, 0.5, 0);
+draw_set_font(fontConsolas8)
+draw_set_halign(fa_left)
+draw_set_color(c_white)
 
-        // Debug overlay
-        var _playerText;
-        _playerText = "FPS:" + string(fps) + " " + string(fps_real)
-        + "#TAB:TOGGLE OVERLAY#RMB:LERP PLAYER POSITION#R:RESTART ROOM#PGUP:NEXT ROOM#PGDN:PREVIOUS ROOM"
-        + "#x:" + string(floor(player.x)) + " " + string(player.xSpeed)
-        + "#y:" + string(floor(player.y)) + " " + string(player.ySpeed)
-        + "#ground:" + string(player.ground)
-        + "#angle:" + string(player.angle) + " " + string(player.angleCos) + " " + string(player.angleSin) + " " + string(player.angleMode)
-        + "#xDirection:" + string(player.xDirection)
-        + "#state:" + script_get_name(player.state)
-        draw_text(view_xview[0] + 333, view_yview[0] + 103, _playerText);
-    }
+if (instance_exists(player)) {
+    // Debug overlay
+    var _playerText;
+    _playerText = "FPS:" + string(fps) + " " + string(fps_real)
+    + "#TAB:TOGGLE OVERLAY#RMB:LERP PLAYER POSITION#R:RESTART ROOM#PGUP:NEXT ROOM#PGDN:PREVIOUS ROOM"
+    + "#x:" + string(floor(player.x)) + " " + string(player.xSpeed)
+    + "#y:" + string(floor(player.y)) + " " + string(player.ySpeed)
+    + "#ground:" + string(player.ground)
+    + "#angle:" + string(player.angle) + " " + string(player.angleCos) + " " + string(player.angleSin) + " " + string(player.angleMode)
+    + "#xDirection:" + string(player.xDirection)
+    + "#state:" + script_get_name(player.state)
+    + "#previousState:" + script_get_name(player.previousState)
+    draw_text(view_xview[0] + 333, view_yview[0] + 103, _playerText);
 }
