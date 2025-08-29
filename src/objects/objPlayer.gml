@@ -886,10 +886,11 @@ applies_to=self
 /// Camera
 
 if (cam.target == id) {
-    var _targetSpeed;
-    _targetSpeed = (((x - xprevious)/global.timeScale) * 12);
+    var _xSpeed, _ySpeed;
+    _xSpeed = (x - xprevious) / global.timeScale;
+    _ySpeed = (y - yprevious) / global.timeScale;
     if (state != PlayerStateWaylauncher)
-        cam.xShift = approach(cam.xShift, round(_targetSpeed/2)*2, 7);
+        cam.xShift = approach(cam.xShift, _xSpeed * 11, 5);
 
     switch(state) {
         case PlayerStateLookup:
@@ -928,8 +929,7 @@ if (cam.target == id) {
 
         default:
             if (cam.yShakeTimer == 0) {
-                _targetSpeed = ((y - yprevious) / global.timeScale) * 5;
-                cam.yShift = approach(cam.yShift, round(_targetSpeed/2)*2, 6);
+                cam.yShift = approach(cam.yShift, _ySpeed * 4, 5);
             }
     }
 }

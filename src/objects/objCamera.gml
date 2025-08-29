@@ -9,11 +9,11 @@ applies_to=self
 DeactivateExceptionsAdd(id);
 
 view_object[0] = id;
-view_hborder[0] = ScreenWidthHalf * 0.99;
-view_vborder[0] = ScreenHeightHalf * 0.98;
+view_hborder[0] = ScreenWidthHalf * 0.97;
+view_vborder[0] = ScreenHeightHalf * 0.97;
 
 // Target
-target = objPlayer;
+target = noone;
 delay = 0;
 zoom = 1;
 zoomTarget = zoom;
@@ -82,8 +82,8 @@ if (delay > 0) {
 }
 
 if (delay == 0 && target != noone) {
-    x = floor(SmoothStep(x, target.x + xShift, xInterpolationSpeed));
-    y = floor(SmoothStep(y, target.y + yShift, yInterpolationSpeed));
+    x = floor(lerp(x, target.x + xShift, xInterpolationSpeed));
+    y = floor(lerp(y, target.y + yShift, yInterpolationSpeed));
 }
 
 x = clamp(x, leftBorder + ScreenWidthHalf, rightBorder - ScreenWidthHalf);
@@ -110,3 +110,18 @@ applies_to=self
 if (!instance_exists(target)) {
     target = noone;
 }
+#define Other_4
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Fields
+//field target: instance
+//field zoom: number
+//field xInterpolationSpeed : number
+//field yInterpolationSpeed : number
+//field leftBorder : number
+//field rightBorder : number
+//field topBorder : number
+//field bottomBorder : number
