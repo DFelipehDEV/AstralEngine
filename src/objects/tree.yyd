@@ -18,13 +18,13 @@
 		|objShieldElectricity
 +Singletons
 	|objSingleton
-	|objInputManager
 	|objMusicManager
 	|objRoomManager
 	|objDebugMode
+	|objPauseMenu
 +Splash
 	|objAstralTitle
-	|objAstralOptions
+	|objAstralSettings
 +Fade
 	|objFadeIn
 	|objFadeNext
@@ -33,7 +33,7 @@
 +Stage
 	+Spring
 		|objSpring
-	+Ring
+	+Rings
 		|objRing
 		|objRing5
 		|objRing10
@@ -47,7 +47,7 @@
 			|objRingNumber
 	+Checkpoint
 		|objCheckpoint
-	+Dash
+	+Dashes
 		|objDashRing
 		|objDashRingRainbow
 		|objDashPad
@@ -73,7 +73,7 @@
 			|objRail03Layer1
 	+WayLauncher
 		|objWayLauncher
-	+Monitor
+	+Monitors
 		|objMonitor
 		|objMonitorEnergy
 		|objMonitorHurt
@@ -87,8 +87,9 @@
 		|objMonitorIcon
 	+Navigator
 		|objNavigator
-	+Box
-		|objBox1
+	+Boxes
+		|objBox
+		|objPushableBox
 		+Miscellaneous
 			|objBoxPart
 	+Goal
@@ -133,21 +134,27 @@
 		|objDummy
 		|objAfterimage
 	+Sensors
-		|objFootstepSensorDirt
-		|objFootstepSensorGrass
-		|objFootstepSensorMetal
-		|objFootstepSensorStone
-		|objFootstepSensorWater
-		|objFootstepSensorWood
-		|objSwitchLayer0
-		|objSwitchLayerAlternate
-		|objSwitchLayer1
-		|objSlidepassSensor
-		|objButtonSensor
-		|objWalljumpTrigger
-		|objEnemiesArenaSensor
-		|objZoomSensor
-		|objHUDHideSensor
+		+Camera
+			|objOffsetCameraSensor
+			|objZoomCameraSensor
+		+Footsteps
+			|objFootstepSensorDirt
+			|objFootstepSensorGrass
+			|objFootstepSensorMetal
+			|objFootstepSensorStone
+			|objFootstepSensorWater
+			|objFootstepSensorWood
+		+Gameplay
+			|objEnemiesArenaSensor
+			|objSlidepassSensor
+			|objWalljumpSensor
+		+Layers
+			|objSwitchLayer0
+			|objSwitchLayerAlternate
+			|objSwitchLayer1
+		+UI
+			|objButtonSensor
+			|objHideHUDSensor
 		|objPlatformAngle
 	+Water
 		|objWaterHorizon
@@ -158,6 +165,8 @@
 			|objWaterBubbleSmall
 +Parallax
 	|objParallax
+	|objParallaxLayer
+	|objParallaxLayerAnimated
 +Collision
 	+Main
 		|objSolid
@@ -181,6 +190,7 @@
 		|objPlatformMove
 		|objPlatformMask01
 		|objPlatformMask01Move
+		|objPlatformMask01Pathed
 		|objPlatformMask01Spin
 	+Layer0
 		|objLayer0

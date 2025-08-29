@@ -9,11 +9,11 @@ applies_to=self
 DeactivateExceptionsAdd(id);
 
 view_object[0] = id;
-view_hborder[0] = ScreenWidthHalf * 0.99;
-view_vborder[0] = ScreenHeightHalf * 0.98;
+view_hborder[0] = ScreenWidthHalf * 0.97;
+view_vborder[0] = ScreenHeightHalf * 0.97;
 
 // Target
-target = objPlayer;
+target = noone;
 delay = 0;
 zoom = 1;
 zoomTarget = zoom;
@@ -22,6 +22,8 @@ xInterpolationSpeed = 0.3;
 yInterpolationSpeed = 0.3;
 xShift = 0;
 yShift = 0;
+xOffset = 0; // Applied on top of the xShift
+yOffset = 0; // Applied on top of the yShift
 xShakeTimer = 0;
 yShakeTimer = 0;
 yShakeOffset = 48;
@@ -56,7 +58,7 @@ if (xShakeTimer > 0) {
 // Vertical Shake
 if (yShakeTimer > 0) {
     yShift = approach(yShift, yShakeOffset - round(yShakeTimer/2)*2, 10)
-    y = SmoothStep(y, floor(y + yShift), 0.3);
+    y = lerp(y, floor(y + yShift), 0.2);
 
     if (yShakeTimer mod 6 == 4) {
         yShakeOffset = -yShakeOffset;
@@ -82,8 +84,8 @@ if (delay > 0) {
 }
 
 if (delay == 0 && target != noone) {
-    x = floor(SmoothStep(x, target.x + xShift, xInterpolationSpeed));
-    y = floor(SmoothStep(y, target.y + yShift, yInterpolationSpeed));
+    x = floor(lerp(x, target.x + xShift + xOffset, xInterpolationSpeed));
+    y = floor(lerp(y, target.y + yShift + yOffset, yInterpolationSpeed));
 }
 
 x = clamp(x, leftBorder + ScreenWidthHalf, rightBorder - ScreenWidthHalf);
@@ -96,7 +98,7 @@ applies_to=self
 /// Zoom
 
 if (zoom != zoomTarget) {
-    zoom = SmoothStep(zoom, zoomTarget, 0.2);
+    zoom = lerp(zoom, zoomTarget, 0.15);
     ViewSetZoom(zoom);
 }
 #define Step_1
@@ -110,3 +112,18 @@ applies_to=self
 if (!instance_exists(target)) {
     target = noone;
 }
+#define Other_4
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Fields
+//field target: instance
+//field zoom: number
+//field xInterpolationSpeed : number
+//field yInterpolationSpeed : number
+//field leftBorder : number
+//field rightBorder : number
+//field topBorder : number
+//field bottomBorder : number

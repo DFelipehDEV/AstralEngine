@@ -30,7 +30,6 @@ image_alpha += 0.03;
 
 if (image_alpha >= 1) {
     instance_destroy();
-    instance_create(0, 0, objEventResults);
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION

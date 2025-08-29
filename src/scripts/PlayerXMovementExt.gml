@@ -1,36 +1,35 @@
-/// PlayerXMovementExt(xAcceleration, xDeceleration, xSpeedTop)
+/// PlayerXMovementExt(xAcceleration, xFriction, xTopSpeed)
 
-    var _xAcceleration, _xDeceleration, _xFriction, _xSpeedTop;
-    _xAcceleration = argument0 * global.timeScale;
-    _xDeceleration = argument1 * global.timeScale;
-    _xFriction = (argument1 * 1.7) * global.timeScale;
-    _xSpeedTop = argument2;
+var _xAcceleration, _xFriction, _xBrakeFriction, _xTopSpeed;
+_xAcceleration = argument0 * global.timeScale;
+_xFriction = argument1 * global.timeScale;
+_xBrakeFriction = (argument1 * 1.7) * global.timeScale;
+_xTopSpeed = argument2;
 
-    // Acceleration
-    // Accelerate to the left
-    if (keyLeft && !keyRight) {
-        if xSpeed > -_xSpeedTop {
-            xSpeed -= _xAcceleration;
-        }
-
-        // Friction
-        if xSpeed > 0 {
-            xSpeed -= _xFriction;
-        }
+// Acceleration
+// Accelerate to the left
+if (keyLeft && !keyRight) {
+    if (xSpeed > -_xTopSpeed) {
+        xSpeed -= _xAcceleration;
     }
-    // Accelerate to the right
-    else
-    if (keyRight && !keyLeft) {
-        if xSpeed < _xSpeedTop {
-            xSpeed += _xAcceleration;
-        }
 
-        // Friction
-        if xSpeed < 0 {
-            xSpeed += _xFriction;
-        }
+    // Friction
+    if (xSpeed > 0){
+        xSpeed -= _xBrakeFriction;
     }
-    else {
-        // Decelerate when you are not pressing the right or left key
-        xSpeed = approach(xSpeed, 0, _xDeceleration);
+}
+// Accelerate to the right
+else
+if (keyRight && !keyLeft) {
+    if (xSpeed < _xTopSpeed) {
+        xSpeed += _xAcceleration;
     }
+
+    // Friction
+    if (xSpeed < 0) {
+        xSpeed += _xBrakeFriction;
+    }
+}
+else {
+    xSpeed = approach(xSpeed, 0, _xFriction);
+}

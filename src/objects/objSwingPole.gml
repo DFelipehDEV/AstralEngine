@@ -27,7 +27,7 @@ if (active) {
 
         // Create afterimage when changing the rotation
         if (other.rotPrevious != _rot) {
-            AfterimageEffectCreate(x + dcos(_rot)*26*xDirection, y - dsin(_rot)*20*xDirection, sprite_index, image_index, 1, xDirection, 1, _rot, c_teal, c_blue);
+            AfterImageEffectCreate(x + dcos(_rot)*26*xDirection, y - dsin(_rot)*20*xDirection, sprite_index, image_index, 1, xDirection, 1, _rot, c_teal, c_blue);
         }
 
         // Jump
@@ -39,13 +39,13 @@ if (active) {
             y += ySpeed;
             canMove = true;
             image_angle = 0;
-            interactDelay = 15;
+            interactCooldown = 15;
 
             allowKeysTimer = 30;
             other.active = false;
             other.ownerID = noone;
 
-            PlaySound("snd/PlayerSpin");
+            PlaySound(sndPlayerSpin);
         }
     }
     rotPrevious = _rot; // Update previous rot to new rot

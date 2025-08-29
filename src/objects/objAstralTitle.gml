@@ -74,10 +74,10 @@ switch (menu) {
     case 0:
         returnDelay -= 1;
         // Check if the player has pressed the start button
-        if (InputGet(InputActionPressed, 0) && returnDelay < 0) {
+        if (sysinput_get_pressed("accept") && returnDelay < 0) {
             menu = 1;
             echoAlpha = 1;
-            PlaySound("snd/MenuAccept");
+            PlaySound(sndMenuAccept);
         }
         break;
 
@@ -116,54 +116,54 @@ switch (menu) {
                     // Start option
                     case 0:
                         // Change selection
-                        if (InputGet(InputDown, 0)) {
+                        if (sysinput_get("down")) {
                             menuOption += 1;
                             delay = 25;
 
-                            PlaySound("snd/MenuSelect");
+                            PlaySound(sndMenuSelect);
                         }
                         // Check if the player has pressed the start button
-                        if InputGet(InputActionPressed, 0) && !instance_exists(objFadeNext) {
+                        if sysinput_get_pressed("accept") && !instance_exists(objFadeNext) {
                             with (instance_create(0, 0, objFadeNext)) {
                                 color = c_white;
                             }
-                            PlaySound("snd/MenuAccept");
+                            PlaySound(sndMenuAccept);
                         }
                         break;
 
                     // Options option
                     case 1:
                         // Change selection
-                        if (InputGet(InputUpPressed, 0) != 0) {
+                        if (sysinput_get("up")) {
                             menuOption -= 1;
                             delay = 25;
-                            PlaySound("snd/MenuSelect");
+                            PlaySound(sndMenuSelect);
                         }
                         // Change selection
-                        if (InputGet(InputDown, 0)) {
+                        if (sysinput_get("down")) {
                             menuOption += 1;
                             delay = 25;
-                            PlaySound("snd/MenuSelect");
+                            PlaySound(sndMenuSelect);
                         }
 
                         // Go to options menu
-                        if (InputGet(InputAction, 0)) {
+                        if (sysinput_get_pressed("accept")) {
                             menu = 3;
-                            PlaySound("snd/MenuAccept");
+                            PlaySound(sndMenuAccept);
                         }
                         break;
 
                     // Exit option
                     case 2:
                         // Change selection
-                        if (InputGet(InputUp, 0)) {
+                        if (sysinput_get("up")) {
                             menuOption -= 1;
                             delay = 25;
-                            PlaySound("snd/MenuSelect");
+                            PlaySound(sndMenuSelect);
                         }
 
                         // Check if the player has pressed the start button
-                        if (InputGet(InputAction, 0)) {
+                        if (sysinput_get_pressed("accept")) {
                             game_end();
                         }
                         break;
@@ -178,8 +178,8 @@ switch (menu) {
         cardYScale += 1;
         optionMainAlpha -= 0.07;
 
-        if (!instance_exists(objAstralOptions)) {
-            instance_create(x, y, objAstralOptions)
+        if (!instance_exists(objAstralSettings)) {
+            instance_create(x, y, objAstralSettings)
         }
         break;
 }

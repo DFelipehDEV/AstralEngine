@@ -6,12 +6,11 @@ applies_to=self
 */
 /// Variables
 
-bridgeSprite = sprBridgeLog;
-bridgeLogs = image_xscale; // Number of logs wich the bridge has
-bridgeLogWidth = 24;
-bridgeWidth = bridgeLogs*bridgeLogWidth;
-bridgeWidthHalf = bridgeWidth / 2;      // Half the width of the bridge (GASP)
-bridgeTension= 14;                   // Max tension (height) possible
+logsAmount = image_xscale; // Number of logs wich the bridge has
+logWidth = sprite_get_width(sprite_index);
+width = logsAmount*logWidth;
+widthHalf = width / 2;      // Half the width of the bridge (GASP)
+maxTension = 8;                   // Max tension (height) possible
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -21,49 +20,55 @@ applies_to=self
 /// Log management
 
 // Set all logs heights to 0
-for (i=0; i<bridgeLogs; i+=1) heights[i] = 0;
+for (i=0; i<logsAmount; i+=1) heights[i] = 0;
 
 // Find out the logs height depending on the player objects
-if (collision_rectangle(x, y - 16, x + bridgeWidth, y + bridgeTension * 0.8, objPlayer, true, false)) {
-    var _playerPosition;
-    _playerPosition = round(objPlayer.x/bridgeLogWidth)*bridgeLogWidth;
+var _player;
+_player = collision_rectangle(x, y - 8, x + width, y + maxTension, objPlayer, true, false);
 
-    var leftGrad, rightGrad, left, right;
-    leftGrad = 0;
-    rightGrad = 0;
-    // Find tension point and calculate left and right and their gradients
-    bridgeTensionNum = min(max(floor((_playerPosition - x)/bridgeLogWidth),0),bridgeLogs-1);
-    if (bridgeTensionNum != 0) {
-        leftGrad = (pi*0.5) / bridgeTensionNum;
-        if (bridgeLogs - bridgeTensionNum != 0) {
-            rightGrad = (pi*0.5) / bridgeLogs - bridgeTensionNum;
+if (_player) {
+    if (_player.onPlatform) {
+        var _playerX;
+        _playerX = round(_player.x / logWidth) * logWidth;
+
+        var leftGrad, rightGrad, left, right;
+        leftGrad = 0;
+        rightGrad = 0;
+
+        // Find tension point and calculate gradients safely
+        tensionPoint = min(max(floor((_player.x - x) / logWidth), 0), logsAmount - 1);
+
+        if (tensionPoint > 0) {
+            leftGrad = (pi * 0.5) / tensionPoint;
         }
-    }
-    left = 0;
-    right = pi;
+        if ((logsAmount - tensionPoint) > 0) {
+            rightGrad = (pi * 0.5) / (logsAmount - tensionPoint);
+        }
 
-    // Calculate distance from center
-    distanceHalfWidth = bridgeTension * (1-(abs(floor(_playerPosition - x-bridgeWidthHalf)/bridgeWidthHalf)));
+        left  = 0;
+        right = pi;
 
-    // Reposition all bridge logs
-    for (j=0; j <= bridgeTensionNum; j+=1) {
-        heightsCurrent = sin(left)*distanceHalfWidth;
-        if (heights[j] < heightsCurrent) heights[j] = heightsCurrent;
+        // Calculate distance from center
+        distanceFromCenter = maxTension * (1 - (abs((_player.x - x - widthHalf) / widthHalf)));
 
-        left           += leftGrad;
-    }
-    for (j=bridgeLogs-1; j>bridgeTensionNum; j-=1) {
-        heightsCurrent = sin(right)*distanceHalfWidth;
-        if (heights[j] < heightsCurrent) heights[j] = heightsCurrent;
-
-        right          -= rightGrad;
+        // Reposition all bridge logs
+        for (j=0; j <= tensionPoint; j+=1) {
+            heightsCurrent = sin(left) * distanceFromCenter;
+            if (heights[j] < heightsCurrent) heights[j] = heightsCurrent;
+            left += leftGrad;
+        }
+        for (j=logsAmount - 1; j > tensionPoint; j-=1) {
+            heightsCurrent = sin(right) * distanceFromCenter;
+            if (heights[j] < heightsCurrent) heights[j] = heightsCurrent;
+            right -= rightGrad;
+        }
     }
 }
 
-// Now, change bridge's height
-for (i=0; i<bridgeLogs; i+=1) {
+// Now, change bridge's height smoothly
+for (i=0; i<logsAmount; i+=1) {
     if (instance_exists(logs[i])) {
-        logs[i].y = lerp(logs[i].y, y+heights[i], 0.2);
+        logs[i].y = lerp(logs[i].y, y + heights[i], 0.2);
     }
 }
 #define Other_4
@@ -72,29 +77,28 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-//field bridgeSprite: sprite
-//field bridgeLogWidth: value
-/*preview
-    if (!FieldDefined("bridgeSprite") || !FieldDefined("bridgeLogWidth")) exit;
+//field sprite_index: sprite
+//field maxTension: number
+/*preview nodrawself
+    if (!FieldDefined("sprite_index")) exit;
 
-    var _bridgeSpr, _bridgeSprWidth;
-    _bridgeSpr = Field("bridgeSprite")
-    _bridgeSprWidth = Field("bridgeLogWidth")
-
+    sprite = Sprite(Field("sprite_index"), 0);
     // Create logs
     for (i=0; i < image_xscale; i+=1) {
-        draw_sprite(Sprite(_bridgeSpr, 0), 0, x + i*_bridgeSprWidth, y)
+        draw_sprite(sprite, 0, x + i*sprite_get_width(sprite), y)
     }
 */
 
-bridgeWidth = bridgeLogs*bridgeLogWidth;
-bridgeWidthHalf = bridgeWidth / 2;
+logWidth = sprite_get_width(sprite_index);
+logsAmount = image_xscale;
+width = logsAmount*logWidth;
+widthHalf = width / 2;
 
 // Create logs
-for (i=0; i < bridgeLogs; i+=1) {
+for (i=0; i < logsAmount; i+=1) {
     heights[i] = 0;
-    logs[i] = instance_create(x + i*bridgeLogWidth, y, objBridgeLog);
-    logs[i].sprite_index = bridgeSprite;
+    logs[i] = instance_create(x + i*logWidth, y, objBridgeLog);
+    logs[i].sprite_index = sprite_index;
 }
 
 event_step();

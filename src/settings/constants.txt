@@ -27,7 +27,6 @@ ParallaxBGHorizontal=5
 ParallaxBGVertical=6
 ParallaxBG=7
 CollisionSolid=0
-input=objInputManager
 GameStateRunning=0
 GameStatePaused=1
 GameStateCutscene=2

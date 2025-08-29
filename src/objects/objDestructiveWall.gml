@@ -6,4 +6,4 @@ applies_to=self
 */
 /// Variables
 
-snd = "snd/WallBreak";
+snd = sndWallBreak;

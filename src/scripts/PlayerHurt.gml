@@ -11,7 +11,7 @@ if (invincibilityTimer == 0 && invincibility != InvincibilityHurt && character !
 
     invincibility = InvincibilityHurt;
     ySpeed = -4;
-    ground = false;
+    PlayerSetGround(false);
 
     // Check if the player has a shield
     if (shield) {

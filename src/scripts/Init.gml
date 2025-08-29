@@ -1,9 +1,7 @@
 /// Init()
 // Initialize the game
 
-// Load all sounds and musics
-sound_add_directory_ext("datafiles/snd", ".wav", 0, false, "snd/")
-sound_add_directory_ext("datafiles/bgm", ".ogg", 1, true, "bgm/");
+InputInit();
 
 // Fonts
 global.fontHUD = font_add_sprite(sprFontHUD, ord("0"), false, -2);
@@ -26,14 +24,7 @@ global.playerRings = 0;
 global.playerCheckTime = 0;
 global.playerCheckpoint = noone;
 
-// Rank requirements
-global.stageRank[RankC] = 2500;
-global.stageRank[RankB] = 4000;
-global.stageRank[RankA] = 6000;
-global.stageRank[RankS] = 8500;
-
 // Game state
-global.debug = false;
 global.timeScale = 1; // Time movement multiplier, lower values make objects move slower, higher values make objects move faster, used for slow motion
 global.gameState = GameStateRunning;
 
@@ -41,8 +32,6 @@ global.shaderHeat = shdHeat();
 global.shaderColorSwap = shdColorSwap();
 
 // Create essential controllers
-if (!instance_exists(objInputManager))
-    instance_create(0, 0, objInputManager);
 if (!instance_exists(objMusicManager))
     instance_create(0, 0, objMusicManager);
 if (!instance_exists(objRoomManager))

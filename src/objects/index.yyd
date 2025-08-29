@@ -82,7 +82,7 @@ objDashPad
 objDashRamp
 objDashRampRainbow
 objEventQTEKeys
-objInputManager
+
 objCrane
 objHandle
 objFootstepSensorDirt
@@ -98,7 +98,7 @@ objRail03
 
 
 
-objWalljumpTrigger
+objWalljumpSensor
 objWayLauncher
 objWater
 objWaterBubbleGenerator
@@ -161,11 +161,11 @@ objPlatformMask01Move
 objPlatformAngle
 objPlatformMove
 objPlatformMask01Spin
-objAstralOptions
+objAstralSettings
 objRoomManager
 objNavigator
 objTestFlower
-objBox1
+objBox
 
 
 objBoxPart
@@ -178,7 +178,7 @@ objInit
 objBridge
 objBridgeLog
 objWaterSolid
-objZoomSensor
+objZoomCameraSensor
 objRingHyper
 objMonitorCombine
 
@@ -204,7 +204,7 @@ objRail03Layer1
 
 
 
-objHUDHideSensor
+objHideHUDSensor
 objSingleton
 objVFX
 
@@ -216,4 +216,11 @@ objBody
 objPlayerHUD
 objDashRail
 
+
+objPlatformMask01Pathed
+objPauseMenu
+objParallaxLayer
+objParallaxLayerAnimated
+objPushableBox
+objOffsetCameraSensor
 

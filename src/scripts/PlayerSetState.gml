@@ -2,16 +2,17 @@
 // Exit state
 switch (state) {
     case PlayerStateGrind:
-        sound_stop("snd/PlayerGrindContinue");
+        audio_stop(sndPlayerGrind);
         break;
     case PlayerStateSlide:
-        sound_stop("snd/PlayerSlide");
+        audio_stop(sndPlayerSlide);
         break;
     case PlayerStateStomp:
         PlayerSensorPosUpdate();
         break;
 }
 
+previousState = state;
 state = argument0;
 stateTimer = 0;
 
@@ -39,7 +40,7 @@ switch (state) {
         }
         PlayerAirdashReset();
         AnimationApply("JUMP");
-        ground = false;
+        PlayerSetGround(false);
         jumpAirTimer = 0;
         break;
 
@@ -96,7 +97,7 @@ switch (state) {
         break;
 
     case PlayerStateSlide:
-        slideResetTimer = 35;
+        slideCancelTimer = 35;
         AnimationApply("SLIDE");
         break;
 
@@ -158,11 +159,12 @@ switch (state) {
 
     case PlayerStateDead:
         ySpeed = -6;
-        ground = false;
+        PlayerSetGround(false);
         canMove = false;
+        if (cam.target == id) cam.target = noone;
         AnimationApply("DEAD");
         AnimationUpdate();
-        PlaySound("snd/PlayerHurt");
+        PlaySound(sndPlayerHurt);
         PlaySound(voiceline[4]);
         break;
 }

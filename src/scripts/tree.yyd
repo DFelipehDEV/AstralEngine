@@ -1,7 +1,32 @@
+|README
 |Init
++Animation
+	+Lists
+		|AnimationIndexSonic
+		|AnimationIndexSuperSonic
+	|AnimationInit
+	|AnimationSystem
+	|AnimationUpdate
+	|AnimationSet
+	|AnimationApply
++Body
+	|BodyApplyGravity
++Camera
+	|CameraLag
+	|CameraShakeX
+	|CameraShakeY
++Deactivation
+	|DeactivateExceptionsAdd
+	|DeactivateExceptionsRemove
++Dialogue
+	|DialogueAdd
++EnemiesArena
+	|EnemiesArenaAddEnemy
 +GameState
 	|GameStateGet
 	|GameStateSet
++Parallax
+	|ParallaxAddNode
 +Player
 	+Collision
 		+Bottom
@@ -55,6 +80,7 @@
 		|PlayerTerrainSndUpdate
 		|PlayerXMovement
 		|PlayerXMovementExt
+		|PlayerSetGround
 	+Action
 		|PlayerStateNormal
 		|PlayerStateSpring
@@ -84,7 +110,7 @@
 		|PlayerStateTransform
 		|PlayerStateHurt
 		|PlayerStateDead
-	+Handles
+	+Object Collision
 		|PlayerHandleLayers
 		|PlayerHandleRings
 		|PlayerHandleSprings
@@ -102,37 +128,17 @@
 		|PlayerHandleGimmicks
 		|PlayerHandleBox
 		|PlayerHandleDestructive
-+Camera
-	|CameraLag
-	|CameraShakeX
-	|CameraShakeY
-+Input
-	|InputGet
-+Body
-	|BodyApplyGravity
-+Parallax
-	|ParallaxAddNode
-+Animation
-	+Lists
-		|AnimationIndexSonic
-		|AnimationIndexSuperSonic
-	|AnimationInit
-	|AnimationSystem
-	|AnimationUpdate
-	|AnimationSet
-	|AnimationApply
++Shaders
+	|shdHeat
+	|shdColorSwap
+	|ApplicationSurfacePost
++Sound
+	|PlaySound
+	|PlayVoice
+	|PlaySoundExt
+	|PlaySoundSingle
+	|PlayMusic
 +Utils
-	+Sound
-		|PlaySound
-		|PlayVoice
-		|PlaySoundExt
-		|PlaySoundSingle
-		|PlayMusic
-		|FadeMusic
-	+VFX
-		|DummyEffectCreate
-		|AfterimageEffectCreate
-		|DebrisEffectCreate
 	|DrawTrail
 	|DrawCircularBar
 	|DrawSpriteTiledHorizontalPart
@@ -147,16 +153,12 @@
 	|EnemySetAnimation
 	|RingsDrop
 	|RingsDropHyper
-	|DeactivateExceptionsAdd
-	|DeactivateExceptionsRemove
-	|SmoothStep
 	|DrawTiledTexturePos
 	|ease
-+Shaders
-	|shdHeat
-	|shdColorSwap
-	|ApplicationSurfacePost
-+Dialogue
-	|DialogueAdd
-+EnemiesArena
-	|EnemiesArenaAddEnemy
+	|DummyEffectCreate
+	|AfterImageEffectCreate
+	|DebrisEffectCreate
++Input
+	|InputInit
++Window
+	|WindowSetScale

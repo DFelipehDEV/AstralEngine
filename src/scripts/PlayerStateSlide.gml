@@ -6,21 +6,21 @@ animationSpeed = 0.2 + abs(xSpeed)/18;
 if (distance_to_object(objSlidepassSensor) > 15) {
     // Decelerate while going to the left
     if (xSpeed < 0) {
-        xSpeed += slideDeceleration;
+        xSpeed += slideFriction;
     }
 
     // Decelerate while going to the right
     if (xSpeed > 0) {
-        xSpeed -= slideDeceleration;
+        xSpeed -= slideFriction;
     }
 
     // Decrease reset timer if is not holding the slide key
-    if (!keyDown && slideResetTimer > 0) {
-        slideResetTimer -= 1;
+    if (!keyDown && slideCancelTimer > 0) {
+        slideCancelTimer -= 1;
     }
 
     // Back to the normal state if the player stopped or is not in the ground anymore
-    if (!ground || floor(xSpeed) == 0 || !keyDown && slideResetTimer == 0) {
+    if (!ground || floor(xSpeed) == 0 || !keyDown && slideCancelTimer == 0) {
         PlayerSetState(PlayerStateNormal);
     }
 }
@@ -36,11 +36,11 @@ if (alarm[0] == -1) {
 
 // Physics
 if (sign(xSpeed) == sign(angleSin)) {
-    xSpeed -= rollDecelerationSlopeUp * angleSin;
+    xSpeed -= rollUphillFriction * angleSin;
 }
 
 if (sign(xSpeed) != sign(angleSin)) {
-    xSpeed -= rollDecelerationSlopeDown * angleSin;
+    xSpeed -= rollDownhillForce * angleSin;
 }
 
 if (ground) {

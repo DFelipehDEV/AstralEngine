@@ -103,10 +103,10 @@ sprSpike
 
 sprSpring
 sprWayLauncher
-sprWayLauncherDown
-sprWayLauncherLeft
-sprWayLauncherRight
-sprWayLauncherUp
+
+
+
+sprWayLauncherDirection
 sprCorkscrew
 sprCorkscrewDepth
 sprEnemyTurn
@@ -225,7 +225,7 @@ sprTitleCardBar
 sprSonicGrind2
 sprBridgeLog
 
-sprZoomSensor
+sprCameraSensor
 sprRingHyper
 sprEnemyHeavyWalk
 sprEnemyHeavyAttack
@@ -254,3 +254,6 @@ sprSuperSonicJog1
 sprBoostSuper
 sprSonicTransform
 
+
+sprSonicBreathe
+sprMetalBox

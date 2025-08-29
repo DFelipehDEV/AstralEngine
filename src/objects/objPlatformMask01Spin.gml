@@ -46,12 +46,12 @@ var _chainPosX, _chainPosY;
 _chainPosX = xstart;
 _chainPosY = ystart - 128;
 var i;
-for (i = 0; i < chainLength; i += sprite_get_width(sprRing)) {
+for (i = 0; i < chainLength; i += sprite_get_width(sprChain)) {
     var _x, _y;
     _x = (_chainPosX) + lengthdir_x(i, point_direction(_chainPosX, _chainPosY, x, y));
     _y = (_chainPosY) + lengthdir_y(i, point_direction(_chainPosX, _chainPosY, x, y));
 
-    draw_sprite(sprRingSparkle3, current_time div 60, _x, _y);
+    draw_sprite(sprChain, current_time div 60, _x, _y);
 }
 
 // Draw the platform object

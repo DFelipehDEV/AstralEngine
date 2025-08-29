@@ -16,7 +16,7 @@ if (_checkpoint != noone) {
                 image_speed = 0.3;
                 image_index = 0;
                 activated = true;
-                PlaySound("snd/Checkpoint");
+                PlaySound(sndCheckpoint);
             }
         }
         else {

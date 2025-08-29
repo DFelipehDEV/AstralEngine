@@ -7,10 +7,10 @@ if (distance_to_object(objSlidepassSensor) > 15) {
     if (xSpeed > 0) {
         // Decelerate depending on what are you pressing
         if (keyLeft) {
-            xSpeed -= rollDecelerationFric;
+            xSpeed -= rollBrakeFriction;
         }
         else {
-            xSpeed -= rollDeceleration;
+            xSpeed -= rollFriction;
         }
 
         // Set the xSpeed to 0 if it got lower than 0 and back to the normal state
@@ -24,10 +24,10 @@ if (distance_to_object(objSlidepassSensor) > 15) {
     if (xSpeed < 0) {
         // Decelerate depending on what are you pressing
         if (keyRight) {
-            xSpeed += rollDecelerationFric;
+            xSpeed += rollBrakeFriction;
         }
         else {
-            xSpeed += rollDeceleration;
+            xSpeed += rollFriction;
         }
     }
 }
@@ -38,11 +38,11 @@ else {
 
 // Physics
 if (sign(xSpeed) == sign(angleSin)) {
-    xSpeed -= rollDecelerationSlopeUp * angleSin;
+    xSpeed -= rollUphillFriction * angleSin;
 }
 
 if (sign(xSpeed) != sign(angleSin)) {
-    xSpeed -= rollDecelerationSlopeDown * angleSin;
+    xSpeed -= rollDownhillForce * angleSin;
 }
 
 

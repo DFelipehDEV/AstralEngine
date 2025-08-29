@@ -40,22 +40,6 @@ applies_to=self
 if (!place_meeting(x, y - 22, objWater)) {
     instance_destroy();
 }
-#define Collision_objPlayer
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Air
-
-with (other) {
-    xSpeed = 0;
-    ySpeed = 0;
-    underwaterAirTimer = 600;
-    underwaterDrownFrame = 0;
-}
-PlaySound("snd/PlayerBreathe");
-instance_destroy();
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

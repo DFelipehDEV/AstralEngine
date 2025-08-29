@@ -26,6 +26,7 @@
 		|sprSonicCrouch
 		|sprSonicRoll
 		|sprSonicJump
+		|sprSonicBreathe
 		|sprSonicSkid
 		|sprSonicSlide
 		|sprSonicSpindash
@@ -74,7 +75,7 @@
 +Stage
 	+Spring
 		|sprSpring
-	+Ring
+	+Rings
 		|sprRing
 		|sprRingHyper
 		|sprRingAmount
@@ -88,7 +89,7 @@
 	+Checkpoint
 		|sprCheckpoint
 		|sprCheckpointActivated
-	+Dash
+	+Dashes
 		|sprDashPad
 		|sprDashRail
 		|sprDashRamp
@@ -99,24 +100,22 @@
 		|sprCrane
 		|sprHandle
 		|sprHandleLine
-	+Rail
+	+Rails
 		|sprRail
 		|sprRail2
 		|sprRail3
 	+WayLauncher
 		|sprWayLauncher
-		|sprWayLauncherDown
-		|sprWayLauncherLeft
-		|sprWayLauncherRight
-		|sprWayLauncherUp
-	+Monitor
+		|sprWayLauncherDirection
+	+Monitors
 		|sprMonitor
 		|sprMonitorIcons
 	+Navigator
 		|sprNavigator
-	+Box
+	+Boxes
 		|sprBox
 		|sprBoxPart
+		|sprMetalBox
 	+Goal
 		|sprGoalRing
 	+Spikes
@@ -170,7 +169,7 @@
 		|sprFootstepSensorWater
 		|sprFootstepSensorWood
 		|sprTrigger
-		|sprZoomSensor
+		|sprCameraSensor
 		|sprPlatformAngle
 		|sprEnemyTurn
 		|sprSlidepassSensor

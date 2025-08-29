@@ -6,10 +6,18 @@ applies_to=self
 */
 /// Variables
 
+image_speed = 0.1;
+
 active = false;
 speedval = 4.131999
 
-image_speed = 0.1;
+maxTimeScore = 8000;
+ringScoreMultiplier = 35;
+
+minimumScoreC = 2500;
+minimumScoreB = 4000;
+minimumScoreA = 6000;
+minimumScoreS = 8500;
 
 ownerID = noone;
 #define Alarm_0
@@ -21,18 +29,32 @@ applies_to=self
 /// Create results
 
 instance_create(0, 0, objFadeGoal)
-sound_stop_all();
-PlaySound("snd/GoalRingFinish");
+audio_sfx_stop();
+PlaySound(sndGoalRingFinish);
 instance_create(x, y, objRainbow)
 
-alarm[1] = 60;
+alarm[1] = 30;
 #define Alarm_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
-action_id=203
+action_id=603
 applies_to=self
-invert=0
 */
+/// Results
+
+with (instance_create(0, 0, objEventResults)) {
+    maxTimeScore = other.maxTimeScore;
+    ringScoreMultiplier = other.ringScoreMultiplier;
+    scoreValueTime = max(0, maxTimeScore-floor(global.gameTime/50000)*4500);
+    scoreValueRing = max(0, global.playerRings*ringScoreMultiplier);
+    minimumScore[RankC] = other.minimumScoreC;
+    minimumScore[RankB] = other.minimumScoreB;
+    minimumScore[RankA] = other.minimumScoreA;
+    minimumScore[RankS] = other.minimumScoreS;
+}
+global.gameTimeAllow = false;
+
+instance_destroy();
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -65,7 +87,7 @@ applies_to=self
 /// Activate
 
 if (!active) {
-    PlaySound("snd/GoalRingSpin");
+    PlaySound(sndGoalRingSpin);
     active = true;
 
     ownerID = other.id;
@@ -80,3 +102,16 @@ if (!active) {
     ownerID.cam.xShift = 0;
     ownerID.cam.yShift = 0;
 }
+#define Other_4
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Fields
+//field maxTimeScore: number
+//field ringScoreMultiplier: number
+//field minimumScoreC : number
+//field minimumScoreB : number
+//field minimumScoreA : number
+//field minimumScoreS : number

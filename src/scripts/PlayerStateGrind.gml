@@ -2,19 +2,19 @@
 
 animationSpeed = min(0.18 + abs(xSpeed)/20, 0.4);
 
-PlayerXMovementExt(xAcceleration, 0, xSpeedTop);
+PlayerXMovementExt(xAcceleration, 0, xTopSpeed);
 
 var _pitch;
 _pitch = min(max(0.6, abs(xSpeed)/8), 1.2);
 if (grind == 0) {
-    if (!sound_isplaying("snd/PlayerGrindContinue")) {
-        grind = PlaySoundExt("snd/PlayerGrindContinue", global.soundVolume, _pitch, false);
+    if (!audio_isplaying(sndPlayerGrind)) {
+        grind = PlaySoundExt(sndPlayerGrind, global.soundVolume, _pitch, false);
     }
 }
 else {
-    sound_pitch(grind, _pitch);
-    if (!sound_isplaying("snd/PlayerGrindContinue")) {
-        grind = PlaySoundExt("snd/PlayerGrindContinue", global.soundVolume, _pitch, false);
+    audio_set_pitch(grind, _pitch);
+    if (!audio_isplaying(sndPlayerGrind)) {
+        grind = PlaySoundExt(sndPlayerGrind, global.soundVolume, _pitch, false);
     }
 }
 
@@ -23,10 +23,10 @@ if (keyDown && abs(xSpeed) > 0.1) {
     xSpeed -= 0.06 * xDirection;
     // Physics
     if (sign(xSpeed) == sign(angleSin)) {
-        xSpeed -= rollDecelerationSlopeUp * angleSin;
+        xSpeed -= rollUphillFriction * angleSin;
     }
     if (sign(xSpeed) != sign(angleSin)) {
-        xSpeed -= rollDecelerationSlopeDown * angleSin;
+        xSpeed -= rollDownhillForce * angleSin;
     }
 }
 

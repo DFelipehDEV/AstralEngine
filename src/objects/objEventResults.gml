@@ -7,11 +7,9 @@ applies_to=self
 /// Variables
 
 DeactivateExceptionsAdd(id);
-// Stop the game time from progressing
-global.gameTimeAllow = false
 
 // Play victory music
-PlaySound("bgm/Victory", global.musicVolume, 1, false);
+PlaySound(bgmVictory, global.musicVolume, 1, false);
 
 // Stop music
 if (instance_exists(objMusicManager)) {
@@ -50,6 +48,11 @@ scoreFinished = false;                 //Check if the score has reached its valu
 rankIndex = -1;                     //Index of the rank you got dependent on your score
 rankScale = 24;                     //Rank scale on screen when it shows up
 rankTime = 0;                       //Used for rank animation when it pops up
+
+minimumScores[RankC] = 2500;
+minimumScores[RankB] = 4000;
+minimumScores[RankA] = 6000;
+minimumScores[RankS] = 8500;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -86,8 +89,8 @@ if (resultsTimer > 80) {
 // Score bars
 if (resultsTimer > 110) {
     // Skip everything
-    if (InputGet(InputAction, 0) && !scoreFinished) {
-        sound_stop("bgm/Victory");
+    if (sysinput_get("accept") && !scoreFinished) {
+        audio_stop(bgmVictory);
 
         // Skip everything
         resultsTimer = 290;
@@ -100,7 +103,7 @@ if (resultsTimer > 110) {
         scoreBonusTime = scoreValueTime;
         scoreBonusRing = scoreValueRing;
         scoreFinished = true;
-        sound_stop("snd/ResultsScoreCount")
+        audio_stop(sndResultsScoreCount)
     }
 
     // Show the score bar underlay on the screen
@@ -139,22 +142,22 @@ if (resultsTimer > 110) {
             if (!scoreFinished && scoreBonusTime == scoreValueTime
             && scoreBonusRing == scoreValueRing) {
                 scoreFinished = true;
-                PlaySound("snd/ResultsScoreTotal");
-                sound_stop("snd/ResultsScoreCount")
+                PlaySound(sndResultsScoreTotal);
+                audio_stop(sndResultsScoreCount)
             }
 
 
             // Check if the score is still being written
             if (!scoreFinished) {
-                if (!sound_isplaying("snd/ResultsScoreCount")) {
-                    PlaySound("snd/ResultsScoreCount", global.soundVolume, 1, true);
+                if (!audio_isplaying(sndResultsScoreCount)) {
+                    PlaySound(sndResultsScoreCount, global.soundVolume, 1, true);
                 }
             }
 
             if (resultsTimer > 370) {
                 // Play the results music after victory music ended
-                if (!sound_isplaying("bgm/Results")) {
-                    PlaySound("bgm/Results", global.musicVolume, 1, false);
+                if (!audio_isplaying(bgmResults)) {
+                    PlaySound(bgmResults, global.musicVolume, 1, false);
                 }
             }
 
@@ -163,23 +166,15 @@ if (resultsTimer > 110) {
             && scoreFinished) {
                 // Check if the rank has not been given
                 if (rankIndex == -1) {
-                    // C Rank
-                    if (scoreBonusTime + scoreBonusRing < global.stageRank[RankB]) {
+                    var _totalScore;
+                    _totalScore = scoreBonusTime + scoreBonusRing;
+                    if (_totalScore < minimumScore[RankB]) {
                         rankIndex = RankC;
-                    }
-
-                    // B Rank
-                    if (scoreBonusTime + scoreBonusRing >= global.stageRank[RankB] && scoreBonusTime + scoreBonusRing < global.stageRank[RankA]) {
+                    } else if (_totalScore < minimumScore[RankA]) {
                         rankIndex = RankB;
-                    }
-
-                    // A Rank
-                    if (scoreBonusTime + scoreBonusRing >= global.stageRank[RankA] && scoreBonusTime + scoreBonusRing < global.stageRank[RankS]) {
+                    } else if (_totalScore < minimumScore[RankS]) {
                         rankIndex = RankA;
-                    }
-
-                    // S Rank
-                    if (scoreBonusTime + scoreBonusRing >= global.stageRank[RankS]) {
+                    } else {
                         rankIndex = RankS;
                     }
                 }
@@ -193,40 +188,37 @@ if (resultsTimer > 110) {
                         DummyEffectCreate(view_xview[0] + 280 + random_range(-20, 20), view_yview[0] + 221 + random_range(-20, 20), sprStar, 0.2, 0, -999999991, bm_normal, 1, 1, 1, 0);
                     }
 
-                    // Check if the rank animation is near ended
                     if (rankTime == 50) {
+                        PlaySound(sndResultsRanked);
                         // Play different voicelines for each rank
                         switch (rankIndex) {
                             case RankS:
-                                PlaySound("snd/ResultsRanked");
-                                PlaySound(choose("snd/SonicVoice7", "snd/SonicVoice8"));
+                                PlaySound(choose(sndSonicVoice7, sndSonicVoice8));
                                 break;
 
                             case RankA:
-                                PlaySound("snd/ResultsRanked");
-                                PlaySound("snd/SonicVoice9");
+                                PlaySound(sndSonicVoice9);
                                 break;
 
                             case RankB:
-                                PlaySound("snd/ResultsRanked");
-                                PlaySound("snd/SonicVoice10");
+                                PlaySound(sndSonicVoice10);
                                 break;
 
                             case RankC:
-                                PlaySound("snd/ResultsRanked");
-                                PlaySound("snd/SonicVoice11");
+                                PlaySound(sndSonicVoice11);
                                 break;
                         }
                     }
 
 
                     // End results screen
-                    if (InputGet(InputAction, 0) && !instance_exists(objFadeNext)) {
+                    if (sysinput_get("accept") && !instance_exists(objFadeNext)) {
                         // Fade to next room
                         with (instance_create(0, 0, objFadeNext)) {
                             color = c_white;
                             PlayerGlobalsReset();
                         }
+                        global.gameTimeAllow = true;
                     }
 
                 }

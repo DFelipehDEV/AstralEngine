@@ -21,15 +21,11 @@ if (ground) {
     if (xSpeed == 0) {
         // Look up!
         if (!keyDown && keyUp) {
-            with (cam)
-                CameraLag(20)
             PlayerSetState(PlayerStateLookup);
         }
 
         // Crouch!
         if (keyDown && !keyUp) {
-            with (cam)
-                CameraLag(20)
             PlayerSetState(PlayerStateCrouch);
         }
     }
@@ -46,7 +42,7 @@ if (ground) {
         PlayVoice(choose(voiceline[3], voiceline[2]));
         PlayerSetState(PlayerStateSlide);
 
-        PlaySound("snd/PlayerSlide");
+        PlaySound(sndPlayerSlide);
     }
 }
 

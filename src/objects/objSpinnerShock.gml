@@ -6,18 +6,8 @@ applies_to=self
 */
 /// Animation speed
 
+event_inherited();
 image_speed = 0.44;
-#define Collision_objPlayer
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Hurt player
-
-with (other) {
-    PlayerHurt();
-}
 #define Other_7
 /*"/*'/**//* YYD ACTION
 lib_id=1

@@ -10,7 +10,7 @@ if (state != PlayerStateGrind) {
     if ((_railNormal != noone)
     || (_railLayer0 != noone && terrainLayer == 0)
     || (_railLayer1 != noone && terrainLayer == 1)) && ground {
-        PlaySound("snd/PlayerGrindStart");
+        PlaySound(sndPlayerGrindLand);
         PlayerSetState(PlayerStateGrind);
     }
 }

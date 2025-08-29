@@ -6,16 +6,4 @@ _volume = argument1;
 _pitch = argument2;
 _loop = argument3;
 
-switch (_loop) {
-    case false:
-        // Play a sound
-        sound_play_ex(_sound, _volume, _pitch, 0);
-        break;
-
-    case true:
-        var _soundinstance;
-        _soundinstance = sound_loop(_sound);
-        sound_volume(_soundinstance, _volume);
-        sound_pitch(_soundinstance, _pitch);
-        break;
-}
+audio_play_ext(_sound, _volume, 0, _pitch, _loop);

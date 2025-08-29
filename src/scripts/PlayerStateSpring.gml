@@ -35,7 +35,7 @@ if (keySpecial1Pressed && (animation == "SPRING" || animation == "LANDING")) {
         ySpeed = -2;
 
         AnimationApply("SPRING_TRICK_HORIZONTAL")
-        PlaySound("snd/PlayerSpringTrick");
+        PlaySound(sndPlayerTrick);
         image_angle = 0;
     }
 
@@ -46,7 +46,7 @@ if (keySpecial1Pressed && (animation == "SPRING" || animation == "LANDING")) {
         ySpeed = -7;
 
         AnimationApply("SPRING_TRICK_VERTICAL")
-        PlaySound("snd/PlayerSpringTrick");
+        PlaySound(sndPlayerTrick);
         image_angle = 0;
     }
 }

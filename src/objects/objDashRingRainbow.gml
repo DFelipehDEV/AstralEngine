@@ -9,7 +9,7 @@ applies_to=self
 event_inherited();
 strength = 10;
 playerAction= PlayerStateSpring; //Player state when he meets the dash ring
-interactSound = "snd/DashRingRainbow";
+interactSound = sndDashRingRainbow;
 
 image_speed = 0.3;
 #define Other_4

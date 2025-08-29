@@ -104,7 +104,7 @@ EnemyInvincibility
 DialogueAdd
 PlayerAngleLocals
 
-FadeMusic
+
 PlayerAnimationNormal
 PlayerAirdash
 PlayerAirdashReset
@@ -136,7 +136,7 @@ PlaySoundSingle
 GameStateGet
 GameStateSet
 PlayerHandleHurt
-AfterimageEffectCreate
+AfterImageEffectCreate
 PlayerStateWaylauncher
 PlayerStateBoostAir
 PlayerStateGrab
@@ -153,7 +153,7 @@ PlayerJump
 PlayerHomingAttack
 PlayerStomp
 PlayerLightspeed
-InputGet
+
 
 
 ApplicationSurfacePost
@@ -168,7 +168,11 @@ AnimationIndexSuperSonic
 PlayerPhysicsSuperSonic
 PlayerSetCharacter
 PlayerStateTransform
-SmoothStep
+
 DrawTiledTexturePos
 ease
 PlayerHandleRings
+InputInit
+WindowSetScale
+README
+PlayerSetGround

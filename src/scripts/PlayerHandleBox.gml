@@ -1,14 +1,14 @@
 /// PlayerHandleBox()
 // Handle collision with boxes
 
-if (attackPossible) {
+if (canAttack) {
     if (state != PlayerStateJump) {
         var _box1;
-        _box1 = PlayerCollisionObjectBottom(x, y + floor(ySpeed), 0, maskBig, objBox1);
+        _box1 = PlayerCollisionObjectBottom(x, y + floor(ySpeed), 0, maskBig, objBox);
 
         if (_box1 != noone) {
             with (_box1) {
-                PlaySound("snd/BoxDestroy");
+                PlaySound(sndBreakBox);
                 instance_destroy();
 
                 // Spawn metal parts
@@ -21,5 +21,15 @@ if (attackPossible) {
                 }
             }
         }
+    }
+}
+
+if (state == PlayerStatePush) {
+    var _pushableBox;
+    _pushableBox = PlayerCollisionObjectMain(x + xDirection * 6, y, objPushableBox);
+
+    if (_pushableBox != noone) {
+        _pushableBox.xSpeed = xDirection * 0.8;
+        xSpeed = xDirection * 0.8;
     }
 }

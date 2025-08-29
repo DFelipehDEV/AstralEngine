@@ -25,7 +25,7 @@ if (allowKeysTimer == 0) {
         // Create rainbow effect
         instance_create(x, y, objRainbow);
 
-        PlaySoundExt("snd/Trick", global.soundVolume, 1 + (trickCombo * 0.0441), 0);
+        PlaySoundExt(sndTrick, global.soundVolume, 1 + (trickCombo * 0.0441), 0);
 
         if (global.timeScale == 0.4) {
             global.timeScale = 1;
@@ -42,7 +42,7 @@ if (keySpecial3Pressed) {
     AnimationApply("SPRING_TRICK_HORIZONTAL");
 
     global.timeScale = 1;
-    PlaySound("snd/Trick");
+    PlaySound(sndTrick);
 }
 
 

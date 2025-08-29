@@ -8,12 +8,12 @@ if (_spring != noone) {
     ySpeed = -_spring.springStrength * dsin(_spring.image_angle + 90);
     if (abs(ySpeed) > 0.5) {
         PlayerSetState(PlayerStateSpring);
-        ground = false;
+        PlayerSetGround(false);
         PlayerSetAngle(0);
     }
     _spring.image_speed = 0.25;
     _spring.image_index = 1;
-    interactDelay = 11;
+    interactCooldown = 11;
 
-    PlaySound("snd/Spring");
+    PlaySound(sndSpring);
 }
