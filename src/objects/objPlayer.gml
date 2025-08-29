@@ -377,7 +377,7 @@ if (canMove) {
     
         // Leave the ground
         if (!bottomCollision) {
-            ground = false;
+            PlayerSetGround(false);
             PlayerSetAngle(0);
         }                            
     }                   
@@ -406,7 +406,7 @@ if (canMove) {
                 if (angle < 140 || angle > 220) {
                     xSpeed = -angleSin * (ySpeed*1.5);
                     ySpeed = 0;     
-                    ground = true;  
+                    PlayerSetGround(true);
                     PlayerCollisionCache();             
                 }
                 // Reset angle
@@ -458,8 +458,8 @@ if (canMove) {
             }
             
             ySpeed = 0;
-            ground = true;
             boostAirTimer = 90;
+            PlayerSetGround(true);
         }
     
         // Check if we're on the air but we collided with the ceiling

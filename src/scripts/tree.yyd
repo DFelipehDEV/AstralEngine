@@ -80,6 +80,7 @@
 		|PlayerTerrainSndUpdate
 		|PlayerXMovement
 		|PlayerXMovementExt
+		|PlayerSetGround
 	+Action
 		|PlayerStateNormal
 		|PlayerStateSpring

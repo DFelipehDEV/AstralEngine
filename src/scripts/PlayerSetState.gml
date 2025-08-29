@@ -40,7 +40,7 @@ switch (state) {
         }
         PlayerAirdashReset();
         AnimationApply("JUMP");
-        ground = false;
+        PlayerSetGround(false);
         jumpAirTimer = 0;
         break;
 
@@ -159,7 +159,7 @@ switch (state) {
 
     case PlayerStateDead:
         ySpeed = -6;
-        ground = false;
+        PlayerSetGround(false);
         canMove = false;
         if (cam.target == id) cam.target = noone;
         AnimationApply("DEAD");

@@ -5,7 +5,7 @@ var _dashPad, _dashRing, _dashRamp, _dashRail;
 _dashPad = PlayerCollisionHitbox(x, y, objDashPad);
 if (_dashPad != noone) {
     if (pushingWall && !ground) {
-        ground = true;
+        PlayerSetGround(true);
         PlayerSetAngle(_dashPad.image_angle);
         ySpeed = 0;
     }
@@ -25,7 +25,7 @@ if (_dashPad != noone) {
 _dashRing = PlayerCollisionHitbox(x, y, objDashRing);
 if (_dashRing != noone) {
     PlayerSetAngle(0);
-    ground = false;
+    PlayerSetGround(false);
     x = _dashRing.x;
     y = _dashRing.y;
     xSpeed = _dashRing.strength * dcos(_dashRing.image_angle+90);
@@ -68,7 +68,7 @@ if (_dashRamp != noone && ground) {
 
         if (_dashRamp.yStrength != 0) {
             ySpeed = _dashRamp.yStrength;
-            ground = false;
+            PlayerSetGround(false);
         }
 
         PlayerSetState(_dashRamp.playerAction);

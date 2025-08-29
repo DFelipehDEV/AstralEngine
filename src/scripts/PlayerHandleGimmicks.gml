@@ -12,7 +12,7 @@ if (abs(xSpeed) >= 6 && ground) {
             AnimationApply("CORKSCREW");
         }
         PlayerSetState(PlayerStateCorkscrew);
-        ground = false;
+        PlayerSetGround(false);
         PlayerSetAngle(0);
     }
 }
