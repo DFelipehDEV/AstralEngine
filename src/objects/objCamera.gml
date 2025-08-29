@@ -56,7 +56,7 @@ if (xShakeTimer > 0) {
 // Vertical Shake
 if (yShakeTimer > 0) {
     yShift = approach(yShift, yShakeOffset - round(yShakeTimer/2)*2, 10)
-    y = SmoothStep(y, floor(y + yShift), 0.3);
+    y = lerp(y, floor(y + yShift), 0.2);
 
     if (yShakeTimer mod 6 == 4) {
         yShakeOffset = -yShakeOffset;
@@ -96,7 +96,7 @@ applies_to=self
 /// Zoom
 
 if (zoom != zoomTarget) {
-    zoom = SmoothStep(zoom, zoomTarget, 0.2);
+    zoom = lerp(zoom, zoomTarget, 0.15);
     ViewSetZoom(zoom);
 }
 #define Step_1

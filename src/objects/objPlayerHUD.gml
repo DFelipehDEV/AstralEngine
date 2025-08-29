@@ -56,11 +56,11 @@ if (shakeTimer) {
 }
 
 if (!enemy && enemyScale > 0) {
-    enemyScale = SmoothStep(enemyScale, 0, 0.25);
+    enemyScale = lerp(enemyScale, 0, 0.2);
 }
 
 if (enemy) {
-    enemyScale = SmoothStep(enemyScale, 1, 0.25);
+    enemyScale = lerp(enemyScale, 1, 0.2);
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1

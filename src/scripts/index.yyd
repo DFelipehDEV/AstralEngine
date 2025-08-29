@@ -168,7 +168,7 @@ AnimationIndexSuperSonic
 PlayerPhysicsSuperSonic
 PlayerSetCharacter
 PlayerStateTransform
-SmoothStep
+
 DrawTiledTexturePos
 ease
 PlayerHandleRings

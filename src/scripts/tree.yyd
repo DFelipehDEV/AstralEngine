@@ -153,7 +153,6 @@
 	|EnemySetAnimation
 	|RingsDrop
 	|RingsDropHyper
-	|SmoothStep
 	|DrawTiledTexturePos
 	|ease
 	|DummyEffectCreate
