@@ -98,7 +98,7 @@ objRail03
 
 
 
-objWalljumpTrigger
+objWalljumpSensor
 objWayLauncher
 objWater
 objWaterBubbleGenerator
@@ -178,7 +178,7 @@ objInit
 objBridge
 objBridgeLog
 objWaterSolid
-objZoomSensor
+objZoomCameraSensor
 objRingHyper
 objMonitorCombine
 
@@ -204,7 +204,7 @@ objRail03Layer1
 
 
 
-objHUDHideSensor
+objHideHUDSensor
 objSingleton
 objVFX
 
@@ -222,3 +222,5 @@ objPauseMenu
 objParallaxLayer
 objParallaxLayerAnimated
 objPushableBox
+objOffsetCameraSensor
+

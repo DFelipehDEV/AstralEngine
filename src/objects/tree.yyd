@@ -134,21 +134,27 @@
 		|objDummy
 		|objAfterimage
 	+Sensors
-		|objFootstepSensorDirt
-		|objFootstepSensorGrass
-		|objFootstepSensorMetal
-		|objFootstepSensorStone
-		|objFootstepSensorWater
-		|objFootstepSensorWood
-		|objSwitchLayer0
-		|objSwitchLayerAlternate
-		|objSwitchLayer1
-		|objSlidepassSensor
-		|objButtonSensor
-		|objWalljumpTrigger
-		|objEnemiesArenaSensor
-		|objZoomSensor
-		|objHUDHideSensor
+		+Camera
+			|objOffsetCameraSensor
+			|objZoomCameraSensor
+		+Footsteps
+			|objFootstepSensorDirt
+			|objFootstepSensorGrass
+			|objFootstepSensorMetal
+			|objFootstepSensorStone
+			|objFootstepSensorWater
+			|objFootstepSensorWood
+		+Gameplay
+			|objEnemiesArenaSensor
+			|objSlidepassSensor
+			|objWalljumpSensor
+		+Layers
+			|objSwitchLayer0
+			|objSwitchLayerAlternate
+			|objSwitchLayer1
+		+UI
+			|objButtonSensor
+			|objHideHUDSensor
 		|objPlatformAngle
 	+Water
 		|objWaterHorizon

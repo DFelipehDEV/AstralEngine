@@ -22,6 +22,8 @@ xInterpolationSpeed = 0.3;
 yInterpolationSpeed = 0.3;
 xShift = 0;
 yShift = 0;
+xOffset = 0; // Applied on top of the xShift
+yOffset = 0; // Applied on top of the yShift
 xShakeTimer = 0;
 yShakeTimer = 0;
 yShakeOffset = 48;
@@ -82,8 +84,8 @@ if (delay > 0) {
 }
 
 if (delay == 0 && target != noone) {
-    x = floor(lerp(x, target.x + xShift, xInterpolationSpeed));
-    y = floor(lerp(y, target.y + yShift, yInterpolationSpeed));
+    x = floor(lerp(x, target.x + xShift + xOffset, xInterpolationSpeed));
+    y = floor(lerp(y, target.y + yShift + yOffset, yInterpolationSpeed));
 }
 
 x = clamp(x, leftBorder + ScreenWidthHalf, rightBorder - ScreenWidthHalf);

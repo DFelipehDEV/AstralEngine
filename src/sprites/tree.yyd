@@ -169,7 +169,7 @@
 		|sprFootstepSensorWater
 		|sprFootstepSensorWood
 		|sprTrigger
-		|sprZoomSensor
+		|sprCameraSensor
 		|sprPlatformAngle
 		|sprEnemyTurn
 		|sprSlidepassSensor
