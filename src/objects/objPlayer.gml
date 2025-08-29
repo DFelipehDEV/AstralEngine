@@ -929,7 +929,7 @@ if (cam.target == id) {
 
         default:
             if (cam.yShakeTimer == 0) {
-                cam.yShift = approach(cam.yShift, _ySpeed * 4, 5);
+                cam.yShift = approach(cam.yShift, _ySpeed * 2, 5);
             }
     }
 }
