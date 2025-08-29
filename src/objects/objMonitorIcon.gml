@@ -120,7 +120,7 @@ switch (icon) {
             starTimer = invincibilityTimer;
         }
         audio_music_pause();
-        audio_play(bgmInvincibility);
+        audio_play_single(bgmInvincibility);
         break;
 
     // Combine ring
