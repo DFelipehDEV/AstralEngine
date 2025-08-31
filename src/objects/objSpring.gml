@@ -6,7 +6,7 @@ applies_to=self
 */
 /// Variables
 
-springStrength = 9;
+strength = 9;
 image_speed = 0;
 #define Other_4
 /*"/*'/**//* YYD ACTION
@@ -15,7 +15,7 @@ action_id=603
 applies_to=self
 */
 /// Fields
-//field springStrength:  value
+//field strength:  value
 #define Other_7
 /*"/*'/**//* YYD ACTION
 lib_id=1

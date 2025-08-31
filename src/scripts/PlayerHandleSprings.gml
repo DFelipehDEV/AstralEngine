@@ -4,8 +4,8 @@ var _spring;
 _spring = PlayerCollisionHitbox(x, y, objSpring);
 
 if (_spring != noone) {
-    xSpeed = _spring.springStrength * dcos(_spring.image_angle + 90);
-    ySpeed = -_spring.springStrength * dsin(_spring.image_angle + 90);
+    xSpeed = _spring.strength * dcos(_spring.image_angle + 90);
+    ySpeed = -_spring.strength * dsin(_spring.image_angle + 90);
     if (abs(ySpeed) > 0.5) {
         PlayerSetState(PlayerStateSpring);
         PlayerSetGround(false);
