@@ -39,9 +39,7 @@ if (active) {
             y += ySpeed;
             canMove = true;
             image_angle = 0;
-            interactCooldown = 15;
 
-            allowKeysTimer = 30;
             other.active = false;
             other.ownerID = noone;
 

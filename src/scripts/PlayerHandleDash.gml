@@ -1,89 +1,87 @@
 /// PlayerHandleDash()
 
-// Dash pads
 var _dashPad, _dashRing, _dashRamp;
 _dashPad = PlayerCollisionHitbox(x, y, objDashPad);
 if (_dashPad != noone) {
-    if (pushingWall && !ground) {
-        PlayerSetGround(true);
-        PlayerSetAngle(_dashPad.image_angle);
-        ySpeed = 0;
+    if (!PlayerCollisionHitbox(xprevious, yprevious, _dashPad)) {
+        if (pushingWall && !ground) {
+            PlayerSetGround(true);
+            PlayerSetAngle(_dashPad.image_angle);
+            ySpeed = 0;
+        }
+
+        if (_dashPad.strength != 0) {
+            xSpeed = _dashPad.strength * _dashPad.image_xscale;
+        }
+
+        DummyEffectCreate(x, y, sprDashDust, 0.25, 0, -0.1, bm_normal, 1, _dashPad.image_xscale, _dashPad.image_yscale, _dashPad.image_angle);
+        PlaySound(sndDashPad);
     }
-
-    if (_dashPad.strength != 0) {
-        xSpeed = _dashPad.strength * _dashPad.image_xscale;
-    }
-
-    interactCooldown = 11;
-
-    DummyEffectCreate(x, y, sprDashDust, 0.25, 0, -0.1, bm_normal, 1, _dashPad.image_xscale, _dashPad.image_yscale, _dashPad.image_angle);
-
-    PlaySound(sndDashPad);
 }
 
-// Dash ring
 _dashRing = PlayerCollisionHitbox(x, y, objDashRing);
 if (_dashRing != noone) {
-    xSpeed = _dashRing.strength * dcos(_dashRing.image_angle+90);
-    ySpeed = -_dashRing.strength * dsin(_dashRing.image_angle+90);
-    x = _dashRing.x;
-    y = _dashRing.y;
+    if (!PlayerCollisionHitbox(xprevious, yprevious, _dashRing)) {
+        xSpeed = _dashRing.strength * dcos(_dashRing.image_angle+90);
+        ySpeed = -_dashRing.strength * dsin(_dashRing.image_angle+90);
+        x = _dashRing.x;
+        y = _dashRing.y;
 
-    if (abs(xSpeed) >= 1) {
-        xDirection = sign(xSpeed);
+        if (abs(xSpeed) >= 1) {
+            xDirection = sign(xSpeed);
+        }
+
+        noGravityTimer = 18;
+        image_angle = -_dashRing.image_angle;
+
+        // Set slow motion
+        if (_dashRing.playerAction == PlayerStateTricks) {
+            global.timeScale = 0.4;
+            trickCombo = 0;
+        }
+
+        PlayerSetState(_dashRing.playerAction);
+        PlayerSetAngle(0);
+        PlayerSetGround(false);
+
+        _dashRing.scale = 0.5;
+
+        allowKeysTimer = 15;
+
+        PlaySound(_dashRing.interactSound);
     }
-
-    noGravityTimer = 18;
-    image_angle = -_dashRing.image_angle;
-
-    // Set slow motion
-    if (_dashRing.playerAction == PlayerStateTricks) {
-        global.timeScale = 0.4;
-        trickCombo = 0;
-    }
-
-    PlayerSetState(_dashRing.playerAction);
-    PlayerSetAngle(0);
-    PlayerSetGround(false);
-
-    _dashRing.scale = 0.5;
-
-    interactCooldown = 8;
-    allowKeysTimer = 15;
-
-    PlaySound(_dashRing.interactSound);
 }
 
-// Dash ramps
 _dashRamp = PlayerCollisionObjectMain(x, y, objDashRamp);
 if (_dashRamp != noone && ground) {
-    if (_dashRamp.xStrength != 0) {
-        xSpeed = _dashRamp.xStrength * _dashRamp.image_xscale;
-    }
-
-    if (_dashRamp.yStrength != 0) {
-        ySpeed = _dashRamp.yStrength;
-        PlayerSetGround(false);
-    }
-
-    PlayerSetState(_dashRamp.playerAction);
-    PlayerSetAngle(0);
-    AnimationApply("LAUNCH");
-
-    if (_dashRamp.playerAction == PlayerStateQTEKeys) {
-        with (instance_create(0, 0, objEventQTEKeys)) {
-            ownerID = other.id;
-            qteFailedXSpeed = _dashRamp.qteFailedXSpeed
-            qteFailedYSpeed = _dashRamp.qteFailedYSpeed
+    if (!PlayerCollisionObjectMain(xprevious, yprevious, _dashRamp)) {
+        if (_dashRamp.xStrength != 0) {
+            xSpeed = _dashRamp.xStrength * _dashRamp.image_xscale;
         }
+
+        if (_dashRamp.yStrength != 0) {
+            ySpeed = _dashRamp.yStrength;
+            PlayerSetGround(false);
+        }
+
+        PlayerSetState(_dashRamp.playerAction);
+        PlayerSetAngle(0);
+        AnimationApply("LAUNCH");
+
+        if (_dashRamp.playerAction == PlayerStateQTEKeys) {
+            with (instance_create(0, 0, objEventQTEKeys)) {
+                ownerID = other.id;
+                qteFailedXSpeed = _dashRamp.qteFailedXSpeed
+                qteFailedYSpeed = _dashRamp.qteFailedYSpeed
+            }
+        }
+
+        xDirection = _dashRamp.image_xscale;
+        x = _dashRamp.x - 12 * _dashRamp.image_xscale;
+        y = _dashRamp.y - 16;
+
+        allowKeysTimer = 40;
+
+        PlaySound(sndDashRamp);
     }
-
-    xDirection = _dashRamp.image_xscale;
-    x = _dashRamp.x - 12 * _dashRamp.image_xscale;
-    y = _dashRamp.y - 16;
-
-    allowKeysTimer = 40;
-    interactCooldown = 6;
-
-    PlaySound(sndDashRamp);
 }

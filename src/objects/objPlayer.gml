@@ -123,9 +123,6 @@ waterRunSolid = noone; // Instance of the solid placed beneath the player when r
 underwaterDrownFrame = 0; // Frame index to drown timer
 underwaterTime = 0;
 underwaterTimeToDrown = 60 * 25;
-
-// Object Interaction
-interactCooldown = 0; // Cooldown for interacting with objects (e.g., springs, dash objects)
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -604,8 +601,6 @@ applies_to=self
 // Handle collisions with objects
 
 if (state != PlayerStateDead) {
-    interactCooldown = max(interactCooldown - 1, 0);
-
     PlayerHandleLayers();
     PlayerHandleRings();
     PlayerHandleEnemy();
@@ -613,7 +608,8 @@ if (state != PlayerStateDead) {
     PlayerHandleCheckpoint();
     PlayerHandleSpikes();
     PlayerHandleHurt();
-    if (interactCooldown == 0){ PlayerHandleSprings(); PlayerHandleDash(); }
+    PlayerHandleSprings();
+    PlayerHandleDash();
     PlayerHandleRails();
     PlayerHandleWayLauncher();
     PlayerHandleWater();

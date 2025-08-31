@@ -19,16 +19,17 @@ if (abs(xSpeed) >= 6 && ground) {
 
 var _swing;
 _swing = PlayerCollisionObjectMain(x, y, objSwingPole);
+if (_swing != noone && state != PlayerStateGrab) {
+    if (!PlayerCollisionObjectMain(xprevious, yprevious, objSwingPole)) {
+        canMove = false;
+        xSpeed = 0;
+        ySpeed = 0;
 
-if (_swing != noone && state != PlayerStateGrab && interactCooldown == 0) {
-    canMove = false;
-    xSpeed = 0;
-    ySpeed = 0;
-
-    PlayerSetState(PlayerStateGrab);
-    AnimationApply("HANG_3");
-    with (_swing) {
-        active = true;
-        ownerID = other.id;
+        PlayerSetState(PlayerStateGrab);
+        AnimationApply("HANG_3");
+        with (_swing) {
+            active = true;
+            ownerID = other.id;
+        }
     }
 }
