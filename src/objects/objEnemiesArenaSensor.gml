@@ -54,8 +54,8 @@ if (player != noone && active) {
                 if (enemy[i, 4] == phaseCurrent) {
                     with (instance_create(enemy[i, 0], enemy[i, 1], enemy[i, 2])) {
                         DeactivateExceptionsAdd(id);
-                        enemyHP = other.enemy[i, 3];
-                        enemyHPMax = other.enemy[i, 3];
+                        hp = other.enemy[i, 3];
+                        maxHP = other.enemy[i, 3];
                         repeat(3) {
                             DummyEffectCreate(x + random_range(-20, 20), y + random_range(-20, 20), sprStar, 0.15, 0, choose(-1, 1), bm_normal, 1, 1, 1, 0);
                         }

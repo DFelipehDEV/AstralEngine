@@ -11,14 +11,12 @@ event_inherited();
 turnTimer = 30;           //How long it takes to turn
 turnTimerTemp = turnTimer;    //Keep the original value on track
 state = "NORMAL";
-nearPlayer = 0;            //Checks if the player is near of the enemy
+target = noone;
 
 delay = 0;
 
-enemyBust = true;
+knockOnDeath = true;
 
-enemyHP= noone;
-enemyHPMax = noone;
 EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
 
 normalStateX = x;
@@ -88,6 +86,7 @@ switch (state) {
             // Check if the enemy is looking at the player
             if (image_xscale == sign(_nearPlayer.x - x)) {
                 state = "SPOTTED";
+                target = _nearPlayer;
                 EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
             }
         }
@@ -112,13 +111,12 @@ switch (state) {
     break;
 
     case "CHASE":
-        // Set the enemy's speed when in the chase state.
-        ownerID = instance_nearest(x, y, objPlayer);
         xSpeed = 4.5 * image_xscale;
 
         // If the player is too far away or too close to the enemy's turn sensor, switch to the normal state.
-        if ((distance_to_object(ownerID) > 140 || distance_to_object(ownerID) <= 140 && image_xscale != sign(ownerID.x - x)) || abs(x - normalStateX) > 350) {
+        if ((distance_to_object(target) > 140 || distance_to_object(target) <= 140 && image_xscale != sign(target.x - x)) || abs(x - normalStateX) > 350) {
             state = "RETURN";
+            target = noone;
             EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
         }
     break;
@@ -144,14 +142,3 @@ switch (state) {
 }
 
 x = clamp(x, objCamera.leftBorder, objCamera.rightBorder);
-// Apply invincibility
-EnemyInvincibility();
-#define Draw_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Draw
-
-event_inherited()

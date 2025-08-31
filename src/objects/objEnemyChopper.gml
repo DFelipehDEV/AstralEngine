@@ -10,10 +10,10 @@ event_inherited();
 xSpeed = 2.2;
 ySpeed = -10;
 
-enemyBust = true;
+knockOnDeath = true;
 
-enemyHP= noone;
-enemyHPMax = noone;
+hp= noone;
+maxHP = noone;
 
 
 image_speed = 0.3;           // Animation speed
@@ -38,6 +38,3 @@ if (ySpeed > 0 && y >= ystart) {
 }
 
 image_angle = point_direction(xprevious, yprevious, x, y);
-
-// Apply invincibility
-EnemyInvincibility();

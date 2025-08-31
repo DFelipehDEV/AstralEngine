@@ -13,14 +13,8 @@ ySpeed = 0;
 
 turnTimer = 20;           //How long it takes to turn
 turnTimerTemp = turnTimer;    //Keep the original value on track
-state = PlayerStateNormal;
-nearPlayer = 0;            //Checks if the player is near of the enemy
-
-enemyBust = true;
-
-enemyHP= noone;
-enemyHPMax = noone;
-
+state = "NORMAL";
+target = noone;
 
 shootTimer = 80;
 #define Alarm_0
@@ -32,15 +26,6 @@ applies_to=self
 /// Reset timer
 
 turnTimer = turnTimerTemp;
-#define Alarm_1
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Start following the player
-
-nearPlayer = true;
 #define Alarm_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -50,17 +35,15 @@ applies_to=self
 /// Shoot
 
 // Release projectile
-if (state == PlayerStateNormal) {
+if (state == "NORMAL") {
     xSpeed = 0;
 
     shootTimer = 80;
 
-    var _ownerID;
-    _ownerID = instance_nearest(x, y, objPlayer);
     // Create projectile
     proj = instance_create(x + 9 * image_xscale, y + 9, objProjectileBuzzer);
-    proj.hspeed = 5 * dcos(point_direction(x, y, _ownerID.x, _ownerID.y));
-    proj.vspeed = -5 * dsin(point_direction(x, y, _ownerID.x, _ownerID.y));
+    proj.hspeed = 5 * dcos(point_direction(x, y, target.x, target.y));
+    proj.vspeed = -5 * dsin(point_direction(x, y, target.x, target.y));
 
     PlaySound(sndShot);
 }
@@ -77,36 +60,34 @@ if (sprite_index != sprEnemyBuzzerAttack) {
     y += ySpeed;
 }
 
-if (state == PlayerStateNormal && !place_meeting(x, y, objEnemyTurn)) {
-    ownerID = instance_nearest(x, y, objPlayer);
+if (state == "NORMAL" && !place_meeting(x, y, objEnemyTurn)) {
     xSpeed = 2 * image_xscale;
 
     // Trigger shot
-    if (distance_to_object(ownerID) < 235 && sign(ownerID.x - x) == image_xscale) {
+    if (distance_to_object(objPlayer) < 235 && sign(objPlayer.x - x) == image_xscale) {
         if (shootTimer > 0) {
             shootTimer -= 1;
-        }
-        else {
-            if (alarm[2] == -1 && nearPlayer) {
+        } else {
+            if (alarm[2] == -1 && target) {
                 alarm[2] = 20;
             }
         }
 
         // Warn enemy
-        if (!nearPlayer) {
-            nearPlayer = true;
+        if (target == noone) {
+            target = instance_nearest(x, y, objPlayer);
             PlaySound(sndEnemyWarn);
             DummyEffectCreate(x - 15 * image_xscale, y - 20, sprEnemyWarn, 0.2, 0, 1, bm_normal, 1, 1, 1, 0);
         }
     }
     else {
-        nearPlayer = false;
+        target = noone;
     }
 }
 
 // Turn
 // Check if the enemy is coliding the turn sensor
-if (place_meeting(x, y, objEnemyTurn) && state == PlayerStateNormal) {
+if (place_meeting(x, y, objEnemyTurn) && state == "NORMAL") {
     // Turn
     if (turnTimer > 0) {
         turnTimer -= 1;
@@ -114,13 +95,10 @@ if (place_meeting(x, y, objEnemyTurn) && state == PlayerStateNormal) {
     }
     else {
         if (alarm[0] == -1) {
-            state = PlayerStateTurn;
+            state = "TURN";
         }
     }
 }
-
-// Apply invincibility
-EnemyInvincibility();
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -139,21 +117,21 @@ if (xSpeed < 0) {
 
 // Animations
 // Move animation
-if (state == PlayerStateNormal) {
+if (state == "NORMAL") {
     sprite_index = sprEnemyBuzzerMove;
     image_speed = 0.32;
 }
 
 
 // Attack animation
-if (state == PlayerStateNormal && alarm[2] < 30 && alarm[2] > 0) {
+if (state == "NORMAL" && alarm[2] < 30 && alarm[2] > 0) {
     sprite_index = sprEnemyBuzzerAttack;
     image_speed = 0.15;
 }
 
 
 // Turn animation
-if (state == PlayerStateTurn) {
+if (state == "TURN") {
     sprite_index = sprEnemyBuzzerTurn;
     image_speed = 0.25;
 }
@@ -165,9 +143,9 @@ applies_to=self
 */
 /// Back to the normal state
 
-if (state == PlayerStateTurn) {
+if (state == "TURN") {
     image_xscale = -image_xscale;
-    state = PlayerStateNormal;
+    state = "NORMAL";
     xSpeed = 2.2 * image_xscale;
     if (alarm[0] == -1) {
         alarm[0] = 15;

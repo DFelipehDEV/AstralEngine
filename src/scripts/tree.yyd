@@ -148,7 +148,6 @@
 	|DrawBackgroundRepeatVertical
 	|StringNumberFormat
 	|TrailUpdate
-	|EnemyInvincibility
 	|ViewSetZoom
 	|EnemySetAnimation
 	|RingsDrop

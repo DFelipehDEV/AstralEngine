@@ -7,7 +7,7 @@ applies_to=self
 /// Variables and animation speed
 
 event_inherited();
-enemyBust = false;  // Check if the enemy "busts" or not
+knockOnDeath = false;  // Check if the enemy "busts" or not
 
 image_speed= 0.5;    // Animation speed
 
@@ -49,9 +49,6 @@ if (point_in_rectangle(x, y, view_xview[0], view_yview[0], view_xview[0] + view_
     if (shockTimer == 35 && audio_isplaying(sndEnemySpinnerShock)) {
         audio_stop(sndEnemySpinnerShock)
     }
-
-    // Apply invincibility
-    EnemyInvincibility();
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION
@@ -61,12 +58,9 @@ applies_to=self
 */
 /// Draw spinner
 
-if (enemyBlinkTimer > 0 && (global.gameTime div 60) mod 3 || enemyBlinkTimer == 0) {
+if (invincibilityTimer > 0 && (global.gameTime div 60) mod 3 || invincibilityTimer == 0) {
     // Draw enemy
     draw_sprite_ext(sprite_index, image_index, x, y - dsin(global.gameTime div 10)*4, image_xscale, image_yscale, dcos(global.gameTime/8)*12, image_blend, image_alpha);
 }
 
-// Draw HP bar
-if (enemyHP != noone) {
-    draw_healthbar(x, y - 20, x + enemyHPMax * 6, y - 18, (enemyHP / enemyHPMax) * 100, c_dkgray, c_red, c_lime, 0, true, true);
-}
+event_user(0);

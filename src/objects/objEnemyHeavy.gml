@@ -12,12 +12,7 @@ image_speed = 0.15;
 turnTimer = 50;           //How long it takes to turn
 turnTimerTemp = turnTimer;    //Keep the original value on track
 state = "NORMAL";
-nearPlayer = 0;            //Checks if the player is near of the enemy
-
-enemyBust = true;
-
-enemyHP= 3;
-enemyHPMax = 3;
+target = noone;
 
 hammer = false;
 normalStateX = x;
@@ -84,6 +79,7 @@ switch (state) {
         if ((distance_to_object(objPlayer) < 140 && image_xscale == sign(objPlayer.x - x)) || (hit)) {
             // Player was spotted
             state = "SPOTTED";
+            target = instance_nearest(x, y, objPlayer);
         }
 
         // Check if the enemy is colliding with the turn sensor
@@ -107,19 +103,18 @@ switch (state) {
         break;
 
     case "CHASE":
-        // Set the enemy's speed when in the chase state.
-        ownerID = instance_nearest(x, y, objPlayer);
         xSpeed = lerp(xSpeed, 3 * image_xscale, 0.1);
 
-        image_xscale = esign(objPlayer.x - x, image_xscale);
+        image_xscale = esign(target.x - x, image_xscale);
 
-        // If the player is too far away or too close to the enemy's turn sensor, switch to the normal state.
-        if (distance_to_object(objPlayer) > 160) {
+        // Lost target
+        if (distance_to_object(target) > 160) {
             state = "NORMAL";
+            target = noone;
         }
 
-        if (distance_to_object(objPlayer) < 30) {
-            if (objPlayer.invincibility == InvincibilityNoone) {
+        if (distance_to_object(target) < 30) {
+            if (target.invincibility == InvincibilityNoone) {
                 xSpeed = 0;
                 state = "ATTACK";
                 PlaySoundExt(sndWind, global.soundVolume, random_range(0.5, 0.9), false);
@@ -129,21 +124,17 @@ switch (state) {
         break;
 
     case "ATTACK":
-        // Set the enemy's speed when in the chase state.
-        ownerID = instance_nearest(x, y, objPlayer);
-
-        // Check if we are on the hammer attack state
         if (image_index > 3 && image_index < 5) {
             // Check if we haven't used the hammer
             if (!hammer) {
                 hammer = true;
                 PlaySound(sndEnemyHeavyAttack);
-                with (ownerID.cam)
+                with (target.cam)
                     CameraShakeY(40);
             }
 
             if (collision_rectangle(x, y, x + 50, y + 32, objPlayer, false, 1)) {
-                with (ownerID) {
+                with (target) {
                     PlayerHurt();
                 }
             }
@@ -184,15 +175,3 @@ switch (state) {
         }
         break;
 }
-
-// Apply invincibility
-EnemyInvincibility();
-#define Draw_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Draw
-
-event_inherited()
