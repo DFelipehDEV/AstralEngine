@@ -11,6 +11,6 @@ if (keyActionPressed) {
     PlaySound(sndPlayerJump);
 }
 
-if (!PlayerCollisionObjectLeft(x, y, 0, maskBig, objWalljumpTrigger) && !PlayerCollisionObjectRight(x, y, 0, maskBig, objWalljumpTrigger)) {
+if (!PlayerCollisionObjectLeft(x, y, 0, maskBig, objWalljumpSensor) && !PlayerCollisionObjectRight(x, y, 0, maskBig, objWalljumpSensor)) {
     PlayerSetState(PlayerStateNormal);
 }
