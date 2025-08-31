@@ -7,6 +7,8 @@ applies_to=self
 /// Variables
 
 event_inherited();
+canMove = true;
+
 knockOnDeath = false; // Whether the enemy gets knocked away when defeated
 
 maxHP = 0; // Maximum HP of the enemy
@@ -45,6 +47,7 @@ applies_to=self
 /// Fields
 //field maxHP : number
 //field knockOnDeath : bool
+//field canMove : bool
 
 hp = maxHP;
 #define Other_10

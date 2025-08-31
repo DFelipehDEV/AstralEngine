@@ -55,13 +55,15 @@ applies_to=self
 */
 /// Movement
 
-if (sprite_index != sprEnemyBuzzerAttack) {
+if (canMove && sprite_index != sprEnemyBuzzerAttack) {
     x += xSpeed;
     y += ySpeed;
 }
 
 if (state == "NORMAL" && !place_meeting(x, y, objEnemyTurn)) {
-    xSpeed = 2 * image_xscale;
+    if (canMove) {
+        xSpeed = 2 * image_xscale;
+    }
 
     // Trigger shot
     if (distance_to_object(objPlayer) < 235 && sign(objPlayer.x - x) == image_xscale) {

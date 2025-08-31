@@ -38,8 +38,12 @@ applies_to=self
 */
 /// Movement
 
-BodyApplyGravity(0.2);
-move_and_collide(xSpeed, ySpeed, objTerrain);
+if (canMove) {
+    BodyApplyGravity(0.2);
+    move_and_collide(xSpeed, ySpeed, objTerrain);
+} else {
+    EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
+}
 
 // Vertical movement
 if (!ground) {
@@ -75,28 +79,28 @@ switch (state) {
 
     case "NORMAL":
         normalStateX = x;
-        // Walk at normal speed
-        xSpeed = 1.6 * image_xscale;
-
-        var _nearPlayer;
-        _nearPlayer = instance_nearest(x, y, objPlayer);
-
-        // Check if the player is near the enemy
-        if (distance_to_object(_nearPlayer) < 100) {
-            // Check if the enemy is looking at the player
-            if (image_xscale == sign(_nearPlayer.x - x)) {
-                state = "SPOTTED";
-                target = _nearPlayer;
-                EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
+        if (canMove) {
+            xSpeed = 1.6 * image_xscale;
+    
+            var _nearPlayer;
+            _nearPlayer = instance_nearest(x, y, objPlayer);
+    
+            // Check if the player is near the enemy
+            if (distance_to_object(_nearPlayer) < 100) {
+                // Check if the enemy is looking at the player
+                if (image_xscale == sign(_nearPlayer.x - x)) {
+                    state = "SPOTTED";
+                    target = _nearPlayer;
+                    EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
+                }
             }
-        }
-        
-        // Check if the enemy is coliding the turn sensor
-        if (place_meeting(x, y, objEnemyTurn) && !place_meeting(xprevious, yprevious, objEnemyTurn)) {
-            turnTimer = turnTimerTemp;
-            xSpeed = 0;
-            state = "TURN";
-            EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
+            
+            // Check if the enemy is coliding the turn sensor
+            if (place_meeting(x, y, objEnemyTurn) && !place_meeting(xprevious, yprevious, objEnemyTurn)) {
+                turnTimer = turnTimerTemp;
+                xSpeed = 0;
+                state = "TURN";
+            }
         }
     break;
 
@@ -117,7 +121,6 @@ switch (state) {
         if ((distance_to_object(target) > 140 || distance_to_object(target) <= 140 && image_xscale != sign(target.x - x)) || abs(x - normalStateX) > 350) {
             state = "RETURN";
             target = noone;
-            EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
         }
     break;
 

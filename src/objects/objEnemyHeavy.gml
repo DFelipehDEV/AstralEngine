@@ -33,9 +33,10 @@ applies_to=self
 */
 /// Movement
 
-// Apply gravity and handle collision with slopes
-BodyApplyGravity(0.2);
-move_and_collide(xSpeed, ySpeed, objTerrain);
+if (canMove) {
+    BodyApplyGravity(0.2);
+    move_and_collide(xSpeed, ySpeed, objTerrain);
+}
 
 // Vertical movement
 if (!ground) {
@@ -72,21 +73,22 @@ switch (state) {
 
     case "NORMAL":
         normalStateX = x;
-        // Walk at normal speed
-        xSpeed = 1.6 * image_xscale;
-
-        // Check if the player is in front of the enemy
-        if ((distance_to_object(objPlayer) < 140 && image_xscale == sign(objPlayer.x - x)) || (hit)) {
-            // Player was spotted
-            state = "SPOTTED";
-            target = instance_nearest(x, y, objPlayer);
-        }
-
-        // Check if the enemy is colliding with the turn sensor
-        if (place_meeting(x, y, objEnemyTurn) && !place_meeting(xprevious, yprevious, objEnemyTurn)) {
-            turnTimer = turnTimerTemp;
-            xSpeed = 0;
-            state = "TURN";
+        if (canMove) {
+            xSpeed = 1.6 * image_xscale;
+    
+            // Check if the player is in front of the enemy
+            if ((distance_to_object(objPlayer) < 140 && image_xscale == sign(objPlayer.x - x)) || (hit)) {
+                // Player was spotted
+                state = "SPOTTED";
+                target = instance_nearest(x, y, objPlayer);
+            }
+    
+            // Check if the enemy is colliding with the turn sensor
+            if (place_meeting(x, y, objEnemyTurn) && !place_meeting(xprevious, yprevious, objEnemyTurn)) {
+                turnTimer = turnTimerTemp;
+                xSpeed = 0;
+                state = "TURN";
+            }
         }
         break;
 

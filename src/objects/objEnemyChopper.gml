@@ -25,16 +25,18 @@ applies_to=self
 */
 /// Movement
 
-x += xSpeed;
-y += ySpeed;
+if (canMove) {
+    x += xSpeed;
+    y += ySpeed;
 
-ySpeed = approach(ySpeed, 12, 0.45);
+    ySpeed = approach(ySpeed, 12, 0.45);
 
-// Invert direction
-if (ySpeed > 0 && y >= ystart) {
-    xSpeed = -xSpeed;
-    ySpeed = -ySpeed;
-    image_yscale = sign(xSpeed);
+    // Invert direction
+    if (ySpeed > 0 && y >= ystart) {
+        xSpeed = -xSpeed;
+        ySpeed = -ySpeed;
+        image_yscale = sign(xSpeed);
+    }
+
+    image_angle = point_direction(xprevious, yprevious, x, y);
 }
-
-image_angle = point_direction(xprevious, yprevious, x, y);
