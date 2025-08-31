@@ -32,7 +32,7 @@ avatarIndex = 0;
 // Input related variables
 inputAlpha = 0;
 
-ownerID = noone;
+player = noone;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -69,12 +69,12 @@ switch (ended) {
         textTotal = "";
 
         // Return to previous state
-        ownerID.allowKeys = true;
-        ownerID.hud.hidden = false;
+        player.allowKeys = true;
+        player.hud.hidden = false;
 
-        ownerID.cam.yShift = 0;
-        ownerID.cam.target = ownerID;
-        ownerID = noone;
+        player.cam.yShift = 0;
+        player.cam.target = player;
+        player = noone;
         ended = 0;
     break;
 }
@@ -112,11 +112,11 @@ applies_to=self
 if (!npcChatting) {
     // Check if we pressed the input to start talking
     if (other.keySpecial3Pressed) {
-        ownerID = other.id;
+        player = other.id;
         npcChatting = true;
 
         npcStringCurrent = 0;
-        with (ownerID) {
+        with (player) {
             xSpeed = 0;
             allowKeys = false;
             keyLeft = 0;
@@ -137,11 +137,11 @@ if (!npcChatting) {
         }
 
 
-        ownerID.cam.yShift = -50;
-        ownerID.cam.target = id;
+        player.cam.yShift = -50;
+        player.cam.target = id;
         PlaySound(sndDialogueOpen);
 
-        ownerID.hud.hidden = true;
+        player.hud.hidden = true;
         ended = 0;
     }
 }

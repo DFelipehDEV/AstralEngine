@@ -29,7 +29,7 @@ if (_swing != noone && state != PlayerStateGrab) {
         AnimationApply("HANG_3");
         with (_swing) {
             active = true;
-            ownerID = other.id;
+            player = other.id;
         }
     }
 }

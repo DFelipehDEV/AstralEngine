@@ -30,9 +30,9 @@ applies_to=self
 
 image_index = global.gameTime div 80;
 
-if (instance_exists(ownerID)) {
-    signPlayerX = sign(ownerID.x - x);
-    signPlayerY = sign(ownerID.y - y);
+if (instance_exists(target)) {
+    signPlayerX = sign(target.x - x);
+    signPlayerY = sign(target.y - y);
 
     movX = (sign(hspeed) == signPlayerX);
     movY = (sign(vspeed) == signPlayerY);

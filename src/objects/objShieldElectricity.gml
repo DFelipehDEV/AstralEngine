@@ -15,12 +15,11 @@ applies_to=self
 */
 /// Position, angle and depth
 
-// Shift to the owner position
-x = floor(ownerID.x);
-y = floor(ownerID.y);
+x = floor(body.x);
+y = floor(body.y);
 
 // Rotate
-image_angle = ownerID.image_angle;
+image_angle = body.image_angle;
 
 // Depth
 if (floor(image_index) mod 2 == 0) {

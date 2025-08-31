@@ -24,7 +24,7 @@ hudInputScale[3] = 0;
 hudTimerColor = make_color_rgb(0, 115, 255);
 hudTimer = 100;
 
-ownerID = noone;
+player = noone;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -72,7 +72,7 @@ if (qteWon == 0) {
             PlaySound(sndPlayerHurt);
         }
         if (image_alpha <= 0.1) {
-            with (ownerID) {
+            with (player) {
                 PlayerSetState(PlayerStateHomingFlight);
                 xSpeed = other.qteFailedXSpeed;
                 ySpeed = other.qteFailedYSpeed;
@@ -184,12 +184,12 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         qteWon = 1;
                         PlaySound(sndQTEWin);
                         
-                        with (ownerID) {
+                        with (player) {
                             PlayerSetState(PlayerStateHomingFlight);
                             AnimationApply("HOMED");
                             allowKeysTimer = 60;
                         }
-                        PlayVoice(ownerID.voiceline[8]);
+                        PlayVoice(player.voiceline[8]);
                         hudInputScale[3] = 0.5;
                     }
                     break;
@@ -203,12 +203,12 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         qteWon = 1;
                         PlaySound(sndQTEWin);
                         
-                        with (ownerID) {
+                        with (player) {
                             PlayerSetState(PlayerStateHomingFlight);
                             AnimationApply("HOMED");
                             allowKeysTimer = 60;
                         }
-                        PlayVoice(ownerID.voiceline[8]);
+                        PlayVoice(player.voiceline[8]);
                         hudInputScale[3] = 0.5;
                     }
                     break;
@@ -222,12 +222,12 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         qteWon = 1;
                         PlaySound(sndQTEWin);
                         
-                        with (ownerID) {
+                        with (player) {
                             PlayerSetState(PlayerStateHomingFlight);
                             AnimationApply("HOMED");
                             allowKeysTimer = 60;
                         }
-                        PlayVoice(ownerID.voiceline[8]);
+                        PlayVoice(player.voiceline[8]);
                         hudInputScale[3] = 0.5;
                     }
                     break;

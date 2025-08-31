@@ -1,3 +1,3 @@
 //gm82 fields begin
-springStrength=20
+strength=14
 //gm82 fields end

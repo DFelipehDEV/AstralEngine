@@ -70,17 +70,17 @@ if (_dashRamp != noone && ground) {
 
         if (_dashRamp.playerAction == PlayerStateQTEKeys) {
             with (instance_create(0, 0, objEventQTEKeys)) {
-                ownerID = other.id;
+                player = other.id;
                 qteFailedXSpeed = _dashRamp.qteFailedXSpeed
                 qteFailedYSpeed = _dashRamp.qteFailedYSpeed
             }
         }
 
         xDirection = _dashRamp.image_xscale;
-        x = _dashRamp.x - 12 * _dashRamp.image_xscale;
-        y = _dashRamp.y - 16;
+        x = _dashRamp.x;
+        y = _dashRamp.y - 22;
 
-        allowKeysTimer = 40;
+        allowKeysTimer = 30;
 
         PlaySound(sndDashRamp);
     }

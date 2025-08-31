@@ -18,7 +18,7 @@ applies_to=self
 /// Destroy
 
 monIcon = instance_create(x, y, objMonitorIcon);
-monIcon.ownerID = other.id;
+monIcon.player = other.id;
 monIcon.icon = icon;
 
 if (other.state == PlayerStateJump && other.ySpeed > 0) {

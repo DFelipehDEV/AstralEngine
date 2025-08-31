@@ -11,7 +11,7 @@ if (shield != _newShield) {
             shield = ShieldNormal;
             with (instance_create(x, y, objShieldNormal)) {
                 other.shieldInstance = id;
-                ownerID = other.id; // Assign player ID to the shield
+                body = other.id; // Assign player ID to the shield
             }
             break;
 
@@ -19,7 +19,7 @@ if (shield != _newShield) {
             shield = ShieldElectricity;
             with (instance_create(x, y, objShieldElectricity)) {
                 other.shieldInstance = id;
-                ownerID = other.id; // Assign player ID to the shield
+                body = other.id; // Assign player ID to the shield
             }
             break;
     }

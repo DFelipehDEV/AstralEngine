@@ -39,7 +39,7 @@ if (!pushingWall) {
                     with (boostAura) {
                         sprite_index = other.boostSprite;
                         image_angle = point_direction(other.xprevious, other.yprevious, x, y);
-                        ownerID = other.id;
+                        player = other.id;
                         image_alpha = 0.7;
                     }
                 }
@@ -61,7 +61,7 @@ if (!pushingWall) {
                 with (boostAura) {
                     sprite_index = other.boostSprite;
                     image_angle = point_direction(other.xprevious, other.yprevious, x, y);
-                    ownerID = other.id;
+                    player = other.id;
                     image_alpha = 0.7;
                 }
             }

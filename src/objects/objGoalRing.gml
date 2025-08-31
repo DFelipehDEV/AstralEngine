@@ -19,7 +19,7 @@ minimumScoreB = 4000;
 minimumScoreA = 6000;
 minimumScoreS = 8500;
 
-ownerID = noone;
+player = noone;
 #define Alarm_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -68,7 +68,7 @@ if (active) {
         speedval -= 0.032
         image_speed = speedval
 
-        ownerID.keyRight = true;
+        player.keyRight = true;
         if (image_speed < 0) {
             image_speed = 0
             alarm[0] = 80
@@ -90,17 +90,17 @@ if (!active) {
     PlaySound(sndGoalRingSpin);
     active = true;
 
-    ownerID = other.id;
-    with (ownerID) {
+    player = other.id;
+    with (player) {
         allowKeys = false;
         keyRight = true;
         PlayerSetState(PlayerStateNormal);
         goal = true;
     }
 
-    ownerID.cam.target = id;
-    ownerID.cam.xShift = 0;
-    ownerID.cam.yShift = 0;
+    player.cam.target = id;
+    player.cam.xShift = 0;
+    player.cam.yShift = 0;
 }
 #define Other_4
 /*"/*'/**//* YYD ACTION

@@ -14,7 +14,6 @@ creationTimer = 0;
 angle[0] = 0;
 angle[1] = 0;
 
-ownerID = noone;
 target = noone;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION

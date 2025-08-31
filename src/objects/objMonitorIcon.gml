@@ -8,9 +8,9 @@ applies_to=self
 
 DeactivateExceptionsAdd(id);
 ySpeed = -3;
-ownerIDRewarded = false;
+playerRewarded = false;
 
-ownerID = noone;
+player = noone;
 image_speed = 0;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
@@ -34,14 +34,14 @@ if (ySpeed < 0) {
     ySpeed += 0.09375;
 }
 
-if (ySpeed >= 0 && ownerIDRewarded == false) {
+if (ySpeed >= 0 && playerRewarded == false) {
     ySpeed = 0;
-    ownerIDRewarded = true;
+    playerRewarded = true;
     event_user(0);
 }
 
 // Fade
-if (ownerIDRewarded == true) {
+if (playerRewarded == true) {
     if (image_alpha <= 0) {
         instance_destroy();
     }
@@ -59,7 +59,7 @@ applies_to=self
 switch (icon) {
     // Hurt monitor
     case 1:
-        with (ownerID) {
+        with (player) {
             PlayerHurt();
         }
         break;
@@ -88,7 +88,7 @@ switch (icon) {
 
     // Energy up
     case 5:
-        with (ownerID) {
+        with (player) {
             PlayerAddEnergy(80);
             PlaySoundSingle(sndTrick, global.soundVolume, 1);
         }
@@ -97,7 +97,7 @@ switch (icon) {
 
     // Normal shield
     case 6:
-        with (ownerID) {
+        with (player) {
             PlayerSetShield(ShieldNormal);
             PlaySoundSingle(sndShieldMonitor, global.soundVolume, 1);
         }
@@ -106,7 +106,7 @@ switch (icon) {
 
     // Electricity shield
     case 7:
-        with (ownerID) {
+        with (player) {
             PlayerSetShield(ShieldElectricity);
             PlaySoundSingle(sndShieldMonitor, global.soundVolume, 1.1);
         }
@@ -114,7 +114,7 @@ switch (icon) {
 
     // Invincibility
     case 9:
-        with (ownerID) {
+        with (player) {
             invincibility = InvincibilityMonitor;
             invincibilityTimer = 1150;
             starTimer = invincibilityTimer;
@@ -125,14 +125,14 @@ switch (icon) {
 
     // Combine ring
     case 10:
-        with (ownerID) {
+        with (player) {
             combineActive = true;
         }
         PlaySoundSingle(sndRingMonitor, global.soundVolume, 0.75);
         break;
 }
 
-ownerIDRewarded = true;
+playerRewarded = true;
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

@@ -17,9 +17,9 @@ applies_to=self
 /// Rotation
 
 if (active) {
-    image_angle += 6.4 * ownerID.xDirection;
+    image_angle += 6.4 * player.xDirection;
     var _rot;
-    with (ownerID) {
+    with (player) {
         image_angle = other.image_angle;
         _rot = floorto(other.image_angle, 30); // Divide image_angle into 12 angles so its easier to it the intended direction
         x = (other.x - dcos(_rot)*14*xDirection) + dcos(_rot)*12*xDirection;
@@ -41,7 +41,7 @@ if (active) {
             image_angle = 0;
 
             other.active = false;
-            other.ownerID = noone;
+            other.player = noone;
 
             PlaySound(sndPlayerSpin);
         }

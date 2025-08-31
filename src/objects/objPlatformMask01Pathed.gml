@@ -17,12 +17,12 @@ applies_to=self
 /// Move
 
 // Move the player to our position
-var _ownerID;
-_ownerID = instance_place(x, y - 5, objPlayer);
-if (_ownerID != noone) {
-    if (_ownerID.ySpeed >= 0 && _ownerID.ground) {
-        _ownerID.x += x - xprevious;
-        _ownerID.y = bbox_top - 11;
+var _body;
+_body = instance_place(x, y - 5, objBody);
+if (_body != noone) {
+    if (_body.ySpeed >= 0 && _body.ground) {
+        _body.x += x - xprevious;
+        _body.y = bbox_top - 11;
     }
 }
 #define Collision_objPlatformAngle

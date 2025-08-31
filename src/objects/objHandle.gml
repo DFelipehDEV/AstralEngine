@@ -8,7 +8,7 @@ applies_to=self
 
 DeactivateExceptionsAdd(id);
 pull = false;
-ownerID = noone;
+player = noone;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -33,7 +33,7 @@ if (pull) {
         pull = false;
         hspeed = 0;
         vspeed = 0;
-        with (ownerID) {
+        with (player) {
             ySpeed = -6;
             PlayerSetState(PlayerStateNormal);
             y -= 16;
@@ -57,8 +57,8 @@ if (pull) {
 
     hspeed = lerp(hspeed, 10 * dcos(_dir), 0.1)
     vspeed = lerp(vspeed, 10 * -dsin(_dir), 0.1);
-    ownerID.x = x;
-    ownerID.y = y + 12;
+    player.x = x;
+    player.y = y + 12;
 }
 else {
     // Return to original position

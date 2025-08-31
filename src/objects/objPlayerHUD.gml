@@ -126,10 +126,10 @@ _viewY = view_yview[0];
 
 d3d_set_projection_ortho(_viewX, _viewY, ScreenWidth, ScreenHeight, 0) // Stop HUD from resizing
 
-if (ownerID != noone && instance_exists(ownerID) && !GameStateGet(GameStatePaused)) {
+if (player != noone && instance_exists(player) && !GameStateGet(GameStatePaused)) {
     // Speedlines
-    if (ownerID.boostAura != noone) {
-        draw_sprite_ext(sprHUDSpeedlines, global.gameTime div 40, _viewX, _viewY, 1, 1, 0, c_white, (ownerID.boostAura.image_alpha / 1.8))
+    if (player.boostAura != noone) {
+        draw_sprite_ext(sprHUDSpeedlines, global.gameTime div 40, _viewX, _viewY, 1, 1, 0, c_white, (player.boostAura.image_alpha / 1.8))
     }
     draw_set_font(global.fontHUD);
     draw_set_color(c_white);
@@ -150,13 +150,13 @@ if (ownerID != noone && instance_exists(ownerID) && !GameStateGet(GameStatePause
     if (global.playerRings == 0) {
         draw_text_color(_leftHUDX + 20, _viewY + 40, string(global.playerRings), c_red, c_red, c_red, c_red, min(cos(global.gameTime/200), 1));
     }
-    if (ownerID.combineActive) {
+    if (player.combineActive) {
         draw_text_color(_leftHUDX + 20, _viewY + 40, string(global.playerRings), c_aqua, c_blue, c_blue, c_blue, abs(cos(global.gameTime/300)));
     }
     draw_set_halign(fa_right);
 
     // Energy bar
-    gaugeIndex = approach(gaugeIndex, ownerID.energy/4, 1);
+    gaugeIndex = approach(gaugeIndex, player.energy/4, 1);
     var shake;
     shake = sin(shakeTimer)*3;
     draw_sprite(sprHUDEnergy, 0, _leftHUDX, (_viewY + ScreenHeight - 40) + shake)

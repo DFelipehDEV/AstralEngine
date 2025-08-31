@@ -20,13 +20,13 @@ applies_to=self
 hspeed = approach(hspeed, spd * dcos(dir), acceleration);
 vspeed = approach(vspeed, spd * -dsin(dir), acceleration);
 
-// Move the player to our position
-var _ownerID;
-_ownerID = instance_place(x, y - 5, objPlayer);
-if (_ownerID != noone) {
-    if (_ownerID.ySpeed >= 0 && _ownerID.ground) {
-        _ownerID.x += x - xprevious;
-        _ownerID.y = bbox_top - 12;
+// Move the body to our position
+var _body;
+_body = instance_place(x, y - 5, objBody);
+if (_body != noone) {
+    if (_body.ySpeed >= 0 && _body.ground) {
+        _body.x += x - xprevious;
+        _body.y = bbox_top - 12;
     }
 }
 #define Collision_objPlatformAngle

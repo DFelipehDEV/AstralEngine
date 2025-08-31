@@ -9,7 +9,7 @@ if (_handle != noone && ySpeed >= 0) {
     if (state != PlayerStateGrab) {
         PlaySound(sndGrab);
     }
-    _handle.ownerID = id;
+    _handle.player = id;
     x = _handle.x;
     _handle.pull = true;
     xSpeed = 0;

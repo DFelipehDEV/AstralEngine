@@ -159,7 +159,7 @@ applies_to=self
 cam = instance_create(x, y, objCamera);
 cam.target = id;
 hud = instance_create(x, y, objPlayerHUD);
-hud.ownerID = id;
+hud.player = id;
 
 // Sensors
 drawSensors = false;
@@ -531,7 +531,6 @@ if (canHome) {
                 // Create reticle at the nearest target
                 homingReticle = instance_create(_currentObjectNear.x, _currentObjectNear.y, objPlayerReticle);
                 homingReticle.target = _currentObjectNear;
-                homingReticle.ownerID = id;
                 break;
             }
         }
@@ -870,7 +869,7 @@ if ((_distance < 32 && boosting) || (_distance < 65 && shield == ShieldElectrici
     with (_nearRing) {
         instance_destroy();
         with (instance_create(x, y, objRingMagnetic)) {
-            ownerID = objPlayer;
+            target = objPlayer;
         }
     }
 }
