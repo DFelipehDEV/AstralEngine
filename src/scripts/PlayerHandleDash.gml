@@ -69,7 +69,7 @@ if (_dashRamp != noone && ground) {
         AnimationApply("LAUNCH");
 
         if (_dashRamp.playerAction == PlayerStateQTEKeys) {
-            with (instance_create(0, 0, objEventQTEKeys)) {
+            with (instance_create(0, 0, objQTEKeys)) {
                 player = other.id;
                 qteFailedXSpeed = _dashRamp.qteFailedXSpeed
                 qteFailedYSpeed = _dashRamp.qteFailedYSpeed

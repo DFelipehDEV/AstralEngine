@@ -31,7 +31,7 @@ for (i = 0; i < 5; i += 1) {
 
 
 with (instance_create(x, y, objFadeIn)) {
-    color = c_white;
+    image_blend = c_white;
 }
 
 // Score
@@ -213,11 +213,15 @@ if (resultsTimer > 110) {
 
                     // End results screen
                     if (sysinput_get("accept") && !instance_exists(objFadeNext)) {
-                        // Fade to next room
+                        SaveSetValue("PreviousRoom", room_get_name(room));
+                        SaveSetRoomAsCompleted(room, global.gameTime, global.playerRings);
+                        SaveGame();
+
                         with (instance_create(0, 0, objFadeNext)) {
-                            color = c_white;
+                            image_blend = c_white;
                             PlayerGlobalsReset();
                         }
+
                         global.gameTimeAllow = true;
                     }
 

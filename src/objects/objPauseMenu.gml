@@ -110,7 +110,7 @@ switch (GameStateGet()) {
 
                 case 1:
                     with (instance_create(0, 0, objFadeRoom)) {
-                        roomgo = room;
+                        roomTarget = room;
                     }
                     PlayerGlobalsReset();
                     break;
@@ -121,7 +121,7 @@ switch (GameStateGet()) {
 
                 case 3:
                     with (instance_create(0, 0, objFadeRoom)) {
-                        roomgo = rmTitleScreen;
+                        roomTarget = rmTitleScreen;
                     }
                     PlayerGlobalsReset();
                     break;

@@ -7,7 +7,7 @@ applies_to=self
 /// Variables
 
 DeactivateExceptionsAdd(id);
-color = c_black;
+image_blend = c_black;
 image_alpha = 0;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
@@ -40,5 +40,5 @@ applies_to=self
 /// Draw fade
 
 draw_set_alpha(image_alpha);
-draw_rectangle_color(view_xview[0], view_yview[0], view_xview[0] + ScreenWidth, view_yview[0] + ScreenHeight, color, color, color, color, 0);
+draw_rectangle_color(view_xview[0], view_yview[0], view_xview[0] + ScreenWidth, view_yview[0] + ScreenHeight, image_blend, image_blend, image_blend, image_blend, 0);
 draw_set_alpha(1);

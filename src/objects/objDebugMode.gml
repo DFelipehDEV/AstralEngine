@@ -32,6 +32,10 @@ if (keyboard_check_pressed(ord("R"))) {
     room_restart();
 }
 
+if (keyboard_check_pressed(ord("L"))) {
+    LoadGame();
+}
+
 // Skip music to near loop point
 /* this uses function not yet included in gm82 so its commented temporarily
 if (keyboard_check_pressed(vk_end)) {

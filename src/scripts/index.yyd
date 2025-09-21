@@ -176,3 +176,9 @@ InputInit
 WindowSetScale
 README
 PlayerSetGround
+
+SaveGetValue
+SaveGame
+LoadGame
+SaveSetRoomAsCompleted
+SaveSetValue

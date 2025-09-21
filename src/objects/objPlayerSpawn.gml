@@ -18,7 +18,7 @@ else {
 }
 
 var _titlecard;
-_titlecard = instance_create(player.x, player.y, objEventTitleCard);
+_titlecard = instance_create(player.x, player.y, objTitleCard);
 _titlecard.player = player;
 
 instance_destroy();

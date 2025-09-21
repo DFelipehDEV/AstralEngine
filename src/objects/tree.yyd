@@ -5,10 +5,8 @@
 	|objPlayer
 	|objPlayerHUD
 	|objPlayerReticle
-	+Events
-		|objEventTitleCard
-		|objEventResults
-		|objEventQTEKeys
+	+UI
+		|objTitleCard
 	+Miscellaneous
 		|objWaterSolid
 		|objBoost
@@ -21,10 +19,6 @@
 	|objMusicManager
 	|objRoomManager
 	|objDebugMode
-	|objPauseMenu
-+Splash
-	|objAstralTitle
-	|objAstralSettings
 +Fade
 	|objFadeIn
 	|objFadeNext
@@ -54,6 +48,8 @@
 		|objDashRail
 		|objDashRamp
 		|objDashRampRainbow
+		+UI
+			|objQTEKeys
 	+Handle
 		|objCrane
 		|objHandle
@@ -94,6 +90,8 @@
 			|objBoxPart
 	+Goal
 		|objGoalRing
+		+UI
+			|objResults
 	+Spikes
 		|objSpike
 		|objSpikeMove
@@ -209,3 +207,7 @@
 	|objTerrain
 +Camera
 	|objCamera
++Menus
+	|objPauseMenu
+	|objAstralTitle
+	|objAstralSettings

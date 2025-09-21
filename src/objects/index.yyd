@@ -81,7 +81,7 @@ objDashRingRainbow
 objDashPad
 objDashRamp
 objDashRampRainbow
-objEventQTEKeys
+objQTEKeys
 
 objCrane
 objHandle
@@ -120,7 +120,7 @@ objRainbow
 
 objCorkscrew
 objCorkscrewDepth
-objEventTitleCard
+objTitleCard
 
 objFadeIn
 
@@ -133,7 +133,7 @@ objTZBG
 objParallax
 
 objGoalRing
-objEventResults
+objResults
 
 objButtonSensor
 objAstralTitle
@@ -223,4 +223,7 @@ objParallaxLayer
 objParallaxLayerAnimated
 objPushableBox
 objOffsetCameraSensor
+
+
+
 

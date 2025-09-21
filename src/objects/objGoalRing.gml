@@ -42,7 +42,7 @@ applies_to=self
 */
 /// Results
 
-with (instance_create(0, 0, objEventResults)) {
+with (instance_create(0, 0, objResults)) {
     maxTimeScore = other.maxTimeScore;
     ringScoreMultiplier = other.ringScoreMultiplier;
     scoreValueTime = max(0, maxTimeScore-floor(global.gameTime/50000)*4500);
@@ -94,13 +94,15 @@ if (!active) {
     with (player) {
         allowKeys = false;
         keyRight = true;
-        PlayerSetState(PlayerStateNormal);
         goal = true;
+        PlayerSetState(PlayerStateNormal);
     }
 
-    player.cam.target = id;
-    player.cam.xShift = 0;
-    player.cam.yShift = 0;
+    if (player.cam != noone) {
+        player.cam.target = id;
+        player.cam.xShift = 0;
+        player.cam.yShift = 0;
+    }
 }
 #define Other_4
 /*"/*'/**//* YYD ACTION

@@ -28,6 +28,8 @@ global.playerCheckpoint = noone;
 global.timeScale = 1; // Time movement multiplier, lower values make objects move slower, higher values make objects move faster, used for slow motion
 global.gameState = GameStateRunning;
 
+global.saveData = ds_map_create();
+
 global.shaderHeat = shdHeat();
 global.shaderColorSwap = shdColorSwap();
 

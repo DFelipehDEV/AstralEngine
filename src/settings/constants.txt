@@ -52,3 +52,6 @@ InputSpecial2Pressed=16
 InputSpecial3Pressed=17
 CharacterSonic=0
 CharacterSuperSonic=1
+SaveFileName="save.sav"
+SaveVersion=1
+SavePassword="whatthehell,sure"

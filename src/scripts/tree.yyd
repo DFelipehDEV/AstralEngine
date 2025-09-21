@@ -161,3 +161,9 @@
 	|InputInit
 +Window
 	|WindowSetScale
++Save
+	|LoadGame
+	|SaveGame
+	|SaveGetValue
+	|SaveSetValue
+	|SaveSetRoomAsCompleted
