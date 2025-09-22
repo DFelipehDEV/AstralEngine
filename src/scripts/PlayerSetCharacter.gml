@@ -24,5 +24,5 @@ switch (character) {
         boostSprite = sprBoostSuper;
         break;
 }
-PlayerPhysicModeSet(physicsMode);
-AnimationUpdate();
+PlayerSetPhysicsMode(physicsMode);
+AnimationApply("IDLE");

@@ -163,7 +163,7 @@ hud.player = id;
 
 // Sensors
 drawSensors = false;
-PlayerSensorPosUpdate();
+PlayerResetSensors();
 bottomCollision = false;
 edgeCollision = false;
 
@@ -197,7 +197,7 @@ boostSprite = sprBoost;
 AnimationInit(AnimationIndexSonic);
 
 PlayerSetCharacter(CharacterSonic);
-PlayerPhysicModeSet(physicsMode);
+PlayerSetPhysicsMode(physicsMode);
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -358,7 +358,7 @@ if (canMove) {
         // Get new angle
         if (edgeCollision && ground) {
             // Store the new angle
-            angleHolder = PlayerGetAngle(x, y, angle);
+            angleHolder = PlayerCalculateAngle(x, y, angle);
     
             // Smooth angle
             if (abs(angle - angleHolder) < 45) {
@@ -398,7 +398,7 @@ if (canMove) {
         // Ceiling
         if (ySpeed < 0 && PlayerCollisionTop(x, y, 0, maskBig)) {
             if (PlayerCollisionLeftEdge(x, y, 180) && PlayerCollisionRightEdge(x, y, 180)) {
-                PlayerSetAngle(PlayerGetAngle(x, y, 180))
+                PlayerSetAngle(PlayerCalculateAngle(x, y, 180))
                                         
                 if (angle < 140 || angle > 220) {
                     xSpeed = -angleSin * (ySpeed*1.5);
@@ -442,7 +442,7 @@ if (canMove) {
         // Land
         if (ySpeed >= 0 && bottomCollision) {
             if (edgeCollision) {
-                PlayerSetAngle(PlayerGetAngle(x, y, angle));
+                PlayerSetAngle(PlayerCalculateAngle(x, y, angle));
                 PlayerCollisionCache();
             }
     
@@ -450,7 +450,7 @@ if (canMove) {
             
             // Play landing sound effect
             if (abs(ySpeed) > 2) {
-                PlayerTerrainSndUpdate();
+                PlayerHandleFootstepSensors();
                 PlaySound(terrainSound[TerLand]);
             }
             
@@ -567,7 +567,7 @@ canHome = false;
 if ((!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || state == PlayerStateRoll || animation == "FLING" || (boostAirTimer == 0 && !ground)) && boosting) {
     boosting = false;
     canBoost = false;
-    PlayerPhysicModeSet(physicsMode);
+    PlayerSetPhysicsMode(physicsMode);
 }
 
 if (boosting) {
@@ -783,7 +783,7 @@ switch (animation) {
 // Footsteps
 if (playFootstep) {
     if (!footstepPlayed) {
-        PlayerTerrainSndUpdate();
+        PlayerHandleFootstepSensors();
         // Create water splash if the player is running in the water
         if (PlayerCollisionObjectBottom(x, y, angle, maskBig, objWaterHorizon)) {
             DummyEffectCreate(x, y, sprWaterSplash, 0.45, 0, 1, bm_add, 1, xDirection, 1, 0);

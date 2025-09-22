@@ -17,7 +17,7 @@ if (state != PlayerStateHurt && !ground) {
 
             AnimationApply("");
             PlaySound(sndWayLauncherChangeDir);
-            PlaySoundExt(sndWayLauncherWait, global.soundVolume, 1, true);
+            PlaySound(sndWayLauncherWait, 1, 1, true);
         }
     }
 }

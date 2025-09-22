@@ -1,5 +1,4 @@
-/// PlayerTerrainSndUpdate()
- // Updates the player terrain sound effect
+/// PlayerHandleFootstepSensors()
 // Water terrain
 if (PlayerCollisionObjectBottom(x, y, angle, maskBig, objWaterHorizon) || PlayerCollisionObjectMain(x, y, objFootstepSensorWater)) {
     terrainType = "WATER";

@@ -44,7 +44,7 @@ if (!pushingWall) {
                     }
                 }
                 // Update player's physics to the boost physics
-                PlayerPhysicModeSet(physicsMode);
+                PlayerSetPhysicsMode(physicsMode);
             }
             else {
                 canBoost = true;
@@ -69,7 +69,7 @@ if (!pushingWall) {
             PlayerAddEnergy(-0.35);
             
             // Update player's physics to the boost physics
-            PlayerPhysicModeSet(physicsMode);
+            PlayerSetPhysicsMode(physicsMode);
         }
     }
     else {

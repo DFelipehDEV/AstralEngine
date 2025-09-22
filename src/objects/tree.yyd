@@ -1,4 +1,58 @@
-|objInit
++Camera
+	|objCamera
++Collision
+	+Main
+		|objSolid
+		|objSolidMask01
+		|objSolidMask02
+		|objSolidMask03
+		|objSolidMask04
+		|objSolidMask05
+		|objSolidMask06
+		|objSolidMask07
+		|objSolidMask08
+		|objSolidMask09
+		|objSolidMask10
+		|objSolidMask11
+		|objSolidMask12
+		|objSolidMask13
+		|objSolidMask14
+		|objSolidMask15
+	+Platform
+		|objPlatform
+		|objPlatformMove
+		|objPlatformMask01
+		|objPlatformMask01Move
+		|objPlatformMask01Pathed
+		|objPlatformMask01Spin
+	+Layer0
+		|objLayer0
+		|objLayer0Mask01
+		|objLayer0Mask02
+		|objLayer0Mask03
+		|objLayer0Mask04
+		|objLayer0Mask05
+	+Layer1
+		|objLayer1
+		|objLayer1Mask01
+		|objLayer1Mask02
+		|objLayer1Mask03
+		|objLayer1Mask04
+		|objLayer1Mask05
+	|objTerrain
++Fade
+	|objFadeIn
+	|objFadeNext
+	|objFadeRoom
+	|objFadeGoal
++Menus
+	|objPauseMenu
+	|objAstralTitle
+	|objAstralSettings
++Parallax
+	|objParallax
+	|objParallaxLayer
+	|objParallaxLayerAnimated
 +Player
 	|objBody
 	|objPlayerSpawn
@@ -19,11 +73,7 @@
 	|objMusicManager
 	|objRoomManager
 	|objDebugMode
-+Fade
-	|objFadeIn
-	|objFadeNext
-	|objFadeRoom
-	|objFadeGoal
+	|objInit
 +Stage
 	+Spring
 		|objSpring
@@ -127,10 +177,6 @@
 	+Destructable
 		|objDebris
 		|objDestructiveWall
-	+VFX
-		|objVFX
-		|objDummy
-		|objAfterimage
 	+Sensors
 		+Camera
 			|objOffsetCameraSensor
@@ -161,53 +207,7 @@
 		+Don't use
 			|objWaterBubble
 			|objWaterBubbleSmall
-+Parallax
-	|objParallax
-	|objParallaxLayer
-	|objParallaxLayerAnimated
-+Collision
-	+Main
-		|objSolid
-		|objSolidMask01
-		|objSolidMask02
-		|objSolidMask03
-		|objSolidMask04
-		|objSolidMask05
-		|objSolidMask06
-		|objSolidMask07
-		|objSolidMask08
-		|objSolidMask09
-		|objSolidMask10
-		|objSolidMask11
-		|objSolidMask12
-		|objSolidMask13
-		|objSolidMask14
-		|objSolidMask15
-	+Platform
-		|objPlatform
-		|objPlatformMove
-		|objPlatformMask01
-		|objPlatformMask01Move
-		|objPlatformMask01Pathed
-		|objPlatformMask01Spin
-	+Layer0
-		|objLayer0
-		|objLayer0Mask01
-		|objLayer0Mask02
-		|objLayer0Mask03
-		|objLayer0Mask04
-		|objLayer0Mask05
-	+Layer1
-		|objLayer1
-		|objLayer1Mask01
-		|objLayer1Mask02
-		|objLayer1Mask03
-		|objLayer1Mask04
-		|objLayer1Mask05
-	|objTerrain
-+Camera
-	|objCamera
-+Menus
-	|objPauseMenu
-	|objAstralTitle
-	|objAstralSettings
++VFX
+	|objVFX
+	|objDummy
+	|objAfterImage

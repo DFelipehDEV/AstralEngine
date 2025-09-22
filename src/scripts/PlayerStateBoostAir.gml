@@ -1,6 +1,6 @@
 /// PlayerStateBoostAir()
 
-PlayerXMovement();
+PlayerMoveX();
 if (ground) {
     PlayerSetState(PlayerStateNormal);
 }

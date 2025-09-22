@@ -2,7 +2,7 @@
 if (animation != argument0) {
     animationPrevious = animation;
     animation = argument0;
-    AnimationUpdate();
+    script_execute(animationList);
 
     // Reset the animation frame if needed
     if (animationResetFrame) {

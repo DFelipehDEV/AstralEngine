@@ -10,7 +10,7 @@ image_alpha = 0.1; // Animation alpha
 
 // Play boost sounds
 PlaySound(sndPlayerBoostContinue);
-PlaySoundExt(sndPlayerBoostLoop, global.soundVolume, 1, true)
+PlaySound(sndPlayerBoostLoop, 1, 1, true)
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

@@ -1,4 +1,4 @@
-/// PlayerSetState(state)
+/// PlayerSetState(state, [args...])
 // Exit state
 switch (state) {
     case PlayerStateGrind:
@@ -8,7 +8,7 @@ switch (state) {
         audio_stop(sndPlayerSlide);
         break;
     case PlayerStateStomp:
-        PlayerSensorPosUpdate();
+        PlayerResetSensors();
         break;
 }
 
@@ -18,10 +18,6 @@ stateTimer = 0;
 
 // Enter state
 switch (state) {
-    case PlayerStateNormal:
-
-        break;
-
     case PlayerStateSpring:
         AnimationApply("SPRING");
         break;
@@ -33,12 +29,7 @@ switch (state) {
         break;
 
     case PlayerStateJump:
-        if (ground) {
-            ySpeed = angleCos*(jumpStrength/2) - angleSin * xSpeed/1.8;
-            xSpeed = angleCos*xSpeed + angleSin*jumpStrength;
-            PlayerSetAngle(0);
-        }
-        PlayerAirdashReset();
+        PlayerResetAirdash();
         AnimationApply("JUMP");
         PlayerSetGround(false);
         jumpAirTimer = 0;
@@ -47,14 +38,6 @@ switch (state) {
     case PlayerStateAirdash:
         canAirdash = false;
         AnimationApply("JUMP");
-        if (keyLeft) {
-            xSpeed = -11;
-        } else if (keyRight) {
-            xSpeed = 11;
-        } else {
-            xSpeed = 11 * xDirection;
-        }
-        ySpeed = 0;
         break;
 
     case PlayerStateRoll:
@@ -78,7 +61,7 @@ switch (state) {
         break;
 
     case PlayerStateHomingAttack:
-        PlayerAirdashReset();
+        PlayerResetAirdash();
         AnimationApply("JUMP");
         break;
 
@@ -103,8 +86,6 @@ switch (state) {
 
     case PlayerStateStomp:
         AnimationApply("STOMP");
-        xSpeed = 0;
-        ySpeed = 13;
         trailTimer = 80;
         sensorBottomDistance = 14;
         image_angle = 0;
@@ -112,22 +93,11 @@ switch (state) {
 
     case PlayerStateStompLand:
         AnimationApply("STOMP_LAND");
-        PlayerSensorPosUpdate();
-        break;
-
-    case PlayerStateCorkscrew:
-
+        PlayerResetSensors();
         break;
 
     case PlayerStateLightspeed:
         AnimationApply("SPRING");
-        break;
-
-    case PlayerStateTricks:
-
-        break;
-    case PlayerStateQTEKeys:
-
         break;
 
     case PlayerStatePush:
@@ -145,10 +115,6 @@ switch (state) {
         AnimationApply("LAUNCH");
         break;
 
-    case PlayerStateGrab:
-
-        break;
-
     case PlayerStateTransform:
         AnimationApply("TRANSFORM");
         break;
@@ -163,7 +129,6 @@ switch (state) {
         canMove = false;
         if (cam.target == id) cam.target = noone;
         AnimationApply("DEAD");
-        AnimationUpdate();
         PlaySound(sndPlayerHurt);
         PlaySound(voiceline[4]);
         break;

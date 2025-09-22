@@ -1,5 +1,5 @@
 /// AfterImageEffectCreate(x,y,sprite,frame,alpha,xscale,yscale,angle,color1,colors)
-with (instance_create(argument0, argument1, objAfterimage)) {
+with (instance_create(argument0, argument1, objAfterImage)) {
     sprite_index = argument2;
     image_single = argument3;
     image_alpha = argument4;

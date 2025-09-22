@@ -9,7 +9,7 @@ if ((state == PlayerStateJump || state == PlayerStateNormal || state == PlayerSt
         PlayerSetState(PlayerStateWalljump)
 
         xDirection = 1;
-        PlaySoundExt(sndGrab, global.soundVolume, 0.8, false);
+        PlaySound(sndGrab, 1, 0.8);
     }
 
     _wallR = PlayerCollisionObjectRight(x, y, 0, maskBig, objWalljumpSensor)
@@ -19,6 +19,6 @@ if ((state == PlayerStateJump || state == PlayerStateNormal || state == PlayerSt
         PlayerSetState(PlayerStateWalljump)
 
         xDirection = -1;
-        PlaySoundExt(sndGrab, global.soundVolume, 0.8, false);
+        PlaySound(sndGrab, 1, 0.8);
     }
 }

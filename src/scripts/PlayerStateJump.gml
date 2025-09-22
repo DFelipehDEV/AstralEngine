@@ -1,6 +1,6 @@
 /// PlayerStateJump()
 
-PlayerXMovement();
+PlayerMoveX();
 // Animations
 // Change direction to the left if the left key have been pressed
 if (keyLeft) {

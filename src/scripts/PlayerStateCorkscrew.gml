@@ -1,6 +1,6 @@
 /// PlayerStateCorkscrew()
 
-PlayerXMovement();
+PlayerMoveX(xAcceleration, xFriction, xFriction * 1.7);
 corkscrewObject = PlayerCollisionObjectMain(x, y, objCorkscrew);
 
 if (abs(xSpeed) < 4 || corkscrewObject == noone) {

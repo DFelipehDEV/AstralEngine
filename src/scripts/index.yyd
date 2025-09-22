@@ -1,14 +1,14 @@
 AnimationIndexSonic
 AnimationSet
 AnimationApply
-AnimationUpdate
+
 
 
 
 AnimationInit
 AnimationSystem
 DrawTrail
-PlayerSensorPosUpdate
+PlayerResetSensors
 PlayerPhysicsSonic
 PlayerSetVoicelines
 PlaySound
@@ -27,7 +27,7 @@ PlayerCollisionRightEdge
 PlayerCollisionHitbox
 PlayerCollisionMain
 PlayerCollisionObjectMain
-PlayerGetAngle
+PlayerCalculateAngle
 PlayerSetAngle
 
 PlayerStateNormal
@@ -85,7 +85,7 @@ PlayerHandleWater
 PlayerSetShield
 
 PlayerHandleGimmicks
-PlayerGlobalsReset
+PlayerResetGlobalVariables
 Init
 ParallaxAddNode
 DrawSpriteTiledHorizontalPart
@@ -107,13 +107,13 @@ PlayerAngleLocals
 
 PlayerAnimationNormal
 PlayerAirdash
-PlayerAirdashReset
+PlayerResetAirdash
 
 
 
 
 PlayerAddEnergy
-PlayerTerrainSndUpdate
+PlayerHandleFootstepSensors
 
 PlayerStateDead
 PlayerCollisionHitboxFast
@@ -144,11 +144,11 @@ DeactivateExceptionsAdd
 DeactivateExceptionsRemove
 PlayerFlight
 PlayerSetState
-PlaySoundExt
+
 
 PlayVoice
 
-PlayerPhysicModeSet
+PlayerSetPhysicsMode
 PlayerJump
 PlayerHomingAttack
 PlayerStomp
@@ -158,8 +158,8 @@ PlayerLightspeed
 
 ApplicationSurfacePost
 shdHeat
-PlayerXMovement
-PlayerXMovementExt
+PlayerMoveX
+
 
 PlayerStateHomingFlight
 PlayerBoost

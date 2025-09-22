@@ -1,6 +1,6 @@
 /// PlayerStateHomingFlight()
 
-PlayerXMovement();
+PlayerMoveX();
 
 xDirection = esign(xSpeed, xDirection);
 

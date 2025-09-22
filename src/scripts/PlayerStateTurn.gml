@@ -1,6 +1,6 @@
 /// PlayerStateTurn()
 
-PlayerXMovement();
+PlayerMoveX();
 if (stateTimer > 8) {
     xDirection = -xDirection;
     PlayerSetState(PlayerStateNormal);

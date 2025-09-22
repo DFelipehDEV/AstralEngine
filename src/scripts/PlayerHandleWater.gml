@@ -10,7 +10,7 @@ _waterBubble = PlayerCollisionHitbox(x, y, objWaterBubble);
 if (_waterHorizon != noone) {
     // Enter in water mode
     if (y > _waterHorizon.y && yprevious < _waterHorizon.y && PlayerCollisionObjectMain(x, y, objWater)) {
-        PlayerPhysicModeSet(PhysicsWater);
+        PlayerSetPhysicsMode(PhysicsWater);
 
         DummyEffectCreate(x, _waterHorizon.y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
         PlaySoundSingle(sndWaterSplash, global.soundVolume, 1);
@@ -19,7 +19,7 @@ if (_waterHorizon != noone) {
 
 if (physicsMode == PhysicsWater) {
     if (!PlayerCollisionObjectMain(x, y, objWater)) {
-        PlayerPhysicModeSet(PhysicsNormal);
+        PlayerSetPhysicsMode(PhysicsNormal);
         underwaterDrownFrame = 0;
         underwaterTime = 0;
 
@@ -32,7 +32,7 @@ if (physicsMode == PhysicsWater) {
 else {
     // Water mode
     if (_waterTrigger != noone && !_waterHorizon) {
-        PlayerPhysicModeSet(PhysicsWater);
+        PlayerSetPhysicsMode(PhysicsWater);
 
         PlaySoundSingle(sndWaterSplash, global.soundVolume, 1);
     }

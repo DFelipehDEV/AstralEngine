@@ -3,6 +3,14 @@
 
 // Air dash
 if (keyActionPressed && !ground && canAirdash && !instance_exists(homingReticle)) {
+    if (keyLeft) {
+        xSpeed = -11;
+    } else if (keyRight) {
+        xSpeed = 11;
+    } else {
+        xSpeed = 11 * xDirection;
+    }
+    ySpeed = 0;
     PlayerSetState(PlayerStateAirdash);
     trailTimer = 60;
 

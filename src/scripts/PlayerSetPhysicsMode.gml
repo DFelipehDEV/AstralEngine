@@ -1,4 +1,4 @@
-/// PlayerPhysicModeSet(PhysicMode)
+/// PlayerSetPhysicsMode(physicsMode)
 physicsMode = argument0;
 script_execute(characterPhysics);
 switch (physicsMode) {

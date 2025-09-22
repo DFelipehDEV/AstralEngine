@@ -1,4 +1,4 @@
-/// PlayMusic(Music, Pitch, Loop part, Loop start, ShouldLoop)
+/// PlayMusic(music, pitch, loopPart, loopStart, loop)
 
 if (audio_isplaying(argument0)) exit;
 

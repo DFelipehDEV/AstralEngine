@@ -2,19 +2,19 @@
 
 animationSpeed = min(0.18 + abs(xSpeed)/20, 0.4);
 
-PlayerXMovementExt(xAcceleration, 0, xTopSpeed);
+PlayerMoveX(xAcceleration, 0, xTopSpeed);
 
 var _pitch;
 _pitch = min(max(0.6, abs(xSpeed)/8), 1.2);
 if (grind == 0) {
     if (!audio_isplaying(sndPlayerGrind)) {
-        grind = PlaySoundExt(sndPlayerGrind, global.soundVolume, _pitch, false);
+        grind = PlaySound(sndPlayerGrind, global.soundVolume, _pitch, false);
     }
 }
 else {
     audio_set_pitch(grind, _pitch);
     if (!audio_isplaying(sndPlayerGrind)) {
-        grind = PlaySoundExt(sndPlayerGrind, global.soundVolume, _pitch, false);
+        grind = PlaySound(sndPlayerGrind, global.soundVolume, _pitch, false);
     }
 }
 

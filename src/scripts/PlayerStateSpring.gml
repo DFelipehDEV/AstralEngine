@@ -1,6 +1,6 @@
 /// PlayerStateSpring()
 
-PlayerXMovement();
+PlayerMoveX();
 // Animations
 if (animation != "SPRING_TRICK_HORIZONTAL" && animation != "SPRING_TRICK_VERTICAL" && animation != "FLING" && animation != "LANDING" && animation != "FALL") {
     if (stateTimer < 15) {

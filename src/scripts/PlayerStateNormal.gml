@@ -1,6 +1,6 @@
 /// PlayerStateNormal()
 
-PlayerXMovement();
+PlayerMoveX();
 // Check if we are in the ground
 if (ground) {
     // Animation speed while moving on normal state
@@ -32,7 +32,7 @@ if (ground) {
 
     // Skid!
     if ((xSpeed >= 4 && keyLeft) || (xSpeed <= -4 && keyRight)) {
-        PlayerTerrainSndUpdate();
+        PlayerHandleFootstepSensors();
         PlayerSetState(PlayerStateSkid);
         PlaySound(terrainSound[TerSkid]);
     }

@@ -25,7 +25,7 @@ if (allowKeysTimer == 0) {
         // Create rainbow effect
         instance_create(x, y, objRainbow);
 
-        PlaySoundExt(sndTrick, global.soundVolume, 1 + (trickCombo * 0.0441), 0);
+        PlaySound(sndTrick, 1, 1 + (trickCombo * 0.0441), 0);
 
         if (global.timeScale == 0.4) {
             global.timeScale = 1;

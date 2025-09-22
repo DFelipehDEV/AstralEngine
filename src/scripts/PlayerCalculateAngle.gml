@@ -1,4 +1,4 @@
-/// PlayerGetAngle(x, y, angle)
+/// PlayerCalculateAngle(x, y, angle)
  // Detects the angle using two points that approach the ground.
 
 var _x, _y, _angle;

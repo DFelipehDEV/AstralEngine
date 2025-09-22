@@ -1,12 +1,8 @@
 |README
 |Init
 +Animation
-	+Lists
-		|AnimationIndexSonic
-		|AnimationIndexSuperSonic
 	|AnimationInit
 	|AnimationSystem
-	|AnimationUpdate
 	|AnimationSet
 	|AnimationApply
 +Body
@@ -55,32 +51,28 @@
 	+Util
 		|PlayerAddEnergy
 		|PlayerAirdash
-		|PlayerAirdashReset
 		|PlayerAngleLocals
 		|PlayerAnimationNormal
 		|PlayerBoost
+		|PlayerCalculateAngle
 		|PlayerFlight
-		|PlayerGetAngle
-		|PlayerGlobalsReset
 		|PlayerHomingAttack
 		|PlayerHomingReset
 		|PlayerHurt
 		|PlayerJump
 		|PlayerLightspeed
-		|PlayerPhysicModeSet
-		|PlayerPhysicsSonic
-		|PlayerPhysicsSuperSonic
-		|PlayerSensorPosUpdate
+		|PlayerMoveX
+		|PlayerResetAirdash
+		|PlayerResetGlobalVariables
+		|PlayerResetSensors
 		|PlayerSetAngle
 		|PlayerSetCharacter
+		|PlayerSetGround
+		|PlayerSetPhysicsMode
 		|PlayerSetShield
 		|PlayerSetState
 		|PlayerSetVoicelines
 		|PlayerStomp
-		|PlayerTerrainSndUpdate
-		|PlayerXMovement
-		|PlayerXMovementExt
-		|PlayerSetGround
 	+Action
 		|PlayerStateNormal
 		|PlayerStateSpring
@@ -111,32 +103,38 @@
 		|PlayerStateHurt
 		|PlayerStateDead
 	+Object Collision
-		|PlayerHandleLayers
-		|PlayerHandleRings
-		|PlayerHandleSprings
-		|PlayerHandleEnemy
-		|PlayerHandleHurt
-		|PlayerHandleSpikes
-		|PlayerHandleProjectile
-		|PlayerHandleCheckpoint
-		|PlayerHandleDash
-		|PlayerHandleCrane
-		|PlayerHandleWallJump
-		|PlayerHandleWayLauncher
-		|PlayerHandleRails
-		|PlayerHandleWater
-		|PlayerHandleGimmicks
 		|PlayerHandleBox
+		|PlayerHandleCheckpoint
+		|PlayerHandleCrane
+		|PlayerHandleDash
 		|PlayerHandleDestructive
+		|PlayerHandleEnemy
+		|PlayerHandleFootstepSensors
+		|PlayerHandleGimmicks
+		|PlayerHandleHurt
+		|PlayerHandleLayers
+		|PlayerHandleProjectile
+		|PlayerHandleRails
+		|PlayerHandleRings
+		|PlayerHandleSpikes
+		|PlayerHandleSprings
+		|PlayerHandleWallJump
+		|PlayerHandleWater
+		|PlayerHandleWayLauncher
+	+Sonic
+		|AnimationIndexSonic
+		|PlayerPhysicsSonic
+	+Super Sonic
+		|AnimationIndexSuperSonic
+		|PlayerPhysicsSuperSonic
 +Shaders
 	|shdHeat
 	|shdColorSwap
 	|ApplicationSurfacePost
 +Sound
 	|PlaySound
-	|PlayVoice
-	|PlaySoundExt
 	|PlaySoundSingle
+	|PlayVoice
 	|PlayMusic
 +Utils
 	|DrawTrail

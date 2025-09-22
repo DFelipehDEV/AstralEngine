@@ -42,7 +42,7 @@ if (player == noone) {
         dir = 0.01;
         player = noone;
         audio_stop(sndWayLauncherWait);
-        PlaySoundExt(sndWayLauncherLaunch, global.soundVolume, 0.85, false);
+        PlaySound(sndWayLauncherLaunch, 1, 0.85);
         exit;
     }
 

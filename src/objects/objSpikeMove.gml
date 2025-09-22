@@ -16,7 +16,7 @@ applies_to=self
 /// Drill
 
 if (floor(abs(y - _yStart)) == 21) {
-    PlaySoundExt(sndSpikeMove, global.soundVolume - 0.1, 1, false);
+    PlaySound(sndSpikeMove, 0.9);
 }
 y = lerp(y, _yStart - round(((global.roomTick/6) mod 26)/29)*29, 0.5);
 #define Other_4
