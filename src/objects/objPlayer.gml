@@ -613,6 +613,7 @@ if (state != PlayerStateDead) {
     PlayerHandleWallJump();
     PlayerHandleBox();
     PlayerHandleDestructive();
+    PlayerHandleMonitor();
 }
 #define Step_1
 /*"/*'/**//* YYD ACTION

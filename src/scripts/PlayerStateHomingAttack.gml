@@ -10,7 +10,10 @@ if (stateExiting) {
 
 canHome = true;
 afterimageTimer = 15;
-if (!instance_exists(homingReticle)){ StatesSet(PlayerStateNormal); exit; }
+if (!instance_exists(homingReticle)){
+    PlayerResetHomingAttack();
+    exit;
+}
 
 animationSpeed = 0.55 + abs(xSpeed)/17;
 

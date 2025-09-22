@@ -97,7 +97,7 @@ DrawBackgroundRepeatVertical
 
 TrailUpdate
 
-PlayerHomingReset
+
 
 PlayerHandleBox
 
@@ -187,3 +187,5 @@ StatesUpdate
 StatesSet
 StateTemplate
 PlayerStateSpringTrick
+PlayerResetHomingAttack
+PlayerHandleMonitor

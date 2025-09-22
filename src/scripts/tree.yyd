@@ -57,7 +57,6 @@
 		|PlayerCalculateAngle
 		|PlayerFlight
 		|PlayerHomingAttack
-		|PlayerHomingReset
 		|PlayerHurt
 		|PlayerJump
 		|PlayerLightspeed
@@ -65,6 +64,7 @@
 		|PlayerResetAirdash
 		|PlayerResetGlobalVariables
 		|PlayerResetSensors
+		|PlayerResetHomingAttack
 		|PlayerSetAngle
 		|PlayerSetCharacter
 		|PlayerSetGround
@@ -113,6 +113,7 @@
 		|PlayerHandleGimmicks
 		|PlayerHandleHurt
 		|PlayerHandleLayers
+		|PlayerHandleMonitor
 		|PlayerHandleProjectile
 		|PlayerHandleRails
 		|PlayerHandleRings

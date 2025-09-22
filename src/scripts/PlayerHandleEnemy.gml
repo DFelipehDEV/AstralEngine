@@ -5,9 +5,6 @@ _enemy = PlayerCollisionHitbox(x, y, objEnemy);
 if (_enemy != noone) {
     if (canAttack) {
         if (_enemy.invincibilityTimer == 0) {
-            // Stop homing if the player was homing
-            PlayerHomingReset(PlayerStateHomingFlight, 0, -6.7, 35, _enemy.x, _enemy.y);
-
             // Bounce on the enemy
             if (state == PlayerStateJump && ySpeed > 0) {
                 ySpeed = -ySpeed * 1.1;
@@ -72,6 +69,7 @@ if (_enemy != noone) {
             DummyEffectCreate(x, y, sprHit, 0.45, 0, -0.1, bm_add, 1, 1, 1, 0);
             PlaySound(choose(sndEnemyHit, sndEnemyHit2, sndEnemyHit3));
             PlayerAddEnergy(8);
+            PlayerResetHomingAttack();
         }
     } else {
         PlayerHurt();

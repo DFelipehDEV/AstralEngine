@@ -15,6 +15,7 @@ angle[0] = 0;
 angle[1] = 0;
 
 target = noone;
+destroyed = false;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -24,7 +25,7 @@ applies_to=self
 /// Destroy
 
 DeactivateExceptionsRemove(id);
-#define Step_0
+#define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603

@@ -35,7 +35,7 @@ applies_to=self
 /// Shoot
 
 // Release projectile
-if (state == "NORMAL") {
+if (state == "NORMAL" && instance_exists(target)) {
     xSpeed = 0;
 
     shootTimer = 80;
