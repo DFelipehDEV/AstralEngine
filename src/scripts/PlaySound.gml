@@ -19,7 +19,7 @@ switch (argument_count) {
 }
 
 if (_single) {
-    return audio_play_single_ext(sound, _volume * global.soundVolume, 0, _pitch, _loop);
+    return audio_play_single_ext(_sound, _volume * global.soundVolume, 0, _pitch, _loop);
 }
 
 return audio_play_ext(_sound, _volume * global.soundVolume, 0, _pitch, _loop);
