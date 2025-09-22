@@ -170,3 +170,11 @@
 	|StatesUpdate
 	|StatesSet
 	|StateTemplate
++Enemy
+	+Eggpawn
+		+States
+			|EggpawnStateNormal
+			|EggpawnStateTurn
+			|EggpawnStateSpotted
+			|EggpawnStateChase
+			|EggpawnStateReturn
