@@ -260,8 +260,6 @@ applies_to=self
 */
 /// Movement
 
-PlayerAngleLocals();
-
 if (canMove) {
     if (canMoveX) {
         x += (angleCos * xSpeed) * global.timeScale;

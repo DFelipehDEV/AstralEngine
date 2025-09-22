@@ -1,6 +1,5 @@
-/// PlayerSetAngle(Angle)
- // Set player angle
-
+/// PlayerSetAngle(angle)
 angle = argument0;
 angleMode = round(angle/45) mod 8;
-PlayerAngleLocals();
+angleCos = dcos(angle);
+angleSin = dsin(angle);

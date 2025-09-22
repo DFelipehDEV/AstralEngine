@@ -52,9 +52,9 @@ if (_dashRing != noone) {
     }
 }
 
-_dashRamp = PlayerCollisionObjectMain(x, y, objDashRamp);
+_dashRamp = PlayerCollisionObjectBottom(x, y, angle, maskBig, objDashRamp);
 if (_dashRamp != noone && ground) {
-    if (!PlayerCollisionObjectMain(xprevious, yprevious, _dashRamp)) {
+    if (!PlayerCollisionObjectBottom(xprevious, yprevious, _dashRamp)) {
         if (_dashRamp.xStrength != 0) {
             xSpeed = _dashRamp.xStrength * _dashRamp.image_xscale;
         }
