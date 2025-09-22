@@ -200,3 +200,7 @@ HeavyStateSpotted
 HeavyStateChase
 HeavyStateAttack
 HeavyStateReturn
+BuzzerStateNormal
+BuzzerStateShoot
+BuzzerStateTurn
+BuzzerStateSpotted

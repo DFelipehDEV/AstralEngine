@@ -186,3 +186,8 @@
 			|HeavyStateChase
 			|HeavyStateAttack
 			|HeavyStateReturn
+	+Buzzer
+		|BuzzerStateNormal
+		|BuzzerStateTurn
+		|BuzzerStateShoot
+		|BuzzerStateSpotted
