@@ -13,13 +13,10 @@ if (animation == "SPRING") {
     image_angle = point_direction(xprevious, yprevious, x, y)-90;
 }
 
-// Check if the delay has ended
 if (allowKeysTimer == 0) {
-    // Trigger trick
     if (keyLeft || keyRight || keyUp || keyDown) {
         allowKeysTimer = 20;
 
-        // Increase combo amount
         if (trickCombo < 9) {
             trickCombo += 1;
         }
@@ -27,12 +24,8 @@ if (allowKeysTimer == 0) {
         image_index = 0;
         AnimationApply(choose("HOMED", "HOMED_2", "SPRING_TRICK_HORIZONTAL", "SPRING_TRICK_VERTICAL"));
 
-        // Get energy
         PlayerAddEnergy(7);
-
-        // Create rainbow effect
         instance_create(x, y, objRainbow);
-
         PlaySound(sndTrick, 1, 1 + (trickCombo * 0.0441), 0);
 
         global.timeScale = 1;
