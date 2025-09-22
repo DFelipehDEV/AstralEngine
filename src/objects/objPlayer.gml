@@ -181,7 +181,7 @@ trailAlpha = 0;
 starTimer = 0;
 
 // Sound
-grind = 0;
+grindSound = -1;
 
 // Afterimage
 afterImageTimer = 0;
