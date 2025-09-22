@@ -19,15 +19,6 @@ knockOnDeath = true;
 EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
 
 normalStateX = x;
-#define Alarm_1
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Start chasing the player
-
-StatesSet(EggpawnStateChase);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

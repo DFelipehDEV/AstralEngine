@@ -1,6 +1,6 @@
-/// EggpawnStateReturn()
+/// HeavyStateReturn()
 if (stateEntering) {
-    EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
+    EnemySetAnimation(sprEnemyHeavyWalk, 0.15);
     exit;
 }
 if (stateExiting) {
@@ -16,5 +16,5 @@ if (x > normalStateX) {
 }
 
 if (floorto(x, 4) == floorto(normalStateX, 4)) {
-    StatesSet(EggpawnStateNormal);
+    StatesSet(HeavyStateNormal);
 }

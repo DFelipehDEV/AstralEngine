@@ -9,22 +9,12 @@ applies_to=self
 event_inherited();
 
 image_speed = 0.15;
-turnTimer = 50;           //How long it takes to turn
-turnTimerTemp = turnTimer;    //Keep the original value on track
-state = "NORMAL";
+
+StatesInit(HeavyStateNormal);
 target = noone;
 
 hammer = false;
 normalStateX = x;
-#define Alarm_1
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Start chasing the player
-
-state = "CHASE";
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -41,139 +31,18 @@ if (canMove) {
 // Vertical movement
 if (!ground) {
     // Check if landing on solid ground
-    if (place_meeting(x, y + 1, objTerrain) && ySpeed >= 0) {
+    if (place_meeting(x, y + 2, objTerrain) && ySpeed >= 0) {
         ground = true;
         ySpeed = 0;
     }
 }
 else {
     // Check if leaving the ground
-    if (!place_meeting(x, y + 4, objTerrain)) {
+    if (!place_meeting(x, y + 5, objTerrain)) {
         ground = false;
     }
 }
 
-switch (state) {
-    case "TURN":
-        // If the turn timer is not expired, pause the enemy's movement
-        if (turnTimer > 0) {
-            turnTimer -= 1;
-            xSpeed = 0;
-        }
-        else {
-            EnemySetAnimation(sprEnemyHeavyTurn, 0.25);
-            // Check if the animation has ended
-            if (image_index >= 2) {
-                image_xscale = -image_xscale;
-                state = "NORMAL";
-                EnemySetAnimation(sprEnemyHeavyWalk, 0.15);
-            }
-        }
-        break;
+StatesUpdate(global.timeScale);
 
-    case "NORMAL":
-        normalStateX = x;
-        if (canMove) {
-            xSpeed = 1.6 * image_xscale;
-    
-            // Check if the player is in front of the enemy
-            if ((distance_to_object(objPlayer) < 140 && image_xscale == sign(objPlayer.x - x)) || (hit)) {
-                // Player was spotted
-                state = "SPOTTED";
-                target = instance_nearest(x, y, objPlayer);
-            }
-    
-            // Check if the enemy is colliding with the turn sensor
-            if (place_meeting(x, y, objEnemyTurn) && !place_meeting(xprevious, yprevious, objEnemyTurn)) {
-                turnTimer = turnTimerTemp;
-                xSpeed = 0;
-                state = "TURN";
-            }
-        }
-        break;
-
-    case "SPOTTED":
-        image_xscale = esign(objPlayer.x - x, image_xscale);
-        // Slow down the enemy's speed when in the spotted state
-        xSpeed = lerp(xSpeed, 0, 0.12);
-        // Play warning sound and spotted effect.
-        if (alarm[1] == -1) {
-            alarm[1] = 15;
-            PlaySound(sndEnemyWarn);
-            DummyEffectCreate(x - 10 * image_xscale, y - 25, sprEnemyWarn, 0.25, 0, 1, bm_normal, 1, 1, 1, 0);
-        }
-        break;
-
-    case "CHASE":
-        xSpeed = lerp(xSpeed, 3 * image_xscale, 0.1);
-
-        image_xscale = esign(target.x - x, image_xscale);
-
-        // Lost target
-        if (distance_to_object(target) > 160) {
-            state = "NORMAL";
-            target = noone;
-        }
-
-        if (distance_to_object(target) < 30) {
-            if (target.invincibility == InvincibilityNoone) {
-                xSpeed = 0;
-                state = "ATTACK";
-                PlaySound(sndWind, 1, random_range(0.5, 0.9));
-                EnemySetAnimation(sprEnemyHeavyAttack, 0.17);
-            }
-        }
-        break;
-
-    case "ATTACK":
-        if (image_index > 3 && image_index < 5) {
-            // Check if we haven't used the hammer
-            if (!hammer) {
-                hammer = true;
-                PlaySound(sndEnemyHeavyAttack);
-                with (target.cam)
-                    CameraShakeY(40);
-            }
-
-            if (collision_rectangle(x, y, x + 50, y + 32, objPlayer, false, 1)) {
-                with (target) {
-                    PlayerHurt();
-                }
-            }
-        }
-
-        // Check if the animation has ended
-        if (image_index >= 8) {
-            // Check if we are near the player or the player is dead
-            if (distance_to_object(objPlayer) > 150 || objPlayer.state == PlayerStateDead) {
-                state = "RETURN";
-                EnemySetAnimation(sprEnemyHeavyWalk, 0.15);
-            }
-            else {
-                // The player is near the enemy so we chase the player
-                state = "CHASE";
-                EnemySetAnimation(sprEnemyHeavyWalk, 0.15);
-            }
-            hammer = false;
-        }
-        break;
-
-    // State after chasing the player and returning to our original position
-    case "RETURN":
-        // Go back to our original position
-        if (x > normalStateX) {
-            xSpeed = -1.6;
-            image_xscale = -1;
-        }
-        else if (x < normalStateX) {
-            xSpeed = 1.6;
-            image_xscale = 1;
-        }
-
-        // Check if we are on the previous position before chasing the player
-        if (floorto(x, 4) == floorto(normalStateX, 4)) {
-            // Start patrolling
-            state = "NORMAL";
-        }
-        break;
-}
+x = clamp(x, objCamera.leftBorder, objCamera.rightBorder);

@@ -1,4 +1,4 @@
-/// EggpawnStateSpotted()
+/// HeavyStateSpotted()
 if (stateEntering) {
     PlaySound(sndEnemyWarn);
     DummyEffectCreate(
@@ -13,6 +13,9 @@ if (stateExiting) {
     exit;
 }
 
+image_xscale = esign(objPlayer.x - x, image_xscale);
+xSpeed = lerp(xSpeed, 0, 0.12);
+
 if (stateTimer > 20) {
-    StatesSet(EggpawnStateChase);
+    StatesSet(HeavyStateChase);
 }

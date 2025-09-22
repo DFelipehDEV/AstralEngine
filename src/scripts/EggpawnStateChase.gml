@@ -7,10 +7,9 @@ if (stateExiting) {
     exit;
 }
 
-xSpeed = 4.5 * image_xscale;
+xSpeed = lerp(xSpeed, 4.5 * image_xscale, 0.1);
+image_xscale = esign(target.x - x, image_xscale);
 
-if ((distance_to_object(target) > 140
-     || distance_to_object(target) <= 140 && image_xscale != sign(target.x - x))
-     || abs(x - normalStateX) > 350) {
+if (distance_to_object(target) > 160 || abs(x - normalStateX) > 350) {
     StatesSet(EggpawnStateReturn);
 }

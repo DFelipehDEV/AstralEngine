@@ -178,3 +178,11 @@
 			|EggpawnStateSpotted
 			|EggpawnStateChase
 			|EggpawnStateReturn
+	+Heavy
+		+States
+			|HeavyStateNormal
+			|HeavyStateTurn
+			|HeavyStateSpotted
+			|HeavyStateChase
+			|HeavyStateAttack
+			|HeavyStateReturn

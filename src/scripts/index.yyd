@@ -194,3 +194,9 @@ EggpawnStateTurn
 EggpawnStateSpotted
 EggpawnStateChase
 EggpawnStateReturn
+HeavyStateNormal
+HeavyStateTurn
+HeavyStateSpotted
+HeavyStateChase
+HeavyStateAttack
+HeavyStateReturn
