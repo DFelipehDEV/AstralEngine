@@ -127,5 +127,7 @@ if (instance_exists(player)) {
     + "#xDirection:" + string(player.xDirection)
     + "#state:" + script_get_name(player.state)
     + "#previousState:" + script_get_name(player.previousState)
+    + "#stateTimer:" + string(player.stateTimer)
+    + "#animation:" + player.animation
     draw_text(view_xview[0] + 333, view_yview[0] + 103, _playerText);
 }

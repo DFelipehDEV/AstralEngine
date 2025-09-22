@@ -1,5 +1,14 @@
 /// PlayerStateGrind()
+if (stateEntering) {
+    AnimationApply("GRIND");
+    grind = 0;
+    exit;
+}
 
+if (stateExiting) {
+    audio_stop(sndPlayerGrind);
+    exit;
+}
 animationSpeed = min(0.18 + abs(xSpeed)/20, 0.4);
 
 PlayerMoveX(xAcceleration, 0, xTopSpeed);
@@ -38,7 +47,7 @@ if (!keyDown) {
 if (!PlayerCollisionObjectBottom(x, y, angle, maskBig, objRail) && !PlayerCollisionObjectMain(x, y, objRail)
 && !PlayerCollisionObjectBottom(x, y, angle, maskBig, objRailLayer0) && !PlayerCollisionObjectMain(x, y, objRailLayer0)
 && !PlayerCollisionObjectBottom(x, y, angle, maskBig, objRailLayer1) && !PlayerCollisionObjectMain(x, y, objRailLayer1)) {
-    PlayerSetState(PlayerStateNormal);
+    StatesSet(PlayerStateNormal);
 }
 
 xDirection = esign(xSpeed, xDirection);

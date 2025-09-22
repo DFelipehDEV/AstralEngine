@@ -1,8 +1,16 @@
 /// PlayerStateHomingAttack()
+if (stateEntering) {
+    PlayerResetAirdash();
+    AnimationApply("JUMP");
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 canHome = true;
 afterimageTimer = 15;
-if (!instance_exists(homingReticle)){ PlayerSetState(PlayerStateNormal); exit; }
+if (!instance_exists(homingReticle)){ StatesSet(PlayerStateNormal); exit; }
 
 animationSpeed = 0.55 + abs(xSpeed)/17;
 
@@ -18,5 +26,5 @@ else {
     // Stop homing attack
     xSpeed = 0;
     ySpeed = 0;
-    PlayerSetState(PlayerStateNormal);
+    StatesSet(PlayerStateNormal);
 }

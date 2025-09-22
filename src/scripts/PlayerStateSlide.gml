@@ -1,6 +1,14 @@
 /// PlayerStateSlide()
+if (stateEntering) {
+    slideCancelTimer = 35;
+    AnimationApply("SLIDE");
+    exit;
+}
 
-// Animation speed
+if (stateExiting) {
+    audio_stop(sndPlayerSlide);
+    exit;
+}
 animationSpeed = 0.2 + abs(xSpeed)/18;
 
 if (distance_to_object(objSlidepassSensor) > 15) {
@@ -21,7 +29,7 @@ if (distance_to_object(objSlidepassSensor) > 15) {
 
     // Back to the normal state if the player stopped or is not in the ground anymore
     if (!ground || floor(xSpeed) == 0 || !keyDown && slideCancelTimer == 0) {
-        PlayerSetState(PlayerStateNormal);
+        StatesSet(PlayerStateNormal);
     }
 }
 else {

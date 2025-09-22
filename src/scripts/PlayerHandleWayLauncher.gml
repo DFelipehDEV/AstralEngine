@@ -11,7 +11,7 @@ if (state != PlayerStateHurt && !ground) {
             y = _waylauncher.y;
             visible = false;
 
-            PlayerSetState(PlayerStateWaylauncher);
+            StatesSet(PlayerStateWaylauncher);
 
             _waylauncher.player = id;
 

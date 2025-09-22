@@ -32,7 +32,7 @@ if (!pushingWall) {
             if (!ground && (_aircanBoost)) {
                 // Air boost dash
                 boosting = true;
-                PlayerSetState(PlayerStateBoostAir);
+                StatesSet(PlayerStateBoostAir);
 
                 if (boostAura == noone) {
                     boostAura = instance_create(x, y, objBoost);

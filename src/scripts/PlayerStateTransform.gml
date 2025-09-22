@@ -1,9 +1,16 @@
 /// PlayerStateTransform()
+if (stateEntering) {
+    AnimationApply("TRANSFORM");
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 ySpeed = -0.1;
 if (animation == "TRANSFORM") {
     if (stateTimer > 60) {
-        PlayerSetState(PlayerStateNormal);
+        StatesSet(PlayerStateNormal);
         PlayerSetCharacter(CharacterSuperSonic);
         alarm[1] = 60;
     }

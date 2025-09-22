@@ -1,4 +1,13 @@
 /// PlayerStateJump()
+if (stateEntering) {
+    jumpAirTimer = 0;
+    PlayerResetAirdash();
+    AnimationApply("JUMP");
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 PlayerMoveX();
 // Animations
@@ -34,7 +43,7 @@ if(ySpeed < 0 && ySpeed >= -4) {
 }
 
 if (global.playerRings >= 50 && keySpecial3Pressed && character == CharacterSonic) {
-    PlayerSetState(PlayerStateTransform);
+    StatesSet(PlayerStateTransform);
     xSpeed = 0;
 }
 
@@ -46,5 +55,5 @@ PlayerBoost(true);
 
 // Reset after touching the ground
 if (ground) {
-    PlayerSetState(PlayerStateNormal);
+    StatesSet(PlayerStateNormal);
 }

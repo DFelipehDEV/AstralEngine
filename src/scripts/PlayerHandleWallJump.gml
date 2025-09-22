@@ -6,7 +6,7 @@ if ((state == PlayerStateJump || state == PlayerStateNormal || state == PlayerSt
 
     // Check if its going on the direction of a left wall and touching the trigger
     if (_wallL != noone && xDirection == -1 && xSpeed <= 0) {
-        PlayerSetState(PlayerStateWalljump)
+        StatesSet(PlayerStateWalljump)
 
         xDirection = 1;
         PlaySound(sndGrab, 1, 0.8);
@@ -16,7 +16,7 @@ if ((state == PlayerStateJump || state == PlayerStateNormal || state == PlayerSt
 
     // Check if its going on the direction of a right wall and touching the trigger
     if (_wallR != noone && xDirection == 1 && xSpeed >= 0) {
-        PlayerSetState(PlayerStateWalljump)
+        StatesSet(PlayerStateWalljump)
 
         xDirection = -1;
         PlaySound(sndGrab, 1, 0.8);

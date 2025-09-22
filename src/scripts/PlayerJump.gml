@@ -4,8 +4,9 @@ if (!PlayerCollisionTop(x, y, angle, maskBig) && keyActionPressed) {
         ySpeed = angleCos*(jumpStrength/2) - angleSin * xSpeed/1.8;
         xSpeed = angleCos*xSpeed + angleSin*jumpStrength;
         PlayerSetAngle(0);
+        PlayerSetGround(false);
     }
-    PlayerSetState(PlayerStateJump);
+    StatesSet(PlayerStateJump);
 
     PlaySound(sndPlayerJump);
     PlaySound(sndPlayerSpin);

@@ -40,7 +40,7 @@ if (_dashRing != noone) {
             trickCombo = 0;
         }
 
-        PlayerSetState(_dashRing.playerAction);
+        StatesSet(_dashRing.playerAction);
         PlayerSetAngle(0);
         PlayerSetGround(false);
 
@@ -64,7 +64,7 @@ if (_dashRamp != noone && ground) {
             PlayerSetGround(false);
         }
 
-        PlayerSetState(_dashRamp.playerAction);
+        StatesSet(_dashRamp.playerAction);
         PlayerSetAngle(0);
         AnimationApply("LAUNCH");
 

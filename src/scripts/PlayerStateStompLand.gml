@@ -1,4 +1,11 @@
 /// PlayerStateStompLand()
+if (stateEntering) {
+    AnimationApply("STOMP_LAND");
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 PlayerJump();
 if angleMode != 0 {
@@ -6,12 +13,10 @@ if angleMode != 0 {
     if abs(xSpeed) < 8 {
         xSpeed = 8 * sign(xSpeed);
     }
-    PlayerSetState(PlayerStateSlide);
+    StatesSet(PlayerStateSlide);
     PlaySound(sndPlayerSlide);
 }
 
-if (animation == "STOMP_LAND") {
-    if (stateTimer > 17) {
-        PlayerSetState(PlayerStateNormal);
-    }
+if (stateTimer > 17) {
+    StatesSet(PlayerStateNormal);
 }

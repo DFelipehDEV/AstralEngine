@@ -11,7 +11,7 @@ if (keyActionPressed && !ground && canAirdash && !instance_exists(homingReticle)
         xSpeed = 11 * xDirection;
     }
     ySpeed = 0;
-    PlayerSetState(PlayerStateAirdash);
+    StatesSet(PlayerStateAirdash);
     trailTimer = 60;
 
     PlaySound(sndPlayerHome);

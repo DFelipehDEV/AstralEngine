@@ -38,7 +38,7 @@ if (keySpecial3Pressed) {
     trickCombo = 0;
     PlayerAddEnergy(21);
 
-    PlayerSetState(PlayerStateSpring);
+    StatesSet(PlayerStateSpring);
     AnimationApply("SPRING_TRICK_HORIZONTAL");
 
     global.timeScale = 1;
@@ -48,6 +48,6 @@ if (keySpecial3Pressed) {
 
 if (ground) {
     global.timeScale = 1;
-    PlayerSetState(PlayerStateNormal);
+    StatesSet(PlayerStateNormal);
     allowKeysTimer = 0;
 }

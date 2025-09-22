@@ -95,7 +95,7 @@ if (!active) {
         allowKeys = false;
         keyRight = true;
         goal = true;
-        PlayerSetState(PlayerStateNormal);
+        StatesSet(PlayerStateNormal);
     }
 
     if (player.cam != noone) {

@@ -1,4 +1,11 @@
 /// PlayerStateSpring()
+if (stateEntering) {
+    AnimationApply("SPRING");
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 PlayerMoveX();
 // Animations
@@ -57,5 +64,5 @@ PlayerStomp();
 
 // Reset after touching the ground
 if (ground) {
-    PlayerSetState(PlayerStateNormal);
+    StatesSet(PlayerStateNormal);
 }

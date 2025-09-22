@@ -4,7 +4,7 @@ PlayerMoveX(xAcceleration, xFriction, xFriction * 1.7);
 corkscrewObject = PlayerCollisionObjectMain(x, y, objCorkscrew);
 
 if (abs(xSpeed) < 4 || corkscrewObject == noone) {
-    PlayerSetState(PlayerStateNormal);
+    StatesSet(PlayerStateNormal);
 }
 else {
     var _relativePosition, _angleInCorkscrew;

@@ -1,8 +1,15 @@
 /// PlayerStateLightspeed()
+if (stateEntering) {
+    AnimationApply("SPRING");
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 afterimageTimer = 15;
 if (distance_to_object(objRing) > 90 || !instance_exists(objRing) || ground) {
-    PlayerSetState(PlayerStateNormal);
+    StatesSet(PlayerStateNormal);
     xSpeed /= 1.65;
     ySpeed /= 1.2;
 }

@@ -16,7 +16,7 @@ if (invincibilityTimer == 0 && invincibility != InvincibilityHurt && character !
     // Check if the player has a shield
     if (shield) {
         shield = ShieldNoone;
-        PlayerSetState(PlayerStateHurt);
+        StatesSet(PlayerStateHurt);
 
         instance_destroy_id(shieldInstance);
         PlayVoice(voiceline[5]);
@@ -32,7 +32,7 @@ if (invincibilityTimer == 0 && invincibility != InvincibilityHurt && character !
                 RingsDropHyper(true, max(1, floor(min(global.playerRings/8, 8))));
 
                 global.playerRings = 0;
-                PlayerSetState(PlayerStateHurt);
+                StatesSet(PlayerStateHurt);
                 PlayVoice(voiceline[5]);
             }
             else {
@@ -49,12 +49,12 @@ if (invincibilityTimer == 0 && invincibility != InvincibilityHurt && character !
                     global.playerRings = floor(global.playerRings*0.4);
                 }
 
-                PlayerSetState(PlayerStateHurt);
+                StatesSet(PlayerStateHurt);
                 PlayVoice(voiceline[5]);
             }
         }
         else {
-            PlayerSetState(PlayerStateDead);
+            StatesSet(PlayerStateDead);
             global.playerRings = 0;
         }
     }

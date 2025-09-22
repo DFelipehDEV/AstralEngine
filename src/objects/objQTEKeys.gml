@@ -73,7 +73,7 @@ if (qteWon == 0) {
         }
         if (image_alpha <= 0.1) {
             with (player) {
-                PlayerSetState(PlayerStateHomingFlight);
+                StatesSet(PlayerStateHomingFlight);
                 xSpeed = other.qteFailedXSpeed;
                 ySpeed = other.qteFailedYSpeed;
                 allowKeysTimer = 50;
@@ -185,7 +185,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         PlaySound(sndQTEWin);
                         
                         with (player) {
-                            PlayerSetState(PlayerStateHomingFlight);
+                            StatesSet(PlayerStateHomingFlight);
                             AnimationApply("HOMED");
                             allowKeysTimer = 60;
                         }
@@ -204,7 +204,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         PlaySound(sndQTEWin);
                         
                         with (player) {
-                            PlayerSetState(PlayerStateHomingFlight);
+                            StatesSet(PlayerStateHomingFlight);
                             AnimationApply("HOMED");
                             allowKeysTimer = 60;
                         }
@@ -223,7 +223,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         PlaySound(sndQTEWin);
                         
                         with (player) {
-                            PlayerSetState(PlayerStateHomingFlight);
+                            StatesSet(PlayerStateHomingFlight);
                             AnimationApply("HOMED");
                             allowKeysTimer = 60;
                         }

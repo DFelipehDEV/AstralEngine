@@ -1,9 +1,19 @@
 /// PlayerStateTurn()
+if (stateEntering) {
+    keyRight = false;
+    keyLeft = false;
+    xSpeed = 0;
+    AnimationApply("TURN");
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 PlayerMoveX();
 if (stateTimer > 8) {
     xDirection = -xDirection;
-    PlayerSetState(PlayerStateNormal);
+    StatesSet(PlayerStateNormal);
     PlayerAnimationNormal();
 }
 if (ground)

@@ -1,4 +1,11 @@
 /// PlayerStateLookup()
+if (stateEntering) {
+    AnimationApply("LOOK_UP");
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 // Reset
 if (!keyUp || keyDown) {
@@ -9,7 +16,7 @@ if (!keyUp || keyDown) {
     image_index = max(image_index - 0.3, animationStartFrame);
 
     if (floor(image_index) == 0) {
-        PlayerSetState(PlayerStateNormal);
+        StatesSet(PlayerStateNormal);
     }
 }
 

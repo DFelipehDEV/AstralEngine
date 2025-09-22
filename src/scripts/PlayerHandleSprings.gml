@@ -8,7 +8,7 @@ if (_spring != noone) {
         xSpeed = _spring.strength * dcos(_spring.image_angle + 90);
         ySpeed = -_spring.strength * dsin(_spring.image_angle + 90);
         if (abs(ySpeed) > 0.5) {
-            PlayerSetState(PlayerStateSpring);
+            StatesSet(PlayerStateSpring);
             PlayerSetGround(false);
             PlayerSetAngle(0);
         }

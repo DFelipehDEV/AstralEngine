@@ -1,4 +1,10 @@
 /// PlayerStateNormal()
+if (stateEntering) {
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 PlayerMoveX();
 // Check if we are in the ground
@@ -12,7 +18,7 @@ if (ground) {
     // Turn!
     if (abs(xSpeed) < 1) {
         if ((xDirection == -1 && keyRight) || (xDirection == 1 && keyLeft)) {
-            PlayerSetState(PlayerStateTurn);
+            StatesSet(PlayerStateTurn);
             exit;
         }
     }
@@ -21,26 +27,26 @@ if (ground) {
     if (xSpeed == 0) {
         // Look up!
         if (!keyDown && keyUp) {
-            PlayerSetState(PlayerStateLookup);
+            StatesSet(PlayerStateLookup);
         }
 
         // Crouch!
         if (keyDown && !keyUp) {
-            PlayerSetState(PlayerStateCrouch);
+            StatesSet(PlayerStateCrouch);
         }
     }
 
     // Skid!
     if ((xSpeed >= 4 && keyLeft) || (xSpeed <= -4 && keyRight)) {
         PlayerHandleFootstepSensors();
-        PlayerSetState(PlayerStateSkid);
+        StatesSet(PlayerStateSkid);
         PlaySound(terrainSound[TerSkid]);
     }
 
     // Slide!
     if (abs(xSpeed) > 1 && keyDown) {
         PlayVoice(choose(voiceline[3], voiceline[2]));
-        PlayerSetState(PlayerStateSlide);
+        StatesSet(PlayerStateSlide);
 
         PlaySound(sndPlayerSlide);
     }

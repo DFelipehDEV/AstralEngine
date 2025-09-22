@@ -1,4 +1,11 @@
 /// PlayerStateSkid()
+if (stateEntering) {
+    AnimationApply("SKID");
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 // Decelerate while going to the left
 if (xSpeed < 0) {
@@ -6,7 +13,7 @@ if (xSpeed < 0) {
 
     // Back to the normal state if the player stopped or is not in the ground anymore or is not holding the key anymore
     if (xSpeed >= 0 || !keyRight || !ground) {
-        PlayerSetState(PlayerStateNormal);
+        StatesSet(PlayerStateNormal);
     }
 }
 // Decelerate while going to the right
@@ -16,13 +23,13 @@ if (xSpeed > 0) {
 
     // Back to the normal state if the player stopped or is not in the ground anymore or is not holding the key anymore
     if (xSpeed <= 0 || !keyLeft || !ground) {
-        PlayerSetState(PlayerStateNormal);
+        StatesSet(PlayerStateNormal);
     }
 }
 
 // Stop if the speed is 0
 if (xSpeed == 0) {
-    PlayerSetState(PlayerStateNormal);
+    StatesSet(PlayerStateNormal);
 }
 
 // Create dust effect

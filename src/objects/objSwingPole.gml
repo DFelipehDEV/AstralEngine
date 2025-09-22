@@ -32,7 +32,7 @@ if (active) {
 
         // Jump
         if (keyActionPressed) {
-            PlayerSetState(PlayerStateJump);
+            StatesSet(PlayerStateJump);
             xSpeed = dcos(_rot)*13*xDirection;
             ySpeed = -dsin(_rot)*10*xDirection;
             x += xSpeed;

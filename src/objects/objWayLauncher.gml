@@ -37,7 +37,7 @@ if (player == noone) {
         // After the timer ends, kick out player
         with (player) {
             visible = true;
-            PlayerSetState(PlayerStateHurt);
+            StatesSet(PlayerStateHurt);
         }
         dir = 0.01;
         player = noone;
@@ -80,7 +80,7 @@ if (player == noone) {
         // Launch
         if (player.keyActionPressed) {
             with (player) {
-                PlayerSetState(PlayerStateSpring);
+                StatesSet(PlayerStateSpring);
                 xSpeed = 9 * -dcos(other.dir - 90);
                 ySpeed = 9 * dsin(other.dir - 90);
                 xDirection = 1;

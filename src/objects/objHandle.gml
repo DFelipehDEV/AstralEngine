@@ -35,7 +35,7 @@ if (pull) {
         vspeed = 0;
         with (player) {
             ySpeed = -6;
-            PlayerSetState(PlayerStateNormal);
+            StatesSet(PlayerStateNormal);
             y -= 16;
             canMove = true;
         }

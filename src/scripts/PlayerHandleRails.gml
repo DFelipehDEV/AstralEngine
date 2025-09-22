@@ -11,6 +11,6 @@ if (state != PlayerStateGrind) {
     || (_railLayer0 != noone && terrainLayer == 0)
     || (_railLayer1 != noone && terrainLayer == 1)) && ground {
         PlaySound(sndPlayerGrindLand);
-        PlayerSetState(PlayerStateGrind);
+        StatesSet(PlayerStateGrind);
     }
 }

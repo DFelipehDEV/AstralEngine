@@ -1,17 +1,24 @@
 /// PlayerStateCrouch()
+if (stateEntering) {
+    AnimationApply("CROUCH");
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 // Reset
 if (!keyDown || keyUp) {
     image_index = max(image_index - 0.25, animationStartFrame);
     animationSpeed = 0;
     if (image_index <= 0.25) {
-        PlayerSetState(PlayerStateNormal);
+        StatesSet(PlayerStateNormal);
     }
 }
 else {
     // Spindash!
     if (keyActionPressed) {
-        PlayerSetState(PlayerStateSpindash);
+        StatesSet(PlayerStateSpindash);
 
         // Create charge effect
         with (instance_create(x, y, objSpindashCharge)) {

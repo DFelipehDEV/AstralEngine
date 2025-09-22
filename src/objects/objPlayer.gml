@@ -11,9 +11,7 @@ DeactivateExceptionsAdd(id);
 event_inherited();
 
 // State
-previousState = PlayerStateNormal;
-state = PlayerStateNormal;
-stateTimer = 0;
+StatesInit(PlayerStateNormal);
 canAttack = false;
 
 // Jump
@@ -252,7 +250,7 @@ applies_to=self
 if (state != PlayerStateDead) {
     // Die at bottom of room
     if (y >= room_height) {
-        PlayerSetState(PlayerStateDead);
+        StatesSet(PlayerStateDead);
     }
 }
 /*"/*'/**//* YYD ACTION
@@ -317,7 +315,7 @@ if (canMove) {
         // Crushing
         if (bottomCollision && PlayerCollisionTop(x, y, angle, maskBig)) {
             // Kill player
-            PlayerSetState(PlayerStateDead);
+            StatesSet(PlayerStateDead);
             exit;
         }
 
@@ -391,7 +389,7 @@ if (canMove) {
         // Crushing
         if (bottomCollision && PlayerCollisionTop(x, y, angle, maskBig)) {
             // Kill player
-            PlayerSetState(PlayerStateDead);
+            StatesSet(PlayerStateDead);
             exit;                        
         }
         
@@ -486,7 +484,7 @@ if (canMove) {
         pushingWall = true;
         if (ground && state != PlayerStatePush) {
             xDirection = 1;
-            PlayerSetState(PlayerStatePush);
+            StatesSet(PlayerStatePush);
         }
     }
     else if ((xSpeed < 0 && (PlayerCollisionLeft(x, y, angle, maskBig))) || (xSpeed < 0 && PlayerCollisionObjectLeft(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
@@ -494,7 +492,7 @@ if (canMove) {
         pushingWall = true;
         if (ground && state != PlayerStatePush) {
             xDirection = -1;
-            PlayerSetState(PlayerStatePush);
+            StatesSet(PlayerStatePush);
         }
     }
     else {
@@ -578,9 +576,7 @@ if (boosting) {
     }
 }
 
-// Perform state script
-script_execute(state);
-stateTimer += global.timeScale;
+StatesUpdate(global.timeScale);
 
 canAttack = boosting ||
     invincibility == InvincibilityMonitor ||
@@ -707,7 +703,7 @@ if (physicsMode == PhysicsWater && state != PlayerStateDead) {
         if (underwaterDrownFrame == 6) {
             physicsMode = PhysicsNormal;
             global.playerRings = 0;
-            PlayerSetState(PlayerStateDead);
+            StatesSet(PlayerStateDead);
 
             PlaySound(sndPlayerDrown);
         }

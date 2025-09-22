@@ -70,7 +70,6 @@
 		|PlayerSetGround
 		|PlayerSetPhysicsMode
 		|PlayerSetShield
-		|PlayerSetState
 		|PlayerSetVoicelines
 		|PlayerStomp
 	+Action
@@ -165,3 +164,8 @@
 	|SaveGetValue
 	|SaveSetValue
 	|SaveSetRoomAsCompleted
++State Machine
+	|StatesInit
+	|StatesUpdate
+	|StatesSet
+	|StateTemplate

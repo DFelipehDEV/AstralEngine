@@ -8,7 +8,7 @@ if (state == PlayerStateHomingAttack) {
     }
     xSpeed = argument1;
     ySpeed = argument2;
-    PlayerSetState(argument0);
+    StatesSet(argument0);
 
     x = argument4;
     y = argument5;
