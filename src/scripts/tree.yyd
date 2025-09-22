@@ -72,9 +72,10 @@
 		|PlayerSetShield
 		|PlayerSetVoicelines
 		|PlayerStomp
-	+Action
+	+States
 		|PlayerStateNormal
 		|PlayerStateSpring
+		|PlayerStateSpringTrick
 		|PlayerStateTurn
 		|PlayerStateJump
 		|PlayerStateAirdash

@@ -9,7 +9,7 @@ if (stateExiting) {
 
 PlayerMoveX();
 // Animations
-if (animation != "SPRING_TRICK_HORIZONTAL" && animation != "SPRING_TRICK_VERTICAL" && animation != "FLING" && animation != "LANDING" && animation != "FALL") {
+if (animation != "FLING" && animation != "LANDING" && animation != "FALL") {
     if (stateTimer < 15) {
         AnimationApply("SPRING");
     } else {
@@ -28,34 +28,22 @@ if (animation == "SPRING") {
     xDirection = esign(xSpeed, xDirection);
 }
 
-// Spring tricks!
-if (keySpecial1Pressed && (animation == "SPRING" || animation == "LANDING")) {
-    // Horizontal trick
+if (keySpecial1Pressed) {
     if (!keyUp && (keyLeft || keyRight)) {
-        if (keyLeft && !keyRight) {
-            xSpeed = -6;
-        }
-
-        if (!keyLeft && keyRight) {
-            xSpeed = 6;
-        }
+        // Horizontal
+        var _dir;
+        _dir = (keyRight - keyLeft);
+        xSpeed = 6 * _dir;
         ySpeed = -2;
-
-        AnimationApply("SPRING_TRICK_HORIZONTAL")
-        PlaySound(sndPlayerTrick);
-        image_angle = 0;
-    }
-
-
-    // Vertical trick
-    if (!keyLeft && !keyRight && keyUp) {
+        xDirection = _dir;
+        AnimationApply("SPRING_TRICK_HORIZONTAL");
+    } else if (keyUp && !keyLeft && !keyRight) {
+        // Vertical
         xSpeed = 0;
         ySpeed = -7;
-
-        AnimationApply("SPRING_TRICK_VERTICAL")
-        PlaySound(sndPlayerTrick);
-        image_angle = 0;
+        AnimationApply("SPRING_TRICK_VERTICAL");
     }
+    StatesSet(PlayerStateSpringTrick);
 }
 
 PlayerHomingAttack();
