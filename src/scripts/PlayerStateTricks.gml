@@ -1,8 +1,10 @@
 /// PlayerStateTricks()
 if (stateEntering) {
+    global.timeScale = 0.4;
     exit;
 }
 if (stateExiting) {
+    global.timeScale = 1;
     exit;
 }
 
@@ -33,9 +35,7 @@ if (allowKeysTimer == 0) {
 
         PlaySound(sndTrick, 1, 1 + (trickCombo * 0.0441), 0);
 
-        if (global.timeScale == 0.4) {
-            global.timeScale = 1;
-        }
+        global.timeScale = 1;
     }
 }
 
@@ -47,13 +47,11 @@ if (keySpecial3Pressed) {
     StatesSet(PlayerStateSpring);
     AnimationApply("SPRING_TRICK_HORIZONTAL");
 
-    global.timeScale = 1;
     PlaySound(sndTrick);
 }
 
 
 if (ground) {
-    global.timeScale = 1;
     StatesSet(PlayerStateNormal);
     allowKeysTimer = 0;
 }

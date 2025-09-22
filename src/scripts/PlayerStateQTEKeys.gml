@@ -8,6 +8,7 @@ if (stateEntering) {
     exit;
 }
 if (stateExiting) {
+    global.timeScale = 1;
     exit;
 }
 
