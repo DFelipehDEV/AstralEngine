@@ -1,4 +1,10 @@
 /// PlayerStateCorkscrew()
+if (stateEntering) {
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 PlayerMoveX(xAcceleration, xFriction, xFriction * 1.7);
 corkscrewObject = PlayerCollisionObjectMain(x, y, objCorkscrew);

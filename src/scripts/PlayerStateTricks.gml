@@ -1,4 +1,10 @@
 /// PlayerStateTricks()
+if (stateEntering) {
+    exit;
+}
+if (stateExiting) {
+    exit;
+}
 
 afterimageTimer = 15;
 if (animation == "SPRING") {

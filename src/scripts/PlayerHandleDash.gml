@@ -64,17 +64,14 @@ if (_dashRamp != noone && ground) {
             PlayerSetGround(false);
         }
 
-        StatesSet(_dashRamp.playerAction);
+        if (_dashRamp.playerAction == PlayerStateQTEKeys) {
+            StatesSet(PlayerStateQTEKeys, _dashRamp.qteFailedXSpeed, _dashRamp.qteFailedYSpeed);
+        } else {
+            StatesSet(_dashRamp.playerAction);
+        }
+
         PlayerSetAngle(0);
         AnimationApply("LAUNCH");
-
-        if (_dashRamp.playerAction == PlayerStateQTEKeys) {
-            with (instance_create(0, 0, objQTEKeys)) {
-                player = other.id;
-                qteFailedXSpeed = _dashRamp.qteFailedXSpeed
-                qteFailedYSpeed = _dashRamp.qteFailedYSpeed
-            }
-        }
 
         xDirection = _dashRamp.image_xscale;
         x = _dashRamp.x;

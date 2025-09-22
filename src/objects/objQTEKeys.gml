@@ -10,7 +10,7 @@ DeactivateExceptionsAdd(id);
 image_alpha = 0;
 
 qteTimer = 0;
-qteWon= 0;
+qteWon = 0;
 
 hudBackScale = 0;
 
@@ -74,8 +74,8 @@ if (qteWon == 0) {
         if (image_alpha <= 0.1) {
             with (player) {
                 StatesSet(PlayerStateHomingFlight);
-                xSpeed = other.qteFailedXSpeed;
-                ySpeed = other.qteFailedYSpeed;
+                xSpeed = other.failedXSpeed;
+                ySpeed = other.failedYSpeed;
                 allowKeysTimer = 50;
             }
             instance_destroy();
