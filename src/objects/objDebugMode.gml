@@ -37,7 +37,6 @@ if (keyboard_check_pressed(ord("L"))) {
 }
 
 // Skip music to near loop point
-/* this uses function not yet included in gm82 so its commented temporarily
 if (keyboard_check_pressed(vk_end)) {
     var _loopstart;
     _loopstart = audio_get_loop_point_a(objMusicManager.music);
@@ -49,7 +48,7 @@ if (keyboard_check_pressed(vk_home)) {
     var _loopend;
     _loopend = audio_get_loop_point_b(objMusicManager.music);
     audio_music_set_pos(_loopend - 10)
-}*/
+}
 
 // Go to next room
 if (keyboard_check_pressed(vk_pageup)) {
