@@ -219,7 +219,6 @@ if (resultsTimer > 110) {
 
                         with (instance_create(0, 0, objFadeNext)) {
                             image_blend = c_white;
-                            PlayerResetGlobalVariables();
                         }
 
                         global.gameTimeAllow = true;

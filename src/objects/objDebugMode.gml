@@ -56,7 +56,6 @@ if (keyboard_check_pressed(vk_pageup)) {
     // Check if there is a next room
     if (room_next(room) != -1) {
         room_goto_next();
-        PlayerResetGlobalVariables();
     }
 }
 
@@ -65,7 +64,6 @@ if (keyboard_check_pressed(vk_pagedown)) {
     // Check if there is a previous room
     if (room_previous(room) != -1) {
         room_goto_previous();
-        PlayerResetGlobalVariables();
     }
 }
 

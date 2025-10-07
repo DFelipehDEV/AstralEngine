@@ -923,6 +923,15 @@ if (cam.target == id) {
             }
     }
 }
+#define Other_5
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Reset globals
+
+PlayerResetGlobalVariables();
 #define Other_40
 /*"/*'/**//* YYD ACTION
 lib_id=1
