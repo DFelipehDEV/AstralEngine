@@ -140,7 +140,7 @@ if (player != noone && instance_exists(player) && !GameStateGet(GameStatePaused)
 
     // Time
     draw_sprite(sprHUDTime, 0, _leftHUDX, _viewY + 8);
-    draw_text(_leftHUDX + 95, _viewY + 16, StringNumberFormat(floor(global.gameTime/60000), 2) + ":" + StringNumberFormat(floor(global.gameTime/1000) mod 60,2) + ":" + StringNumberFormat(floor(global.gameTime/10) mod 100,2));
+    draw_text(_leftHUDX + 95, _viewY + 16, string_pad(floor(global.gameTime/60000), 2) + ":" + string_pad(floor(global.gameTime/1000) mod 60,2) + ":" + string_pad(floor(global.gameTime/10) mod 100,2));
 
     // Rings
     draw_set_halign(fa_left);

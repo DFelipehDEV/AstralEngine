@@ -276,7 +276,7 @@ if (resultsTimer > 130) {
     draw_set_halign(fa_left)
     // Draw time text and the stage finish time
     draw_sprite(sprResultsTexts, 0, _viewX + scoreTextX[0], (_viewY + scoreTextYOffset) + 64);
-    draw_text(_viewX + scoreTextX[0] + 94, (_viewY + scoreTextYOffset) + 64, string(string(floor(global.gameTime/60000))+":"+StringNumberFormat(floor(global.gameTime/1000) mod 60,2)+":"+StringNumberFormat(floor(global.gameTime/10) mod 100,2)))
+    draw_text(_viewX + scoreTextX[0] + 94, (_viewY + scoreTextYOffset) + 64, string(string(floor(global.gameTime/60000))+":"+string_pad(floor(global.gameTime/1000) mod 60,2)+":"+string_pad(floor(global.gameTime/10) mod 100,2)))
 
     // Draw ring text and the amount of rings
     draw_sprite(sprResultsTexts, 1, _viewX + scoreTextX[1], (_viewY + scoreTextYOffset) + 96);

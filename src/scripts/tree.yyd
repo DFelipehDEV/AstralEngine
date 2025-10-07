@@ -137,22 +137,12 @@
 	|PlayVoice
 	|PlayMusic
 +Utils
-	|DrawTrail
-	|DrawCircularBar
-	|DrawSpriteTiledHorizontalPart
-	|DrawSpriteTiledVerticalPart
-	|DrawSpriteTiledPart
-	|DrawBackgroundRepeatHorizontal
-	|DrawBackgroundRepeatVertical
-	|StringNumberFormat
-	|TrailUpdate
-	|ViewSetZoom
-	|DrawTiledTexturePos
 	|ease
 +Input
 	|InputInit
 +Window
 	|WindowSetScale
+	|ViewSetZoom
 +Save
 	|LoadGame
 	|SaveGame
@@ -193,3 +183,14 @@
 +Ring
 	|CreateDroppedRings
 	|CreateDroppedHyperRings
++Drawing
+	|DrawCircularBar
+	|DrawSpriteTiledHorizontalPart
+	|DrawSpriteTiledVerticalPart
+	|DrawSpriteTiledPart
+	|DrawBackgroundRepeatHorizontal
+	|DrawBackgroundRepeatVertical
+	|DrawTiledTexturePos
++Trail
+	|TrailUpdate
+	|DrawTrail

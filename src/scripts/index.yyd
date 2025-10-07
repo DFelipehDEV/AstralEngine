@@ -91,7 +91,7 @@ ParallaxAddNode
 DrawSpriteTiledHorizontalPart
 DrawSpriteTiledVerticalPart
 DrawSpriteTiledPart
-StringNumberFormat
+
 DrawBackgroundRepeatHorizontal
 DrawBackgroundRepeatVertical
 
