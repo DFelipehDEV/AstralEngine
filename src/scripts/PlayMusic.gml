@@ -15,6 +15,5 @@ if (_loops) {
     audio_set_loop_points(_music, _loopStart, _loopPart);
 }
 
-// Loop music
-objMusicManager.music = _music;
+global.currentMusic = _music;
 audio_music_play_ext(_music, 0, global.musicVolume, 0, _pitch, _loops);

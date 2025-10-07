@@ -1,5 +1,6 @@
 |README
-|Init
++Init
+	|Init
 +Animation
 	|AnimationInit
 	|AnimationSystem
@@ -14,6 +15,7 @@
 +Deactivation
 	|DeactivateExceptionsAdd
 	|DeactivateExceptionsRemove
+	|DeactivationSystem
 +Dialogue
 	|DialogueAdd
 +EnemiesArena
@@ -128,6 +130,7 @@
 		|AnimationIndexSuperSonic
 		|PlayerPhysicsSuperSonic
 +Shaders
+	|ShadersInit
 	|shdHeat
 	|shdColorSwap
 	|ApplicationSurfacePost
@@ -136,12 +139,14 @@
 	|PlaySoundSingle
 	|PlayVoice
 	|PlayMusic
+	|SoundInit
 +Utils
 	|ease
 +Input
 	|InputInit
 +Window
 	|WindowSetScale
+	|WindowSystem
 	|ViewSetZoom
 +Save
 	|LoadGame
@@ -149,6 +154,7 @@
 	|SaveGetValue
 	|SaveSetValue
 	|SaveSetRoomAsCompleted
+	|SaveInit
 +State Machine
 	|StatesInit
 	|StatesUpdate
@@ -194,3 +200,12 @@
 +Trail
 	|TrailUpdate
 	|DrawTrail
++Settings
+	|SettingsLoad
+	|SettingsSave
++Systems
+	|SystemsAddSystem
++Time
+	|TimeSystem
++Debug
+	|DebugSystem

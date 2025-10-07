@@ -91,7 +91,7 @@ objFootstepSensorMetal
 objFootstepSensorStone
 objFootstepSensorWater
 objFootstepSensorWood
-objMusicManager
+
 objRail01
 objRail02
 objRail03
@@ -128,7 +128,7 @@ objFadeNext
 objFadeRoom
 objFadeGoal
 objPlayerSpawn
-objDebugMode
+
 objTZBG
 objParallax
 
@@ -162,7 +162,7 @@ objPlatformAngle
 objPlatformMove
 objPlatformMask01Spin
 objAstralSettings
-objRoomManager
+objSystems
 objNavigator
 objTestFlower
 objBox
@@ -227,3 +227,4 @@ objOffsetCameraSensor
 
 
 
+objMusicPlayer

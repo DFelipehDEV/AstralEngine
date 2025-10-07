@@ -8,13 +8,7 @@ applies_to=self
 
 DeactivateExceptionsAdd(id);
 
-// Play victory music
-PlaySound(bgmVictory, global.musicVolume, 1, false);
-
-// Stop music
-if (instance_exists(objMusicManager)) {
-    objMusicManager.fadeOut = true;
-}
+audio_music_switch(bgmVictory, 20);
 
 overlaysHeight = 0;                 //Overlays sprite height being drawn
 resultsTimer = 0;                   //Overall timer for everything on this results code

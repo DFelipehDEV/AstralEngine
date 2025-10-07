@@ -63,14 +63,12 @@ switch(optionSelected) {
             }
 
             if (sysinput_get("right"))  {
-                global.screenSize += 1;
-                global.screenSize = WindowSetScale(global.screenSize);
+                global.windowScale = WindowSetScale(global.windowScale + 1);
                 delay = 25;
             }
 
-            if (sysinput_get("left") && global.screenSize > 1) {
-                global.screenSize -= 1;
-                global.screenSize = WindowSetScale(global.screenSize);
+            if (sysinput_get("left") && global.windowScale > 1) {
+                global.windowScale = WindowSetScale(global.windowScale - 1);
                 delay = 25;
             }
         }
@@ -178,12 +176,12 @@ switch(optionSelected) {
 
         if (sysinput_get("right")) {
             set_synchronization(true);
-            global.screenVSync = true;
+            global.windowVSync = true;
         }
 
         if (sysinput_get("left")) {
             set_synchronization(false);
-            global.screenVSync = false;
+            global.windowVSync = false;
         }
         break;
 
@@ -208,16 +206,7 @@ switch(optionSelected) {
                 PlaySound(sndMenuAccept);
                 delay = 120;
                 leaved = true;
-
-                // Save configurations
-                ini_open("configf.ini");
-                ini_write_real("config", "screen", global.screenSize);
-                ini_write_real("config", "vsync", global.screenVSync);
-                ini_write_real("config", "sfxvolume", global.soundVolume);
-                ini_write_real("config", "bgmvolume", global.musicVolume);
-                ini_write_real("config", "voicevolume", global.voiceVolume);
-                ini_close();
-
+                SettingsSave();
             }
         }
         break;
@@ -275,17 +264,18 @@ draw_set_font(fontConsolasBold12)
 draw_set_halign(fa_left);
 
 // Draw options
-draw_text(view_xview[0] + optionX[0], view_yview[0] + optionY[0], "Screen Resolution: " + string(window_get_width()) + "X" + string(window_get_height()));
+draw_text(view_xview[0] + optionX[0], view_yview[0] + optionY[0], "Resolution: " + string(window_get_width()) + "X" + string(window_get_height()));
 draw_text(view_xview[0] + optionX[1], view_yview[0] + optionY[1], "Music Volume: " + string(_volumeMusic));
 draw_text(view_xview[0] + optionX[2], view_yview[0] + optionY[2], "Sound Volume: " + string(_volumeSound));
 draw_text(view_xview[0] + optionX[3], view_yview[0] + optionY[3], "Voice Volume: " + string(_volumeVoice));
+
 var _vsync;
-if (global.screenVSync) {
+if (global.windowVSync) {
     _vsync = "ON";
-}
-else {
+} else {
     _vsync = "OFF";
 }
+
 draw_text(view_xview[0] + optionX[4], view_yview[0] + optionY[4], "VSync: " + _vsync);
 draw_text(view_xview[0] + optionX[optionMax - 1], view_yview[0] + optionY[optionMax - 1], "Save and Exit");
 draw_set_halign(-1);

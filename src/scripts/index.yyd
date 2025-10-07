@@ -204,3 +204,14 @@ BuzzerStateNormal
 BuzzerStateShoot
 BuzzerStateTurn
 BuzzerStateSpotted
+ShadersInit
+
+SettingsLoad
+SaveInit
+SettingsSave
+SoundInit
+SystemsAddSystem
+DeactivationSystem
+TimeSystem
+DebugSystem
+WindowSystem

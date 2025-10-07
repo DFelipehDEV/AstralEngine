@@ -271,3 +271,5 @@
 	+Pause
 		|sprPauseOptions
 		|sprPauseTitle
++Debug
+	|sprMusicPlayer

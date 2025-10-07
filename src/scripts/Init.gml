@@ -1,23 +1,15 @@
 /// Init()
-// Initialize the game
-
 InputInit();
+ShadersInit();
+SoundInit();
+SaveInit();
 
 // Fonts
 global.fontHUD = font_add_sprite(sprFontHUD, ord("0"), false, -2);
 global.fontText = font_add_sprite(sprFontText, ord(","), true, 0);
 global.fontResults = font_add_sprite(sprFontResults, ord("0"), false, -1);
 
-// Screen
-global.screenSize = 1;
-global.screenVSync = true;
-
 global.gamepad = joystick_count();
-
-// Volume
-global.soundVolume = 1;
-global.musicVolume = 1;
-global.voiceVolume = 1;
 
 // Player
 global.playerRings = 0;
@@ -25,33 +17,16 @@ global.playerCheckTime = 0;
 global.playerCheckpoint = noone;
 
 // Game state
-global.timeScale = 1; // Lower values make objects move slower, higher values make objects move faster. Used for slow motion in qte for example
 global.gameState = GameStateRunning;
 
-global.saveData = ds_map_create();
-
-global.shaderHeat = shdHeat();
-global.shaderColorSwap = shdColorSwap();
-
 // Create essential controllers
-if (!instance_exists(objMusicManager))
-    instance_create(0, 0, objMusicManager);
-if (!instance_exists(objRoomManager))
-    instance_create(0, 0, objRoomManager);
+if (!instance_exists(objSystems)) global.systems = instance_create(0, 0, objSystems);
 
-// Load configurations
-with (objRoomManager) {
-    ini_open("configf.ini");
-    global.screenSize = ini_read_real("config", "screen", 1);
-    global.screenVSync = ini_read_real("config", "vsync", 1);
-    event_user(0);
-    ini_close();
-}
-ini_open("configf.ini");
-global.soundVolume = ini_read_real("config", "sfxvolume", 0.5);
-global.musicVolume = ini_read_real("config", "bgmvolume", 0.5);
-global.voiceVolume = ini_read_real("config", "voicevolume", 0.5);
-ini_close();
+SystemsAddSystem(DeactivationSystem);
+SystemsAddSystem(TimeSystem);
+if (DEBUG) SystemsAddSystem(DebugSystem);
+SystemsAddSystem(WindowSystem);
+SettingsLoad();
 
 // Finish initialization and start the game
 if (!debug_mode) {

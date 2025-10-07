@@ -70,9 +70,7 @@
 		|objShieldElectricity
 +Singletons
 	|objSingleton
-	|objMusicManager
-	|objRoomManager
-	|objDebugMode
+	|objSystems
 	|objInit
 +Stage
 	+Spring
@@ -211,3 +209,5 @@
 	|objVFX
 	|objDummy
 	|objAfterImage
++Music
+	|objMusicPlayer

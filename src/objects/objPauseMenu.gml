@@ -37,9 +37,6 @@ gamescreen = -1;
 
 delay = 20;
 
-pauseTimeAllowPrevious = global.gameTimeAllow;
-global.gameTimeAllow = false;
-
 // Create a "print screen" of the screen before pausing
 background = background_create_from_screen(0, 0, ScreenWidth, ScreenHeight, 0, 0);
 
@@ -98,7 +95,6 @@ switch (GameStateGet()) {
                     GameStateSet(GameStateRunning);
                     instance_activate_all();
                     instance_destroy();
-                    global.gameTimeAllow = pauseTimeAllowPrevious;
                     break;
 
                 case 1:
