@@ -67,15 +67,6 @@ applies_to=self
 delay = max(delay - 1, 0);
 
 switch (GameStateGet()) {
-    case GameStateRunning:
-        titleScale = lerp(titleScale, 0, 0.2);
-        if (titleScale < 0.2) {
-            global.gameTimeAllow = pauseTimeAllowPrevious;
-            instance_activate_all();
-            instance_destroy();
-        }
-        break;
-
     case GameStatePaused:
         titleScale = lerp(titleScale, 1, 0.2);
         pauseOptionOutlineScale = lerp(pauseOptionOutlineScale, 1, 0.2);
@@ -106,6 +97,8 @@ switch (GameStateGet()) {
                 case 0:
                     GameStateSet(GameStateRunning);
                     instance_activate_all();
+                    instance_destroy();
+                    global.gameTimeAllow = pauseTimeAllowPrevious;
                     break;
 
                 case 1:
