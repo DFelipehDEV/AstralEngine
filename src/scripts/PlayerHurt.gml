@@ -2,7 +2,7 @@
 if (invincibilityTimer == 0 && invincibility != InvincibilityHurt && character != CharacterSuperSonic) {
     // Set player to its opposite direction
     if (sign(xSpeed) != 0) {
-        xSpeed = -2.7*sign(xSpeed);
+        xSpeed = -2.7 * sign(xSpeed);
         xDirection = -sign(xSpeed);
     }
     else {
@@ -24,23 +24,17 @@ if (invincibilityTimer == 0 && invincibility != InvincibilityHurt && character !
     else {
         // Check if the player has rings
         if (global.playerRings != 0) {
-            // Check if we have the combine ring monitor effect
             if (combineActive) {
                 combineActive = false;
-
-                // Steal rings from the player
-                RingsDropHyper(true, max(1, floor(min(global.playerRings/8, 8))));
+                CreateDroppedHyperRings(max(1, floor(min(global.playerRings/8, 8))));
 
                 global.playerRings = 0;
                 StatesSet(PlayerStateHurt);
                 PlayVoice(voiceline[5]);
             }
             else {
-                // Drop rings
-                // Steal rings from the player
-                RingsDrop(true, min(20, global.playerRings));
+                CreateDroppedRings(min(20, global.playerRings));
 
-                // Check if the player has more than 50 rings
                 if (global.playerRings < 50) {
                     global.playerRings = 0;
                 }
@@ -52,6 +46,7 @@ if (invincibilityTimer == 0 && invincibility != InvincibilityHurt && character !
                 StatesSet(PlayerStateHurt);
                 PlayVoice(voiceline[5]);
             }
+            PlaySound(sndPlayerLoseRings);
         }
         else {
             StatesSet(PlayerStateDead);

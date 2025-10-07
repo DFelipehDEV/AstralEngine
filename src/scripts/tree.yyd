@@ -147,14 +147,8 @@
 	|StringNumberFormat
 	|TrailUpdate
 	|ViewSetZoom
-	|EnemySetAnimation
-	|RingsDrop
-	|RingsDropHyper
 	|DrawTiledTexturePos
 	|ease
-	|DummyEffectCreate
-	|AfterImageEffectCreate
-	|DebrisEffectCreate
 +Input
 	|InputInit
 +Window
@@ -191,3 +185,11 @@
 		|BuzzerStateTurn
 		|BuzzerStateShoot
 		|BuzzerStateSpotted
+	|EnemySetAnimation
++VFX
+	|DummyEffectCreate
+	|AfterImageEffectCreate
+	|DebrisEffectCreate
++Ring
+	|CreateDroppedRings
+	|CreateDroppedHyperRings

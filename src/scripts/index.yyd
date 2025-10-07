@@ -67,7 +67,7 @@ PlayerHandleSprings
 
 PlayerHandleEnemy
 PlayerHurt
-RingsDrop
+CreateDroppedRings
 
 PlayerHandleProjectile
 PlayerHandleCheckpoint
@@ -125,7 +125,7 @@ PlayerCollisionCache
 ViewSetZoom
 
 
-RingsDropHyper
+CreateDroppedHyperRings
 EnemySetAnimation
 
 BodyApplyGravity
