@@ -2,7 +2,7 @@
 with (instance_create(argument0, argument1, objDummy)) {
     depth = argument5;
     sprite_index = argument2;
-    image_speed = argument3;
+    image_speed = argument3 * global.timeScale;
     image_alpha = argument7;
     image_xscale = argument8;
     image_yscale = argument9;

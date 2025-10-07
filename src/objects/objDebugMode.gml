@@ -68,12 +68,17 @@ if (keyboard_check_pressed(vk_pagedown)) {
 
 if (_playerExists) {
     if (mouse_check_button(mb_right)) {
-        player.x = lerp(player.x, mouse_x, 0.15);
-        player.y = lerp(player.y, mouse_y, 0.15);
+        player.x = lerp(player.x, mouse_x, 0.1);
+        player.y = lerp(player.y, mouse_y, 0.1);
         player.xSpeed = 0;
         player.ySpeed = 0;
         player.canMove = false;
-        player.cam.x = player.x;
+        var _cam;
+        _cam = player.cam;
+        if (instance_exists(_cam)) {
+            _cam.x = player.x;
+            _cam.y = player.y;
+        }
     }
 
     if (mouse_check_button_released(mb_right)) {

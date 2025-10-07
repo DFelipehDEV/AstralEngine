@@ -16,7 +16,7 @@ applies_to=self
 /// Animation
 
 if (rotate) {
-    image_angle += 3 + abs(vspeed) + irandom_range(-1, 1);
+    image_angle += 3 + abs(vspeed);
 }
 #define Other_40
 /*"/*'/**//* YYD ACTION

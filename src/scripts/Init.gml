@@ -25,7 +25,7 @@ global.playerCheckTime = 0;
 global.playerCheckpoint = noone;
 
 // Game state
-global.timeScale = 1; // Time movement multiplier, lower values make objects move slower, higher values make objects move faster, used for slow motion
+global.timeScale = 1; // Lower values make objects move slower, higher values make objects move faster. Used for slow motion in qte for example
 global.gameState = GameStateRunning;
 
 global.saveData = ds_map_create();

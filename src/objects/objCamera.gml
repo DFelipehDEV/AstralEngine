@@ -84,8 +84,8 @@ if (delay > 0) {
 }
 
 if (delay == 0 && target != noone) {
-    x = floor(lerp(x, target.x + xShift + xOffset, xInterpolationSpeed));
-    y = floor(lerp(y, target.y + yShift + yOffset, yInterpolationSpeed));
+    x = floor(lerp(x, target.x + xShift + xOffset, xInterpolationSpeed * global.timeScale));
+    y = floor(lerp(y, target.y + yShift + yOffset, yInterpolationSpeed * global.timeScale));
 }
 
 x = clamp(x, leftBorder + ScreenWidthHalf, rightBorder - ScreenWidthHalf);

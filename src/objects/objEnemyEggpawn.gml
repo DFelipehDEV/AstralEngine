@@ -29,7 +29,7 @@ applies_to=self
 
 if (canMove) {
     BodyApplyGravity(0.2);
-    move_and_collide(xSpeed, ySpeed, objTerrain);
+    move_and_collide(xSpeed * global.timeScale, ySpeed * global.timeScale, objTerrain);
 } else {
     EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
 }

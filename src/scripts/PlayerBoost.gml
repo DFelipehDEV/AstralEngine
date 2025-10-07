@@ -65,8 +65,8 @@ if (!pushingWall) {
                     image_alpha = 0.7;
                 }
             }
-            // Decrease energy gauge    
-            PlayerAddEnergy(-0.35);
+
+            PlayerAddEnergy(-0.35 * global.timeScale);
             
             // Update player's physics to the boost physics
             PlayerSetPhysicsMode(physicsMode);

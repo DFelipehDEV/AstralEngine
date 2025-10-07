@@ -742,12 +742,11 @@ if (xSpeed == 0 && ground
 }
 else {
     if (ground) {
-        // Rotate while moving on the ground
-        image_angle = approach_angle(image_angle, angle, 3 + abs(xSpeed));
+        image_angle = approach_angle(image_angle, angle, (3 + abs(xSpeed)) * global.timeScale);
     }
     // Rotate until reaches to the normal angle
     else {
-        image_angle = approach_angle(image_angle, 0, 4);
+        image_angle = approach_angle(image_angle, 0, 4 * global.timeScale);
     }
 }
 /*"/*'/**//* YYD ACTION

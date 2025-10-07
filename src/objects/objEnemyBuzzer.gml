@@ -21,8 +21,8 @@ applies_to=self
 /// Movement
 
 if (canMove) {
-    x += xSpeed;
-    y += ySpeed;
+    x += xSpeed * global.timeScale;
+    y += ySpeed * global.timeScale;
 }
 
 StatesUpdate();

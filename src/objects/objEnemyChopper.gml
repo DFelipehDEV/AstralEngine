@@ -26,10 +26,10 @@ applies_to=self
 /// Movement
 
 if (canMove) {
-    x += xSpeed;
-    y += ySpeed;
+    x += xSpeed * global.timeScale;
+    y += ySpeed * global.timeScale;
 
-    ySpeed = approach(ySpeed, 12, 0.45);
+    ySpeed = approach(ySpeed, 12, 0.45 * global.timeScale);
 
     // Invert direction
     if (ySpeed > 0 && y >= ystart) {

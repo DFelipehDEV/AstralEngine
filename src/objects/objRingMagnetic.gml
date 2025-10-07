@@ -39,4 +39,7 @@ if (instance_exists(target)) {
 
     hspeed += attractAcc[movX] * signPlayerX;
     vspeed += attractAcc[movY] * signPlayerY;
+
+    hspeed *= global.timeScale;
+    vspeed *= global.timeScale;
 }

@@ -7,11 +7,12 @@ applies_to=self
 /// Variables and animation speed
 
 event_inherited();
-knockOnDeath = false;  // Check if the enemy "busts" or not
-
-image_speed= 0.5;    // Animation speed
+image_speed = 0.5;
+knockOnDeath = false;
 
 shockTimer = 0;
+shockHazard = noone;
+chargeSound = -1;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -21,7 +22,7 @@ applies_to=self
 /// Stop sound effects
 
 audio_stop(sndEnemySpinnerShock)
-audio_stop(sndEnemySpinnerShockCharge)
+audio_stop(chargeSound)
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -31,23 +32,21 @@ applies_to=self
 /// Shock
 
 if (point_in_rectangle(x, y, view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0])) {
-    shockTimer += 1;
-    if (shockTimer == 70) {
-        PlaySound(sndEnemySpinnerShockCharge)
+    shockTimer += global.timeScale;
+    if (shockTimer > 80 && shockTimer < 130 && !audio_isplaying(chargeSound)) {
+        chargeSound = PlaySound(sndEnemySpinnerShockCharge);
     }
 
-
-    if (shockTimer == 120) {
-        audio_stop(sndEnemySpinnerShockCharge)
-        PlaySound(sndEnemySpinnerShock)
-        shockTimer = 0
-        instance_create_depth(x, y, -1, objSpinnerShock);
-        y = ystart;
+    if (shockTimer > 130 && shockHazard == noone) {
+        shockHazard = instance_create(x, y, objSpinnerShock);
+        audio_stop(chargeSound);
+        PlaySound(sndEnemySpinnerShock);
     }
 
-
-    if (shockTimer == 35 && audio_isplaying(sndEnemySpinnerShock)) {
-        audio_stop(sndEnemySpinnerShock)
+    if (shockTimer > 180) {
+        instance_destroy_id(shockHazard);
+        shockHazard = noone;
+        shockTimer = 0;
     }
 }
 #define Draw_0
