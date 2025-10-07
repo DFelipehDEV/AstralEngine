@@ -57,7 +57,7 @@ if (player != noone && active) {
                         hp = other.enemy[i, 3];
                         maxHP = other.enemy[i, 3];
                         repeat(3) {
-                            DummyEffectCreate(x + random_range(-20, 20), y + random_range(-20, 20), sprStar, 0.15, 0, choose(-1, 1), bm_normal, 1, 1, 1, 0);
+                            CreateDummy(x + random_range(-20, 20), y + random_range(-20, 20), sprStar, 0.15, 0, choose(-1, 1), bm_normal, 1, 1, 1, 0);
                         }
                     }
 

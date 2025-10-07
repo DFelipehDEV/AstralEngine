@@ -17,7 +17,7 @@ if (canAttack) {
                     _wood = instance_create(x, y, objBoxPart);
                     _wood.hspeed = random_range(-3, 3);
                     _wood.vspeed = random_range(-6, -3);
-                    DummyEffectCreate(x + random_range(-32, 32), y + random_range(-32, 32), sprExplosion2, 0.3, 0, -3, bm_normal, 1, 1, 1, 0)
+                    CreateDummy(x + random_range(-32, 32), y + random_range(-32, 32), sprExplosion2, 0.3, 0, -3, bm_normal, 1, 1, 1, 0)
                 }
             }
         }

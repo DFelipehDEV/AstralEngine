@@ -14,7 +14,7 @@ if (_dashPad != noone) {
             xSpeed = _dashPad.strength * _dashPad.image_xscale;
         }
 
-        DummyEffectCreate(x, y, sprDashDust, 0.25, 0, -0.1, bm_normal, 1, _dashPad.image_xscale, _dashPad.image_yscale, _dashPad.image_angle);
+        CreateDummy(x, y, sprDashDust, 0.25, 0, -0.1, bm_normal, 1, _dashPad.image_xscale, _dashPad.image_yscale, _dashPad.image_angle);
         PlaySound(sndDashPad);
     }
 }

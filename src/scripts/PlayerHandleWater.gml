@@ -12,7 +12,7 @@ if (_waterHorizon != noone) {
     if (y > _waterHorizon.y && yprevious < _waterHorizon.y && PlayerCollisionObjectMain(x, y, objWater)) {
         PlayerSetPhysicsMode(PhysicsWater);
 
-        DummyEffectCreate(x, _waterHorizon.y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
+        CreateDummy(x, _waterHorizon.y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
         PlaySoundSingle(sndWaterSplash, global.soundVolume, 1);
     }
 }
@@ -24,7 +24,7 @@ if (physicsMode == PhysicsWater) {
         underwaterTime = 0;
 
         if (instance_exists(objWaterHorizon)) {
-            DummyEffectCreate(x, instance_nearest(x, y, objWaterHorizon).y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
+            CreateDummy(x, instance_nearest(x, y, objWaterHorizon).y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
             PlaySoundSingle(sndWaterSplash, global.soundVolume, 1);
         }
     }

@@ -1,4 +1,4 @@
-/// DebrisEffectCreate(x, y, depth, sprite, frame, animSpeed, xscale, yscale, rotate, hspeed, vspeed, gravity)
+/// CreateDebris(x, y, depth, sprite, frame, animSpeed, xscale, yscale, rotate, hspeed, vspeed, gravity)
 with (instance_create_depth(argument0, argument1, argument2, objDebris)) {
     sprite_index = argument3;
     image_index = argument4;

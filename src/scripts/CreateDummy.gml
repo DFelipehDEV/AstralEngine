@@ -1,4 +1,4 @@
-/// DummyEffectCreate(x, y, sprite, animation speed, repeat times, depth, blend mode, alpha, xscale, yscale, angle)
+/// CreateDummy(x, y, sprite, animation speed, repeat times, depth, blend mode, alpha, xscale, yscale, angle)
 with (instance_create(argument0, argument1, objDummy)) {
     depth = argument5;
     sprite_index = argument2;

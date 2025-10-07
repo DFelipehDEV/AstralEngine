@@ -187,9 +187,9 @@
 		|BuzzerStateSpotted
 	|EnemySetAnimation
 +VFX
-	|DummyEffectCreate
-	|AfterImageEffectCreate
-	|DebrisEffectCreate
+	|CreateDummy
+	|CreateAfterImage
+	|CreateDebris
 +Ring
 	|CreateDroppedRings
 	|CreateDroppedHyperRings

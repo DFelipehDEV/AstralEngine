@@ -221,7 +221,7 @@ applies_to=self
 */
 /// Create dust effect
 
-DummyEffectCreate(x, y, sprDust, 0.3, 0, -1, bm_normal, 1, 1, 1, image_angle);
+CreateDummy(x, y, sprDust, 0.3, 0, -1, bm_normal, 1, 1, 1, image_angle);
 #define Alarm_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -780,7 +780,7 @@ if (playFootstep) {
         PlayerHandleFootstepSensors();
         // Create water splash if the player is running in the water
         if (PlayerCollisionObjectBottom(x, y, angle, maskBig, objWaterHorizon)) {
-            DummyEffectCreate(x, y, sprWaterSplash, 0.45, 0, 1, bm_add, 1, xDirection, 1, 0);
+            CreateDummy(x, y, sprWaterSplash, 0.45, 0, 1, bm_add, 1, xDirection, 1, 0);
         }
 
         // Create dust effect
@@ -807,7 +807,7 @@ if ((abs(xSpeed) >= afterImageMinSpeed || abs(ySpeed) >= afterImageMinSpeed) && 
 
 if (afterImageTimer > 0) {
     if (floor(afterImageTimer) mod 6 == 1) {
-        AfterImageEffectCreate(x, y, sprite_index, image_index, 1, xDirection, 1, image_angle, afterimageColor1, afterimageColor2);
+        CreateAfterImage(x, y, sprite_index, image_index, 1, xDirection, 1, image_angle, afterimageColor1, afterimageColor2);
     }
 }
 
@@ -821,7 +821,7 @@ trailAlpha > 0.1
 starTimer = max(starTimer - 1, 0);
 // Stars
 if (starTimer > 0 && starTimer mod 5 == 1) {
-    DummyEffectCreate(x + irandom_range(-25, 25), y + irandom_range(-25, 25), sprStar, 0.25, 0, choose(1, -2), bm_normal, 1, 1, 1, 0);
+    CreateDummy(x + irandom_range(-25, 25), y + irandom_range(-25, 25), sprStar, 0.25, 0, choose(1, -2), bm_normal, 1, 1, 1, 0);
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1

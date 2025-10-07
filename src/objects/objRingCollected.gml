@@ -39,7 +39,7 @@ sparkleAngle += 14;
 createTimer += 1;
 
 if (createTimer mod 4 == 2) {
-    DummyEffectCreate(x + dcos(sparkleAngle)*sparkleOffset, y - dsin(sparkleAngle)*sparkleOffset, choose(sprRingSparkle, sprRingSparkle2, sprRingSparkle3), 0.5, 0, 1, bm_normal, 1, 1, 1, 0)
+    CreateDummy(x + dcos(sparkleAngle)*sparkleOffset, y - dsin(sparkleAngle)*sparkleOffset, choose(sprRingSparkle, sprRingSparkle2, sprRingSparkle3), 0.5, 0, 1, bm_normal, 1, 1, 1, 0)
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION

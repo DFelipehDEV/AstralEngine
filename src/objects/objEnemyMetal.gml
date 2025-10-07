@@ -32,7 +32,7 @@ applies_to=self
 
 if (flameTimer == 0) {
     flameTimer = 25;
-    DummyEffectCreate(x, y, sprExplosion2, 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
+    CreateDummy(x, y, sprExplosion2, 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
 }
 else {
     flameTimer -= 1;

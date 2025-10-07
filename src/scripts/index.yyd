@@ -34,7 +34,7 @@ PlayerStateNormal
 PlayerStateSpring
 PlayerStateTurn
 PlayerStateJump
-DummyEffectCreate
+CreateDummy
 PlayerStateAirdash
 PlayerStateRoll
 PlayerStateCrouch
@@ -117,7 +117,7 @@ PlayerHandleFootstepSensors
 
 PlayerStateDead
 PlayerCollisionHitboxFast
-DebrisEffectCreate
+CreateDebris
 PlayerHandleDestructive
 PlayerStatePush
 PlayerCollisionCache
@@ -136,7 +136,7 @@ PlaySoundSingle
 GameStateGet
 GameStateSet
 PlayerHandleHurt
-AfterImageEffectCreate
+CreateAfterImage
 PlayerStateWaylauncher
 PlayerStateBoostAir
 PlayerStateGrab

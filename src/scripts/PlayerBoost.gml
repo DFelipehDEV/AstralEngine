@@ -11,7 +11,7 @@ if (!pushingWall) {
             PlayVoice(choose(sndNoone, voiceline[0], voiceline[1]));
             PlaySound(sndPlayerBoost)
 
-            DummyEffectCreate(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, image_angle);
+            CreateDummy(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, image_angle);
 
             // Decrease energy gauge
             PlayerAddEnergy(-1.5);

@@ -185,7 +185,7 @@ if (resultsTimer > 110) {
 
                     // Check if you got a S Rank and then spawn stars particles on the rank visual
                     if (rankIndex == RankS && resultsTimer mod 8 == 4 && rankScale < 5) {
-                        DummyEffectCreate(view_xview[0] + 280 + random_range(-20, 20), view_yview[0] + 221 + random_range(-20, 20), sprStar, 0.2, 0, -999999991, bm_normal, 1, 1, 1, 0);
+                        CreateDummy(view_xview[0] + 280 + random_range(-20, 20), view_yview[0] + 221 + random_range(-20, 20), sprStar, 0.2, 0, -999999991, bm_normal, 1, 1, 1, 0);
                     }
 
                     if (rankTime == 50) {

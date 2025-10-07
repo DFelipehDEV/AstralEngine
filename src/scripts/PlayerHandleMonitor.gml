@@ -9,7 +9,7 @@ if (_monitor != noone) {
         monIcon.player = other.id;
         monIcon.icon = icon;
 
-        DummyEffectCreate(x, y, sprExplosion, 0.35, 0, -0.1, bm_normal, 1, 1, 1, 0);
+        CreateDummy(x, y, sprExplosion, 0.35, 0, -0.1, bm_normal, 1, 1, 1, 0);
         PlaySoundSingle(sndExplosion);
         PlaySoundSingle(sndMonitor);
         instance_destroy();

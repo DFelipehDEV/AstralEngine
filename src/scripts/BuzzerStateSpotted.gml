@@ -1,7 +1,7 @@
 /// BuzzerStateSpotted()
 if (stateEntering) {
     PlaySound(sndEnemyWarn);
-    DummyEffectCreate(
+    CreateDummy(
         x - 10 * image_xscale, y - 25,
         sprEnemyWarn, 0.2, 0, 1,
         bm_normal, 1, 1, 1, 0
