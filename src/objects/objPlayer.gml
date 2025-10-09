@@ -971,7 +971,7 @@ if (state == PlayerStateGrind) {
 if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink && (invincibilityTimer div 1.5) mod 3 == 1)) {
     if (character == CharacterSuperSonic) {
         shader_pixel_set(global.shaderColorSwap);
-        texture_set_stage("Palette", sprite_get_texture(sprSonicPalette, ((global.roomTick/10) << 0) mod 2));
+        texture_set_stage("Palette", sprite_get_texture(sprSonicPalette, floor(global.gameTime div 120) mod 2));
         shader_pixel_uniform_f("u_texHeight", sprite_get_height(sprSonicPalette) + 1);
     }
 

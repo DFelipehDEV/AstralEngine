@@ -17,7 +17,7 @@ applies_to=self
 
 image_index = global.gameTime div 40;
 
-image_angle = global.roomTick*2;
+image_angle = global.gameTime / 8.3;
 if (distance_to_object(objPlayer) < 140) {
     image_xscale = min(lerp(image_xscale, 1 - floorto(abs(objPlayer.x - x)/300, 0.15), 0.2), 1);
     image_yscale = image_xscale;

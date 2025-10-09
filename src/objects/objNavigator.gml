@@ -158,7 +158,7 @@ draw_sprite_ext(sprite_index, 1, x - 1, y, image_xscale, image_yscale, round((gl
 
 if (inputAlpha > 0) {
     // Check if there is no gamepad connected
-    if (!global.gamepad) {
+    if (!joystick_exists(0)) {
         // Draw keyboard input
         draw_sprite_ext(sprKeyboardKeys, 5, x, bbox_top - 16, inputAlpha, inputAlpha, 0, image_blend, inputAlpha);
     }
@@ -175,12 +175,6 @@ if (distance_to_object(objPlayer) < 40 && !npcChatting) {
 if (distance_to_object(objPlayer) >= 40 || npcChatting) {
     inputAlpha = lerp(inputAlpha, 0, 0.2);
 }
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Draw Dialogue
 
 // Dialogue
 if (npcChatting) {
@@ -202,10 +196,9 @@ if (npcChatting) {
     draw_set_valign(fa_top)
     draw_set_font(global.fontText);
     draw_sprite_ext(sprDialogueBG, 0, view_xview[0] + 16 - dialogueOffsetX, view_yview[0] + 70 - dialogueOffsetY, 1, 1, 0, dialogueColor[npcStringCurrent], dialogueAlpha);
-    if (!global.gamepad) {
+    if (!joystick_exists(0)) {
         draw_sprite_ext(sprKeyboardKeys, 0, view_xview[0] + 157 - dialogueOffsetX, view_yview[0] + 168 - dialogueOffsetY, 1, 1, 0, c_white, dialogueAlpha);
-    }
-    else {
+    } else {
         draw_sprite_ext(sprGamepadKeys, 0, view_xview[0] + 157 - dialogueOffsetX, view_yview[0] + 168 - dialogueOffsetY, 1, 1, 0, c_white, dialogueAlpha);
     }
     draw_sprite_ext(avatarSprite[npcStringCurrent], avatarIndex[npcStringCurrent], view_xview[0] + 28 - dialogueOffsetX, view_yview[0] + 177 - dialogueOffsetY, 1, 1, 0, c_white, dialogueAlpha);

@@ -18,7 +18,7 @@ applies_to=self
 if (floor(abs(y - _yStart)) == 21) {
     PlaySound(sndSpikeMove, 0.9);
 }
-y = lerp(y, _yStart - round(((global.roomTick/6) mod 26)/29)*29, 0.5);
+y = lerp(y, _yStart - round(((global.gameTime * 0.009) mod 26)/29)*29, 0.5);
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1

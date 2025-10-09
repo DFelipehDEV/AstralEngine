@@ -243,7 +243,6 @@ action_id=603
 applies_to=self
 */
 /// Draw
-
 var _viewX, _viewY;
 _viewX = view_xview[0];
 _viewY = view_yview[0];
@@ -258,32 +257,30 @@ draw_rectangle_color((_viewX + ScreenWidthHalf) - 100, (_viewY + ScreenHeightHal
 draw_set_alpha(1);
 draw_sprite_ext(sprQTETimer, 0, _viewX + ScreenWidthHalf, (_viewY + ScreenHeightHalf), hudBackScale, hudBackScale, 0, c_white, image_alpha);
 
-// ass written code but it works
+var _controller;
+_controller = joystick_exists(0);
 for (i = 0; i < 3; i += 1) {
     switch(hudInput[i + 1]) {
         case 0:
-            if (!global.gamepad) {
+            if (!_controller) {
                 draw_sprite_ext(sprKeyboardKeys, 0, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
-            }
-            else {
+            } else {
                 draw_sprite_ext(sprGamepadKeys, 0, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
             }
             break;
 
         case 1:
-            if (!global.gamepad) {
+            if (!_controller) {
                 draw_sprite_ext(sprKeyboardKeys, 18, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
-            }
-            else {
+            } else {
                 draw_sprite_ext(sprGamepadKeys, 2, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
             }
             break;
 
         case 2:
-            if (!global.gamepad) {
+            if (!_controller) {
                 draw_sprite_ext(sprKeyboardKeys, 3, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
-            }
-            else {
+            } else {
                 draw_sprite_ext(sprGamepadKeys, 1, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
             }
             break;

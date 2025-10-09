@@ -172,7 +172,7 @@ if (player != noone && instance_exists(player) && !GameStateGet(GameStatePaused)
 
     if (buttonKey != -1) {
         // Keyboard input
-        if (!global.gamepad) {
+        if (!joystick_exists(0)) {
             // Draw input key
             draw_sprite_ext(sprKeyboardKeys, buttonKey, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[0]);
 

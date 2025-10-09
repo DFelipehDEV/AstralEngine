@@ -9,8 +9,6 @@ global.fontHUD = font_add_sprite(sprFontHUD, ord("0"), false, -2);
 global.fontText = font_add_sprite(sprFontText, ord(","), true, 0);
 global.fontResults = font_add_sprite(sprFontResults, ord("0"), false, -1);
 
-global.gamepad = joystick_count();
-
 // Player
 global.playerRings = 0;
 global.playerCheckTime = 0;
