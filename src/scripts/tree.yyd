@@ -144,7 +144,10 @@
 +Utils
 	|ease
 +Input
-	|InputInit
+	|InputSystem
+	|InputIconAddKey
+	|InputIconAddButton
+	|InputIconDraw
 +Window
 	|WindowSetScale
 	|WindowSystem

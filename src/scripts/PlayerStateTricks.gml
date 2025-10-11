@@ -33,7 +33,7 @@ if (allowKeysTimer == 0) {
 }
 
 // Finish trick
-if (keySpecial3Pressed) {
+if (keyLightspeedPressed) {
     trickCombo = 0;
     PlayerAddEnergy(21);
 

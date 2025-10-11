@@ -1,5 +1,4 @@
 /// Init()
-InputInit();
 ShadersInit();
 SoundInit();
 SaveInit();
@@ -20,6 +19,7 @@ global.gameState = GameStateRunning;
 // Create essential controllers
 if (!instance_exists(objSystems)) global.systems = instance_create(0, 0, objSystems);
 
+SystemsAddSystem(InputSystem);
 SystemsAddSystem(DeactivationSystem);
 SystemsAddSystem(TimeSystem);
 if (DEBUG) SystemsAddSystem(DebugSystem);

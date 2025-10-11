@@ -42,7 +42,7 @@ if(ySpeed < 0 && ySpeed >= -4) {
    xSpeed -= ((xSpeed / 0.2) / 256);
 }
 
-if (global.playerRings >= 50 && keySpecial3Pressed && character == CharacterSonic) {
+if (global.playerRings >= 50 && keyLightspeedPressed && character == CharacterSonic) {
     StatesSet(PlayerStateTransform);
     xSpeed = 0;
 }

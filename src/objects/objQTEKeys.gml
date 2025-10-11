@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 DeactivateExceptionsAdd(id);
 image_alpha = 0;
 
@@ -14,13 +13,13 @@ qteWon = 0;
 
 hudBackScale = 0;
 
+hudInput[0] = choose(0, 1, 2);
 hudInput[1] = choose(0, 1, 2);
 hudInput[2] = choose(0, 1, 2);
-hudInput[3] = choose(0, 1, 2);
 hudInputCounter = 0;
+hudInputScale[0] = 0;
 hudInputScale[1] = 0;
 hudInputScale[2] = 0;
-hudInputScale[3] = 0;
 hudTimerColor = make_color_rgb(0, 115, 255);
 hudTimer = 100;
 
@@ -32,8 +31,7 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
-DeactivateExceptionsAdd(id);
+DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -41,7 +39,6 @@ action_id=603
 applies_to=self
 */
 /// Animation
-
 qteTimer += 1;
 
 if (qteTimer < 60) exit;
@@ -54,14 +51,13 @@ if (qteWon == 0) {
             hudBackScale = min(hudBackScale + 0.05, 1);
 
             if (hudBackScale > 0.95) {
+                hudInputScale[0] = min(hudInputScale[0] + 0.2, 1)
                 hudInputScale[1] = min(hudInputScale[1] + 0.2, 1)
                 hudInputScale[2] = min(hudInputScale[2] + 0.2, 1)
-                hudInputScale[3] = min(hudInputScale[3] + 0.2, 1)
                 hudTimer -= 2.8;
             }
         }
-    }
-    else {
+    } else {
         //The player has failed the quick time event
 
         image_alpha = max(image_alpha - 0.1, 0)
@@ -81,8 +77,7 @@ if (qteWon == 0) {
             instance_destroy();
         }
     }
-}
-else {
+} else {
     image_alpha = max(image_alpha - 0.1, 0)
     hudBackScale = max(hudBackScale - 0.2, 0)
     global.timeScale = min(global.timeScale + 0.2, 1)
@@ -97,18 +92,17 @@ action_id=603
 applies_to=self
 */
 /// Inputs
-
 var _inputActionPressed, _inputSpecial1Pressed, _inputSpecial2Pressed;
-_inputActionPressed = sysinput_get_pressed("qte_1");
-_inputSpecial1Pressed = sysinput_get_pressed("qte_2");
-_inputSpecial2Pressed = sysinput_get_pressed("qte_3");
+_inputActionPressed = sysinput_get_pressed("qte_0");
+_inputSpecial1Pressed = sysinput_get_pressed("qte_1");
+_inputSpecial2Pressed = sysinput_get_pressed("qte_2");
 
 // Check if we haven't won the event yet
 if (qteWon == 0 && image_alpha > 0.7) {
     // Which input you are currently on
     switch (hudInputCounter) {
         case 0:
-            switch (hudInput[1]) {
+            switch (hudInput[0]) {
                 //In case you have to press A 
                 case 0:
                     if (_inputActionPressed) {
@@ -139,8 +133,8 @@ if (qteWon == 0 && image_alpha > 0.7) {
             break;
         
         case 1:
-            hudInputScale[1] = max(hudInputScale[1] - 0.3, 0)
-            switch (hudInput[2]) {
+            hudInputScale[0] = max(hudInputScale[0] - 0.3, 0)
+            switch (hudInput[1]) {
                 //In case you have to press A 
                 case 0:
                     if (_inputActionPressed) {
@@ -173,9 +167,9 @@ if (qteWon == 0 && image_alpha > 0.7) {
         
         //Win the event here
         case 2:        
-            hudInputScale[1] = max(hudInputScale[1] - 0.4, 0)
-            hudInputScale[2] = max(hudInputScale[2] - 0.4, 0)        
-            switch (hudInput[3]) {
+            hudInputScale[0] = max(hudInputScale[0] - 0.4, 0)
+            hudInputScale[1] = max(hudInputScale[1] - 0.4, 0)        
+            switch (hudInput[2]) {
                 //In case you have to press A 
                 case 0:
                     if (_inputActionPressed) {
@@ -190,7 +184,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                             allowKeysTimer = 60;
                         }
                         PlayVoice(player.voiceline[8]);
-                        hudInputScale[3] = 0.5;
+                        hudInputScale[2] = 0.5;
                     }
                     break;
                 
@@ -209,7 +203,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                             allowKeysTimer = 60;
                         }
                         PlayVoice(player.voiceline[8]);
-                        hudInputScale[3] = 0.5;
+                        hudInputScale[2] = 0.5;
                     }
                     break;
                 
@@ -228,7 +222,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                             allowKeysTimer = 60;
                         }
                         PlayVoice(player.voiceline[8]);
-                        hudInputScale[3] = 0.5;
+                        hudInputScale[2] = 0.5;
                     }
                     break;
                     
@@ -257,32 +251,6 @@ draw_rectangle_color((_viewX + ScreenWidthHalf) - 100, (_viewY + ScreenHeightHal
 draw_set_alpha(1);
 draw_sprite_ext(sprQTETimer, 0, _viewX + ScreenWidthHalf, (_viewY + ScreenHeightHalf), hudBackScale, hudBackScale, 0, c_white, image_alpha);
 
-var _controller;
-_controller = joystick_exists(0);
 for (i = 0; i < 3; i += 1) {
-    switch(hudInput[i + 1]) {
-        case 0:
-            if (!_controller) {
-                draw_sprite_ext(sprKeyboardKeys, 0, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
-            } else {
-                draw_sprite_ext(sprGamepadKeys, 0, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
-            }
-            break;
-
-        case 1:
-            if (!_controller) {
-                draw_sprite_ext(sprKeyboardKeys, 18, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
-            } else {
-                draw_sprite_ext(sprGamepadKeys, 2, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
-            }
-            break;
-
-        case 2:
-            if (!_controller) {
-                draw_sprite_ext(sprKeyboardKeys, 3, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
-            } else {
-                draw_sprite_ext(sprGamepadKeys, 1, (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i + 1], hudInputScale[i + 1], 0, c_white, 1)
-            }
-            break;
-    }
+    InputIconDraw("qte_" + string(hudInput[i]), (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i], hudInputScale[i]);
 }

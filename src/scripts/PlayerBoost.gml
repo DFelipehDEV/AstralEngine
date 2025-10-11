@@ -7,7 +7,7 @@ _aircanBoost = argument0;
 if (!pushingWall) {
     if (energy > 0) {
         // Trigger boost dash
-        if (keySpecial1Pressed && !boosting) {
+        if (keyBoostPressed && !boosting) {
             PlayVoice(choose(sndNoone, voiceline[0], voiceline[1]));
             PlaySound(sndPlayerBoost)
 
@@ -52,7 +52,7 @@ if (!pushingWall) {
         }
 
         // Keep boosting
-        if (keySpecial1 && canBoost) {
+        if (keyBoost && canBoost) {
             boosting = true;
             trailTimer = 120;
 
@@ -74,7 +74,7 @@ if (!pushingWall) {
     }
     else {
         // Alert the player that he can't boost
-        if (keySpecial1Pressed && !boosting) {
+        if (keyBoostPressed && !boosting) {
             // Create charge effect
             with (instance_create(x, y, objSpindashCharge)) {
                 image_xscale = 0.0006;

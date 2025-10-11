@@ -58,7 +58,7 @@ if (floor(xSpeed) == 0) {
     StatesSet(PlayerStateNormal);
 }
 
-if (keySpecial1Pressed) {
+if (keyBoostPressed) {
     StatesSet(PlayerStateNormal);
 }
 

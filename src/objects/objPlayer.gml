@@ -136,8 +136,8 @@ keyRight = 0;
 keyUp = 0;
 keyDown = 0;
 keyAction = 0;
-keySpecial1 = 0;
-keySpecial3 = 0;
+keyBoost = 0;
+keyLightspeed = 0;
 keyStomp = 0;
 
 keyLeftPressed = 0;
@@ -145,8 +145,8 @@ keyRightPressed = 0;
 keyUpPressed= 0;
 keyDownPressed = 0;
 keyActionPressed = 0;
-keySpecial1Pressed = 0;
-keySpecial3Pressed = 0;
+keyBoostPressed = 0;
+keyLightspeedPressed = 0;
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -560,7 +560,7 @@ applies_to=self
 
 canHome = false;
 // Stop boosting
-if ((!keySpecial1 || energy <= 0 || abs(xSpeed) < 2.2 || state == PlayerStateRoll || animation == "FLING" || (boostAirTimer == 0 && !ground)) && boosting) {
+if ((!keyBoost || energy <= 0 || abs(xSpeed) < 2.2 || state == PlayerStateRoll || animation == "FLING" || (boostAirTimer == 0 && !ground)) && boosting) {
     boosting = false;
     canBoost = false;
     PlayerSetPhysicsMode(physicsMode);
@@ -629,16 +629,16 @@ if (allowKeys) {
     keyDown = sysinput_get("down");
     keyAction = sysinput_get("p_jump");
     keyStomp = sysinput_get("p_stomp");
-    keySpecial1 = sysinput_get("p_boost");
-    keySpecial3 = sysinput_get("p_lightspeed");
+    keyBoost = sysinput_get("p_boost");
+    keyLightspeed = sysinput_get("p_lightspeed");
 
     keyLeftPressed = sysinput_get_pressed("left");
     keyRightPressed = sysinput_get_pressed("right");
     keyUpPressed = sysinput_get_pressed("up");
     keyDownPressed = sysinput_get_pressed("down");
     keyActionPressed = sysinput_get_pressed("p_jump");
-    keySpecial1Pressed = sysinput_get_pressed("p_boost");
-    keySpecial3Pressed = sysinput_get_pressed("p_lightspeed");
+    keyBoostPressed = sysinput_get_pressed("p_boost");
+    keyLightspeedPressed = sysinput_get_pressed("p_lightspeed");
 
     if (allowKeysTimer > 0) {
         PlayerResetKeys();

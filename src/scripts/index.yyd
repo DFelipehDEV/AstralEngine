@@ -172,7 +172,7 @@ PlayerStateTransform
 DrawTiledTexturePos
 ease
 PlayerHandleRings
-InputInit
+InputSystem
 WindowSetScale
 README
 PlayerSetGround
@@ -216,3 +216,6 @@ TimeSystem
 DebugSystem
 WindowSystem
 PlayerResetKeys
+InputIconDraw
+InputIconAddKey
+InputIconAddButton

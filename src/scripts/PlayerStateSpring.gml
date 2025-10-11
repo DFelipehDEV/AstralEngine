@@ -28,7 +28,7 @@ if (animation == "SPRING") {
     xDirection = esign(xSpeed, xDirection);
 }
 
-if (keySpecial1Pressed) {
+if (keyBoostPressed) {
     if (!keyUp && (keyLeft || keyRight)) {
         // Horizontal
         var _dir;
