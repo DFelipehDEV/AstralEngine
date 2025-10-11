@@ -40,15 +40,18 @@
 		|objLayer1Mask04
 		|objLayer1Mask05
 	|objTerrain
-+Fade
++Transitions
 	|objFadeIn
 	|objFadeNext
 	|objFadeRoom
 	|objFadeGoal
-+Menus
++UI
 	|objPauseMenu
 	|objAstralTitle
 	|objAstralSettings
+	+Dialogue
+		|objDialogue
+		|objDialogueQuery
 +Parallax
 	|objParallax
 	|objParallaxLayer
@@ -57,17 +60,19 @@
 	|objBody
 	|objPlayerSpawn
 	|objPlayer
-	|objPlayerHUD
 	|objPlayerReticle
 	+UI
 		|objTitleCard
-	+Miscellaneous
+		|objPlayerHUD
+	+Interaction
 		|objWaterSolid
+	+Shields
+		|objShieldNormal
+		|objShieldElectricity
+	+VFX
 		|objBoost
 		|objSpindashCharge
 		|objBoostShockwave
-		|objShieldNormal
-		|objShieldElectricity
 +Singletons
 	|objSingleton
 	|objSystems
@@ -77,13 +82,14 @@
 		|objSpring
 	+Rings
 		|objRing
-		|objRing5
 		|objRing10
+		|objRing5
 		|objRingSpecial
 		+Miscellaneous
 			|objRingDrop
 			|objRingMagnetic
 			|objRingHyper
+		+VFX
 			|objRainbow
 			|objRingCollected
 			|objRingNumber
@@ -130,6 +136,7 @@
 		|objMonitorShieldNormal
 		|objMonitorIcon
 	+Navigator
+		|objNPC
 		|objNavigator
 	+Boxes
 		|objBox
@@ -146,16 +153,16 @@
 		|objSpikeBall
 	+Enemies
 		|objEnemy
+		|objEnemyTurn
 		|objEnemySpinner
 		|objEnemySpinner2
 		|objEnemyEggpawn
 		|objEnemyHeavy
 		|objEnemyChopper
 		|objEnemyBuzzer
-		+Miscellaneous
+		+VFX
 			|objEnemyMetal
 			|objEnemyDeath
-			|objEnemyTurn
 	+Hazards
 		|objHurt
 		|objProjectile
@@ -197,6 +204,7 @@
 		+UI
 			|objButtonSensor
 			|objHideHUDSensor
+			|objStartDialogueSensor
 		|objPlatformAngle
 	+Water
 		|objWaterHorizon

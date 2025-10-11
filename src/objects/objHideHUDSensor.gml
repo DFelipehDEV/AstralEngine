@@ -11,8 +11,7 @@ with (_player) {
     // Check if we are in the sensor
     if (place_meeting(x, y, other)) {
         hud.hidden = true;
-    }
-    else {
+    } else {
         // Check if we leaved the sensor
         if (place_meeting(xprevious, yprevious, other)) {
             hud.hidden = false;

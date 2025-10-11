@@ -101,7 +101,7 @@ TrailUpdate
 
 PlayerHandleBox
 
-DialogueAdd
+NPCAddDialogue
 
 
 
@@ -215,3 +215,4 @@ DeactivationSystem
 TimeSystem
 DebugSystem
 WindowSystem
+PlayerResetKeys

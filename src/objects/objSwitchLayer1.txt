@@ -1,4 +1,4 @@
-sprite=sprLayer1
+sprite=sprSwitchLayer1
 visible=0
 solid=0
 persistent=0

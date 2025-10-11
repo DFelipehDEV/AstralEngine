@@ -80,12 +80,13 @@
 		|sprRingHyper
 		|sprRingAmount
 		|sprRingSpecial
-		|sprRingNumber
-		|sprRingRainbow
-		|sprRingYellow
-		|sprRingSparkle
-		|sprRingSparkle2
-		|sprRingSparkle3
+		+VFX
+			|sprRingSparkle
+			|sprRingSparkle2
+			|sprRingSparkle3
+			|sprRingYellow
+			|sprRingRainbow
+			|sprRingNumber
 	+Checkpoint
 		|sprCheckpoint
 		|sprCheckpointActivated
@@ -142,8 +143,10 @@
 			|sprEnemyHeavyWalk
 			|sprEnemyHeavyAttack
 			|sprEnemyHeavyTurn
-		|sprEnemyMetal
-		|sprEnemyWarn
+		+VFX
+			|sprEnemyMetal
+			|sprEnemyWarn
+		|sprEnemyTurn
 	+Gimmicks
 		+Corkscrew
 			|sprCorkscrew
@@ -159,9 +162,6 @@
 		|sprTestFlower
 		|sprTestWall1
 	+Sensors
-		|sprLayer0
-		|sprLayer1
-		|sprLayerSwitch
 		|sprFootstepSensorDirt
 		|sprFootstepSensorGrass
 		|sprFootstepSensorMetal
@@ -169,11 +169,15 @@
 		|sprFootstepSensorWater
 		|sprFootstepSensorWood
 		|sprTrigger
+		|sprStartDialogueSensor
 		|sprCameraSensor
 		|sprPlatformAngle
-		|sprEnemyTurn
 		|sprSlidepassSensor
 		|sprHUDHideSensor
+		+Layer
+			|sprSwitchLayer0
+			|sprSwitchLayer1
+			|sprSwitchLayerAlternate
 	+Water
 		|sprWater
 		|sprWaterBubble

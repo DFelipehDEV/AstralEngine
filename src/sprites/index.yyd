@@ -45,9 +45,9 @@ sprSonicGrab2
 
 sprFontHUD
 sprFontResults
-sprLayer0
-sprLayer1
-sprLayerSwitch
+sprSwitchLayer0
+sprSwitchLayer1
+sprSwitchLayerAlternate
 sprSolidMask01
 sprBoostWave
 sprPlayerStomp
@@ -259,3 +259,4 @@ sprSonicBreathe
 sprMetalBox
 
 sprMusicPlayer
+sprStartDialogueSensor

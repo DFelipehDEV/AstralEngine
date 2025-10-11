@@ -16,8 +16,8 @@
 	|DeactivateExceptionsAdd
 	|DeactivateExceptionsRemove
 	|DeactivationSystem
-+Dialogue
-	|DialogueAdd
++NPC
+	|NPCAddDialogue
 +EnemiesArena
 	|EnemiesArenaAddEnemy
 +GameState
@@ -73,6 +73,7 @@
 		|PlayerSetShield
 		|PlayerSetVoicelines
 		|PlayerStomp
+		|PlayerResetKeys
 	+States
 		|PlayerStateNormal
 		|PlayerStateSpring

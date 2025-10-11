@@ -228,3 +228,7 @@ objOffsetCameraSensor
 
 
 objMusicPlayer
+objDialogue
+objDialogueQuery
+objStartDialogueSensor
+objNPC
