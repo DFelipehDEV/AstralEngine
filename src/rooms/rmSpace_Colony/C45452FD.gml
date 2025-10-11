@@ -1,4 +1,3 @@
 //gm82 fields begin
-buttonKBM=18
-buttonJoystick=2
+action="p_boost"
 //gm82 fields end

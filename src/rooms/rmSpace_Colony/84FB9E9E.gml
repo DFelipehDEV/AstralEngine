@@ -1,4 +1,3 @@
 //gm82 fields begin
-buttonKBM=5
-buttonJoystick=3
+action="p_lightspeed"
 //gm82 fields end

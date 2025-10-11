@@ -45,8 +45,8 @@ switch (argument0) {
 
         sysinput_add_key("p_lightspeed", ord('F'));
         sysinput_add_button("p_lightspeed", gp_face4);
-        InputIconAddKey("p_boost", sprKeyboardKeys, 5);
-        InputIconAddButton("p_boost", sprGamepadKeys, 4);
+        InputIconAddKey("p_lightspeed", sprKeyboardKeys, 5);
+        InputIconAddButton("p_lightspeed", sprGamepadKeys, 4);
 
         sysinput_add_key("npc_interact", ord('F'));
         sysinput_add_button("npc_interact", gp_face4);

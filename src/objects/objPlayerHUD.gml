@@ -15,9 +15,8 @@ shakeOffset = 0;
 gaugeIndex = 21;
 
 // Button pop up variables
-buttonKey = -1;
-buttonGamepad = -1;
-buttonTimer = 0;
+buttonAction = "";
+lastButtonAction = buttonAction;
 buttonAlpha[0] = 0;
 buttonAlpha[1] = 1;
 buttonScale = 5;
@@ -35,7 +34,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -44,7 +42,6 @@ action_id=603
 applies_to=self
 */
 /// HUD Control
-
 if (hidden) {
     offset = lerp(offset, 300, 0.07);
 } else {
@@ -68,32 +65,18 @@ action_id=603
 applies_to=self
 */
 /// Buttons
+if (buttonAction != "") {
+    buttonAlpha[0] = min(buttonAlpha[0] + 0.2, 1);
+    buttonScale = lerp(buttonScale, 2, 0.2);
+    buttonAlpha[1] = lerp(buttonAlpha[1], 0, 0.2);
+    lastButtonAction = buttonAction;
+} else {
+    buttonScale = lerp(buttonScale, 0, 0.2);
+    buttonAlpha[0] = max(buttonAlpha[0] - 0.2, 0);
 
-if (buttonKey != -1) {
-    if (buttonTimer > 0) {
-        buttonTimer -= 1;
-        buttonAlpha[0] = min(buttonAlpha[0] + 0.2, 1);
-
-        if (buttonAlpha[0] == 0.4) {
-            PlaySound(sndMenuWarn);
-        }
-
-        buttonScale = lerp(buttonScale, 2, 0.2);
-        buttonAlpha[1] = lerp(buttonAlpha[1], 0, 0.2);
-    }
-    else {
-        buttonScale = lerp(buttonScale, 0, 0.2);
-        buttonAlpha[0] = max(buttonAlpha[0] - 0.2, 0);
-
-
-        // Reset variables after dissapearing
-        if (buttonAlpha[0] == 0) {
-            buttonKey = -1;
-            buttonTimer = 0;
-            buttonAlpha[0] = 0;
-            buttonAlpha[1] = 1;
-            buttonScale = 5;
-        }
+    if (buttonAlpha[0] == 0) {
+        buttonAlpha[1] = 1;
+        buttonScale = 5;
     }
 }
 /*"/*'/**//* YYD ACTION
@@ -102,12 +85,10 @@ action_id=603
 applies_to=self
 */
 /// Game State
-
 switch (GameStateGet()) {
     case GameStateRunning:
         if (sysinput_get_pressed("pause")) {
-            instance_create(0, 0, objPauseMenu);
-
+            instance_create(x, y, objPauseMenu);
             GameStateSet(GameStatePaused);
         }
         break;
@@ -126,7 +107,7 @@ _viewY = view_yview[0];
 
 d3d_set_projection_ortho(_viewX, _viewY, ScreenWidth, ScreenHeight, 0) // Stop HUD from resizing
 
-if (player != noone && instance_exists(player) && !GameStateGet(GameStatePaused)) {
+if (instance_exists(player) && !GameStateGet(GameStatePaused)) {
     // Speedlines
     if (player.boostAura != noone) {
         draw_sprite_ext(sprHUDSpeedlines, global.gameTime div 40, _viewX, _viewY, 1, 1, 0, c_white, (player.boostAura.image_alpha / 1.8))
@@ -170,32 +151,14 @@ if (player != noone && instance_exists(player) && !GameStateGet(GameStatePaused)
         draw_sprite_ext(sprHUDEnemiesCounter, enemyFrame, _viewX + ScreenWidthHalf, _viewY + 30, enemyScale, enemyScale, 0, c_white, 1);
     }
 
-    if (buttonKey != -1) {
-        // Keyboard input
-        if (!joystick_exists(0)) {
-            // Draw input key
-            draw_sprite_ext(sprKeyboardKeys, buttonKey, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[0]);
+    if (buttonAlpha[0] > 0) {
+        InputIconDraw(lastButtonAction, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[0]);
 
-            // Highlight
-            if (buttonAlpha[1] > 0) {
-                // White version
-                d3d_set_fog(1, c_white, 0, 0)
-                draw_sprite_ext(sprKeyboardKeys, buttonKey, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[1]);
-                d3d_set_fog(0, c_white, 0, 0)
-            }
-        }
-        else {
-        // Gamepad input
-            // Draw input key
-            draw_sprite_ext(sprGamepadKeys, buttonGamepad, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[0]);
-
-            // Highlight
-            if (buttonAlpha[1] > 0) {
-                // White version
-                d3d_set_fog(1, c_white, 0, 0)
-                draw_sprite_ext(sprGamepadKeys, buttonGamepad, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[1]);
-                d3d_set_fog(0, c_white, 0, 0)
-            }
+        // Highlight
+        if (buttonAlpha[1] > 0) {
+            d3d_set_fog(1, c_white, 0, 0)
+            InputIconDraw(buttonAction, _viewX + ScreenWidthHalf, _viewY + 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[1]);
+            d3d_set_fog(0, c_white, 0, 0)
         }
     }
 }

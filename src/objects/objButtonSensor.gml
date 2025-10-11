@@ -6,21 +6,28 @@ applies_to=self
 */
 /// Variables
 
-buttonKBM = 0;
-buttonJoystick = 0;
-#define Collision_objPlayer
+action = "";
+#define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
-/// Button
+/// Change hud button
+var _player;
+_player = instance_nearest(x, y, objPlayer);
+if (!instance_exists(_player)) exit;
+with (_player) {
+    var _wasInSensor, _isInSensor;
+    _wasInSensor = place_meeting(xprevious, yprevious, other);
+    _isInSensor = place_meeting(x, y, other);
 
-if (other.hud.buttonKey == -1) {
-    other.hud.buttonKey = buttonKBM;
-    other.hud.buttonGamepad = buttonJoystick;
-    other.hud.buttonTimer = 80;
-    instance_destroy();
+    if (!_wasInSensor && _isInSensor) {
+        hud.buttonAction = other.action;
+        PlaySound(sndMenuWarn);
+    } else if (_wasInSensor && !_isInSensor) {
+        hud.buttonAction = "";
+    }
 }
 #define Other_4
 /*"/*'/**//* YYD ACTION
@@ -29,7 +36,4 @@ action_id=603
 applies_to=self
 */
 /// Fields
-/*preview
-*/
-//field buttonKBM: number
-//field buttonJoystick: number
+//field action: string
