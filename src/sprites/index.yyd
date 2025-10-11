@@ -260,3 +260,5 @@ sprMetalBox
 
 sprMusicPlayer
 sprStartDialogueSensor
+sprZoomCameraSensor
+sprOffsetCameraSensor
