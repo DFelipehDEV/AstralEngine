@@ -29,6 +29,8 @@ switch (argument0) {
         break;
 
     case ev_draw:
-        if (debug_mode) draw_text(view_xview[0] + 32, view_yview[0] + 32, string(ds_list_size(global.deactivateExceptions)));
+        BeginUI();
+        if (debug_mode) draw_text(32, 32, string(ds_list_size(global.deactivateExceptions)));
+        EndUI();
         break;
 }

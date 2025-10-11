@@ -143,6 +143,8 @@
 	|SoundInit
 +Utils
 	|ease
+	|BeginUI
+	|EndUI
 +Input
 	|InputSystem
 	|InputIconAddKey

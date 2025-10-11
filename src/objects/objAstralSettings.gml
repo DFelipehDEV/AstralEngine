@@ -248,8 +248,9 @@ action_id=603
 applies_to=self
 */
 /// Draw options
+BeginUI();
 
-draw_sprite_ext(sprTrigger, 0, view_xview[0], view_yview[0], ScreenWidth, ScreenHeight, 0, c_blue, image_alpha);
+draw_sprite_ext(sprTrigger, 0, 0, 0, ScreenWidth, ScreenHeight, 0, c_blue, image_alpha);
 
 // Draw options
 var _volumeMusic, _volumeSound, _volumeVoice, _volumeAmbient;
@@ -259,15 +260,15 @@ _volumeVoice = floor(global.voiceVolume * 100);
 draw_set_alpha(image_alpha)
 var _colorLine;
 _colorLine = $e09915;
-draw_line_width_color(view_xview[0], view_yview[0] + optionY[optionSelected] + 10, view_xview[0] + scale, view_yview[0] + optionY[optionSelected] + 10, fontSpace, _colorLine, _colorLine);
+draw_line_width_color(0, optionY[optionSelected] + 10, scale, optionY[optionSelected] + 10, fontSpace, _colorLine, _colorLine);
 draw_set_font(fontConsolasBold12)
 draw_set_halign(fa_left);
 
 // Draw options
-draw_text(view_xview[0] + optionX[0], view_yview[0] + optionY[0], "Resolution: " + string(window_get_width()) + "X" + string(window_get_height()));
-draw_text(view_xview[0] + optionX[1], view_yview[0] + optionY[1], "Music Volume: " + string(_volumeMusic));
-draw_text(view_xview[0] + optionX[2], view_yview[0] + optionY[2], "Sound Volume: " + string(_volumeSound));
-draw_text(view_xview[0] + optionX[3], view_yview[0] + optionY[3], "Voice Volume: " + string(_volumeVoice));
+draw_text(optionX[0], optionY[0], "Resolution: " + string(window_get_width()) + "X" + string(window_get_height()));
+draw_text(optionX[1], optionY[1], "Music Volume: " + string(_volumeMusic));
+draw_text(optionX[2], optionY[2], "Sound Volume: " + string(_volumeSound));
+draw_text(optionX[3], optionY[3], "Voice Volume: " + string(_volumeVoice));
 
 var _vsync;
 if (global.windowVSync) {
@@ -276,8 +277,10 @@ if (global.windowVSync) {
     _vsync = "OFF";
 }
 
-draw_text(view_xview[0] + optionX[4], view_yview[0] + optionY[4], "VSync: " + _vsync);
-draw_text(view_xview[0] + optionX[optionMax - 1], view_yview[0] + optionY[optionMax - 1], "Save and Exit");
+draw_text(optionX[4], optionY[4], "VSync: " + _vsync);
+draw_text(optionX[optionMax - 1], optionY[optionMax - 1], "Save and Exit");
 draw_set_halign(-1);
 draw_set_font(1);
 draw_set_alpha(1);
+
+EndUI();

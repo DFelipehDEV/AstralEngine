@@ -52,15 +52,19 @@ action_id=603
 applies_to=self
 */
 /// Draw
+BeginUI();
+
 draw_set_valign(fa_top)
 draw_set_font(textFont);
-draw_sprite_ext(sprite_index, image_index, view_xview[0] + 16, view_yview[0] + 70, image_xscale, image_yscale, image_angle, color, image_alpha);
+draw_sprite_ext(sprite_index, image_index, 16, 70, image_xscale, image_yscale, image_angle, color, image_alpha);
 
-InputIconDraw("dialogue_skip", view_xview[0] + 157, view_yview[0] + 168, 1, 1);
+InputIconDraw("dialogue_skip", 157, 168, 1, 1);
 
-draw_sprite_ext(avatar, avatarIndex, view_xview[0] + 28, view_yview[0] + 177, image_xscale, image_yscale, image_angle, c_white, image_alpha);
+draw_sprite_ext(avatar, avatarIndex, 28, 177, image_xscale, image_yscale, image_angle, c_white, image_alpha);
 
 draw_set_alpha(image_alpha);
 draw_set_halign(fa_left);
-draw_text_ext(view_xview[0] + 32, view_yview[0] + 183 + textYOffset, currentText, 16, 350);
+draw_text_ext(32, 183 + textYOffset, currentText, 16, 350);
 draw_set_alpha(1);
+
+EndUI();

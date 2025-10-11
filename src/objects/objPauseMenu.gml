@@ -126,19 +126,19 @@ applies_to=self
 */
 /// Draw options
 
-var _viewX, _viewY;
-_viewX = view_xview[0];
-_viewY = view_yview[0];
+BeginUI();
 
 if (background != -1) {
-    draw_background_ext(background, _viewX, _viewY, 1, 1, 0, c_gray, 1)
+    draw_background_ext(background, 0, 0, 1, 1, 0, c_gray, 1)
 }
 
-draw_sprite_ext(sprite_index, 0, _viewX + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - sprite_height, round(titleScale/0.2)*0.2, round(titleScale/0.2)*0.2, 0, c_white, 1);
+draw_sprite_ext(sprite_index, 0, ScreenWidthHalf, ScreenHeightHalf - sprite_height, round(titleScale/0.2)*0.2, round(titleScale/0.2)*0.2, 0, c_white, 1);
 
-draw_sprite_ext(sprPauseOptions, 4, (_viewX + ScreenWidthHalf) + 3, (_viewY + ScreenHeightHalf) + options[option, 2] + 3, pauseOptionOutlineScale, pauseOptionOutlineScale, 0, c_white, 1);
+draw_sprite_ext(sprPauseOptions, 4, ScreenWidthHalf + 3, ScreenHeightHalf + options[option, 2] + 3, pauseOptionOutlineScale, pauseOptionOutlineScale, 0, c_white, 1);
 
 var i;
 for (i = 0; i < 4; i += 1) {
-    draw_sprite_ext(sprPauseOptions, i, _viewX + ScreenWidthHalf, (_viewY + ScreenHeightHalf) + options[i, 2], titleScale, titleScale, 0, options[i, 1], 1);
+    draw_sprite_ext(sprPauseOptions, i, ScreenWidthHalf, ScreenHeightHalf + options[i, 2], titleScale, titleScale, 0, options[i, 1], 1);
 }
+
+EndUI();

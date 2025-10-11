@@ -96,7 +96,8 @@ switch (argument0) {
 
     case ev_draw:
         if (!global.debugOverlay) exit;
-        draw_rect(view_xview[0] + 333, view_yview[0] + 103, 179, 185, c_black, 0.5, 0);
+        BeginUI();
+        draw_rect(333, 103, 179, 185, c_black, 0.5, 0);
         draw_set_font(fontConsolas8);
         draw_set_halign(fa_left);
         draw_set_color(c_white);
@@ -117,7 +118,8 @@ switch (argument0) {
             + "#previousState:" + script_get_name(_player.previousState)
             + "#stateTimer:" + string(_player.stateTimer)
             + "#animation:" + _player.animation
-            draw_text(view_xview[0] + 333, view_yview[0] + 103, _playerText);
+            draw_text(333, 103, _playerText);
         }
+        EndUI();
         break;
 }

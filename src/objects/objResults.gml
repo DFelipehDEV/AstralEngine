@@ -232,82 +232,76 @@ action_id=603
 applies_to=self
 */
 /// Draw interface
+BeginUI();
 
-var _viewX, _viewY;
-_viewX = view_xview[0];
-_viewY = view_yview[0];
-
-d3d_set_projection_ortho(_viewX, _viewY, ScreenWidth, ScreenHeight, 0) // Stop HUD from resizing
-// Draw background
-draw_sprite(sprResultsBG1, 0, _viewX, _viewY);
+draw_sprite(sprResultsBG1, 0, 0, 0);
 
 // Draw score underlay after a certain amount of time has passed
 if (resultsTimer > 80) {
     // Draw score underlay
-    draw_sprite(sprResultsScoresUnderlay, 0, _viewX + scorebarX, _viewY + 33);
+    draw_sprite(sprResultsScoresUnderlay, 0, scorebarX, 33);
 
     // Shadow from the character
     d3d_set_fog(1, c_white, 0, 0)
-    draw_sprite_ext(sprTitleCardChar, 0, _viewX + characterX + 20, _viewY + 130, max(abs(-dsin(current_time/9)*1.3), 1), max(abs(-dsin(current_time/9)*1.3), 1), -dsin(current_time/11)*20, c_white, 1);
+    draw_sprite_ext(sprTitleCardChar, 0, characterX + 20, 130, max(abs(-dsin(current_time/9)*1.3), 1), max(abs(-dsin(current_time/9)*1.3), 1), -dsin(current_time/11)*20, c_white, 1);
     d3d_set_fog(0, 0, 0, 0)
 
     // Draw main character
-    draw_sprite_ext(sprTitleCardChar, 0, _viewX + characterX, _viewY + 130, 1, 1, -dsin(current_time/11)*20, c_white, 1)
+    draw_sprite_ext(sprTitleCardChar, 0, characterX, 130, 1, 1, -dsin(current_time/11)*20, c_white, 1)
 
-    draw_sprite_ext(sprTitleCardZoneCard, 0, _viewX, _viewY + ScreenHeight - 80, resultsBarScale, 0.7, 0, c_white, 1)
+    draw_sprite_ext(sprTitleCardZoneCard, 0, _viewX, ScreenHeight - 80, resultsBarScale, 0.7, 0, c_white, 1)
 }
 // Draw top overlay
 draw_sprite_part(sprResultsOverlays, 0, 0, 0, 512, overlaysHeight, _viewX, _viewY);
 
 // Draw bottom overlay
-draw_sprite_part_ext(sprResultsOverlays, 1, 0, 0, 512, overlaysHeight, _viewX, _viewY + ScreenHeight, 1, -1, c_white, 1);
+draw_sprite_part_ext(sprResultsOverlays, 1, 0, 0, 512, overlaysHeight, _viewX, ScreenHeight, 1, -1, c_white, 1);
 
-
-// Draw score text after a certain amount of time has passed
 if (resultsTimer > 130) {
     // Draw font and alignment for the score text
     draw_set_font(global.fontResults)
     draw_set_halign(fa_left)
     // Draw time text and the stage finish time
-    draw_sprite(sprResultsTexts, 0, _viewX + scoreTextX[0], (_viewY + scoreTextYOffset) + 64);
-    draw_text(_viewX + scoreTextX[0] + 94, (_viewY + scoreTextYOffset) + 64, string(string(floor(global.gameTime/60000))+":"+string_pad(floor(global.gameTime/1000) mod 60,2)+":"+string_pad(floor(global.gameTime/10) mod 100,2)))
+    draw_sprite(sprResultsTexts, 0, scoreTextX[0], (scoreTextYOffset) + 64);
+    draw_text(scoreTextX[0] + 94, (scoreTextYOffset) + 64, string(string(floor(global.gameTime/60000))+":"+string_pad(floor(global.gameTime/1000) mod 60,2)+":"+string_pad(floor(global.gameTime/10) mod 100,2)))
 
     // Draw ring text and the amount of rings
-    draw_sprite(sprResultsTexts, 1, _viewX + scoreTextX[1], (_viewY + scoreTextYOffset) + 96);
-    draw_text(_viewX + scoreTextX[1] + 94, (_viewY + scoreTextYOffset) + 96, string(floor(global.playerRings)))
+    draw_sprite(sprResultsTexts, 1, scoreTextX[1], (scoreTextYOffset) + 96);
+    draw_text(scoreTextX[1] + 94, (scoreTextYOffset) + 96, string(floor(global.playerRings)))
 
     // Draw time bonus text and score
-    draw_sprite(sprResultsTexts, 2, _viewX + scoreTextX[2], (_viewY + scoreTextYOffset) + 132);
-    draw_text(_viewX + scoreTextX[2] + 94, (_viewY + scoreTextYOffset) + 132, string(floor(scoreBonusTime)))
+    draw_sprite(sprResultsTexts, 2, scoreTextX[2], (scoreTextYOffset) + 132);
+    draw_text(scoreTextX[2] + 94, (scoreTextYOffset) + 132, string(floor(scoreBonusTime)))
 
     // Draw ring bonus text and score
-    draw_sprite(sprResultsTexts, 3, _viewX + scoreTextX[3], (_viewY + scoreTextYOffset) + 165);
-    draw_text(_viewX + scoreTextX[3] + 94, (_viewY + scoreTextYOffset) + 165, string(floor(scoreBonusRing)))
+    draw_sprite(sprResultsTexts, 3, scoreTextX[3], (scoreTextYOffset) + 165);
+    draw_text(scoreTextX[3] + 94, (scoreTextYOffset) + 165, string(floor(scoreBonusRing)))
 
     // Draw total score text and show the score total
-    draw_sprite(sprResultsTexts, 4, _viewX + scoreTextX[4], (_viewY + scoreTextYOffset) + 218);
-    draw_text(_viewX + scoreTextX[4] + 78, (_viewY + scoreTextYOffset) + 220, string(floor(scoreBonusTime + scoreBonusRing)))
+    draw_sprite(sprResultsTexts, 4, scoreTextX[4], (scoreTextYOffset) + 218);
+    draw_text(scoreTextX[4] + 78, (scoreTextYOffset) + 220, string(floor(scoreBonusTime + scoreBonusRing)))
 
 }
-
 
 // Ranks
 if (resultsTimer > 300 && scoreFinished) {
     switch (rankIndex) {
         case RankS:
-            draw_sprite_ext(sprResultsRanks, 0, _viewX + 280, _viewY + 221, rankScale, rankScale, 0, c_white, 1);
+            draw_sprite_ext(sprResultsRanks, 0, 280, 221, rankScale, rankScale, 0, c_white, 1);
             break;
 
         case RankA:
-            draw_sprite_ext(sprResultsRanks, 1, _viewX + 280, _viewY + 221, rankScale, rankScale, 0, c_white, 1);
+            draw_sprite_ext(sprResultsRanks, 1, 280, 221, rankScale, rankScale, 0, c_white, 1);
             break;
 
         case RankB:
-            draw_sprite_ext(sprResultsRanks, 2, _viewX + 280, _viewY + 221, rankScale, rankScale, 0, c_white, 1);
+            draw_sprite_ext(sprResultsRanks, 2, 280, 221, rankScale, rankScale, 0, c_white, 1);
             break;
 
         case RankC:
-            draw_sprite_ext(sprResultsRanks, 3, _viewX + 280, _viewY + 221, rankScale, rankScale, 0, c_white, 1);
+            draw_sprite_ext(sprResultsRanks, 3, 280, 221, rankScale, rankScale, 0, c_white, 1);
             break;
     }
 }
+
+EndUI();

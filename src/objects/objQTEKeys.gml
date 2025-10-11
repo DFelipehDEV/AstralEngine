@@ -237,20 +237,19 @@ action_id=603
 applies_to=self
 */
 /// Draw
-var _viewX, _viewY;
-_viewX = view_xview[0];
-_viewY = view_yview[0];
+BeginUI();
 
-d3d_set_projection_ortho(_viewX, _viewY, ScreenWidth, ScreenHeight, 0) // Stop HUD from resizing
 // Draw underlay
 draw_set_alpha(image_alpha);
-draw_rectangle_color(_viewX, _viewY, _viewX + ScreenWidth, _viewY + ScreenHeight, c_black, c_black, c_black, c_black, 0);
+draw_rectangle_color(0, 0, ScreenWidth, ScreenHeight, c_black, c_black, c_black, c_black, 0);
 
-draw_sprite_ext(sprQTEKeysBack, 0, _viewX + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudBackScale, hudBackScale, 0, c_white, image_alpha);
-draw_rectangle_color((_viewX + ScreenWidthHalf) - 100, (_viewY + ScreenHeightHalf) - 11, (_viewX + ScreenWidthHalf) + hudTimer, (_viewY + ScreenHeightHalf) + 11, hudTimerColor, hudTimerColor, hudTimerColor, hudTimerColor, 0)
+draw_sprite_ext(sprQTEKeysBack, 0, ScreenWidthHalf, ScreenHeightHalf - 30, hudBackScale, hudBackScale, 0, c_white, image_alpha);
+draw_rectangle_color(ScreenWidthHalf - 100, ScreenHeightHalf - 11, ScreenWidthHalf + hudTimer, ScreenHeightHalf + 11, hudTimerColor, hudTimerColor, hudTimerColor, hudTimerColor, 0)
 draw_set_alpha(1);
-draw_sprite_ext(sprQTETimer, 0, _viewX + ScreenWidthHalf, (_viewY + ScreenHeightHalf), hudBackScale, hudBackScale, 0, c_white, image_alpha);
+draw_sprite_ext(sprQTETimer, 0, ScreenWidthHalf, ScreenHeightHalf, hudBackScale, hudBackScale, 0, c_white, image_alpha);
 
 for (i = 0; i < 3; i += 1) {
-    InputIconDraw("qte_" + string(hudInput[i]), (_viewX - (24 - i*24)) + ScreenWidthHalf, (_viewY + ScreenHeightHalf) - 30, hudInputScale[i], hudInputScale[i]);
+    InputIconDraw("qte_" + string(hudInput[i]), (24 - i*24) + ScreenWidthHalf, ScreenHeightHalf - 30, hudInputScale[i], hudInputScale[i]);
 }
+
+EndUI();
