@@ -35,7 +35,8 @@ if (pull) {
         vspeed = 0;
         with (player) {
             ySpeed = -6;
-            StatesSet(PlayerStateNormal);
+            StatesSet(PlayerStateAir);
+            AnimationApply("LANDING");
             y -= 16;
             canMove = true;
         }

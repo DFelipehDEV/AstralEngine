@@ -69,7 +69,8 @@ if (qteWon == 0) {
         }
         if (image_alpha <= 0.1) {
             with (player) {
-                StatesSet(PlayerStateHomingFlight);
+                StatesSet(PlayerStateAir);
+                AnimationApply(choose("HOMED", "HOMED_2", "SPRING_TRICK_VERTICAL"));
                 xSpeed = other.failedXSpeed;
                 ySpeed = other.failedYSpeed;
                 lockKeysTimer = 50;
@@ -179,7 +180,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         PlaySound(sndQTEWin);
                         
                         with (player) {
-                            StatesSet(PlayerStateHomingFlight);
+                            StatesSet(PlayerStateAir);
                             AnimationApply("HOMED");
                             lockKeysTimer = 60;
                         }
@@ -198,7 +199,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         PlaySound(sndQTEWin);
                         
                         with (player) {
-                            StatesSet(PlayerStateHomingFlight);
+                            StatesSet(PlayerStateAir);
                             AnimationApply("HOMED");
                             lockKeysTimer = 60;
                         }
@@ -217,7 +218,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         PlaySound(sndQTEWin);
                         
                         with (player) {
-                            StatesSet(PlayerStateHomingFlight);
+                            StatesSet(PlayerStateAir);
                             AnimationApply("HOMED");
                             lockKeysTimer = 60;
                         }

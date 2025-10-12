@@ -14,11 +14,12 @@ if (keyActionPressed) {
     xSpeed = 6*xDirection;
     ySpeed = -6;
 
-    StatesSet(PlayerStateNormal);
+    StatesSet(PlayerStateAir);
     AnimationApply("LAUNCH");
     PlaySound(sndPlayerJump);
 }
 
 if (!PlayerCollisionObjectLeft(x, y, 0, maskBig, objWalljumpSensor) && !PlayerCollisionObjectRight(x, y, 0, maskBig, objWalljumpSensor)) {
-    StatesSet(PlayerStateNormal);
+    StatesSet(PlayerStateAir);
+    AnimationApply("LANDING");
 }

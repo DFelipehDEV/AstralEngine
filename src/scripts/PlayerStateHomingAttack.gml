@@ -29,5 +29,6 @@ else {
     // Stop homing attack
     xSpeed = 0;
     ySpeed = 0;
-    StatesSet(PlayerStateNormal);
+    StatesSet(PlayerStateAir);
+    AnimationApply("LANDING");
 }

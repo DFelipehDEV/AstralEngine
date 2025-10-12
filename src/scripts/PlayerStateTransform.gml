@@ -10,7 +10,8 @@ if (stateExiting) {
 ySpeed = -0.1;
 if (animation == "TRANSFORM") {
     if (stateTimer > 60) {
-        StatesSet(PlayerStateNormal);
+        StatesSet(PlayerStateAir);
+        AnimationApply("LANDING");
         PlayerSetCharacter(CharacterSuperSonic);
         alarm[1] = 60;
     }

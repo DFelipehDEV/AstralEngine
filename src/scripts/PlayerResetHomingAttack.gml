@@ -6,5 +6,7 @@ if (state == PlayerStateHomingAttack) {
 
     xSpeed = 0;
     ySpeed = -6.5;
-    StatesSet(PlayerStateHomingFlight);
+    lockKeysTimer = 15;
+    StatesSet(PlayerStateAir);
+    AnimationApply(choose("HOMED", "HOMED_2", "SPRING_TRICK_VERTICAL"));
 }

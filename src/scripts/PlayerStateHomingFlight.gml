@@ -1,22 +1,12 @@
 /// PlayerStateHomingFlight()
 if (stateEntering) {
-    AnimationApply(choose("HOMED", "HOMED_2", "SPRING_TRICK_VERTICAL"));
-    lockKeysTimer = 20;
+
     exit;
 }
 if (stateExiting) {
     exit;
 }
 
-PlayerMoveX();
+if (stateTimer > 15) StatesSet(PlayerStateNormal);
 
 xDirection = esign(xSpeed, xDirection);
-
-if (ground) {
-    StatesSet(PlayerStateNormal);
-}
-PlayerHomingAttack();
-PlayerAirdash();
-PlayerStomp();
-PlayerLightspeed();
-PlayerBoost(true);

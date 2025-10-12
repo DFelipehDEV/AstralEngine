@@ -64,11 +64,3 @@ if (ground) {
         }
     }
 }
-else {
-    if (animation != "SPRING_TRICK_VERTICAL" && animation != "FALL" && animation != "LAUNCH" && animation != "FLING") {
-        // Fall animation
-        if (abs(ySpeed) >= 0.2) {
-            AnimationApply("LANDING");
-        }
-    }
-}

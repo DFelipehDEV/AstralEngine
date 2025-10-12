@@ -58,11 +58,14 @@ if (state == PlayerStateNormal) {
     // Normal state animations
     PlayerAnimationNormal();
 }
-if (!ground)
-    PlayerHomingAttack();
+
+if (!ground) {
+    StatesSet(PlayerStateAir);
+    AnimationApply("LANDING");
+}
+
 PlayerAirdash();
-if (ground)
-    PlayerJump();
+PlayerJump();
 PlayerStomp();
 PlayerLightspeed();
 PlayerBoost(true);
