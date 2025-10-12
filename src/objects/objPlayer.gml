@@ -203,16 +203,9 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 
-ds_list_destroy(trailx);
-ds_list_destroy(traily);
-ds_list_destroy(trailal);
-
-instance_destroy_id(shieldInstance);
-instance_destroy_id(cam);
-instance_destroy_id(boostAura);
+PlayerDispatch();
 #define Alarm_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -918,7 +911,7 @@ action_id=603
 applies_to=self
 */
 /// Reset globals
-
+PlayerDispatch();
 PlayerResetGlobalVariables();
 #define Other_40
 /*"/*'/**//* YYD ACTION

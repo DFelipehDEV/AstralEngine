@@ -75,6 +75,7 @@
 		|PlayerSetShield
 		|PlayerSetVoicelines
 		|PlayerStomp
+		|PlayerDispatch
 	+States
 		|PlayerStateNormal
 		|PlayerStateAir
