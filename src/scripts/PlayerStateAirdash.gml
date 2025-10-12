@@ -10,7 +10,7 @@ if (stateExiting) {
 animationSpeed = 0.55 + abs(xSpeed)/17;
 
 if (ground || PlayerCollisionLeft(x, y, 0, maskBig) || PlayerCollisionRight(x, y, 0, maskBig) || stateTimer >= 22 || !keyAction) {
-    xSpeed = airdashSpeed * xDirection;
+    xSpeed = (airdashSpeed / 2) * xDirection;
     PlayerSetGround(false);
     StatesSet(PlayerStateJump);
     canAirdash = false;

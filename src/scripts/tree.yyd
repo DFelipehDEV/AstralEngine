@@ -57,6 +57,7 @@
 		|PlayerBoost
 		|PlayerCalculateAngle
 		|PlayerFlight
+		|PlayerGetInputDirection
 		|PlayerHomingAttack
 		|PlayerHurt
 		|PlayerJump
@@ -64,8 +65,9 @@
 		|PlayerMoveX
 		|PlayerResetAirdash
 		|PlayerResetGlobalVariables
-		|PlayerResetSensors
 		|PlayerResetHomingAttack
+		|PlayerResetKeys
+		|PlayerResetSensors
 		|PlayerSetAngle
 		|PlayerSetCharacter
 		|PlayerSetGround
@@ -73,7 +75,6 @@
 		|PlayerSetShield
 		|PlayerSetVoicelines
 		|PlayerStomp
-		|PlayerResetKeys
 	+States
 		|PlayerStateNormal
 		|PlayerStateSpring

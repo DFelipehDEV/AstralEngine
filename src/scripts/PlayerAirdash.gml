@@ -1,15 +1,6 @@
 /// PlayerAirdash()
-// Add this to a state script when you want airdash to be able to be performed
-
-// Air dash
 if (keyActionPressed && !ground && canAirdash && !instance_exists(homingReticle)) {
-    if (keyLeft) {
-        xSpeed = -11;
-    } else if (keyRight) {
-        xSpeed = 11;
-    } else {
-        xSpeed = 11 * xDirection;
-    }
+    xSpeed = airdashSpeed * PlayerGetInputDirection();
     ySpeed = 0;
     StatesSet(PlayerStateAirdash);
     trailTimer = 60;

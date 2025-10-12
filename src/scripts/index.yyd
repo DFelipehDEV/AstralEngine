@@ -221,3 +221,4 @@ InputIconAddKey
 InputIconAddButton
 BeginUI
 EndUI
+PlayerGetInputDirection

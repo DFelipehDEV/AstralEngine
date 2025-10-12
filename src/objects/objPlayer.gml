@@ -48,7 +48,7 @@ energyMax = 87;
 
 // Airdash
 canAirdash = true;
-airdashSpeed = 8;
+airdashSpeed = 11;
 
 // Homing attack
 canHome = false;
@@ -147,6 +147,8 @@ keyDownPressed = 0;
 keyActionPressed = 0;
 keyBoostPressed = 0;
 keyLightspeedPressed = 0;
+
+inputDirection = 1;
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -510,7 +512,8 @@ applies_to=self
 /// Homing reticle
 
 if (canHome) {
-    var i, _currentObjectNear, _index;
+    var i, _currentObjectNear, _index, _dir;
+    _dir = PlayerGetInputDirection();
 
     for (i = 0; i < ds_list_size(homingObjects); i += 1) {
         _index = ds_list_find_value(homingObjects, i);
@@ -520,7 +523,7 @@ if (canHome) {
 
             if (!instance_exists(homingReticle)
             && distance_to_object(_currentObjectNear) <= homingRange
-            && (sign(_currentObjectNear.x - x) == xDirection || sign(_currentObjectNear.x - x) == 0)
+            && (sign(_currentObjectNear.x - x) == _dir || sign(_currentObjectNear.x - x) == 0)
             && y < _currentObjectNear.y + 9
             && !collision_line(x, y, _currentObjectNear.x, _currentObjectNear.y, objTerrain, 1, 1)) {
 
@@ -535,7 +538,7 @@ if (canHome) {
     if (instance_exists(homingReticle)) {
         if (instance_exists(homingReticle.target)) {
             if (distance_to_object(homingReticle.target) > homingRange
-            || sign(homingReticle.target.x - x) != xDirection
+            || sign(homingReticle.target.x - x) != _dir
             || y >= homingReticle.target.y + 9
             || collision_line(x, y, homingReticle.target.x, homingReticle.target.y, objTerrain, 1, 1)) {
                 // Destroy reticle if the target is no longer valid and not in the homing attack state
@@ -639,6 +642,9 @@ if (allowKeys) {
     keyActionPressed = sysinput_get_pressed("p_jump");
     keyBoostPressed = sysinput_get_pressed("p_boost");
     keyLightspeedPressed = sysinput_get_pressed("p_lightspeed");
+
+    inputDirection = sysinput_get_axis("left", "right");
+    show_debug_message(inputDirection);
 
     if (allowKeysTimer > 0) {
         PlayerResetKeys();

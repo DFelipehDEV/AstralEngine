@@ -10,18 +10,9 @@ if (stateExiting) {
 }
 
 PlayerMoveX();
-// Animations
-// Change direction to the left if the left key have been pressed
-if (keyLeft) {
-    xDirection = -1;
-}
 
-// Change direction to the right if the right key have been pressed
-if (keyRight) {
-    xDirection = 1;
-}
+xDirection = PlayerGetInputDirection();
 
-// Jump animation
 if (animation != "BREATHE") {
     if (ySpeed < 2) {
         AnimationApply("JUMP");
@@ -53,7 +44,6 @@ PlayerStomp();
 PlayerLightspeed();
 PlayerBoost(true);
 
-// Reset after touching the ground
 if (ground) {
     StatesSet(PlayerStateNormal);
 }
