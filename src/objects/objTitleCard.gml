@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 DeactivateExceptionsAdd(id);
 // Destroy while in GMdebug mode
 if (debug_mode) {
@@ -68,9 +67,7 @@ action_id=603
 applies_to=self
 */
 /// Disable player input
-
 if (delay == 29) {
-    // Disable player control
     if (player != noone) {
         player.allowKeys = false;
     }

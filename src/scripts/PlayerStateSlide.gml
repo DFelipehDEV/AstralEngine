@@ -33,7 +33,7 @@ if (distance_to_object(objSlidepassSensor) > 15) {
     }
 }
 else {
-    allowKeysTimer = 15;
+    lockKeysTimer = 15;
 }
 
 // Create dust effect

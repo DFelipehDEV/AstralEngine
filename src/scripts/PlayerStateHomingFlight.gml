@@ -1,7 +1,7 @@
 /// PlayerStateHomingFlight()
 if (stateEntering) {
     AnimationApply(choose("HOMED", "HOMED_2", "SPRING_TRICK_VERTICAL"));
-    allowKeysTimer = 20;
+    lockKeysTimer = 20;
     exit;
 }
 if (stateExiting) {

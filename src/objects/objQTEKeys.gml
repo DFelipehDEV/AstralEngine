@@ -72,7 +72,7 @@ if (qteWon == 0) {
                 StatesSet(PlayerStateHomingFlight);
                 xSpeed = other.failedXSpeed;
                 ySpeed = other.failedYSpeed;
-                allowKeysTimer = 50;
+                lockKeysTimer = 50;
             }
             instance_destroy();
         }
@@ -181,7 +181,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         with (player) {
                             StatesSet(PlayerStateHomingFlight);
                             AnimationApply("HOMED");
-                            allowKeysTimer = 60;
+                            lockKeysTimer = 60;
                         }
                         PlayVoice(player.voiceline[8]);
                         hudInputScale[2] = 0.5;
@@ -200,7 +200,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         with (player) {
                             StatesSet(PlayerStateHomingFlight);
                             AnimationApply("HOMED");
-                            allowKeysTimer = 60;
+                            lockKeysTimer = 60;
                         }
                         PlayVoice(player.voiceline[8]);
                         hudInputScale[2] = 0.5;
@@ -219,7 +219,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         with (player) {
                             StatesSet(PlayerStateHomingFlight);
                             AnimationApply("HOMED");
-                            allowKeysTimer = 60;
+                            lockKeysTimer = 60;
                         }
                         PlayVoice(player.voiceline[8]);
                         hudInputScale[2] = 0.5;

@@ -46,7 +46,7 @@ if (_dashRing != noone) {
 
         _dashRing.scale = 0.5;
 
-        allowKeysTimer = 15;
+        lockKeysTimer = 15;
 
         PlaySound(_dashRing.interactSound);
     }
@@ -77,7 +77,7 @@ if (_dashRamp != noone && ground) {
         x = _dashRamp.x;
         y = _dashRamp.y - 22;
 
-        allowKeysTimer = 30;
+        lockKeysTimer = 30;
 
         PlaySound(sndDashRamp);
     }

@@ -5,10 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Main variables
-
-DeactivateExceptionsAdd(id);
-
 event_inherited();
+DeactivateExceptionsAdd(id);
 
 // State
 StatesInit(PlayerStateNormal);
@@ -128,8 +126,8 @@ applies_to=self
 */
 /// Input variables
 
-allowKeys = 1;
-allowKeysTimer = 0;
+allowKeys = true;
+lockKeysTimer = 0;
 
 keyLeft = 0;
 keyRight = 0;
@@ -624,7 +622,7 @@ applies_to=self
 */
 /// Keys
 
-allowKeysTimer = max(allowKeysTimer - 1, 0);
+lockKeysTimer = max(lockKeysTimer - 1, 0);
 if (allowKeys) {
     keyLeft = sysinput_get("left");
     keyRight = sysinput_get("right");
@@ -646,7 +644,7 @@ if (allowKeys) {
     inputDirection = sysinput_get_axis("left", "right");
     show_debug_message(inputDirection);
 
-    if (allowKeysTimer > 0) {
+    if (lockKeysTimer > 0) {
         PlayerResetKeys();
     }
 

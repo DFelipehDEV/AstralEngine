@@ -13,9 +13,9 @@ if (animation == "SPRING") {
     image_angle = point_direction(xprevious, yprevious, x, y)-90;
 }
 
-if (allowKeysTimer == 0) {
+if (lockKeysTimer == 0) {
     if (keyLeft || keyRight || keyUp || keyDown) {
-        allowKeysTimer = 20;
+        lockKeysTimer = 20;
 
         if (trickCombo < 9) {
             trickCombo += 1;
@@ -46,5 +46,5 @@ if (keyLightspeedPressed) {
 
 if (ground) {
     StatesSet(PlayerStateNormal);
-    allowKeysTimer = 0;
+    lockKeysTimer = 0;
 }
