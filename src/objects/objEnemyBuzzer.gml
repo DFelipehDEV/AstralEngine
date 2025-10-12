@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 event_inherited();
 
 StatesInit(BuzzerStateNormal);
@@ -19,7 +18,6 @@ action_id=603
 applies_to=self
 */
 /// Movement
-
 if (canMove) {
     x += xSpeed * global.timeScale;
     y += ySpeed * global.timeScale;

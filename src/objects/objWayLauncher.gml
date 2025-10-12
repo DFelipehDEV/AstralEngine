@@ -5,13 +5,12 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 image_speed = 0;
 
 dir = 0.01;
 launcherDir = 0.01;
 player = noone;
-timerExit = 0; // Time until the player is kicked out of the launcher
+timerExit = 0;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -19,8 +18,6 @@ action_id=603
 applies_to=self
 */
 /// Launch
-
-
 if (player == noone) {
     if (timerExit > 0) {
         timerExit -= 1;
@@ -32,8 +29,7 @@ if (player == noone) {
 } else {
     if (timerExit < 60) {
         timerExit += 1;
-    }
-    else {
+    } else {
         // After the timer ends, kick out player
         with (player) {
             visible = true;
@@ -98,7 +94,6 @@ if (player == noone) {
             player = noone;
         }
     }
-
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION
@@ -107,7 +102,6 @@ action_id=603
 applies_to=self
 */
 /// Draw launcher
-
 // Draw timer
 draw_circle_color(x - 1, y - 1, 13, c_gray, c_gray, 0);
 DrawCircularBar(x, y, 3, 10, 40, 40 - timerExit*0.58, 0, 360, 1, c_aqua);

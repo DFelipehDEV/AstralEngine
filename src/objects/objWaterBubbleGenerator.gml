@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 smallBubbleTimer = 0;
 bigBubbleTimer = 0;
 image_speed = 0.15;
@@ -16,7 +15,6 @@ action_id=603
 applies_to=self
 */
 /// Generate
-
 smallBubbleTimer += 1;
 if (smallBubbleTimer == 110) {
     smallBubbleTimer = 0;
@@ -36,8 +34,6 @@ action_id=603
 applies_to=self
 */
 /// Draw generator
-
-
 draw_set_blend_mode(bm_add)
 draw_self();
 draw_set_blend_mode(bm_normal)

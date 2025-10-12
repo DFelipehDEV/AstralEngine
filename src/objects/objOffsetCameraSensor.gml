@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 xOffset = 0;
 yOffset = 0;
 #define Step_0
@@ -15,7 +14,6 @@ action_id=603
 applies_to=self
 */
 /// Handle
-
 var _cam;
 _cam = instance_nearest(x, y, objCamera);
 with (_cam) {
@@ -23,8 +21,7 @@ with (_cam) {
     if (place_meeting(x, y, other)) {
         xOffset = other.xOffset;
         yOffset = other.yOffset;
-    }
-    else {
+    } else {
         // Check if we leaved the sensor
         if (place_meeting(xprevious, yprevious, other)) {
             xOffset = 0;

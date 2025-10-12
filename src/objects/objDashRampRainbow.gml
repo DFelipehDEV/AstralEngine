@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 event_inherited();             //Get parent variables
 
 xStrength = 14;            //X Strength
@@ -27,6 +26,6 @@ applies_to=self
 /// Fields
 //field xStrength: value
 //field yStrength: value
-//field playerAction: value
+//field playerAction: script
 //field qteFailedXSpeed: value
 //field qteFailedYSpeed: value

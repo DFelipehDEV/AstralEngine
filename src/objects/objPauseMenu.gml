@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 optionSpacing = 1.2;
 
 option = 0;
@@ -49,7 +48,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy bg
-
 if (background != -1) {
     background_delete(background);
 }
@@ -60,7 +58,6 @@ action_id=603
 applies_to=self
 */
 /// Options
-
 delay = max(delay - 1, 0);
 
 switch (GameStateGet()) {
@@ -125,7 +122,6 @@ action_id=603
 applies_to=self
 */
 /// Draw options
-
 BeginUI();
 
 if (background != -1) {

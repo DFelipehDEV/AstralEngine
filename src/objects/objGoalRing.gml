@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 image_speed = 0.1;
 
 active = false;
@@ -27,7 +26,6 @@ action_id=603
 applies_to=self
 */
 /// Create results
-
 instance_create(0, 0, objFadeGoal)
 audio_sfx_stop();
 PlaySound(sndGoalRingFinish);
@@ -41,7 +39,6 @@ action_id=603
 applies_to=self
 */
 /// Results
-
 with (instance_create(0, 0, objResults)) {
     maxTimeScore = other.maxTimeScore;
     ringScoreMultiplier = other.ringScoreMultiplier;
@@ -62,7 +59,6 @@ action_id=603
 applies_to=self
 */
 /// Goal ring
-
 if (active) {
     if (alarm[0] == -1) {
         speedval -= 0.032
@@ -85,7 +81,6 @@ action_id=603
 applies_to=self
 */
 /// Activate
-
 if (!active) {
     PlaySound(sndGoalRingSpin);
     active = true;

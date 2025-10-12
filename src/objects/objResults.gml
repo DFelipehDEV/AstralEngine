@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 DeactivateExceptionsAdd(id);
 
 audio_music_switch(bgmVictory, 20);
@@ -54,7 +53,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -63,7 +61,6 @@ action_id=603
 applies_to=self
 */
 /// Handle
-
 resultsTimer += 1;
 
 // Show overlays full image
@@ -131,7 +128,6 @@ if (resultsTimer > 110) {
 
             scoreTextYOffset = -dsin(resultsTimer*2)*2
 
-
             // End results
             if (!scoreFinished && scoreBonusTime == scoreValueTime
             && scoreBonusRing == scoreValueRing) {
@@ -171,8 +167,7 @@ if (resultsTimer > 110) {
                     } else {
                         rankIndex = RankS;
                     }
-                }
-                else {
+                } else {
                     // Rank show animation
                     rankTime = min(rankTime + 1, 60);
                     rankScale = abs(ease(rankTime, 24, -23, 60, "OutBounce"))
@@ -204,7 +199,6 @@ if (resultsTimer > 110) {
                         }
                     }
 
-
                     // End results screen
                     if (sysinput_get("accept") && !instance_exists(objFadeNext)) {
                         SaveSetValue("PreviousRoom", room_get_name(room));
@@ -217,10 +211,7 @@ if (resultsTimer > 110) {
 
                         global.gameTimeAllow = true;
                     }
-
                 }
-
-
             }
         }
     }

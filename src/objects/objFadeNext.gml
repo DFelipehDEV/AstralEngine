@@ -4,8 +4,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Variables
-
+/// Init
 DeactivateExceptionsAdd(id);
 image_blend = c_black;
 image_alpha = 0;
@@ -16,7 +15,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -25,7 +23,6 @@ action_id=603
 applies_to=self
 */
 /// Fade and go to the next room
-
 image_alpha += 0.03;
 
 if (image_alpha >= 1.5) {
@@ -38,7 +35,6 @@ action_id=603
 applies_to=self
 */
 /// Draw fade
-
 draw_set_alpha(image_alpha);
 draw_rectangle_color(view_xview[0], view_yview[0], view_xview[0] + ScreenWidth, view_yview[0] + ScreenHeight, image_blend, image_blend, image_blend, image_blend, 0);
 draw_set_alpha(1);

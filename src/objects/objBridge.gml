@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 logsAmount = image_xscale; // Number of logs wich the bridge has
 logWidth = sprite_get_width(sprite_index);
 width = logsAmount*logWidth;
@@ -18,7 +17,6 @@ action_id=603
 applies_to=self
 */
 /// Log management
-
 // Set all logs heights to 0
 for (i=0; i<logsAmount; i+=1) heights[i] = 0;
 

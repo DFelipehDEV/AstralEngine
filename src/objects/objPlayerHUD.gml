@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 DeactivateExceptionsAdd(id);
 
 hidden = false;

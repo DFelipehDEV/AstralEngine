@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 // Array to store enemy data:
 // enemy[0, 0] = x;
 // enemy[0, 1] = y;
@@ -32,7 +31,6 @@ action_id=603
 applies_to=self
 */
 /// Handle
-
 if (player != noone && active) {
     delay = max(delay - 1, 0);
 

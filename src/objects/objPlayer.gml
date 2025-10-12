@@ -4,9 +4,61 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Main variables
+/// Variables
 event_inherited();
 DeactivateExceptionsAdd(id);
+
+physicsMode = PhysicsNormal;
+
+// Movement Flags
+canMove = true;
+canMoveX = true;
+canMoveY = true;
+
+// Horizontal speed (change physics in the player physics script)
+xTopSpeed = 0;
+xMaxSpeed = 0;
+xAcceleration = 0;
+xFriction = 0;
+xSlopeFactor = 0.14;
+xMinSpeedToFall = 4; // Minimum speed to fall when on a slope
+xFrictionTemp = 0;
+xDirection = 1;
+
+// Vertical speed
+noGravityTimer = 0; // This keeps the gravity from being applied for a certain amount of time
+yGravity = 0.21;
+yDefaultGravity = yGravity;
+yDirection = 1;
+
+// Terrain
+terrainLayer = 0;
+terrainType = "";
+terrainSound[TerFootstep1] = sndFootstepStone;
+terrainSound[TerFootstep2] = sndFootstepStone2;
+terrainSound[TerLand] = sndLandStone;
+terrainSound[TerSkid] = sndSkidStone;
+onPlatform = false;
+pushingWall = false;
+
+footstepPlayed = false;
+
+angle = 0;
+angleHolder = 0;
+angleCos = 0;
+angleSin = 0;
+angleMode = 0;
+
+// Sensors
+sensorX = x;
+sensorY = y;
+sensorCos = dcos(angle);
+sensorSin = dsin(angle);
+drawSensors = false;
+PlayerResetSensors();
+bottomCollision = false;
+edgeCollision = false;
+
 
 // State
 StatesInit(PlayerStateNormal);
@@ -59,53 +111,8 @@ ds_list_add_many(homingObjects, objEnemy, objSpring, objMonitor, objHandle, objS
 // Trick timer
 trickCombo = 0;
 
-// Movement Flags
-canMove = true;
-canMoveX = true;
-canMoveY = true;
-
-// Horizontal speed (change physics in the player physics script)
-xTopSpeed = 0;
-xMaxSpeed = 0;
-xAcceleration = 0;
-xFriction = 0;
-xSlopeFactor = 0.14;
-xMinSpeedToFall = 4; // Minimum speed to fall when on a slope
-xFrictionTemp = 0;
-xDirection = 1;
-
-// Vertical speed
-noGravityTimer = 0; // This keeps the gravity from being applied for a certain amount of time
-yGravity = 0.21;
-yDefaultGravity = yGravity;
-yDirection = 1;
-
-// Terrain
-terrainLayer = 0;
-terrainType = "";
-terrainSound[TerFootstep1] = sndFootstepStone;
-terrainSound[TerFootstep2] = sndFootstepStone2;
-terrainSound[TerLand] = sndLandStone;
-terrainSound[TerSkid] = sndSkidStone;
-onPlatform = false;
-pushingWall = false;
-
-footstepPlayed = false;
-
-angle = 0;
-angleHolder = 0;
-angleCos = 0;
-angleSin = 0;
-angleMode = 0;
-
-// Sensors
-sensorX = x;
-sensorY = y;
-sensorCos = dcos(angle);
-sensorSin = dsin(angle);
 
 // Interaction
-physicsMode = 0;
 invincibility = 0;
 invincibilityTimer = 0;
 shield = ShieldNoone;
@@ -119,13 +126,43 @@ waterRunSolid = noone; // Instance of the solid placed beneath the player when r
 underwaterDrownFrame = 0; // Frame index to drown timer
 underwaterTime = 0;
 underwaterTimeToDrown = 60 * 25;
+
+// Voicelines
+PlayerSetVoicelines(CharacterSonic);
+
+// Trail
+trailx = ds_list_create();
+traily = ds_list_create();
+trailal = ds_list_create();
+trailLength = 19;
+trailTimer = 0;
+trailColor = make_color_rgb(25,100,255);
+trailAlpha = 0;
+
+// Stars
+starTimer = 0;
+
+// Sound
+grindSound = -1;
+
+// Afterimage
+afterImageTimer = 0;
+afterImageInterval = 15; // Frames between afterimages
+afterImageMinSpeed = 11;
+
+// Character
+character = CharacterSonic;
+characterPhysics = PlayerPhysicsSonic;
+boostSprite = sprBoost;
+AnimationInit(AnimationIndexSonic);
+PlayerSetCharacter(CharacterSonic);
+PlayerSetPhysicsMode(physicsMode);
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
 /// Input variables
-
 allowKeys = true;
 lockKeysTimer = 0;
 
@@ -153,49 +190,8 @@ action_id=603
 applies_to=self
 */
 /// Misc
-
-cam = instance_create(x, y, objCamera);
-cam.target = id;
-hud = instance_create(x, y, objPlayerHUD);
-hud.player = id;
-
-// Sensors
-drawSensors = false;
-PlayerResetSensors();
-bottomCollision = false;
-edgeCollision = false;
-
-// Voicelines
-PlayerSetVoicelines(CharacterSonic);
-
-// Trail
-trailx = ds_list_create();
-traily = ds_list_create();
-trailal = ds_list_create();
-trailLength = 19;
-trailTimer = 0;
-trailColor = make_color_rgb(25,100,255);
-trailAlpha = 0;
-
-// Stars
-starTimer = 0;
-
-// Sound
-grindSound = -1;
-
-// Afterimage
-afterImageTimer = 0;
-afterImageInterval = 15; // Frames between afterimages
-afterImageMinSpeed = 11;
-
-character = CharacterSonic;
-characterPhysics = PlayerPhysicsSonic;
-boostSprite = sprBoost;
-
-AnimationInit(AnimationIndexSonic);
-
-PlayerSetCharacter(CharacterSonic);
-PlayerSetPhysicsMode(physicsMode);
+cam = noone;
+hud = noone;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -213,7 +209,6 @@ action_id=603
 applies_to=self
 */
 /// Create dust effect
-
 CreateDummy(x, y, sprDust, 0.3, 0, -1, bm_normal, 1, 1, 1, image_angle);
 #define Alarm_1
 /*"/*'/**//* YYD ACTION
@@ -222,10 +217,9 @@ action_id=603
 applies_to=self
 */
 /// Lose rings
-
 global.playerRings -= 1;
-
 alarm[1] = 60;
+
 if (global.playerRings == 0) {
     alarm[1] = -1;
     if (character == CharacterSuperSonic) {
@@ -239,7 +233,6 @@ action_id=603
 applies_to=self
 */
 /// Death handle
-
 if (state != PlayerStateDead) {
     // Die at bottom of room
     if (y >= room_height) {
@@ -252,7 +245,6 @@ action_id=603
 applies_to=self
 */
 /// Movement
-
 if (canMove) {
     if (canMoveX) {
         x += (angleCos * xSpeed) * global.timeScale;
@@ -501,7 +493,6 @@ action_id=603
 applies_to=self
 */
 /// Homing reticle
-
 if (canHome) {
     var i, _currentObjectNear, _index, _dir;
     _dir = PlayerGetInputDirection();
@@ -551,7 +542,6 @@ action_id=603
 applies_to=self
 */
 /// Actions
-
 canHome = false;
 // Stop boosting
 if ((!keyBoost || energy <= 0 || abs(xSpeed) < 2.2 || state == PlayerStateRoll || animation == "FLING" || (boostAirTimer == 0 && !ground)) && boosting) {
@@ -584,9 +574,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Object handle
-// Handle collisions with objects
-
+/// Object collision
 if (state != PlayerStateDead) {
     PlayerHandleLayers();
     PlayerHandleRings();
@@ -614,7 +602,6 @@ action_id=603
 applies_to=self
 */
 /// Keys
-
 lockKeysTimer = max(lockKeysTimer - 1, 0);
 if (allowKeys) {
     keyLeft = sysinput_get("left");
@@ -652,8 +639,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Activate
-
+/// Activation region
 instance_activate_region(bbox_left, bbox_top, 128, 128, true);
 #define Step_2
 /*"/*'/**//* YYD ACTION
@@ -662,8 +648,6 @@ action_id=603
 applies_to=self
 */
 /// Underwater
-
-// Check if the player is underwater
 if (physicsMode == PhysicsWater && state != PlayerStateDead) {
     underwaterTime += 1;
 
@@ -696,7 +680,6 @@ action_id=603
 applies_to=self
 */
 /// Stay in screen
-
 if (x < cam.leftBorder + 12) {
     xSpeed = 0;
     x = cam.leftBorder + 12;
@@ -712,9 +695,6 @@ action_id=603
 applies_to=self
 */
 /// Animation system and rotation
-// Handle animations and rotation
-
-// Animation system
 AnimationSystem(animationList);
 
 // Rotate Sprites
@@ -725,9 +705,7 @@ if (xSpeed == 0 && ground
 else {
     if (ground) {
         image_angle = approach_angle(image_angle, angle, (3 + abs(xSpeed)) * global.timeScale);
-    }
-    // Rotate until reaches to the normal angle
-    else {
+    } else {
         image_angle = approach_angle(image_angle, 0, 4 * global.timeScale);
     }
 }
@@ -736,8 +714,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Effects(Footsteps, Trail, Afterimage, Stars)
-
+/// VFX
 var _frame;
 _frame = floor(image_index);
 playFootstep = false;
@@ -779,10 +756,8 @@ else {
     footstepPlayed = false;
 }
 
-trailTimer -= 1;
-trailAlpha = lerp(trailAlpha, trailTimer/110, 0.08);
 // AfterImage
-afterImageTimer = max(afterImageTimer - 1 * global.timeScale, 0);
+afterImageTimer = max(afterImageTimer - global.timeScale, 0);
 if ((abs(xSpeed) >= afterImageMinSpeed || abs(ySpeed) >= afterImageMinSpeed) && afterImageTimer == 0) {
     afterImageTimer = afterImageInterval;
 }
@@ -794,14 +769,15 @@ if (afterImageTimer > 0) {
 }
 
 // Trail
+trailTimer -= 1;
+trailAlpha = lerp(trailAlpha, trailTimer/110, 0.08);
 TrailUpdate(
-floor(x)+dcos(angle+90)+angleCos*xSpeed,
-floor(y)-dsin(angle+90)+ySpeed-angleSin*xSpeed,
-trailAlpha > 0.1
+    floor(x)+dcos(angle+90)+angleCos*xSpeed,
+    floor(y)-dsin(angle+90)+ySpeed-angleSin*xSpeed,
+    trailAlpha > 0.1
 )
 
 starTimer = max(starTimer - 1, 0);
-// Stars
 if (starTimer > 0 && starTimer mod 5 == 1) {
     CreateDummy(x + irandom_range(-25, 25), y + irandom_range(-25, 25), sprStar, 0.25, 0, choose(1, -2), bm_normal, 1, 1, 1, 0);
 }
@@ -835,8 +811,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Attraction
-
+/// Ring attraction
 var _nearRing;
 _nearRing = instance_nearest(x, y, objRing);
 _distance = distance_to_object(_nearRing);
@@ -855,7 +830,6 @@ action_id=603
 applies_to=self
 */
 /// Camera
-
 if (cam.target == id) {
     var _xSpeed, _ySpeed;
     _xSpeed = (x - xprevious) / global.timeScale;
@@ -910,7 +884,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Reset globals
+/// Dispatch
 PlayerDispatch();
 PlayerResetGlobalVariables();
 #define Other_40
@@ -920,7 +894,6 @@ action_id=603
 applies_to=self
 */
 /// Goal ring
-
 if (goal) {
     xSpeed = 0;
     ySpeed = 0;
@@ -933,7 +906,6 @@ action_id=603
 applies_to=self
 */
 /// Draw character
-
 if (trailAlpha > 0.1) {
     draw_set_blend_mode(bm_add);
     draw_set_color(trailColor);
@@ -987,13 +959,10 @@ action_id=603
 applies_to=self
 */
 /// DEBUG SENSORS
-
 if (drawSensors) {
-    // Draw main masks
     draw_sprite_ext(maskHitbox, 0, floor(x), floor(y), image_xscale, image_yscale, 0, c_white, 0.8);
     draw_sprite_ext(maskMain, 0, floor(x), floor(y), image_xscale, image_yscale, 0, c_white, 0.8);
 
-    // Draw sensor masks
     draw_sprite_ext(maskBig, 0, floor(x + angleSin * sensorBottomDistance), floor(y + angleCos * sensorBottomDistance), image_xscale, image_yscale, 0, c_white, 0.8);
     draw_sprite_ext(maskMid, 0, floor(x + angleSin * 22), floor(y + angleCos * 22), image_xscale, image_yscale, 0, c_white, 0.8);
     draw_sprite_ext(maskBig, 0, floor(x - angleSin * sensorTopDistance), floor(y - angleCos * sensorTopDistance), image_xscale, image_yscale, 0, c_white, 0.8);

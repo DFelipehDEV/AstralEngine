@@ -4,8 +4,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Variables
-
+/// Init
 image_speed = 0;
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -13,6 +12,5 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Animation speed
-
+/// Animate
 image_index = global.gameTime div 80;

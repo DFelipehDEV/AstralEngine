@@ -5,10 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 image_speed = 0;
-
-icon = 0;     // Current icon
+icon = 0;
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -32,6 +30,5 @@ action_id=603
 applies_to=self
 */
 /// Draw monitor and icon
-
 draw_sprite(sprMonitorIcons, icon, x, y);
 draw_sprite(sprMonitor, 0, x, y);

@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 DeactivateExceptionsAdd(id);
 
 view_object[0] = id;
@@ -39,7 +38,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -48,7 +46,6 @@ action_id=603
 applies_to=self
 */
 /// Shake
-
 // Horizontal Shake
 if (xShakeTimer > 0) {
     x += random_range(-17, 17);
@@ -78,7 +75,6 @@ action_id=603
 applies_to=self
 */
 /// Shift to the target position
-
 if (delay > 0) {
     delay -= 1;
 }
@@ -96,7 +92,6 @@ action_id=603
 applies_to=self
 */
 /// Zoom
-
 if (zoom != zoomTarget) {
     zoom = lerp(zoom, zoomTarget, 0.15);
     ViewSetZoom(zoom);
@@ -108,7 +103,6 @@ action_id=603
 applies_to=self
 */
 /// Lost target
-
 if (!instance_exists(target)) {
     target = noone;
 }

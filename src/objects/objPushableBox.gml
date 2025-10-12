@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 xSpeed = 0;
 ySpeed = 0;
 ground = false;
@@ -16,7 +15,6 @@ action_id=603
 applies_to=self
 */
 /// Physics
-
 BodyApplyGravity(0.2);
 move_and_collide(xSpeed, ySpeed, objTerrain);
 
@@ -27,8 +25,7 @@ if (!ground) {
         ground = true;
         ySpeed = 0;
     }
-}
-else {
+} else {
     // Check if leaving the ground
     if (!place_meeting(x, y + 4, objTerrain)) {
         ground = false;

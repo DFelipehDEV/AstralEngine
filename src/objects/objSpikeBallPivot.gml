@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 DeactivateExceptionsAdd(id);
 spikeBall = instance_create(x, y - 16, objSpikeBall);
 spikeBallDistance = 80;
@@ -18,7 +17,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -27,8 +25,7 @@ action_id=603
 applies_to=self
 */
 /// Rotate ball
-
-if !instance_exists(spikeBall){ instance_activate_object(spikeBall) }
+if !instance_exists(spikeBall) { instance_activate_object(spikeBall) }
 
 angle = (global.gameTime / 16.6)*angleSpeed;
 spikeBall.x = x + dcos(angle)*spikeBallDistance;
@@ -70,8 +67,7 @@ action_id=603
 applies_to=self
 */
 /// Draw
-
-if !instance_exists(spikeBall) exit;
+if (!instance_exists(spikeBall)) exit;
 
 var _chainWidth, _chainAmount;
 _chainWidth = 14;

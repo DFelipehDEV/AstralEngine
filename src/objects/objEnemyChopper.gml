@@ -5,18 +5,12 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 event_inherited();
 xSpeed = 2.2;
 ySpeed = -10;
-
 knockOnDeath = true;
 
-hp= noone;
-maxHP = noone;
-
-
-image_speed = 0.3;           // Animation speed
+image_speed = 0.3;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -24,7 +18,6 @@ action_id=603
 applies_to=self
 */
 /// Movement
-
 if (canMove) {
     x += xSpeed * global.timeScale;
     y += ySpeed * global.timeScale;

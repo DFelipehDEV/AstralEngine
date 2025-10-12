@@ -5,8 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
-_yStart = y + 29;
+yStart = y + 29;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -14,11 +13,10 @@ action_id=603
 applies_to=self
 */
 /// Drill
-
-if (floor(abs(y - _yStart)) == 21) {
+if (floor(abs(y - yStart)) == 21) {
     PlaySound(sndSpikeMove, 0.9);
 }
-y = lerp(y, _yStart - round(((global.gameTime * 0.009) mod 26)/29)*29, 0.5);
+y = lerp(y, yStart - round(((global.gameTime * 0.009) mod 26)/29)*29, 0.5);
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1

@@ -58,7 +58,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 #define Step_1
 /*"/*'/**//* YYD ACTION
@@ -78,7 +77,6 @@ action_id=603
 applies_to=self
 */
 /// Position
-
 delay = max(delay - 1, 0)
 
 // Exit while waiting for delay

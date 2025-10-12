@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 DeactivateExceptionsAdd(id);
 pull = false;
 player = noone;
@@ -16,7 +15,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 #define Step_2
 /*"/*'/**//* YYD ACTION
@@ -25,8 +23,6 @@ action_id=603
 applies_to=self
 */
 /// Pull
-
-// Check if we are pulling the player
 if (pull) {
     // Check if we have reached the crane
     if (place_meeting(x, y, crane)) {
@@ -45,9 +41,7 @@ if (pull) {
         }
         audio_stop(sndHandleMove);
         exit;
-    }
-    else {
-        // Go to crane position
+    } else {
         if (!audio_isplaying(sndHandleMove)) {
             PlaySound(sndHandleMove, 1, 1, true);
         }
@@ -72,6 +66,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+/// Fields
 //field crane: instance
 #define Draw_0
 /*"/*'/**//* YYD ACTION
@@ -80,7 +75,6 @@ action_id=603
 applies_to=self
 */
 /// Draw handle
-
 var _ang;
 _ang = point_direction(crane.x, crane.y, x, y);
 

@@ -5,14 +5,13 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 DeactivateExceptionsAdd(id);
 image_speed = 0;
 
-xSpeed = 0;         // Horizontal speed
-ySpeed = 0;         // Vertical speed
-yGravity = 0.1863;      // Gravity
-dropTimer = 120;    // Amount of time that the ring can live
+xSpeed = 0;
+ySpeed = 0;
+yGravity = 0.1863;
+liveTimer = 120;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -20,7 +19,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -29,7 +27,6 @@ action_id=603
 applies_to=self
 */
 /// Bounce
-
 image_index = global.gameTime div 50;
 
 // Gravity
@@ -58,18 +55,14 @@ action_id=603
 applies_to=self
 */
 /// Destroy
+liveTimer -= 1;
 
-// Destroy if the ring has faded
-if (dropTimer == 0) {
-    instance_destroy();
+if (liveTimer < 90) {
+    visible = (liveTimer mod 2)
 }
 
-// Decrease timer
-dropTimer -= 1;
-
-// Start fading
-if (dropTimer < 90) {
-    visible = (dropTimer mod 2)
+if (liveTimer <= 0) {
+    instance_destroy();
 }
 #define Step_1
 /*"/*'/**//* YYD ACTION
@@ -77,6 +70,5 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Activate
-
+/// Activate region
 instance_activate_region(bbox_left, bbox_top, 32, 32, 1)

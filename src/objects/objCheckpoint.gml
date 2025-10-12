@@ -5,10 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
-activated = false;
-
 image_speed = 0.3;
+activated = false;
 #define Other_7
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -16,8 +14,6 @@ action_id=603
 applies_to=self
 */
 /// Repeat animation
-
-// If the player has passed the checkpoint and the animation ended, back to the start spin frame
 if (activated) {
     image_index = 12;
 }

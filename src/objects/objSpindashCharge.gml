@@ -4,8 +4,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Size/scale, color and alpha
-
+/// Init
 image_index = 1
 image_speed = 0;
 
@@ -16,25 +15,17 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Destroy, increase size and fade
-
-// Destroy
-if (image_alpha <= 0) {
-    instance_destroy();
-}
-
-if (image_xscale > 0.5) {
-    // Fade
-    image_alpha -= 0.15;
-}
-
-// Increase size/scale
+/// Animate
 image_xscale += scalespeed;
 image_yscale += scalespeed;
 
+if (image_xscale > 0.5) {
+    image_alpha -= 0.15;
+}
 
-// Rotate
-//image_angle  += 12;
+if (image_alpha <= 0) {
+    instance_destroy();
+}
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

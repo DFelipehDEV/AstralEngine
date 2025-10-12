@@ -4,9 +4,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Increase scale/size and destroy
-
-// Increase scale
+/// Animate
 image_xscale += 0.1;
 image_yscale += 0.1;
 

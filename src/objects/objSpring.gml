@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 strength = 9;
 image_speed = 0;
 #define Other_4
@@ -23,5 +22,4 @@ action_id=603
 applies_to=self
 */
 /// Stop animation
-
 image_speed = 0;

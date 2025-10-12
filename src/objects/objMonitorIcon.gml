@@ -5,13 +5,13 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 DeactivateExceptionsAdd(id);
+image_speed = 0;
+
 ySpeed = -3;
 playerRewarded = false;
 
 player = noone;
-image_speed = 0;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -19,7 +19,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -27,26 +26,24 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Disappear and give reward.
-
+/// Animate and reward
 if (ySpeed < 0) {
     y      += ySpeed;
     ySpeed += 0.09375;
 }
 
-if (ySpeed >= 0 && playerRewarded == false) {
+if (ySpeed >= 0 && !playerRewarded) {
     ySpeed = 0;
     playerRewarded = true;
     event_user(0);
 }
 
 // Fade
-if (playerRewarded == true) {
+if (playerRewarded) {
+    image_alpha -= 0.1;
     if (image_alpha <= 0) {
         instance_destroy();
     }
-
-    image_alpha -= 0.1;
 }
 #define Other_10
 /*"/*'/**//* YYD ACTION
@@ -55,7 +52,6 @@ action_id=603
 applies_to=self
 */
 /// Give reward
-
 switch (icon) {
     // Hurt monitor
     case 1:
@@ -140,5 +136,4 @@ action_id=603
 applies_to=self
 */
 /// Draw icon
-
 draw_sprite_ext(sprMonitorIcons, icon, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);

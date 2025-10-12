@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 event_inherited()
 icon = 5;
 #define Other_4

@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 DeactivateExceptionsAdd(id);
 fontSpace = 14;
 image_alpha = 0;
@@ -28,7 +27,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-
 DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -37,7 +35,6 @@ action_id=603
 applies_to=self
 */
 /// Options
-
 if (leaved) exit;
 image_alpha = approach(image_alpha, 0.9, 0.05);
 
@@ -217,7 +214,6 @@ action_id=603
 applies_to=self
 */
 /// Exit
-
 if (leaved) {
     image_alpha -= 0.03;
 

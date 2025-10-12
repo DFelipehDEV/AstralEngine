@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 active = false;
 rotPrevious = image_angle;
 #define Step_0
@@ -15,7 +14,6 @@ action_id=603
 applies_to=self
 */
 /// Rotation
-
 if (active) {
     image_angle += 6.4 * player.xDirection;
     var _rot;
@@ -46,5 +44,5 @@ if (active) {
             PlaySound(sndPlayerSpin);
         }
     }
-    rotPrevious = _rot; // Update previous rot to new rot
+    rotPrevious = _rot;
 }
