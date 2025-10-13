@@ -7,7 +7,7 @@ applies_to=self
 /// Variables
 DeactivateExceptionsAdd(id);
 
-audio_music_switch(bgmVictory, 20);
+audio_music_switch_ext(bgmVictory, 20, 20, 1, 0, 1, false);
 
 overlaysHeight = 0;                 //Overlays sprite height being drawn
 resultsTimer = 0;                   //Overall timer for everything on this results code
@@ -240,13 +240,13 @@ if (resultsTimer > 80) {
     // Draw main character
     draw_sprite_ext(sprTitleCardChar, 0, characterX, 130, 1, 1, -dsin(current_time/11)*20, c_white, 1)
 
-    draw_sprite_ext(sprTitleCardZoneCard, 0, _viewX, ScreenHeight - 80, resultsBarScale, 0.7, 0, c_white, 1)
+    draw_sprite_ext(sprTitleCardZoneCard, 0, 0, ScreenHeight - 80, resultsBarScale, 0.7, 0, c_white, 1)
 }
 // Draw top overlay
-draw_sprite_part(sprResultsOverlays, 0, 0, 0, 512, overlaysHeight, _viewX, _viewY);
+draw_sprite_part(sprResultsOverlays, 0, 0, 0, 512, overlaysHeight, 0, 0);
 
 // Draw bottom overlay
-draw_sprite_part_ext(sprResultsOverlays, 1, 0, 0, 512, overlaysHeight, _viewX, ScreenHeight, 1, -1, c_white, 1);
+draw_sprite_part_ext(sprResultsOverlays, 1, 0, 0, 512, overlaysHeight, 0, ScreenHeight, 1, -1, c_white, 1);
 
 if (resultsTimer > 130) {
     // Draw font and alignment for the score text
