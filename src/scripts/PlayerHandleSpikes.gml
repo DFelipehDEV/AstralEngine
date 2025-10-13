@@ -1,5 +1,4 @@
 /// PlayerHandleSpikes()
-
 if (instance_exists(objSpike)) {
     var _nearSpike;
     _nearSpike = instance_nearest(x, y, objSpike);

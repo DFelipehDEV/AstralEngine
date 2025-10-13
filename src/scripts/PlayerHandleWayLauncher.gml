@@ -1,6 +1,4 @@
 /// PlayerHandleWayLauncher()
-// Handles collision with way launchers
-
 if (state != PlayerStateHurt && !ground) {
     var _waylauncher;
     _waylauncher = PlayerCollisionHitbox(x, y, objWayLauncher)

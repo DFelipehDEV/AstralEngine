@@ -1,6 +1,4 @@
 /// PlayerHandleWater()
-// Handle water collision
-
 var _waterHorizon, _waterTrigger, _waterBubble;
 _waterHorizon = PlayerCollisionObjectBottom(x, y, 0, maskMain, objWaterHorizon);
 _waterTrigger = PlayerCollisionObjectBottom(x, y, 0, maskMain, objWater);

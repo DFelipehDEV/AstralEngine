@@ -1,5 +1,4 @@
 /// PlayerHandleRings()
-
 var _ringNormal, _ringDrop, _ringMagnetic, _ringHyper, _ring5, _ring10, _ringSpecial;
 _ringNormal = PlayerCollisionHitbox(x, y, objRing);
 _ringDrop = PlayerCollisionHitbox(x, y, objRingDrop);

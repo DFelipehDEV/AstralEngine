@@ -1,5 +1,4 @@
 /// PlayerHandleCheckpoint()
-
 var _checkpoint;
 _checkpoint = PlayerCollisionHitbox(x, y, objCheckpoint);
 

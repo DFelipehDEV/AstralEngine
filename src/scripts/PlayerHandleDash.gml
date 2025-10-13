@@ -1,5 +1,4 @@
 /// PlayerHandleDash()
-
 var _dashPad, _dashRing, _dashRamp;
 _dashPad = PlayerCollisionHitbox(x, y, objDashPad);
 if (_dashPad != noone) {

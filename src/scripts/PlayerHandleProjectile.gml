@@ -1,5 +1,4 @@
 /// PlayerHandleProjectile()
-
 var _projectile;
 _projectile = PlayerCollisionHitbox(x, y, objProjectile);
 

@@ -701,8 +701,7 @@ AnimationSystem(animationList);
 if (xSpeed == 0 && ground
 || state == PlayerStateRoll) {
     image_angle = 0;
-}
-else {
+} else {
     if (ground) {
         image_angle = approach_angle(image_angle, floorto(angle, 11.25), (6 + abs(xSpeed)) * global.timeScale);
     } else {

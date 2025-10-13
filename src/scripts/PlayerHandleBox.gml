@@ -1,6 +1,4 @@
 /// PlayerHandleBox()
-// Handle collision with boxes
-
 if (canAttack) {
     if (state != PlayerStateJump) {
         var _box1;

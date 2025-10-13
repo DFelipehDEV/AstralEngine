@@ -1,5 +1,4 @@
 /// PlayerHandleMonitor()
-
 var _monitor;
 _monitor = PlayerCollisionObjectMain(x, y, objMonitor);
 

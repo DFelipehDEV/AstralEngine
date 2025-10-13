@@ -1,5 +1,4 @@
 /// PlayerHandleRails()
-
 if (state != PlayerStateGrind) {
     var _railNormal, _railLayer0, _railLayer1;
     _railNormal = PlayerCollisionObjectBottom(x, y, 0, maskBig, objRail);

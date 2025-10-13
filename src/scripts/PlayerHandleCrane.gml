@@ -1,10 +1,7 @@
 /// PlayerHandleCrane()
-// Handle Crane collision
-
 var _handle;
 _handle = PlayerCollisionObjectMain(x, y, objHandle);
 
-//Check if is meeting the fling sensor
 if (_handle != noone && ySpeed >= 0) {
     if (state != PlayerStateGrab) {
         PlaySound(sndGrab);

@@ -1,5 +1,4 @@
 /// PlayerHandleSprings()
-
 var _spring;
 _spring = PlayerCollisionHitbox(x, y, objSpring);
 

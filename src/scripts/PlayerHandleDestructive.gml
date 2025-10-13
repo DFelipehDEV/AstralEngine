@@ -1,7 +1,4 @@
 /// PlayerHandleDestructive()
-// Handle collision with destructive objects
-
-// Check if we are in a state that we can destroy the wall
 if (canAttack && ground) {
     if (PlayerCollisionObjectRight(x + xSpeed, y, angle, maskBig, objDestructiveWall) != noone || PlayerCollisionObjectLeft(x + xSpeed, y, angle, maskBig, objDestructiveWall) != noone) {
         with (instance_nearest(x + xSpeed, y, objDestructiveWall)) {

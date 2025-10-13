@@ -1,6 +1,4 @@
 /// PlayerHandleGimmicks()
-// Handle collision with gimmicks
-
 if (abs(xSpeed) >= 6 && ground) {
     var _corkscrew;
     _corkscrew = PlayerCollisionObjectMain(x, y, objCorkscrew);
