@@ -100,7 +100,6 @@
 		|PlayerStateQTEKeys
 		|PlayerStatePush
 		|PlayerStateWaylauncher
-		|PlayerStateBoostAir
 		|PlayerStateGrab
 		|PlayerStateTransform
 		|PlayerStateHurt

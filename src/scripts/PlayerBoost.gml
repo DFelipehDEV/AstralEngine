@@ -1,89 +1,70 @@
 /// PlayerBoost(aircanBoost)
+if (pushingWall) exit;
 
 var _aircanBoost;
 _aircanBoost = argument0;
 
-// Check if the player is not colliding with a wall
-if (!pushingWall) {
-    if (energy > 0) {
-        // Trigger boost dash
-        if (keyBoostPressed && !boosting) {
-            PlayVoice(choose(sndNoone, voiceline[0], voiceline[1]));
-            PlaySound(sndPlayerBoost)
+if (energy > 0) {
+    if (keyBoostPressed && !boosting) {
+        PlayVoice(choose(sndNoone, voiceline[0], voiceline[1]));
+        PlaySound(sndPlayerBoost);
+        CreateDummy(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, image_angle);
+        PlayerAddEnergy(-1.5);
 
-            CreateDummy(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, image_angle);
+        if (abs(xSpeed) < boostStartSpeed)
+            xSpeed = boostStartSpeed * xDirection;
 
-            // Decrease energy gauge
-            PlayerAddEnergy(-1.5);
-
-            // Speed up the player
-            if abs(xSpeed) < boostStartSpeed {
-                xSpeed = boostStartSpeed * xDirection;
-            }
-
-            with (cam) {
-                CameraLag(16);
-                CameraShakeY(20);
-            }
-
-            instance_create(x, y, objBoostShockwave);
-
-            // Check if the player is in the air
-            if (!ground && (_aircanBoost)) {
-                // Air boost dash
-                boosting = true;
-                StatesSet(PlayerStateBoostAir);
-
-                if (boostAura == noone) {
-                    boostAura = instance_create(x, y, objBoost);
-                    with (boostAura) {
-                        sprite_index = other.boostSprite;
-                        image_angle = point_direction(other.xprevious, other.yprevious, x, y);
-                        player = other.id;
-                        image_alpha = 0.7;
-                    }
-                }
-                // Update player's physics to the boost physics
-                PlayerSetPhysicsMode(physicsMode);
-            }
-            else {
-                canBoost = true;
-            }
+        with (cam) {
+            CameraLag(16);
+            CameraShakeY(20);
         }
+        instance_create(x, y, objBoostShockwave);
 
-        // Keep boosting
-        if (keyBoost && canBoost) {
+        if (!ground && _aircanBoost) {
             boosting = true;
-            trailTimer = 120;
+            boostAirTimer = 80;
+            canBoost = true;
+            StatesSet(PlayerStateAir);
+            AnimationApply("LAUNCH");
 
-            if (boostAura == noone) {
+            if (!instance_exists(boostAura)) {
                 boostAura = instance_create(x, y, objBoost);
                 with (boostAura) {
+                    player = other.id;
                     sprite_index = other.boostSprite;
                     image_angle = point_direction(other.xprevious, other.yprevious, x, y);
-                    player = other.id;
                     image_alpha = 0.7;
                 }
             }
-
-            PlayerAddEnergy(-0.35 * global.timeScale);
-            
-            // Update player's physics to the boost physics
             PlayerSetPhysicsMode(physicsMode);
+        } else {
+            canBoost = true;
         }
     }
-    else {
-        // Alert the player that he can't boost
-        if (keyBoostPressed && !boosting) {
-            // Create charge effect
-            with (instance_create(x, y, objSpindashCharge)) {
-                image_xscale = 0.0006;
-                image_yscale = 0.0006;
-                scalespeed = 0.2;
+
+    if (keyBoost && canBoost) {
+        boosting = true;
+        trailTimer = 120;
+
+        if (!instance_exists(boostAura)) {
+            boostAura = instance_create(x, y, objBoost);
+            with (boostAura) {
+                player = other.id;
+                sprite_index = other.boostSprite;
+                image_angle = point_direction(other.xprevious, other.yprevious, x, y);
+                image_alpha = 0.7;
             }
-            // Shake the energy gauge
-            hud.shakeTimer = 30;
-            PlayVoice(voiceline[2]);
         }
-    }   
+
+        PlayerAddEnergy(-0.35 * global.timeScale);
+        PlayerSetPhysicsMode(physicsMode);
+    }
+} else if (keyBoostPressed && !boosting) {
+    with (instance_create(x, y, objSpindashCharge)) {
+        image_xscale = 0.0006;
+        image_yscale = 0.0006;
+        scalespeed = 0.2;
+    }
+    hud.shakeTimer = 30;
+    PlayVoice(voiceline[2]);
 }

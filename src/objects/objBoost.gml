@@ -18,7 +18,6 @@ applies_to=self
 /// Stop the sounds
 audio_stop(loopSound);
 audio_stop(continueSound);
-player.boostAura = noone;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -26,7 +25,7 @@ action_id=603
 applies_to=self
 */
 /// Follow and alpha
-if (!instance_exists(player)){ instance_destroy(); exit; }
+if (!instance_exists(player)) { instance_destroy(); exit; }
 
 if (image_alpha <= 0) {
     instance_destroy();

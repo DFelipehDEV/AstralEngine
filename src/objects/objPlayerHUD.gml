@@ -102,7 +102,7 @@ applies_to=self
 if (instance_exists(player) && !GameStateGet(GameStatePaused)) {
     BeginUI();
     // Speedlines
-    if (player.boostAura != noone) {
+    if (instance_exists(player.boostAura)) {
         draw_sprite_ext(sprHUDSpeedlines, global.gameTime div 40, 0, 0, 1, 1, 0, c_white, (player.boostAura.image_alpha / 1.8))
     }
     draw_set_font(global.fontHUD);

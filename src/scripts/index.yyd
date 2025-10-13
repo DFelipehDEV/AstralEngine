@@ -138,7 +138,7 @@ GameStateSet
 PlayerHandleHurt
 CreateAfterImage
 PlayerStateWaylauncher
-PlayerStateBoostAir
+
 PlayerStateGrab
 DeactivateExceptionsAdd
 DeactivateExceptionsRemove
