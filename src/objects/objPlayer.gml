@@ -704,7 +704,7 @@ if (xSpeed == 0 && ground
 }
 else {
     if (ground) {
-        image_angle = approach_angle(image_angle, angle, (3 + abs(xSpeed)) * global.timeScale);
+        image_angle = approach_angle(image_angle, floorto(angle, 11.25), (6 + abs(xSpeed)) * global.timeScale);
     } else {
         image_angle = approach_angle(image_angle, 0, 4 * global.timeScale);
     }
