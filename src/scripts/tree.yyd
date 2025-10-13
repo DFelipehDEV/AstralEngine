@@ -214,3 +214,7 @@
 	|TimeSystem
 +Debug
 	|DebugSystem
++Transitions
+	|TransitionFadeNext
+	|TransitionFadePrevious
+	|TransitionFadeRoom

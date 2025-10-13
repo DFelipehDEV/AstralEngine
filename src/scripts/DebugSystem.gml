@@ -45,12 +45,14 @@ switch (argument0) {
         if (keyboard_check_pressed(vk_pageup)) {
             if (room_next(room) != -1) {
                 room_goto_next();
+                PlayerResetGlobalVariables();
             }
         }
 
         if (keyboard_check_pressed(vk_pagedown)) {
             if (room_previous(room) != -1) {
                 room_goto_previous();
+                PlayerResetGlobalVariables();
             }
         }
 

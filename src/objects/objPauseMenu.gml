@@ -95,9 +95,8 @@ switch (GameStateGet()) {
                     break;
 
                 case 1:
-                    with (instance_create(0, 0, objFadeRoom)) {
-                        roomTarget = room;
-                    }
+                    TransitionFadeRoom(room);
+                    PlayerResetGlobalVariables();
                     break;
 
                 case 2:
@@ -105,9 +104,8 @@ switch (GameStateGet()) {
                     break;
 
                 case 3:
-                    with (instance_create(0, 0, objFadeRoom)) {
-                        roomTarget = rmTitleScreen;
-                    }
+                    TransitionFadeRoom(rmTitleScreen);
+                    PlayerResetGlobalVariables();
                     break;
             }
             PlaySound(sndMenuAccept);

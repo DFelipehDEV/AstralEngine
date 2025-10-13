@@ -885,7 +885,6 @@ applies_to=self
 */
 /// Dispatch
 PlayerDispatch();
-PlayerResetGlobalVariables();
 #define Other_40
 /*"/*'/**//* YYD ACTION
 lib_id=1

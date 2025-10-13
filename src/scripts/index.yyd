@@ -224,3 +224,6 @@ EndUI
 PlayerGetInputDirection
 PlayerStateAir
 PlayerDispatch
+TransitionFadeNext
+TransitionFadeRoom
+TransitionFadePrevious

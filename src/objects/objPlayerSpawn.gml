@@ -17,12 +17,12 @@ else {
 }
 
 var _cam;
-_cam = instance_create(x, y, objCamera);
+_cam = instance_create(player.x, player.y, objCamera);
 _cam.target = player;
 player.cam = _cam;
 
 var _hud;
-_hud = instance_create(x, y, objPlayerHUD);
+_hud = instance_create(player.x, player.y, objPlayerHUD);
 _hud.player = player;
 player.hud = _hud;
 

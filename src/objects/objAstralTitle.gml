@@ -131,10 +131,8 @@ switch (menu) {
                 if (sysinput_get_pressed("accept")) {
                     switch (menuOption) {
                         case 0: // Start
-                            if (!instance_exists(objFadeNext)) {
-                                with (instance_create(0, 0, objFadeNext)) {
-                                    image_blend = c_white;
-                                }
+                            if (!instance_exists(objFadeRoom)) {
+                                TransitionFadeNext(c_white);
                                 PlaySound(sndMenuAccept);
                             }
                         break;
@@ -144,11 +142,7 @@ switch (menu) {
                                 if (LoadGame()) {
                                     var _previousRoom;
                                     _previousRoom = SaveGetValue("PreviousRoom");
-
-                                    with (instance_create(0, 0, objFadeRoom)) {
-                                        image_blend = c_white;
-                                        roomTarget = room_next(room_find(_previousRoom));
-                                    }
+                                    TransitionFadeRoom(room_next(room_find(_previousRoom)), c_white);
                                     PlaySound(sndMenuAccept);
                                 }
                             }

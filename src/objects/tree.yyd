@@ -42,7 +42,6 @@
 	|objTerrain
 +Transitions
 	|objFadeIn
-	|objFadeNext
 	|objFadeRoom
 	|objFadeGoal
 +UI

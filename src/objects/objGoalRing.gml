@@ -40,6 +40,8 @@ applies_to=self
 */
 /// Results
 with (instance_create(0, 0, objResults)) {
+    time = global.gameTime;
+    rings = global.playerRings;
     maxTimeScore = other.maxTimeScore;
     ringScoreMultiplier = other.ringScoreMultiplier;
     scoreValueTime = max(0, maxTimeScore-floor(global.gameTime/50000)*4500);
@@ -49,8 +51,6 @@ with (instance_create(0, 0, objResults)) {
     minimumScore[RankA] = other.minimumScoreA;
     minimumScore[RankS] = other.minimumScoreS;
 }
-global.gameTimeAllow = false;
-
 instance_destroy();
 #define Step_0
 /*"/*'/**//* YYD ACTION
