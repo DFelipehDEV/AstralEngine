@@ -250,7 +250,7 @@ draw_set_alpha(1);
 draw_sprite_ext(sprQTETimer, 0, ScreenWidthHalf, ScreenHeightHalf, hudBackScale, hudBackScale, 0, c_white, image_alpha);
 
 for (i = 0; i < 3; i += 1) {
-    InputIconDraw("qte_" + string(hudInput[i]), (24 - i*24) + ScreenWidthHalf, ScreenHeightHalf - 30, hudInputScale[i], hudInputScale[i]);
+    InputIconDraw("qte_" + string(hudInput[i]), (i*24) + ScreenWidthHalf - 24, ScreenHeightHalf - 30, hudInputScale[i], hudInputScale[i]);
 }
 
 EndUI();
