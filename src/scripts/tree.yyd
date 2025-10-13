@@ -80,7 +80,6 @@
 		|PlayerStateNormal
 		|PlayerStateAir
 		|PlayerStateSpring
-		|PlayerStateSpringTrick
 		|PlayerStateTurn
 		|PlayerStateJump
 		|PlayerStateAirdash

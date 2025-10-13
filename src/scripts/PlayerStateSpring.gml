@@ -30,20 +30,19 @@ if (animation == "SPRING") {
 
 if (keyBoostPressed) {
     if (!keyUp && (keyLeft || keyRight)) {
-        // Horizontal
-        var _dir;
-        _dir = (keyRight - keyLeft);
-        xSpeed = 6 * _dir;
+        xSpeed = 6 * PlayerGetInputDirection();
         ySpeed = -2;
-        xDirection = _dir;
+        xDirection = sign(xSpeed);
         AnimationApply("SPRING_TRICK_HORIZONTAL");
     } else if (keyUp && !keyLeft && !keyRight) {
-        // Vertical
         xSpeed = 0;
         ySpeed = -7;
         AnimationApply("SPRING_TRICK_VERTICAL");
     }
-    StatesSet(PlayerStateSpringTrick);
+
+    PlaySound(sndPlayerTrick);
+    image_angle = 0;
+    StatesSet(PlayerStateAir);
 }
 
 PlayerHomingAttack();
