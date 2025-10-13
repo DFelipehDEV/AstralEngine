@@ -14,7 +14,7 @@ PlayerMoveX();
 if (stateTimer > 8) {
     xDirection = -xDirection;
     StatesSet(PlayerStateNormal);
-    PlayerAnimationNormal();
+    AnimationApply("IDLE");
 }
 if (ground)
     PlayerJump();
