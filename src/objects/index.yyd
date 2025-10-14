@@ -122,11 +122,11 @@ objCorkscrew
 objCorkscrewDepth
 objTitleCard
 
-objFadeIn
+
 
 
 objFadeRoom
-objFadeGoal
+
 objPlayerSpawn
 
 objTZBG
@@ -232,3 +232,5 @@ objDialogue
 objDialogueQuery
 objStartDialogueSensor
 objNPC
+objTeleportRing
+objTransition

@@ -26,10 +26,10 @@ action_id=603
 applies_to=self
 */
 /// Create results
-instance_create(0, 0, objFadeGoal)
+TransitionFadeRoom(-1, c_white, 0.05, 0.5);
 audio_sfx_stop();
 PlaySound(sndGoalRingFinish);
-instance_create(x, y, objRainbow)
+instance_create(x, y, objRainbow);
 
 alarm[1] = 30;
 #define Alarm_1

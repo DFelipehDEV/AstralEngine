@@ -41,9 +41,8 @@
 		|objLayer1Mask05
 	|objTerrain
 +Transitions
-	|objFadeIn
+	|objTransition
 	|objFadeRoom
-	|objFadeGoal
 +UI
 	|objPauseMenu
 	|objAstralTitle
@@ -84,6 +83,7 @@
 		|objRing10
 		|objRing5
 		|objRingSpecial
+		|objTeleportRing
 		+Miscellaneous
 			|objRingDrop
 			|objRingMagnetic

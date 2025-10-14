@@ -37,10 +37,6 @@ minimumScore[RankC] = 2500;
 minimumScore[RankB] = 4000;
 minimumScore[RankA] = 6000;
 minimumScore[RankS] = 8500;
-
-with (instance_create(x, y, objFadeIn)) {
-    image_blend = c_white;
-}
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
