@@ -1,7 +1,7 @@
 /// PlayerStateGrind()
 if (stateEntering) {
     AnimationApply("GRIND");
-    grindSound = PlaySound(sndPlayerGrind, global.soundVolume, 1, true);
+    grindSound = PlaySound(sndPlayerGrind, 1, 1, true);
     exit;
 }
 

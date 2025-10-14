@@ -64,21 +64,21 @@ switch (icon) {
     // 5 Rings
     case 2:
         global.playerRings += 5;
-        PlaySoundSingle(sndRingMonitor, global.soundVolume, 1);
+        PlaySoundSingle(sndRingMonitor,);
         break;
 
 
     // 10 Rings
     case 3:
         global.playerRings += 10;
-        PlaySoundSingle(sndRingMonitor, global.soundVolume, 1);
+        PlaySoundSingle(sndRingMonitor);
         break;
 
 
     // Random rings
     case 4:
         global.playerRings += irandom_range(1, 25);
-        PlaySoundSingle(sndRingMonitor, global.soundVolume, 1);
+        PlaySoundSingle(sndRingMonitor);
         break;
 
 
@@ -86,7 +86,7 @@ switch (icon) {
     case 5:
         with (player) {
             PlayerAddEnergy(80);
-            PlaySoundSingle(sndTrick, global.soundVolume, 1);
+            PlaySoundSingle(sndTrick);
         }
         break;
 
@@ -95,7 +95,7 @@ switch (icon) {
     case 6:
         with (player) {
             PlayerSetShield(ShieldNormal);
-            PlaySoundSingle(sndShieldMonitor, global.soundVolume, 1);
+            PlaySoundSingle(sndShieldMonitor);
         }
         break;
 
@@ -104,7 +104,7 @@ switch (icon) {
     case 7:
         with (player) {
             PlayerSetShield(ShieldElectricity);
-            PlaySoundSingle(sndShieldMonitor, global.soundVolume, 1.1);
+            PlaySoundSingle(sndShieldMonitor, 1, 1.1);
         }
         break;
 
@@ -124,7 +124,7 @@ switch (icon) {
         with (player) {
             combineActive = true;
         }
-        PlaySoundSingle(sndRingMonitor, global.soundVolume, 0.75);
+        PlaySoundSingle(sndRingMonitor, 1, 0.75);
         break;
 }
 

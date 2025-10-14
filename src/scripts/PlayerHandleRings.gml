@@ -12,7 +12,7 @@ if (_ringNormal != noone) {
     global.playerRings += 1;
     with (_ringNormal) {
         instance_create(x, y, objRingCollected);
-        PlaySoundSingle(sndRing, global.soundVolume, 1);
+        PlaySoundSingle(sndRing);
         instance_destroy();
     }
 
@@ -23,7 +23,7 @@ if (_ringDrop != noone && (state != PlayerStateHurt && invincibilityTimer < 100)
     global.playerRings += 1;
     with (_ringDrop) {
         instance_create(x, y, objRingCollected);
-        PlaySoundSingle(sndRing, global.soundVolume, 1);
+        PlaySoundSingle(sndRing);
         instance_destroy();
     }
 }
@@ -32,7 +32,7 @@ if (_ringMagnetic != noone) {
     global.playerRings += 1;
     with (_ringMagnetic) {
         instance_create(x, y, objRingCollected);
-        PlaySoundSingle(sndRing, global.soundVolume, 1);
+        PlaySoundSingle(sndRing);
         instance_destroy();
     }
     PlayerAddEnergy(4);
@@ -42,7 +42,7 @@ if (_ringHyper != noone && (state != PlayerStateHurt && invincibilityTimer < 100
     global.playerRings += round(_ringHyper.value);
     with (_ringHyper) {
         instance_create(x, y, objRingCollected);
-        PlaySoundSingle(sndRing, global.soundVolume, 1);
+        PlaySoundSingle(sndRing);
         instance_destroy();
     }
 }
@@ -57,7 +57,7 @@ if (_ring5 != noone) {
             image_index = 0;
             image_speed = 0;
         }
-        PlaySoundSingle(sndRingSuper, global.soundVolume, 1);
+        PlaySoundSingle(sndRingSuper);
         instance_destroy();
     }
 }
@@ -72,7 +72,7 @@ if (_ring10 != noone) {
             image_index = 1;
             image_speed = 0;
         }
-        PlaySoundSingle(sndRingSuper, global.soundVolume, 1);
+        PlaySoundSingle(sndRingSuper);
         instance_destroy();
     }
 }
@@ -83,7 +83,7 @@ if (_ringSpecial != noone) {
         with(instance_create(x, y, objRingCollected)) {
             sparkleOffset = 30;
         }
-        PlaySoundSingle(sndRingSpecial, global.soundVolume, 1);
+        PlaySoundSingle(sndRingSpecial);
         instance_destroy();
     }
     PlayerAddEnergy(4);

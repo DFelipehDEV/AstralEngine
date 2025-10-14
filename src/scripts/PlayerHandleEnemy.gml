@@ -37,7 +37,7 @@ if (_enemy != noone) {
                 } else {
                     with(_enemy) {
                         CreateDummy(x, y, sprExplosion, 0.35, 0, -0.1, bm_normal, 1, 1, 1, 0);
-                        PlaySoundSingle(choose(sndExplosion, sndExplosion2), global.soundVolume, 1, false);
+                        PlaySoundSingle(choose(sndExplosion, sndExplosion2));
 
                         repeat(6) {
                             var _metal;

@@ -661,7 +661,7 @@ if (physicsMode == PhysicsWater && state != PlayerStateDead) {
         if (floor(underwaterTime) mod 120 == 1) {
             underwaterDrownFrame += 1;
 
-            PlaySoundSingle(sndPlayerLoseAir, global.soundVolume, 1);
+            PlaySoundSingle(sndPlayerLoseAir);
         }
 
         // Drown
@@ -747,7 +747,7 @@ if (playFootstep) {
         }
         audio_stop(terrainSound[TerFootstep1]);
         audio_stop(terrainSound[TerFootstep2]);
-        PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]), global.soundVolume, 1, false);
+        PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]));
         footstepPlayed = true;
     }
 }
