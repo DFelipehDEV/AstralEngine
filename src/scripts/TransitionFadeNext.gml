@@ -1,4 +1,4 @@
-/// TransitionFadeNext([color])
+/// TransitionFadeNext([color=c_black])
 var _color;
 _color = c_black;
 if (argument_count == 1)

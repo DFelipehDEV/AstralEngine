@@ -1,6 +1,5 @@
 |README
-+Init
-	|Init
+|Init
 +Animation
 	|AnimationInit
 	|AnimationSystem
@@ -13,16 +12,51 @@
 	|CameraShakeX
 	|CameraShakeY
 +Deactivation
+	|DeactivationSystem
 	|DeactivateExceptionsAdd
 	|DeactivateExceptionsRemove
-	|DeactivationSystem
-+NPC
-	|NPCAddDialogue
++Drawing
+	|DrawCircularBar
+	|DrawSpriteTiledHorizontalPart
+	|DrawSpriteTiledVerticalPart
+	|DrawSpriteTiledPart
+	|DrawBackgroundRepeatHorizontal
+	|DrawBackgroundRepeatVertical
+	|DrawTiledTexturePos
 +EnemiesArena
 	|EnemiesArenaAddEnemy
++Enemy
+	+Eggpawn
+		+States
+			|EggpawnStateNormal
+			|EggpawnStateTurn
+			|EggpawnStateSpotted
+			|EggpawnStateChase
+			|EggpawnStateReturn
+	+Heavy
+		+States
+			|HeavyStateNormal
+			|HeavyStateTurn
+			|HeavyStateSpotted
+			|HeavyStateChase
+			|HeavyStateAttack
+			|HeavyStateReturn
+	+Buzzer
+		|BuzzerStateNormal
+		|BuzzerStateTurn
+		|BuzzerStateShoot
+		|BuzzerStateSpotted
+	|EnemySetAnimation
 +GameState
 	|GameStateGet
 	|GameStateSet
++Input
+	|InputSystem
+	|InputIconAddKey
+	|InputIconAddButton
+	|InputIconDraw
++NPC
+	|NPCAddDialogue
 +Parallax
 	|ParallaxAddNode
 +Player
@@ -129,6 +163,19 @@
 	+Super Sonic
 		|AnimationIndexSuperSonic
 		|PlayerPhysicsSuperSonic
++Ring
+	|CreateDroppedRings
+	|CreateDroppedHyperRings
++Save
+	|LoadGame
+	|SaveGame
+	|SaveGetValue
+	|SaveSetValue
+	|SaveSetRoomAsCompleted
+	|SaveInit
++Settings
+	|SettingsLoad
+	|SettingsSave
 +Shaders
 	|ShadersInit
 	|shdHeat
@@ -140,81 +187,31 @@
 	|PlayVoice
 	|PlayMusic
 	|SoundInit
-+Utils
-	|ease
-	|BeginUI
-	|EndUI
-+Input
-	|InputSystem
-	|InputIconAddKey
-	|InputIconAddButton
-	|InputIconDraw
-+Window
-	|WindowSetScale
-	|WindowSystem
-	|ViewSetZoom
-+Save
-	|LoadGame
-	|SaveGame
-	|SaveGetValue
-	|SaveSetValue
-	|SaveSetRoomAsCompleted
-	|SaveInit
 +State Machine
 	|StatesInit
 	|StatesUpdate
 	|StatesSet
 	|StateTemplate
-+Enemy
-	+Eggpawn
-		+States
-			|EggpawnStateNormal
-			|EggpawnStateTurn
-			|EggpawnStateSpotted
-			|EggpawnStateChase
-			|EggpawnStateReturn
-	+Heavy
-		+States
-			|HeavyStateNormal
-			|HeavyStateTurn
-			|HeavyStateSpotted
-			|HeavyStateChase
-			|HeavyStateAttack
-			|HeavyStateReturn
-	+Buzzer
-		|BuzzerStateNormal
-		|BuzzerStateTurn
-		|BuzzerStateShoot
-		|BuzzerStateSpotted
-	|EnemySetAnimation
-+VFX
-	|CreateDummy
-	|CreateAfterImage
-	|CreateDebris
-+Ring
-	|CreateDroppedRings
-	|CreateDroppedHyperRings
-+Drawing
-	|DrawCircularBar
-	|DrawSpriteTiledHorizontalPart
-	|DrawSpriteTiledVerticalPart
-	|DrawSpriteTiledPart
-	|DrawBackgroundRepeatHorizontal
-	|DrawBackgroundRepeatVertical
-	|DrawTiledTexturePos
++Systems
+	|SystemsAddSystem
+	|TimeSystem
+	|DebugSystem
 +Trail
 	|TrailUpdate
 	|DrawTrail
-+Settings
-	|SettingsLoad
-	|SettingsSave
-+Systems
-	|SystemsAddSystem
-+Time
-	|TimeSystem
-+Debug
-	|DebugSystem
 +Transitions
 	|TransitionFadeNext
 	|TransitionFadePrevious
 	|TransitionFadeRoom
++Utils
+	|ease
+	|BeginUI
+	|EndUI
++VFX
+	|CreateDummy
+	|CreateAfterImage
+	|CreateDebris
++Window
+	|WindowSystem
+	|WindowSetScale
+	|ViewSetZoom

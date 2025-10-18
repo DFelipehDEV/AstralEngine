@@ -262,3 +262,6 @@ sprMusicPlayer
 sprStartDialogueSensor
 sprZoomCameraSensor
 sprOffsetCameraSensor
+sprTeleportRing
+sprTeleportRing2
+sprTeleportRing3

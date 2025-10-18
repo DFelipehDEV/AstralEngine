@@ -622,7 +622,6 @@ if (allowKeys) {
     keyLightspeedPressed = sysinput_get_pressed("p_lightspeed");
 
     inputDirection = sysinput_get_axis("left", "right");
-    show_debug_message(inputDirection);
 
     if (lockKeysTimer > 0) {
         PlayerResetKeys();

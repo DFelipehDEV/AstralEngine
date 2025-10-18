@@ -1,8 +1,6 @@
 /// EnemiesArenaAddEnemy(number, x, y, object, health, phase)
-
 var _enemyNumber;
 _enemyNumber = argument0;
-
 enemy[_enemyNumber, 0] = argument1;
 enemy[_enemyNumber, 1] = argument2;
 enemy[_enemyNumber, 2] = argument3;

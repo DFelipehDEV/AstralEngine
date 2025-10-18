@@ -7,13 +7,14 @@ switch (argument0) {
     case ev_step:
         if (GameStateGet() == GameStatePaused) exit;
         instance_deactivate_all(true);
-        instance_activate_object(objPlatformMove);
-        instance_activate_object(objVFX);
-        instance_activate_object(objSingleton);
         instance_activate_object(gm82core_object);
+        instance_activate_object(objSingleton);
+        instance_activate_object(objTransition);
+        instance_activate_object(objVFX);
         instance_activate_object(objTerrain);
+        instance_activate_object(objPlatformMove);
 
-        instance_deactivate_object(objSpikeMove)
+        instance_deactivate_object(objSpikeMove);
 
         // Activate specific instances
         var _instance;
@@ -21,7 +22,7 @@ switch (argument0) {
             instance_activate_object(ds_list_find_value(global.deactivateExceptions, _instance));
         }
 
-        instance_activate_region(view_xview[0] - 64, view_yview[0] - 32, ScreenWidth + 96, ScreenHeight + 96, 1);
+        instance_activate_region(view_xview[0] - 64, view_yview[0] - 32, view_wview[0] + 96, view_hview[0] + 96, 1);
         break;
 
     case ev_room_end:

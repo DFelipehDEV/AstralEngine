@@ -80,6 +80,9 @@
 		|sprRingHyper
 		|sprRingAmount
 		|sprRingSpecial
+		|sprTeleportRing
+		|sprTeleportRing2
+		|sprTeleportRing3
 		+VFX
 			|sprRingSparkle
 			|sprRingSparkle2

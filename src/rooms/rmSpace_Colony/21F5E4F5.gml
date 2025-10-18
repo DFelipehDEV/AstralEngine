@@ -1,0 +1,10 @@
+//gm82 fields begin
+parent=rmSpace_Colony_43B8E396
+child0=rmSpace_Colony_B9EC6E83
+child1=rmSpace_Colony_95C7C202
+child2=rmSpace_Colony_18E99B96
+child3=rmSpace_Colony_9FB5BC66
+child4=rmSpace_Colony_7F6C516E
+child5=rmSpace_Colony_31F9CE25
+child6=rmSpace_Colony_7CCEA095
+//gm82 fields end
