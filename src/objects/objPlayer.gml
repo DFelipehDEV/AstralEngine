@@ -101,6 +101,7 @@ canAirdash = true;
 airdashSpeed = 11;
 
 // Homing attack
+canHomingAttack = true;
 canHome = false;
 homingSpeed = 12;
 homingRange = 220;

@@ -1,5 +1,6 @@
 /// PlayerAirdash()
-if (keyActionPressed && !ground && canAirdash && !instance_exists(homingReticle)) {
+if (!canAirdash) exit;
+if (keyActionPressed && !ground && !instance_exists(homingReticle)) {
     xSpeed = airdashSpeed * PlayerGetInputDirection();
     ySpeed = 0;
     StatesSet(PlayerStateAirdash);

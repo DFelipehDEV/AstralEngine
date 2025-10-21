@@ -1,5 +1,5 @@
 /// PlayerHomingAttack()
-
+if (!canHomingAttack) exit;
 canHome = true;
 if (instance_exists(homingReticle)) {
     if (keyActionPressed) {
