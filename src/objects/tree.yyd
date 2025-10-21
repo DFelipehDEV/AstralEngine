@@ -134,7 +134,7 @@
 		|objMonitorShieldElectro
 		|objMonitorShieldNormal
 		|objMonitorIcon
-	+Navigator
+	+NPC
 		|objNPC
 		|objNavigator
 	+Boxes
@@ -218,4 +218,5 @@
 	|objAfterImage
 +Music
 	|objMusicPlayer
-|objInstanceGroup
++Experimental
+	|objInstanceGroup

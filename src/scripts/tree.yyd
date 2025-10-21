@@ -57,6 +57,7 @@
 	|InputIconDraw
 +NPC
 	|NPCAddDialogue
+	|NPCDispatch
 +Parallax
 	|ParallaxAddNode
 +Player

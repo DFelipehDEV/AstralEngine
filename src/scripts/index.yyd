@@ -227,3 +227,5 @@ PlayerDispatch
 TransitionFadeNext
 TransitionFadeRoom
 TransitionFadePrevious
+NPCDispatch
+

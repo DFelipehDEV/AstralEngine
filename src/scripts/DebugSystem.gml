@@ -99,7 +99,7 @@ switch (argument0) {
     case ev_draw:
         if (!global.debugOverlay) exit;
         BeginUI();
-        draw_rect(333, 103, 179, 185, c_black, 0.5, 0);
+        draw_rect(333, 72, 179, 240, c_black, 0.5, 0);
         draw_set_font(fontConsolas8);
         draw_set_halign(fa_left);
         draw_set_color(c_white);
@@ -111,6 +111,7 @@ switch (argument0) {
             var _playerText;
             _playerText = "FPS:" + string(fps) + " " + string(fps_real)
             + "#TAB:TOGGLE OVERLAY#RMB:LERP PLAYER POSITION#R:RESTART ROOM#PGUP:NEXT ROOM#PGDN:PREVIOUS ROOM"
+            + "#id:" + string(_player.id)
             + "#x:" + string(floor(_player.x)) + " " + string(_player.xSpeed)
             + "#y:" + string(floor(_player.y)) + " " + string(_player.ySpeed)
             + "#ground:" + string(_player.ground)
@@ -120,7 +121,7 @@ switch (argument0) {
             + "#previousState:" + script_get_name(_player.previousState)
             + "#stateTimer:" + string(_player.stateTimer)
             + "#animation:" + _player.animation
-            draw_text(333, 103, _playerText);
+            draw_text(333, 72, _playerText);
         }
         EndUI();
         break;

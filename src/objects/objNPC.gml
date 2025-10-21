@@ -11,6 +11,14 @@ dialogueQuerier = noone;
 inputAlpha = 0;
 
 player = noone;
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Dispatch
+NPCDispatch();
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -49,6 +57,14 @@ if (other.keyLightspeedPressed && !instance_exists(dialogueQuerier)) {
     dialogueQuerier = instance_create(x, y, objDialogueQuery);
     dialogueQuerier.dialogues = dialogues;
 }
+#define Other_5
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Dispatch
+NPCDispatch();
 #define Other_10
 /*"/*'/**//* YYD ACTION
 lib_id=1
