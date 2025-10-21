@@ -8,10 +8,6 @@ if (stateEntering) {
         case 2: canAirdash = argument1;
         case 1: canBoost = argument0; break;
     }
-    var i;
-    show_debug_message("Boost: " + string(canBoost))
-    show_debug_message("Airdash: " + string(canAirdash))
-    show_debug_message("Homing: " + string(canHomingAttack))
     exit;
 }
 if (stateExiting) {

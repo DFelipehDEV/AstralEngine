@@ -22,7 +22,7 @@
 	|DrawSpriteTiledPart
 	|DrawBackgroundRepeatHorizontal
 	|DrawBackgroundRepeatVertical
-	|DrawTiledTexturePos
+	|DrawSpriteQuad
 +EnemiesArena
 	|EnemiesArenaAddEnemy
 +Enemy

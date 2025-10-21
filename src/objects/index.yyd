@@ -235,3 +235,5 @@ objNPC
 objTeleportRing
 objTransition
 objInstanceGroup
+obj3DAudioPlayer
+objWaterfall

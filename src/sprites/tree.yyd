@@ -192,6 +192,8 @@
 		|sprDrownTimer
 		|sprWaterSplash
 		|sprWaterDrop
+	+Waterfall
+		|sprWaterfall
 +VFX
 	|sprDust
 	|sprExplosion

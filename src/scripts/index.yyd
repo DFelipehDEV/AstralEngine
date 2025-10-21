@@ -169,7 +169,7 @@ PlayerPhysicsSuperSonic
 PlayerSetCharacter
 PlayerStateTransform
 
-DrawTiledTexturePos
+DrawSpriteQuad
 ease
 PlayerHandleRings
 InputSystem

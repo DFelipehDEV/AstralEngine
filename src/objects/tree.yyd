@@ -212,6 +212,7 @@
 		+Don't use
 			|objWaterBubble
 			|objWaterBubbleSmall
+	|objWaterfall
 +VFX
 	|objVFX
 	|objDummy
@@ -220,3 +221,4 @@
 	|objMusicPlayer
 +Experimental
 	|objInstanceGroup
+	|obj3DAudioPlayer
