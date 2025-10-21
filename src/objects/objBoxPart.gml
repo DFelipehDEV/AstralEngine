@@ -5,21 +5,12 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
 image_speed = 0;
 
 gravity = 0.23;
 image_xscale = random_range(1, 0.6);
 
 timer = 0;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

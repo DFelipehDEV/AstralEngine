@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-dialogues = ds_map_create();
+dialogues = -1; // Map given on creation
 
 currentDialogue = 0;
 currentDialogueInstance = noone;
@@ -16,7 +16,7 @@ action_id=603
 applies_to=self
 */
 /// Create dialogues
-if (!instance_exists(currentDialogueInstance)) {
+if (dialogues != -1 && !instance_exists(currentDialogueInstance)) {
     var _dial;
     _dial = ds_list_find_value(dialogues, currentDialogue);
 

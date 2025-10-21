@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 
 hidden = false;
 shakeTimer = 0;
@@ -26,14 +26,6 @@ offset = 0;
 enemy = 0;
 enemyFrame = 0;
 enemyScale = 0;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

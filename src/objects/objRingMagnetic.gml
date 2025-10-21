@@ -5,21 +5,11 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 attractAcc[0] = 0.85;
 attractAcc[1] = 0.2875;
 
 image_speed = 0;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

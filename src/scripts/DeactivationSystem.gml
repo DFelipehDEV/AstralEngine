@@ -8,18 +8,15 @@ switch (argument0) {
         if (GameStateGet() == GameStatePaused) exit;
         instance_deactivate_all(true);
         instance_activate_object(gm82core_object);
-        instance_activate_object(objSingleton);
-        instance_activate_object(objTransition);
-        instance_activate_object(objVFX);
-        instance_activate_object(objTerrain);
-        instance_activate_object(objPlatformMove);
-
-        instance_deactivate_object(objSpikeMove);
+        instance_activate_object(objAlwaysActive);
 
         // Activate specific instances
-        var _instance;
-        for (_instance = 0; _instance < ds_list_size(global.deactivateExceptions); _instance += 1) {
-            instance_activate_object(ds_list_find_value(global.deactivateExceptions, _instance));
+        var i, _instance;
+        for (i = 0; i < ds_list_size(global.deactivateExceptions); i += 1) {
+            _instance = ds_list_find_value(global.deactivateExceptions, i);
+            instance_activate_object(_instance);
+
+            if (!instance_exists(_instance)) DeactivateExceptionsRemove(_instance);
         }
 
         instance_activate_region(view_xview[0] - 64, view_yview[0] - 32, view_wview[0] + 96, view_hview[0] + 96, 1);

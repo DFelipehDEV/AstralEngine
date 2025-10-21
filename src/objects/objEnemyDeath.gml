@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Create
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -13,8 +13,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-DeactivateExceptionsRemove(id);
-
 CreateDummy(x + random_range(-30, 30), y + random_range(-30, 30), choose(sprExplosion, sprExplosion2), 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
 CreateDummy(x + random_range(-30, 30), y + random_range(-30, 30), choose(sprExplosion, sprExplosion2), 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);
 CreateDummy(x + random_range(-30, 30), y + random_range(-30, 30), choose(sprExplosion, sprExplosion2), 0.45, 0, -0.1, bm_normal, 1, 1, 1, 0);

@@ -205,7 +205,7 @@ objRail03Layer1
 
 
 objHideHUDSensor
-objSingleton
+objAlwaysActive
 objVFX
 
 

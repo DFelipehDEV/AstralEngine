@@ -72,7 +72,7 @@
 		|objSpindashCharge
 		|objBoostShockwave
 +Singletons
-	|objSingleton
+	|objAlwaysActive
 	|objSystems
 	|objInit
 +Stage

@@ -5,8 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 constParallaxTileDirection = 0;
 constParallaxBackground = 1;
 
@@ -29,15 +28,6 @@ constParallaxHeight = 15;
 
 nodeNumParallax = 0;
 nodeParallax = -1;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

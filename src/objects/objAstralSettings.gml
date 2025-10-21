@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 fontSpace = 14;
 image_alpha = 0;
 
@@ -20,14 +20,6 @@ optionSelected = 0;
 scale = 0;
 delay = 0;
 leaved = false;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

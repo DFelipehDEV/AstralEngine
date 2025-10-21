@@ -5,17 +5,9 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 pull = false;
 player = noone;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1

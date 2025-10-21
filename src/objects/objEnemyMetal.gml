@@ -5,21 +5,13 @@ action_id=603
 applies_to=self
 */
 /// Variables, animation and gravity
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 flameTimer = 25;
 
 image_index = choose(0, 1, 2, 3, 4, 5);
 image_speed = 0;
 
 gravity = 0.23 * global.timeScale;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

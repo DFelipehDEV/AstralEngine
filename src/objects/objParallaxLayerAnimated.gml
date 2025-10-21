@@ -5,9 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
-DeactivateExceptionsAdd(id);
-
+MarkAsActive();
 tileHorizontal = false;
 tileVertical = false;
 
@@ -22,15 +20,6 @@ yMotionScale = 1;
 
 xScroll = 0;
 yScroll = 0;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

@@ -5,21 +5,13 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 image_speed = 0;
 
 xSpeed = 0;
 ySpeed = 0;
 yGravity = 0.1863;
 liveTimer = 120;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

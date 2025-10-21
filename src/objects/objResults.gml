@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 audio_music_switch_ext(bgmVictory, 20, 20, 1, 0, 1, false);
 
 // Initialize variables
@@ -37,14 +37,6 @@ minimumScore[RankC] = 2500;
 minimumScore[RankB] = 4000;
 minimumScore[RankA] = 6000;
 minimumScore[RankS] = 8500;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

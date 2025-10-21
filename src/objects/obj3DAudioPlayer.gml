@@ -5,22 +5,13 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
-
+MarkAsActive();
 snd = -1;
 audio = -1;
 volume = 1;
 soundPan = 0;
 maxDistance = 650;
 panDistance = 200;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

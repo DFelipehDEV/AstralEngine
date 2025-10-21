@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 // Destroy while in GMdebug mode
 if (debug_mode) {
     instance_destroy();
@@ -51,14 +51,6 @@ delay = 30;
 shapeTimer = 0;
 
 player = noone;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1

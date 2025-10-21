@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 image_alpha = 0;
 
 qteTimer = 0;
@@ -24,14 +24,6 @@ hudTimerColor = make_color_rgb(0, 115, 255);
 hudTimer = 100;
 
 player = noone;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 
 view_object[0] = id;
 view_hborder[0] = ScreenWidthHalf * 0.97;
@@ -31,14 +31,6 @@ leftBorder = 0;
 rightBorder = room_width;
 topBorder = 0;
 bottomBorder = room_height;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -79,7 +71,7 @@ if (delay > 0) {
     delay -= 1;
 }
 
-if (delay == 0 && target != noone) {
+if (delay == 0 && instance_exists(target)) {
     x = floor(lerp(x, target.x + xShift + xOffset, xInterpolationSpeed * global.timeScale));
     y = floor(lerp(y, target.y + yShift + yOffset, yInterpolationSpeed * global.timeScale));
 }
@@ -95,16 +87,6 @@ applies_to=self
 if (zoom != zoomTarget) {
     zoom = lerp(zoom, zoomTarget, 0.15);
     ViewSetZoom(zoom);
-}
-#define Step_1
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Lost target
-if (!instance_exists(target)) {
-    target = noone;
 }
 #define Other_4
 /*"/*'/**//* YYD ACTION

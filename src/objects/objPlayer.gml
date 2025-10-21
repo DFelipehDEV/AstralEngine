@@ -6,7 +6,7 @@ applies_to=self
 */
 /// Variables
 event_inherited();
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 
 physicsMode = PhysicsNormal;
 
@@ -200,8 +200,6 @@ action_id=603
 applies_to=self
 */
 /// Destroy
-DeactivateExceptionsRemove(id);
-
 PlayerDispatch();
 #define Alarm_0
 /*"/*'/**//* YYD ACTION

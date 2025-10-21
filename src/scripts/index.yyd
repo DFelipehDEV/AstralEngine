@@ -229,3 +229,5 @@ TransitionFadeRoom
 TransitionFadePrevious
 NPCDispatch
 
+DistanceToView
+MarkAsActive

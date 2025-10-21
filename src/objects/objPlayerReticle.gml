@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 scale = 5;
 
 creationTimer = 0;
@@ -15,14 +15,6 @@ angle[1] = 0;
 
 target = noone;
 destroyed = false;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1

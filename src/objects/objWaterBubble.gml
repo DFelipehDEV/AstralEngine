@@ -5,16 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Init
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 image_speed = 0.17;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

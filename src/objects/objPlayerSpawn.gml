@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Create player
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 player = noone;
 if (!instance_exists(global.playerCheckpoint)) {
     player = instance_create(x, y - 12, objPlayer);
@@ -19,6 +19,7 @@ else {
 var _cam;
 _cam = instance_create(player.x, player.y, objCamera);
 _cam.target = player;
+show_debug_message(_cam.target);
 player.cam = _cam;
 
 var _hud;
@@ -31,11 +32,3 @@ _titlecard = instance_create(player.x, player.y, objTitleCard);
 _titlecard.player = player;
 
 instance_destroy();
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);

@@ -15,6 +15,7 @@
 	|DeactivationSystem
 	|DeactivateExceptionsAdd
 	|DeactivateExceptionsRemove
+	|MarkAsActive
 +Drawing
 	|DrawCircularBar
 	|DrawSpriteTiledHorizontalPart
@@ -208,6 +209,7 @@
 	|ease
 	|BeginUI
 	|EndUI
+	|DistanceToView
 +VFX
 	|CreateDummy
 	|CreateAfterImage

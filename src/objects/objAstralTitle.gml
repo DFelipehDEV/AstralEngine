@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-DeactivateExceptionsAdd(id);
+MarkAsActive();
 image_speed = 0.2;
 shift = 0;
 
@@ -53,14 +53,6 @@ finalOptionY[2] = _baseY - 88 * _spacing;
 finalOptionY[3] = _baseY - 64 * _spacing;
 
 optionMainAlpha = 1;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-DeactivateExceptionsRemove(id);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

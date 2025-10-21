@@ -13,7 +13,7 @@ action_id=603
 applies_to=self
 */
 /// Drill
-if (floor(abs(y - yStart)) == 21) {
+if (floor(abs(y - yStart)) == 21 && DistanceToView(x, y) == 0) {
     PlaySound(sndSpikeMove, 0.9);
 }
 y = lerp(y, yStart - round(((global.gameTime * 0.009) mod 26)/29)*29, 0.5);
