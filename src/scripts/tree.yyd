@@ -197,7 +197,6 @@
 +Systems
 	|SystemsAddSystem
 	|TimeSystem
-	|DebugSystem
 +Trail
 	|TrailUpdate
 	|DrawTrail
@@ -218,3 +217,7 @@
 	|WindowSystem
 	|WindowSetScale
 	|ViewSetZoom
++Debug
+	|DebugSystem
+	|LogSystem
+	|Log

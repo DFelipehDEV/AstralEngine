@@ -212,13 +212,12 @@
 		+Don't use
 			|objWaterBubble
 			|objWaterBubbleSmall
+	+Gizmos
+		|objInstanceGroup
+		|obj3DAudioPlayer
+		|objMusicPlayer
 	|objWaterfall
 +VFX
 	|objVFX
 	|objDummy
 	|objAfterImage
-+Music
-	|objMusicPlayer
-+Experimental
-	|objInstanceGroup
-	|obj3DAudioPlayer

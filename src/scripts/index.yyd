@@ -231,3 +231,5 @@ NPCDispatch
 
 DistanceToView
 MarkAsActive
+LogSystem
+Log

@@ -932,12 +932,12 @@ if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink 
 if (state == PlayerStateSpindash) {
     // Spindash normal dust
     if (animation == "SPINDASH") {
-        draw_sprite_ext(sprPlayerSpindashLow, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, image_angle, c_white, image_alpha);
+        draw_sprite_ext(sprPlayerSpindashLow, global.gameTime div 40, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
     }
 
     // Spindash charging dust
     if (animation == "SPINDASH_CHARGE") {
-        draw_sprite_ext(sprPlayerSpindashHigh, global.gameTime div 40, floor(x), floor(y), xDirection , yDirection, image_angle, c_white, image_alpha);
+        draw_sprite_ext(sprPlayerSpindashHigh, global.gameTime div 40, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
     }
 }
 

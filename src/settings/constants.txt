@@ -1,4 +1,4 @@
-DEBUG=1
+DebugBuild=true
 ShieldNoone=0
 ShieldNormal=1
 ShieldElectricity=2

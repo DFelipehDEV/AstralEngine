@@ -20,8 +20,12 @@ global.systems = instance_create(0, 0, objSystems);
 SystemsAddSystem(InputSystem);
 SystemsAddSystem(DeactivationSystem);
 SystemsAddSystem(TimeSystem);
-if (DEBUG) SystemsAddSystem(DebugSystem);
 SystemsAddSystem(WindowSystem);
+if (DebugBuild) {
+    SystemsAddSystem(DebugSystem);
+    if (debug_mode)
+        SystemsAddSystem(LogSystem);
+}
 SettingsLoad();
 
 // Finish initialization and start the game

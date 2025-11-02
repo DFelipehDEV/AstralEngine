@@ -6,6 +6,9 @@ switch (argument0) {
         break;
 
     case ev_step:
-        if (keyboard_check_pressed(vk_f4)) global.windowScale = WindowSetScale(global.windowScale + 1);
+        if (keyboard_check_pressed(vk_f4)) {
+            global.windowScale = WindowSetScale(global.windowScale + 1);
+            Log("Resized window to " + string(window_get_width()) + "x" + string(window_get_height()));
+        }
         break;
 }

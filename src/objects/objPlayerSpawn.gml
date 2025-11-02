@@ -19,7 +19,6 @@ else {
 var _cam;
 _cam = instance_create(player.x, player.y, objCamera);
 _cam.target = player;
-show_debug_message(_cam.target);
 player.cam = _cam;
 
 var _hud;
