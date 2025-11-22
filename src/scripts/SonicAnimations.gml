@@ -25,7 +25,7 @@ switch(animation) {
         break;
 
     case "CROUCH":
-        AnimationSet(sprSonicCrouch, 0, 0.4, true, 0);
+        AnimationSet(sprSonicCrouch, 0, 0.3, true, 0);
         break;
 
     case "TURN":

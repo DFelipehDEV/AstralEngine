@@ -13,7 +13,7 @@ if (!animationFinished) {
             // Stop animation
             // If the animation is not linked to another animation, end animation
             if (animationLinkedTo == "") {
-                image_index = image_number;
+                image_index = image_number - 1;
                 animationFinished = true;
             } else {
                 AnimationApply(animationLinkedTo);
