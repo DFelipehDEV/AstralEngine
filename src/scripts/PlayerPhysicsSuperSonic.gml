@@ -13,7 +13,7 @@ if (physicsMode == PhysicsNormal) {
         xFriction = 0.09;
     }
 
-    yGravity = 0.24;
+    yGravity = 0.235;
     jumpStrength = -7.7;
 }
 

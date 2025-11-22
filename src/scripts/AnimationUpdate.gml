@@ -1,6 +1,4 @@
-/// AnimationSystem()
-// Animation system
-
+/// AnimationUpdate()
 animationTime += global.timeScale;
 
 if (!animationFinished) {

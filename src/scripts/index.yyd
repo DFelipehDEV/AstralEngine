@@ -1,4 +1,4 @@
-AnimationIndexSonic
+SonicAnimations
 AnimationSet
 AnimationApply
 
@@ -6,10 +6,10 @@ AnimationApply
 
 
 AnimationInit
-AnimationSystem
+AnimationUpdate
 DrawTrail
 PlayerResetSensors
-PlayerPhysicsSonic
+SonicPhysics
 PlayerSetVoicelines
 PlaySound
 PlayerCollision
@@ -126,7 +126,7 @@ ViewSetZoom
 
 
 CreateDroppedHyperRings
-EnemySetAnimation
+
 
 BodyApplyGravity
 
@@ -164,8 +164,8 @@ PlayerMoveX
 
 PlayerBoost
 shdColorSwap
-AnimationIndexSuperSonic
-PlayerPhysicsSuperSonic
+SuperSonicAnimations
+SuperSonicPhysics
 PlayerSetCharacter
 PlayerStateTransform
 
@@ -233,3 +233,4 @@ DistanceToView
 MarkAsActive
 LogSystem
 Log
+EnemySetAnimation

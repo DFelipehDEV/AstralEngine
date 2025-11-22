@@ -19,6 +19,7 @@ canMoveY = true;
 xTopSpeed = 0;
 xMaxSpeed = 0;
 xAcceleration = 0;
+xAirAcceleration = 0;
 xFriction = 0;
 xSlopeFactor = 0.14;
 xMinSpeedToFall = 4; // Minimum speed to fall when on a slope
@@ -30,6 +31,7 @@ noGravityTimer = 0; // This keeps the gravity from being applied for a certain a
 yGravity = 0.21;
 yDefaultGravity = yGravity;
 yDirection = 1;
+yDrag = 0.06;
 
 // Terrain
 terrainLayer = 0;
@@ -58,7 +60,6 @@ drawSensors = false;
 PlayerResetSensors();
 bottomCollision = false;
 edgeCollision = false;
-
 
 // State
 StatesInit(PlayerStateNormal);
@@ -112,7 +113,6 @@ ds_list_add_many(homingObjects, objEnemy, objSpring, objMonitor, objHandle, objS
 // Trick timer
 trickCombo = 0;
 
-
 // Interaction
 invincibility = 0;
 invincibilityTimer = 0;
@@ -127,9 +127,6 @@ waterRunSolid = noone; // Instance of the solid placed beneath the player when r
 underwaterDrownFrame = 0; // Frame index to drown timer
 underwaterTime = 0;
 underwaterTimeToDrown = 60 * 25;
-
-// Voicelines
-PlayerSetVoicelines(CharacterSonic);
 
 // Trail
 trailx = ds_list_create();
@@ -153,9 +150,9 @@ afterImageMinSpeed = 11;
 
 // Character
 character = CharacterSonic;
-characterPhysics = PlayerPhysicsSonic;
+characterPhysics = SonicPhysics;
 boostSprite = sprBoost;
-AnimationInit(AnimationIndexSonic);
+AnimationInit(SonicAnimations);
 PlayerSetCharacter(CharacterSonic);
 PlayerSetPhysicsMode(physicsMode);
 /*"/*'/**//* YYD ACTION
@@ -693,7 +690,7 @@ action_id=603
 applies_to=self
 */
 /// Animation system and rotation
-AnimationSystem(animationList);
+AnimationUpdate();
 
 // Rotate Sprites
 if (xSpeed == 0 && ground

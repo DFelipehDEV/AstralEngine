@@ -9,7 +9,7 @@ if (stateExiting) {
 
 // Reset
 if (!keyDown || keyUp) {
-    image_index = max(image_index - 0.25, animationStartFrame);
+    image_index = max(image_index - 0.25, 0);
     animationSpeed = 0;
     if (image_index <= 0.25) {
         StatesSet(PlayerStateNormal);

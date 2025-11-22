@@ -4,8 +4,8 @@ switch (character) {
     case CharacterSonic:
         PlayerSetVoicelines(CharacterSonic);
         character = CharacterSonic;
-        characterPhysics = PlayerPhysicsSonic;
-        animationList = AnimationIndexSonic;
+        characterPhysics = SonicPhysics;
+        animationList = SonicAnimations;
 
         afterimageColor1 = c_teal;
         afterimageColor2 = c_blue;
@@ -15,8 +15,8 @@ switch (character) {
     case CharacterSuperSonic:
         PlayerSetVoicelines(CharacterSonic);
         character = CharacterSuperSonic;
-        characterPhysics = PlayerPhysicsSuperSonic;
-        animationList = AnimationIndexSuperSonic;
+        characterPhysics = SuperSonicPhysics;
+        animationList = SuperSonicAnimations;
 
         afterimageColor1 = c_orange;
         afterimageColor2 = c_yellow;
@@ -25,4 +25,3 @@ switch (character) {
         break;
 }
 PlayerSetPhysicsMode(physicsMode);
-AnimationApply("IDLE");

@@ -1,6 +1,4 @@
-/// AnimationIndexSonic()
-// Sonic animations
-
+/// SonicAnimations()
 switch(animation) {
     case "WALLGRAB":
         AnimationSet(sprSonicWallJump, 0, 0.2);

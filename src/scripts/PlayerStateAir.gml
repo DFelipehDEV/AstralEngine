@@ -21,6 +21,11 @@ PlayerMoveX();
 
 xDirection = PlayerGetInputDirection();
 
+// Air drag
+if(ySpeed < 0 && ySpeed >= -4) {
+   xSpeed -= sign(xSpeed) * yDrag;
+}
+
 PlayerHomingAttack();
 
 PlayerAirdash();

@@ -30,7 +30,7 @@ if (ySpeed < 0 && jumpAirTimer <= 13 && keyAction) {
 
 // Air drag
 if(ySpeed < 0 && ySpeed >= -4) {
-   xSpeed -= ((xSpeed / 0.2) / 256);
+   xSpeed -= sign(xSpeed) * yDrag;
 }
 
 if (global.playerRings >= 50 && keyLightspeedPressed && character == CharacterSonic) {

@@ -14,7 +14,7 @@ delay = 0;
 normalStateX = x;
 
 StatesInit(EggpawnStateNormal);
-EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
+AnimationInit()
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

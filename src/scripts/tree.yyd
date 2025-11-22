@@ -2,7 +2,7 @@
 |Init
 +Animation
 	|AnimationInit
-	|AnimationSystem
+	|AnimationUpdate
 	|AnimationSet
 	|AnimationApply
 +Body
@@ -160,11 +160,11 @@
 		|PlayerHandleWater
 		|PlayerHandleWayLauncher
 	+Sonic
-		|AnimationIndexSonic
-		|PlayerPhysicsSonic
+		|SonicAnimations
+		|SonicPhysics
 	+Super Sonic
-		|AnimationIndexSuperSonic
-		|PlayerPhysicsSuperSonic
+		|SuperSonicAnimations
+		|SuperSonicPhysics
 +Ring
 	|CreateDroppedRings
 	|CreateDroppedHyperRings

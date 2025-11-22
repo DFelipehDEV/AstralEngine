@@ -1,5 +1,4 @@
-/// PlayerPhysicsSonic()
-// Normal physics
+/// SonicPhysics()
 if (physicsMode == PhysicsNormal) {
     if (!boosting) {
         xTopSpeed = 9.984;
@@ -19,13 +18,12 @@ if (physicsMode == PhysicsNormal) {
     jumpStrength = -7.5;
 }
 
-// Water physics
 if (physicsMode == PhysicsWater) {
     if (!boosting) {
         xTopSpeed = 7.2;
         xMaxSpeed = 10;
         xAcceleration = 0.06;
-        xAirAcceleration = 0.035;
+        xAirAcceleration = 0.05;
         xFriction = 0.07;
     } else {
         xTopSpeed = 9.984;

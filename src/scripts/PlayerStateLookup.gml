@@ -13,7 +13,7 @@ if (!keyUp || keyDown) {
     if (!keyUp && image_index > 2) {
         image_index = 2;
     }
-    image_index = max(image_index - 0.3, animationStartFrame);
+    image_index = max(image_index - 0.3, 0);
 
     if (floor(image_index) == 0) {
         StatesSet(PlayerStateNormal);

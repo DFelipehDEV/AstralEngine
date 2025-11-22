@@ -1,30 +1,24 @@
-/// AnimationSet(Sprite, frameStart, frameEnd, frameLoop, frameSpeed, frameReset, frameRepeat, repeatTimes, linkedAnimation)
+/// AnimationSet(sprite, [frameToLoop=0], [speed=0], [resetFrame=true], [repeat=true], [repeatTimes=infinity], [linkedAnimation=""])
 sprite_index = argument0;
-animationStartFrame = argument1;
+animationLoopFrame = 0;
+animationSpeed = 0;
+animationResetFrame = true;
+animationRepeat = true;
+animationRepeatTimes = infinity;
+animationLinkedTo = "";
 
-// Check if the end frame is specified (-1 means use the last frame of the sprite)
-if (argument2 == -1) {
-    // Use the last frame of the sprite as the end frame
-    animationEndFrame = sprite_get_number(argument0) - 1;
+switch (argument_count) {
+    case 7:
+        animationLinkedTo = argument6;
+    case 6:
+        animationRepeatTimes = argument5;
+    case 5:
+        animationRepeat = argument4;
+    case 4:
+        animationResetFrame = argument3;
+    case 3:
+        animationSpeed = argument2;
+    case 2:
+        animationLoopFrame = argument1;
+        break;
 }
-else {
-    animationEndFrame = argument2;
-}
-
-// Check if the looping frame is specified (-1 means no looping)
-if (argument3 == -1) {
-    animationLoopFrame = 0;
-}
-else {
-    animationLoopFrame = argument3;
-}
-
-animationSpeed = argument4;
-
-// Set whether the animation resets to the normal frame after it ends
-animationResetFrame = argument5;
-animationRepeat = argument6;
-animationRepeatTimes = argument7;
-
-// Set the animation linked to this one (e.g., for transitions between animations)
-animationLinkedTo = argument8;

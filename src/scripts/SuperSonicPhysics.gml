@@ -1,14 +1,13 @@
-/// PlayerPhysicsSonic()
-// Normal physics
+/// SuperSonicPhysics()
 if (physicsMode == PhysicsNormal) {
     if (!boosting) {
-        xTopSpeed = 9.984;
-        xMaxSpeed = 12;
-        xAcceleration = 0.078;
-        xAirAcceleration = 0.1;
+        xTopSpeed = 12;
+        xMaxSpeed = 13.2;
+        xAcceleration = 0.11;
+        xAirAcceleration = 0.14;
         xFriction = 0.09;
     } else {
-        xTopSpeed = 12.78;
+        xTopSpeed = 14.04;
         xMaxSpeed = 14.04;
         xAcceleration = 0.18;
         xAirAcceleration = 0.2;
@@ -16,25 +15,24 @@ if (physicsMode == PhysicsNormal) {
     }
 
     yGravity = 0.235;
-    jumpStrength = -7.5;
+    jumpStrength = -7.7;
 }
 
-// Water physics
 if (physicsMode == PhysicsWater) {
     if (!boosting) {
-        xTopSpeed = 7.2;
-        xMaxSpeed = 10;
-        xAcceleration = 0.06;
-        xAirAcceleration = 0.035;
-        xFriction = 0.07;
-    } else {
         xTopSpeed = 9.984;
         xMaxSpeed = 12;
         xAcceleration = 0.078;
-        xAirAcceleration = 0.06;
+        xAirAcceleration = 0.05;
+        xFriction = 0.09;
+    } else {
+        xTopSpeed = 12.78;
+        xMaxSpeed = 14.04;
+        xAcceleration = 0.18;
+        xAirAcceleration = 0.16;
         xFriction = 0.09;
     }
 
     yGravity = 0.12;
-    jumpStrength = -5.8;
+    jumpStrength = -6;
 }
