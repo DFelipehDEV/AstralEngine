@@ -1,4 +1,4 @@
-/// AnimationApply(Animation)
+/// AnimationApply(animation)
 if (animation != argument0) {
     animationPrevious = animation;
     animation = argument0;

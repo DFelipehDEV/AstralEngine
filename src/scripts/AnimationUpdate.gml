@@ -6,12 +6,9 @@ if (!animationFinished) {
 
     if (floor(image_index) > image_number - 1) {
         // Repeat animation
-        if (animationRepeat && (animationRepeatTimes > 0 || animationRepeatTimes == -1)) {
+        if (animationRepeatTimes > 0) {
             image_index = animationLoopFrame;
-
-            if (animationRepeatTimes > 0) {
-                animationRepeatTimes -= 1;
-            }
+            animationRepeatTimes -= 1;
         } else {
             // Stop animation
             // If the animation is not linked to another animation, end animation

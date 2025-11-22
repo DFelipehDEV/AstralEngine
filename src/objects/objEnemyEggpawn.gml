@@ -14,7 +14,6 @@ delay = 0;
 normalStateX = x;
 
 StatesInit(EggpawnStateNormal);
-AnimationInit()
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

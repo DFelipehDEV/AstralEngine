@@ -13,11 +13,11 @@ switch(animation) {
         break;
 
     case "IDLE_WAIT":
-        AnimationSet(sprSonicIdleWait, 3, 0.2, true, true, 14, "IDLE_WAIT_2");
+        AnimationSet(sprSonicIdleWait, 3, 0.2, true, 14, "IDLE_WAIT_2");
         break;
 
     case "IDLE_WAIT_2":
-        AnimationSet(sprSonicIdleWait2, 1, 0.16, true, true, 2, "IDLE");
+        AnimationSet(sprSonicIdleWait2, 1, 0.16, true, 2, "IDLE");
         break;
 
     case "LOOK_UP":
@@ -25,11 +25,11 @@ switch(animation) {
         break;
 
     case "CROUCH":
-        AnimationSet(sprSonicCrouch, 0, 0.4, true, false);
+        AnimationSet(sprSonicCrouch, 0, 0.4, true, 0);
         break;
 
     case "TURN":
-        AnimationSet(sprSonicTurn, 1, 0.25, true, false);
+        AnimationSet(sprSonicTurn, 0, 0.25, true, 0);
         break;
 
     case "SPINDASH":
@@ -69,7 +69,7 @@ switch(animation) {
         break;
 
     case "BREATHE":
-        AnimationSet(sprSonicBreathe, 0, 0.12, true, false);
+        AnimationSet(sprSonicBreathe, 0, 0.12, true, 0);
         break;
 
     case "SKID":
@@ -93,11 +93,11 @@ switch(animation) {
         break;
 
     case "STOMP_LAND":
-        AnimationSet(sprSonicStompLand, 0, 0.2, true, false);
+        AnimationSet(sprSonicStompLand, 0, 0.2, true, 0);
         break;
 
     case "TRANSFORM":
-        AnimationSet(sprSonicTransform, 6, 0.25, true, true, 2);
+        AnimationSet(sprSonicTransform, 6, 0.25, true, 2);
         break;
 
     case "SPRING":
@@ -113,11 +113,11 @@ switch(animation) {
         break;
 
     case "HOMED":
-        AnimationSet(sprSonicHomed1, 0, 0.5, true, false, 0, "FALL");
+        AnimationSet(sprSonicHomed1, 0, 0.5, true, 0, "FALL");
         break;
 
     case "HOMED_2":
-        AnimationSet(sprSonicHomed2, 0, 0.45, true, false, 0, "FALL");
+        AnimationSet(sprSonicHomed2, 0, 0.45, true, 0, "FALL");
         break;
 
     case "HANG":
@@ -133,7 +133,7 @@ switch(animation) {
         break;
 
     case "SPRING_TRICK_HORIZONTAL":
-        AnimationSet(sprSonicTrickHor, 3, 0.77, true, true, 4, "FALL");
+        AnimationSet(sprSonicTrickHor, 3, 0.77, true, 4, "FALL");
         break;
 
     case "SPRING_TRICK_VERTICAL":
@@ -149,11 +149,11 @@ switch(animation) {
         break;
 
     case "FLING":
-        AnimationSet(sprSonicCorkscrew, 0, 0.37, true, false, 0, "LAND");
+        AnimationSet(sprSonicCorkscrew, 0, 0.37, true, 0, "LAND");
         break;
 
     case "HURT_FALL":
-        AnimationSet(sprSonicHurtFall, 0, 0.2, true, false);
+        AnimationSet(sprSonicHurtFall, 0, 0.2, true, 0);
         break;
 
     case "DEAD":

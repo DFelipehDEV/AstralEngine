@@ -10,7 +10,6 @@ if (stateExiting) {
     grindSound = -1;
     exit;
 }
-animationSpeed = min(0.18 + abs(xSpeed)/20, 0.4);
 
 PlayerMoveX(xAcceleration, 0, xTopSpeed);
 
@@ -35,6 +34,7 @@ if (keyDown && abs(xSpeed) > 0.1) {
 if (!keyDown) {
     AnimationApply("GRIND");
 }
+animationSpeed = min(0.18 + abs(xSpeed)/20, 0.4);
 
 // Stop grinding if the player is not colliding with a rail
 if (!PlayerCollisionObjectBottom(x, y, angle, maskBig, objRail) && !PlayerCollisionObjectMain(x, y, objRail)
