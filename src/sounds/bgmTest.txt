@@ -1,6 +1,6 @@
 extension=.ogg
 exists=1
-source=Test.ogg
+source=bgmTest.ogg
 kind=1
 effects=0
 volume=1

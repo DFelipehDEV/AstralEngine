@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=Explosion2.wav
+source=sndExplosion2.wav
 kind=0
 effects=0
 volume=1

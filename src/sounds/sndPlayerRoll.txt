@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=PlayerRoll.wav
+source=sndPlayerRoll.wav
 kind=0
 effects=0
 volume=1

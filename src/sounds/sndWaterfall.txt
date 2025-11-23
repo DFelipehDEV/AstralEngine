@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=snd_WaterFallM.wav
+source=sndWaterfall.wav
 kind=0
 effects=0
 volume=1

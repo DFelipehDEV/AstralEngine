@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=MenuStartup.wav
+source=sndMenuStartup.wav
 kind=0
 effects=0
 volume=1
