@@ -37,7 +37,7 @@ if (image_alpha < 0.8 && player.boosting) {
 }
 
 // Fade when not boosting
-if (!player.boosting || abs(player.xSpeed) < 2.2) {
+if (!player.boosting || abs(player.xSpeed) < player.boostMinSpeed) {
     image_alpha -= 0.05;
 }
 

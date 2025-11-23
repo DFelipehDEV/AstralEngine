@@ -21,7 +21,6 @@ xMaxSpeed = 0;
 xAcceleration = 0;
 xAirAcceleration = 0;
 xFriction = 0;
-xSlopeFactor = 0.14;
 xMinSpeedToFall = 4; // Minimum speed to fall when on a slope
 xFrictionTemp = 0;
 xDirection = 1;
@@ -50,6 +49,10 @@ angleHolder = 0;
 angleCos = 0;
 angleSin = 0;
 angleMode = 0;
+fallAngleThreshold = 75;
+
+slopeFactor = 0.14;
+slopeFactorMinAngle = 40;
 
 // Sensors
 sensorX = x;
@@ -90,6 +93,7 @@ rollDownhillForce = 0.25; // Acceleration when rolling downhill
 canBoost = true;
 boosting = false;
 boostStartSpeed = 11.2;
+boostMinSpeed = 2.25;
 boostAirTimer = 90; // Amount of time the player can boost in the air
 boostAura = noone; // Instance of the boost aura VFX
 
@@ -106,6 +110,7 @@ canHomingAttack = true;
 canHome = false;
 homingSpeed = 12;
 homingRange = 220;
+homingYThreshold = 12;
 homingReticle = noone;
 homingObjects = ds_list_create();
 ds_list_add_many(homingObjects, objEnemy, objSpring, objMonitor, objHandle, objSwingPole);
@@ -319,7 +324,7 @@ if (canMove) {
         }
 
         // Fall if there is not enough speed.
-        if (angle >= 75 && angle <= 285 && abs(xSpeed) < xMinSpeedToFall) {
+        if (angle >= fallAngleThreshold && angle <= 360-fallAngleThreshold && abs(xSpeed) < xMinSpeedToFall) {
             if (state != PlayerStateGrind) {
                 PlayerFlight();
             }
@@ -450,10 +455,8 @@ if (canMove) {
 
     if (state != PlayerStateRoll) {
         // Acceleration and deceleration on slopes
-        if (ground && angle > 35 && angle < 325) {
-            if (angle > 40 && angle < 320) {
-                xSpeed -= angleSin * xSlopeFactor;
-            }
+        if (ground && angle > slopeFactorMinAngle && angle < 360-slopeFactorMinAngle) {
+            xSpeed -= angleSin * slopeFactor;
         }
     }
 
@@ -502,7 +505,7 @@ if (canHome) {
             if (!instance_exists(homingReticle)
             && distance_to_object(_currentObjectNear) <= homingRange
             && (sign(_currentObjectNear.x - x) == _dir || sign(_currentObjectNear.x - x) == 0)
-            && y < _currentObjectNear.y + 9
+            && y < _currentObjectNear.y + homingYThreshold
             && !collision_line(x, y, _currentObjectNear.x, _currentObjectNear.y, objTerrain, 1, 1)) {
 
                 // Create reticle at the nearest target
@@ -517,7 +520,7 @@ if (canHome) {
         if (instance_exists(homingReticle.target)) {
             if (distance_to_object(homingReticle.target) > homingRange
             || sign(homingReticle.target.x - x) != _dir
-            || y >= homingReticle.target.y + 9
+            || y >= homingReticle.target.y + homingYThreshold
             || collision_line(x, y, homingReticle.target.x, homingReticle.target.y, objTerrain, 1, 1)) {
                 // Destroy reticle if the target is no longer valid and not in the homing attack state
                 if (state != PlayerStateHomingAttack) {
@@ -540,7 +543,7 @@ applies_to=self
 /// Actions
 canHome = false;
 // Stop boosting
-if ((!keyBoost || energy <= 0 || abs(xSpeed) < 2.2 || state == PlayerStateRoll || animation == "FLING" || (boostAirTimer == 0 && !ground)) && boosting) {
+if ((!keyBoost || energy <= 0 || abs(xSpeed) < boostMinSpeed || state == PlayerStateRoll || animation == "FLING" || (boostAirTimer == 0 && !ground)) && boosting) {
     boosting = false;
     canBoost = false;
     PlayerSetPhysicsMode(physicsMode);
@@ -549,7 +552,7 @@ if ((!keyBoost || energy <= 0 || abs(xSpeed) < 2.2 || state == PlayerStateRoll |
 if (boosting) {
     if (!ground) {
         if (state != PlayerStateCorkscrew) {
-            boostAirTimer -= 1;
+            boostAirTimer = max(boostAirTimer - global.timeScale, 0);
         }
     }
 }
