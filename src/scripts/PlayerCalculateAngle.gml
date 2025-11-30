@@ -1,6 +1,4 @@
 /// PlayerCalculateAngle(x, y, angle)
- // Detects the angle using two points that approach the ground.
-
 var _x, _y, _angle;
 _x = argument0;
 _y = argument1;
@@ -8,7 +6,6 @@ _angle = argument2;
 // Limit the angle to 32 directions to maintain stability and reduce jittering
 _angle = round(_angle / 11.25) * 11.25;
 
-// Store temporary values
 maskTemp = mask_index
 mask_index = maskDot;
 
@@ -30,7 +27,7 @@ _collisionRight = false;
 // Check if it is colliding with the ground
 // Now, perform the checking. Push down the two points in order to touch the floor
 repeat (20) {
-    if (!_collisionLeft && PlayerCollision(_pointLeftX, _pointLeftY, terrainLayer)) {
+    if (!_collisionLeft && PlayerCheckTerrain(_pointLeftX, _pointLeftY)) {
         _collisionLeft = true;
     }
     else if (!_collisionLeft) {
@@ -38,7 +35,7 @@ repeat (20) {
         _pointLeftY += _angleCOS;
     }
 
-    if (!_collisionRight && PlayerCollision(_pointRightX, _pointRightY, terrainLayer)) {
+    if (!_collisionRight && PlayerCheckTerrain(_pointRightX, _pointRightY)) {
         _collisionRight = true;
     }
     else if (!_collisionRight) {
@@ -52,8 +49,6 @@ repeat (20) {
     }
 }
 
-// Restore the previous mask
 mask_index = maskTemp;
 
-// Calculate and return the direction
 return point_direction(_pointLeftX, _pointLeftY, _pointRightX, _pointRightY);

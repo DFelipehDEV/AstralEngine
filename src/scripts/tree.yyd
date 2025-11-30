@@ -69,7 +69,6 @@
 			|PlayerCollisionSlope
 		+Hitbox
 			|PlayerCollisionHitbox
-			|PlayerCollisionHitboxFast
 		+Left
 			|PlayerCollisionLeft
 			|PlayerCollisionObjectLeft
@@ -84,7 +83,7 @@
 		+Top
 			|PlayerCollisionTop
 			|PlayerCollisionObjectTop
-		|PlayerCollision
+		|PlayerCheckTerrain
 		|PlayerCollisionCache
 	+Util
 		|PlayerAddEnergy

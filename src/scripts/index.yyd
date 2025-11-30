@@ -12,7 +12,7 @@ PlayerResetSensors
 SonicPhysics
 PlayerSetVoicelines
 PlaySound
-PlayerCollision
+PlayerCheckTerrain
 PlayerCollisionSlope
 PlayerCollisionBottom
 PlayerCollisionObjectBottom
@@ -116,7 +116,7 @@ PlayerAddEnergy
 PlayerHandleFootstepSensors
 
 PlayerStateDead
-PlayerCollisionHitboxFast
+
 CreateDebris
 PlayerHandleDestructive
 PlayerStatePush

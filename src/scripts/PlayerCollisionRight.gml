@@ -1,22 +1,14 @@
 /// PlayerCollisionRight(x, y, angle, mask)
-// This function returns if the right sensor has collided
-
-// Store the actual mask for setting it up later
 maskTemp = mask_index;
 mask_index = argument3;
 
-// Calculate sensorSin and sensorCos
 sensorSin = dsin(argument2);
 sensorCos = dcos(argument2);
-
-// Calculate sensor position
 sensorX = floor(argument0 + sensorCos * sensorRightDistance);
 sensorY = floor(argument1 - sensorSin * sensorRightDistance);
 
-// Test collision
-collisionTest = PlayerCollision(sensorX, sensorY);
+collisionTest = PlayerCheckTerrain(sensorX, sensorY);
 
-// Set to the old mask
 mask_index = maskTemp;
 
 return collisionTest;
