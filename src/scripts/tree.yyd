@@ -84,6 +84,7 @@
 			|PlayerCollisionTop
 			|PlayerCollisionObjectTop
 		|PlayerCheckTerrain
+		|PlayerCheckLine
 		|PlayerCollisionCache
 	+Util
 		|PlayerAddEnergy

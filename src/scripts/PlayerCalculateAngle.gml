@@ -4,16 +4,12 @@ _x = argument0;
 _y = argument1;
 _angle = argument2;
 // Limit the angle to 32 directions to maintain stability and reduce jittering
-_angle = round(_angle / 11.25) * 11.25;
-
-maskTemp = mask_index
-mask_index = maskDot;
+_angle = round(_angle / PlayerAngleFloorTo) * PlayerAngleFloorTo;
 
 var _angleCOS, _angleSIN;
 _angleCOS = dcos(_angle);
 _angleSIN = dsin(_angle);
 
-// Set the starting position of the sensors based on the angle
 var _pointLeftX, _pointLeftY, _pointRightX, _pointRightY;
 _pointLeftX = floor(_x - _angleCOS * 8);
 _pointLeftY = floor(_y + _angleSIN * 8);
@@ -27,7 +23,7 @@ _collisionRight = false;
 // Check if it is colliding with the ground
 // Now, perform the checking. Push down the two points in order to touch the floor
 repeat (20) {
-    if (!_collisionLeft && PlayerCheckTerrain(_pointLeftX, _pointLeftY)) {
+    if (!_collisionLeft && PlayerCheckTerrain(_pointLeftX, _pointLeftY, terrainLayer)) {
         _collisionLeft = true;
     }
     else if (!_collisionLeft) {
@@ -35,7 +31,7 @@ repeat (20) {
         _pointLeftY += _angleCOS;
     }
 
-    if (!_collisionRight && PlayerCheckTerrain(_pointRightX, _pointRightY)) {
+    if (!_collisionRight && PlayerCheckTerrain(_pointRightX, _pointRightY, terrainLayer)) {
         _collisionRight = true;
     }
     else if (!_collisionRight) {

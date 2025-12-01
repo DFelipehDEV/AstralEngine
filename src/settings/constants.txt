@@ -55,3 +55,4 @@ CharacterSuperSonic=1
 SaveFileName="save.sav"
 SaveVersion=1
 SavePassword="whatthehell,sure"
+PlayerAngleFloorTo=360/32

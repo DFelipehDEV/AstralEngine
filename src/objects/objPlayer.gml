@@ -274,7 +274,6 @@ if (canMove) {
         }
     }
 
-    // Cache collision
     PlayerCollisionCache();
 
     if (ground) {
@@ -297,24 +296,24 @@ if (canMove) {
         PlayerCollisionCache();
 
         // Crushing
+        /*
         if (bottomCollision && PlayerCollisionTop(x, y, angle, maskBig)) {
             // Kill player
             StatesSet(PlayerStateDead);
             exit;
         }
+        */
 
         // Water running
         if (PlayerCollisionObjectBottom(x, y, 0, maskBig, objWaterHorizon) && angle == 0 && abs(xSpeed) > waterRunSpeed) {
             // Check if the watersolid doesnt exist
             if (waterRunSolid == noone) {
                 waterRunSolid = instance_create(x, bbox_bottom, objWaterSolid);
-            }
-            else {
+            } else {
                 // Stick solid to our position
                 waterRunSolid.x = x;
             }
-        }
-        else {
+        } else {
             // Destroy water solid
             if (waterRunSolid != noone) {
                 instance_destroy_id(waterRunSolid);
@@ -323,7 +322,7 @@ if (canMove) {
             }
         }
 
-        // Fall if there is not enough speed.
+        // Fall if there isnt enough speed
         if (angle >= fallAngleThreshold && angle <= 360-fallAngleThreshold && abs(xSpeed) < xMinSpeedToFall) {
             if (state != PlayerStateGrind) {
                 PlayerFlight();
@@ -349,8 +348,7 @@ if (canMove) {
             else {
                 PlayerSetAngle(angleHolder);
             }
-        }
-        else {
+        } else {
             PlayerSetAngle(0);
         }
     
@@ -359,15 +357,11 @@ if (canMove) {
             PlayerSetGround(false);
             PlayerSetAngle(0);
         }                            
-    }                   
-    
-    // Vertical movement        
-    if (!ground) {
+    } else {                   
         if (canMoveY) {
             y += ySpeed * global.timeScale;
         }
         
-        // Cache collision
         PlayerCollisionCache();
         
         // Crushing
@@ -965,6 +959,12 @@ if (drawSensors) {
     draw_sprite_ext(maskBig, 0, floor(x - angleCos * sensorLeftDistance), floor(y + angleSin * sensorLeftDistance), image_xscale, image_yscale, 0, c_white, 0.8);
     draw_sprite_ext(maskBig, 0, floor(x + angleCos * sensorRightDistance), floor(y - angleSin * sensorRightDistance), image_xscale, image_yscale, 0, c_white, 0.8);
 
-    draw_line(floor(x - sensorCos * 8 + sensorSin * 8), floor(y + sensorSin * 8 + sensorCos * 8), floor(x - sensorCos * 8 + sensorSin * 36), floor(y + sensorSin * 8 + sensorCos * 36));
-    draw_line(floor(x + sensorCos * 8 + sensorSin * 8), floor(y - sensorSin * 8 + sensorCos * 8), floor(x + sensorCos * 8 + sensorSin * 36), floor(y - sensorSin * 8 + sensorCos * 36));
+    var _leftX, _leftY, _rightX, _rightY;
+    _leftX = x - sensorCos * 8 + sensorSin * 8;
+    _leftY = y + sensorSin * 8 + sensorCos * 8;
+
+    _rightX = x + sensorCos * 8 + sensorSin * 8;
+    _rightY = y - sensorSin * 8 + sensorCos * 8;
+    draw_line(floor(_leftX), floor(_leftY), floor(_leftX + sensorSin * 32), floor(_leftY + sensorCos * 32));
+    draw_line(floor(_rightX), floor(_rightY), floor(_rightX + sensorSin * 32), floor(_rightY + sensorCos * 32));
 }
