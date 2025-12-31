@@ -74,7 +74,7 @@ PlayerHandleCheckpoint
 
 PlayerHandleSpikes
 PlayerHandleDash
-PlayerHandleCrane
+
 PlayMusic
 DrawCircularBar
 PlayerHandleWallJump
@@ -235,3 +235,5 @@ LogSystem
 Log
 EnemySetAnimation
 PlayerCheckLine
+RingCollide
+HandleCollide

@@ -80,8 +80,8 @@
 		|objSpring
 	+Rings
 		|objRing
-		|objRing10
 		|objRing5
+		|objRing10
 		|objRingSpecial
 		|objTeleportRing
 		+Miscellaneous
@@ -217,6 +217,7 @@
 		|obj3DAudioPlayer
 		|objMusicPlayer
 	|objWaterfall
+	|objInteractable
 +VFX
 	|objVFX
 	|objDummy

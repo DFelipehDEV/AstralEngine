@@ -569,6 +569,15 @@ applies_to=self
 */
 /// Object collision
 if (state != PlayerStateDead) {
+    with (objInteractable) {
+        var _player;
+        _player = instance_place(x, y, objPlayer);
+
+        if (_player != noone && onCollide != -1) {
+            script_execute(onCollide, _player);
+        }
+    }
+
     PlayerHandleLayers();
     PlayerHandleRings();
     PlayerHandleEnemy();
@@ -582,7 +591,6 @@ if (state != PlayerStateDead) {
     PlayerHandleWayLauncher();
     PlayerHandleWater();
     PlayerHandleGimmicks();
-    PlayerHandleCrane();
     PlayerHandleWallJump();
     PlayerHandleBox();
     PlayerHandleDestructive();

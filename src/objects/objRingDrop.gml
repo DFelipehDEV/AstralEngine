@@ -5,6 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Variables
+onCollide = RingCollide;
+value = 1;
 MarkAsActive();
 image_speed = 0;
 

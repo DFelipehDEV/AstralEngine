@@ -5,7 +5,17 @@ action_id=603
 applies_to=self
 */
 /// Variables
-image_speed = 0;
+event_inherited();
+value = 10;
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+///Destroy
+instance_create(x, y, objRingCollected);
+PlaySoundSingle(sndRingSuper);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

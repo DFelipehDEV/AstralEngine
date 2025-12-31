@@ -8,17 +8,6 @@ _ring5 = PlayerCollisionHitbox(x, y, objRing5);
 _ring10 = PlayerCollisionHitbox(x, y, objRing10);
 _ringSpecial = PlayerCollisionHitbox(x, y, objRingSpecial);
 
-if (_ringNormal != noone) {
-    global.playerRings += 1;
-    with (_ringNormal) {
-        instance_create(x, y, objRingCollected);
-        PlaySoundSingle(sndRing);
-        instance_destroy();
-    }
-
-    PlayerAddEnergy(4);
-}
-
 if (_ringDrop != noone && (state != PlayerStateHurt && invincibilityTimer < 100)) {
     global.playerRings += 1;
     with (_ringDrop) {

@@ -5,7 +5,17 @@ action_id=603
 applies_to=self
 */
 /// Init
-image_speed = 0;
+event_inherited();
+value = 5;
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+///Destroy
+instance_create(x, y, objRingCollected);
+PlaySoundSingle(sndRingSuper);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -21,8 +31,5 @@ action_id=603
 applies_to=self
 */
 /// Draw ring 5
-
-// Draw number 5
 draw_sprite(sprRingNumber, 0, x, y);
-// Draw ring
 draw_self();

@@ -6,6 +6,7 @@ applies_to=self
 */
 /// Variables
 MarkAsActive();
+onCollide = HandleCollide;
 pull = false;
 player = noone;
 #define Step_2
@@ -46,8 +47,7 @@ if (pull) {
     vspeed = lerp(vspeed, 10 * -dsin(_dir), 0.1);
     player.x = x;
     player.y = y + 12;
-}
-else {
+} else {
     // Return to original position
     x = approach(x, xstart, 6);
     y = approach(y, ystart, 6);
