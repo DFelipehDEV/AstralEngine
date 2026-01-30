@@ -235,3 +235,4 @@ LogSystem
 Log
 EnemySetAnimation
 PlayerCheckLine
+PlayerSetTerrainType

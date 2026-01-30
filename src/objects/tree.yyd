@@ -186,6 +186,7 @@
 			|objOffsetCameraSensor
 			|objZoomCameraSensor
 		+Footsteps
+			|objFootstepSensor
 			|objFootstepSensorDirt
 			|objFootstepSensorGrass
 			|objFootstepSensorMetal

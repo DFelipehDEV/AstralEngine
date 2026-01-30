@@ -5,15 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Init
-image_speed = 0;
-#define Step_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Animation speed
-image_index = global.gameTime div 80;
+event_inherited();
+value = 5;
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

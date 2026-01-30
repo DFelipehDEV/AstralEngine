@@ -56,6 +56,11 @@ switch (argument0) {
             }
         }
 
+        if (keyboard_check_pressed(vk_f1)) {
+            instance_activate_all();
+            all.visible = true;
+        }
+
         if (_player != noone) {
             if (mouse_check_button(mb_right)) {
                 _player.x = lerp(_player.x, mouse_x, 0.1);

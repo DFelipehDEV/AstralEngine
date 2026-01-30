@@ -728,22 +728,19 @@ switch (animation) {
 if (playFootstep) {
     if (!footstepPlayed) {
         PlayerHandleFootstepSensors();
-        // Create water splash if the player is running in the water
         if (PlayerCollisionObjectBottom(x, y, angle, maskBig, objWaterHorizon)) {
             CreateDummy(x, y, sprWaterSplash, 0.45, 0, 1, bm_add, 1, xDirection, 1, 0);
-        }
-
-        // Create dust effect
-        if (terrainType != "WATER" && alarm[0] == -1) {
-            alarm[0] = 1;
+        } else {
+            if (alarm[0] == -1) {
+                alarm[0] = 1;
+            }
         }
         audio_stop(terrainSound[TerFootstep1]);
         audio_stop(terrainSound[TerFootstep2]);
         PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]));
         footstepPlayed = true;
     }
-}
-else {
+} else {
     footstepPlayed = false;
 }
 

@@ -24,7 +24,7 @@ if (collected) {
             sparkleOffset = 20;
         }
         with (instance_create(x, y, objRingNumber)) {
-            image_index = value == 10;
+            image_index = other.value == 10;
             image_speed = 0;
         }
         PlaySoundSingle(sndRingSuper);
