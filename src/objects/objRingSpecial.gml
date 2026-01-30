@@ -6,6 +6,20 @@ applies_to=self
 */
 /// Init
 image_speed = 0;
+value = 50;
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Destroy
+if (collected) {
+    with(instance_create(x, y, objRingCollected)) {
+        sparkleOffset = 30;
+    }
+    PlaySoundSingle(sndRingSpecial);
+}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

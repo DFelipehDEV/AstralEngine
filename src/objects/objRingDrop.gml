@@ -11,7 +11,21 @@ image_speed = 0;
 xSpeed = 0;
 ySpeed = 0;
 yGravity = 0.1863;
-liveTimer = 120;
+liveTimer = 300;
+minTimeToBeCollectable = 240;
+value = 1;
+collected = false;
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Destroy
+if (collected) {
+    instance_create(x, y, objRingCollected);
+    PlaySoundSingle(sndRing);
+}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

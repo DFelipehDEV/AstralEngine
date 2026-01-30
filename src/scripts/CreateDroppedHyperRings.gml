@@ -1,5 +1,4 @@
 /// CreateDroppedHyperRings(amount)
-
 var _ringValue, _ringAngle, _ringSpeed, _n, _t;
 _ringValue = argument0;
 _ringAngle = 101.25 * pi / 180;
@@ -13,12 +12,11 @@ while (_ringValue) {
     _ring = instance_create(x, y, objRingHyper);
     _ring.xSpeed = dcos(_ringAngle) * _ringSpeed;
     _ring.ySpeed = -dsin(_ringAngle) * _ringSpeed*1.15;
-    _ring.liveTimer = 400;
-    _ring.value = global.playerRings/argument0;
+    _ring.value = floor(global.playerRings/_ringValue);
 
-    _ringAngle     += 23;
-    _ringSpeed     -= 0.1;
-    _ringValue     -= 1;
+    _ringAngle += 23;
+    _ringSpeed -= 0.1;
+    _ringValue -= 1;
     if (_n == true) {
         _ring.xSpeed *= -1;
         _ringAngle += 22.5 * pi / 180;

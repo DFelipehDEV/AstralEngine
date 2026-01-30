@@ -84,7 +84,7 @@
 		|objRing5
 		|objRingSpecial
 		|objTeleportRing
-		+Miscellaneous
+		+Unplacable
 			|objRingDrop
 			|objRingMagnetic
 			|objRingHyper

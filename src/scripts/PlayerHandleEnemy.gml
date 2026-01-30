@@ -1,7 +1,6 @@
 /// PlayerHandleEnemy()
 var _enemy;
 _enemy = PlayerCollisionHitbox(x, y, objEnemy);
-
 if (_enemy != noone) {
     if (canAttack) {
         if (_enemy.invincibilityTimer == 0) {

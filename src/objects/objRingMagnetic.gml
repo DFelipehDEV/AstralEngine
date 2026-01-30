@@ -5,31 +5,23 @@ action_id=603
 applies_to=self
 */
 /// Variables
+event_inherited();
 MarkAsActive();
 attractAcc[0] = 0.85;
 attractAcc[1] = 0.2875;
-
-image_speed = 0;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
-/// Animation speed and attration
-
-image_index = global.gameTime div 80;
-
+/// Attration
+event_inherited();
 if (instance_exists(target)) {
-    signPlayerX = sign(target.x - x);
-    signPlayerY = sign(target.y - y);
+    var _signPlayerX, _signPlayerY;
+    _signPlayerX = sign(target.x - x);
+    _signPlayerY = sign(target.y - y);
 
-    movX = (sign(hspeed) == signPlayerX);
-    movY = (sign(vspeed) == signPlayerY);
-
-    hspeed += attractAcc[movX] * signPlayerX;
-    vspeed += attractAcc[movY] * signPlayerY;
-
-    hspeed *= global.timeScale;
-    vspeed *= global.timeScale;
+    hspeed += (attractAcc[sign(hspeed) == _signPlayerX] * _signPlayerX) * global.timeScale;
+    vspeed += (attractAcc[sign(vspeed) == _signPlayerY] * _signPlayerY) * global.timeScale;
 }

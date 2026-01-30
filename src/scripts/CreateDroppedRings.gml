@@ -1,5 +1,4 @@
 /// CreateDroppedRings(amount)
-
 var _ringValue, _ringAngle, _ringSpeed, _n, _t;
 _ringValue = argument0;
 _ringAngle = 101.25 * pi / 180;
@@ -13,7 +12,6 @@ while (_ringValue) {
     _ring = instance_create(x, y, objRingDrop);
     _ring.xSpeed = dcos(_ringAngle) * _ringSpeed;
     _ring.ySpeed = -dsin(_ringAngle) * _ringSpeed*1.15;
-    _ring.liveTimer = 300;
 
     _ringAngle     += 23;
     _ringSpeed     -= 0.1;
