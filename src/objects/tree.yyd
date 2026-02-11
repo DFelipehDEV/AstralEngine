@@ -222,3 +222,8 @@
 	|objVFX
 	|objDummy
 	|objAfterImage
++Lights
+	|objLight
+	|objLightRay
+	|objLightPoint
+	|objDarkRegion

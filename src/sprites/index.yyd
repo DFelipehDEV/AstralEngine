@@ -267,3 +267,6 @@ sprTeleportRing2
 sprTeleportRing3
 sprWaterfall
 
+sprLightRay
+sprLightPoint
+sprDarkRegion
