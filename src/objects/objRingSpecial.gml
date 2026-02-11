@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Init
-image_speed = 0;
+event_inherited();
 value = 50;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
