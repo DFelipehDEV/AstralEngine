@@ -238,3 +238,7 @@ objInstanceGroup
 obj3DAudioPlayer
 objWaterfall
 objFootstepSensor
+objLight
+objLightRay
+objLightPoint
+objDarkRegion

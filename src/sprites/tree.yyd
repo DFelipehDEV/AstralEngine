@@ -284,3 +284,7 @@
 		|sprPauseTitle
 +Debug
 	|sprMusicPlayer
++Lights
+	|sprLightRay
+	|sprLightPoint
+	|sprDarkRegion

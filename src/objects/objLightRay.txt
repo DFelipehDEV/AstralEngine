@@ -1,7 +1,7 @@
-sprite=sprRingSpecial
+sprite=sprLightRay
 visible=1
 solid=0
 persistent=0
 depth=-51
-parent=objRing
+parent=objLight
 mask=
