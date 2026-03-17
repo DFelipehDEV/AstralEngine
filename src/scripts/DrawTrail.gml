@@ -1,43 +1,34 @@
-/// DrawTrail(sprite to texture with, trail width, automatic alpha)
+/// DrawTrail(sprite, trailwidth, automaticalpha)
 //note: use draw_set_color, draw_set_alpha to change trail attributes if you want!
 //if automatic alhpa is set, trail will fade. If not, make the sprite handle the fading
-
-var spr, wid, autoalpha, color, stp, stp_i, xt, xt_i, sgn, a, a_i, x1, y1, x2, y2, i, px, py, nx, ny, vert_count;
-spr = argument0;
-wid = argument1 * 0.5;
-autoalpha = argument2;
-
-color = draw_get_color();
-
-xt = 0
-xt_i = 0.1
+var _spr, _wid, _autoalpha, _color, _xt, _xt_i, _a, _px, _py, _nx, _ny, i, _size, _dir, _dx, _dy, _trailAlpha, _finalAlpha;
+_spr = argument0;
+_wid = argument1 * 0.5;
+_autoalpha = argument2;
+_color = draw_get_color();
+_xt = 0
+_xt_i = 0.1
 texture_set_repeat(true);
-
-px = ds_list_find_value(trailx, 0);
-py = ds_list_find_value(traily, 0);
-
+_px = ds_list_find_value(trailx, 0);
+_py = ds_list_find_value(traily, 0);
 draw_primitive_begin_texture(pr_trianglestrip, sprite_get_texture(argument0,0));
-size = ds_list_size(trailx)
-for (i=0; i<size; i+=1) {
-    nx = ds_list_find_value(trailx, i)
-    ny = ds_list_find_value(traily, i)
+_size = ds_list_size(trailx)
+for (i = 0; i < _size; i += 1) {
+    _nx = ds_list_find_value(trailx, i)
+    _ny = ds_list_find_value(traily, i)
+    _dir = point_direction(_px, _py, _nx, _ny);
+    _dx = lengthdir_x(_wid, _dir+90);
+    _dy = lengthdir_y(_wid, _dir+90);
+    _a = draw_get_alpha()
+    if (_autoalpha == true) _a = ((i-1)/_size) * draw_get_alpha()
 
-    dir = point_direction(px, py, nx, ny);
-    dx = lengthdir_x(wid, dir+90);
-    dy = lengthdir_y(wid, dir+90);
-
-    a = draw_get_alpha()
-    if (autoalpha == true) a = ((i-1)/size) * draw_get_alpha()
-    var trailAlpha, finalAlpha;
-    trailAlpha = ds_list_find_value(trailal, i);
-    finalAlpha = a * trailAlpha;
-
-    xt = (i-1)/size
-    draw_vertex_texture_color(px + dx, py + dy, xt, 0, color, finalAlpha);
-    draw_vertex_texture_color(px - dx, py - dy, xt, 1, color, finalAlpha);
-    px = nx;
-    py = ny;
-
-    xt += xt_i;
+    _trailAlpha = ds_list_find_value(trailal, i);
+    _finalAlpha = _a * _trailAlpha;
+    _xt = (i-1)/_size
+    draw_vertex_texture_color(_px + _dx, _py + _dy, _xt, 0, _color, _finalAlpha);
+    draw_vertex_texture_color(_px - _dx, _py - _dy, _xt, 1, _color, _finalAlpha);
+    _px = _nx;
+    _py = _ny;
+    _xt += _xt_i;
 }
 draw_primitive_end();

@@ -9,7 +9,7 @@ if (_scale >= 3) {
     } else {
         window_set_fullscreen(true);
         window_set_size(ScreenWidth, ScreenHeight);
-        window_set_region_size(ScreenWidth, ScreenHeight, 1);
+        window_resize_buffer(ScreenWidth * 4, ScreenHeight * 4, true, 0);
         window_center();
         return _scale;
     }
@@ -17,7 +17,8 @@ if (_scale >= 3) {
 
 window_set_fullscreen(false);
 window_set_size(ScreenWidth * _scale, ScreenHeight * _scale);
-window_set_region_size(ScreenWidth, ScreenHeight, 1);
+window_resize_buffer(ScreenWidth * _scale, ScreenHeight * _scale, true, 0);
+//window_set_region_size(ScreenWidth, ScreenHeight, 1);
 
 // Wait for the window to resize before centering
 repeat (20) {

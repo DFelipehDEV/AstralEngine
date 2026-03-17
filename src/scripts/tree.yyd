@@ -222,3 +222,7 @@
 	|DebugSystem
 	|LogSystem
 	|Log
++dbg_tools
+	|dbg_tools_init
+	|dbg_tools_step
+	|dbg_tools_draw
