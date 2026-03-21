@@ -616,7 +616,7 @@ if (allowKeys) {
 
     inputDirection = sysinput_get_axis("left", "right");
 
-    if (lockKeysTimer > 0) {
+    if (lockKeysTimer > 0 || im_any_window_focused()) {
         PlayerResetKeys();
     }
 

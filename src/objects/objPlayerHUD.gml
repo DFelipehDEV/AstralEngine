@@ -78,7 +78,7 @@ applies_to=self
 /// Game State
 switch (GameStateGet()) {
     case GameStateRunning:
-        if (sysinput_get_pressed("pause")) {
+        if (sysinput_get_pressed("pause") && !im_any_window_focused()) {
             instance_create(x, y, objPauseMenu);
             GameStateSet(GameStatePaused);
         }

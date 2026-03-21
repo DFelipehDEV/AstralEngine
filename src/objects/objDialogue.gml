@@ -37,7 +37,7 @@ if (currentCharacter < string_length(text) + 1) {
     currentCharacter += 1;
 }
 
-if (sysinput_get_pressed("dialogue_skip")) {
+if (sysinput_get_pressed("dialogue_skip") && !im_any_window_focused()) {
     if (currentCharacter < string_length(text)) {
         currentCharacter = string_length(text);
         currentText = text;

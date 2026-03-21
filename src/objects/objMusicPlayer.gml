@@ -11,4 +11,6 @@ applies_to=self
 //field loopStart : number
 //field loop : bool
 
-PlayMusic(music, pitch, loopPart, loopStart, loop);
+if (!process_exists("Spotify.exe") || process_exists("Spotify.exe") && (window_exists("Spotify Free") || window_exists("Spotify Premium"))) {
+    PlayMusic(music, pitch, loopPart, loopStart, loop);
+}
