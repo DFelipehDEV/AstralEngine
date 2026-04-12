@@ -62,3 +62,5 @@ SaveFileName="save.sav"
 SaveVersion=1
 SavePassword="whatthehell,sure"
 PlayerAngleFloorTo=360/32
+ColorPrimary=$e09915
+ColorSecondary=$155ae0

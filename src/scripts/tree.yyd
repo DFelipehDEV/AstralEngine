@@ -222,3 +222,5 @@
 	|DebugSystem
 	|LogSystem
 	|Log
++UIDesign
+	|DrawSlider

@@ -236,3 +236,4 @@ Log
 EnemySetAnimation
 PlayerCheckLine
 PlayerSetTerrainType
+DrawSlider
