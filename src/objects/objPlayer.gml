@@ -112,7 +112,7 @@ homingSpeed = 12;
 homingRange = 220;
 homingYThreshold = 12;
 homingReticle = noone;
-homingObjects = ds_list_create();
+homingObjects = dss_list_create();
 ds_list_add_many(homingObjects, objEnemy, objSpring, objMonitor, objHandle, objSwingPole);
 
 // Trick timer
@@ -135,9 +135,9 @@ underwaterTime = 0;
 underwaterTimeToDrown = 60 * 25;
 
 // Trail
-trailx = ds_list_create();
-traily = ds_list_create();
-trailal = ds_list_create();
+trailx = dss_list_create();
+traily = dss_list_create();
+trailal = dss_list_create();
 trailLength = 19;
 trailTimer = 0;
 trailColor = make_color_rgb(25,100,255);

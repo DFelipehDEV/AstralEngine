@@ -1,7 +1,7 @@
 /// DeactivationSystem(event)
 switch (argument0) {
     case ev_create:
-        global.deactivateExceptions = ds_list_create();
+        global.deactivateExceptions = dss_list_create();
         break;
 
     case ev_step:

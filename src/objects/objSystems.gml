@@ -5,8 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Variables
-systems = ds_list_create();
-application_surface_enable(ApplicationSurfacePost)
+systems = dss_list_create();
+application_surface_enable(ApplicationSurfacePost);
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

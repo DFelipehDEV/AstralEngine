@@ -1,7 +1,7 @@
 /// ParallaxAddNode(TileDirection, Background, XFactor, XSpeed, XScroll, XOffset, XSeparation, YFactor, YSpeed, YScroll, YOffset, YSeparation, Left, Top, Width, Height)
 
 // Create or resize grid if needed
-if (nodeParallax == -1) nodeParallax = ds_grid_create(16, 1);
+if (nodeParallax == -1) nodeParallax = dss_grid_create(16, 1);
 else                     ds_grid_resize(nodeParallax, 16, nodeNumParallax+1);
 
 ds_grid_set(nodeParallax,  0, nodeNumParallax, argument0);

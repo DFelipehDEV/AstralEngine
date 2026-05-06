@@ -6,7 +6,7 @@ _dur = 160;
 if (argument_count == 2) _dur = argument1;
 
 var _log;
-_log = ds_map_create();
+_log = dss_map_create();
 ds_map_add(_log, "message", _message);
 ds_map_add(_log, "dur", _dur * (1000/60));
 ds_map_add(_log, "time", current_time);

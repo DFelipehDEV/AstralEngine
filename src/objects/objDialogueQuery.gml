@@ -9,6 +9,14 @@ dialogues = -1; // Map given on creation
 
 currentDialogue = 0;
 currentDialogueInstance = noone;
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Free dialogues
+if (dialogues != -1) dss_destroy(dialogues);
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1

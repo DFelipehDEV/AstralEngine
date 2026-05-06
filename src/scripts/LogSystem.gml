@@ -1,7 +1,7 @@
 /// LogSystem(event)
 switch (argument0) {
     case ev_create:
-        global.logs = ds_list_create();
+        global.logs = dss_list_create();
         break;
 
     case ev_step:
@@ -13,7 +13,7 @@ switch (argument0) {
             _logDur = ds_map_find_value(_logData, "dur");
 
             if (_logAge > _logDur) {
-                ds_map_destroy(_logData);
+                dss_destroy(_logData);
                 ds_list_delete(global.logs, i);
             }
         }
@@ -48,10 +48,6 @@ switch (argument0) {
         break;
 
     case ev_destroy:
-        var i;
-        for (i = 0; i < ds_list_size(global.logs); i += 1) {
-            ds_map_destroy(ds_list_find_value(global.logs, _i));
-        }
-        ds_list_destroy(global.logs);
+        dss_destroy(global.logs);
         break;
 }

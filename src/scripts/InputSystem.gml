@@ -1,8 +1,8 @@
 /// InputSystem(event)
 switch (argument0) {
     case ev_create:
-        global.keyInputIcons = ds_map_create();
-        global.buttonInputIcons = ds_map_create();
+        global.keyInputIcons = dss_map_create();
+        global.buttonInputIcons = dss_map_create();
         sysinput_init();
         joystick_set_deadzone(0.9);
 

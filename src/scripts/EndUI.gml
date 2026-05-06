@@ -1,2 +1,2 @@
 /// EndUI()
-d3d_set_projection_ortho(view_xview[0], view_yview[0], view_wview[0], view_hview[0], 0);
+d3d_set_projection_ortho(view_xview[view_current], view_yview[view_current], view_wview[view_current], view_hview[view_current], view_angle[view_current]);

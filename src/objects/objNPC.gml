@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
-dialogues = ds_list_create();
+dialogues = dss_list_create();
 dialogueQuerier = noone;
 
 inputAlpha = 0;

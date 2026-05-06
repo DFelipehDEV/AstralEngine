@@ -1,2 +1,2 @@
 /// SaveInit()
-global.saveData = ds_map_create();
+global.saveData = dss_map_create();
