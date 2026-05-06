@@ -6,19 +6,37 @@ applies_to=self
 */
 /// Variables
 MarkAsActive();
-fontSpace = 14;
+fontSpace = 24;
 image_alpha = 0;
+slideX = -400;
+padding = 32;
 
-optionMax = 6;
-var i;
-for (i = 0; i < optionMax; i += 1) {
-    optionX[i] = -400;
-    optionY[i] = fontSpace*(i + 1);
-}
+optionMax = 7;
+
+optionLabel[0] = "Fullscreen";
+optionType[0] = 0;
+
+optionLabel[1] = "Resolution";
+optionType[1] = 1;
+
+optionLabel[2] = "Music Volume";
+optionType[2] = 2;
+
+optionLabel[3] = "Sound Volume";
+optionType[3] = 3;
+
+optionLabel[4] = "Voice Volume";
+optionType[4] = 4;
+
+optionLabel[5] = "VSync";
+optionType[5] = 5;
+
+optionLabel[6] = "Save and Exit";
+optionType[6] = 6;
 
 optionSelected = 0;
 scale = 0;
-delay = 0;
+inputDelay = 0;
 leaved = false;
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -26,207 +44,76 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Options
-if (leaved) exit;
-image_alpha = approach(image_alpha, 0.9, 0.05);
+/// Exit & Logic
+var _type;
 
-var i;
-for (i = 0; i < optionMax; i += 1) {
-    optionX[i] = lerp(optionX[i], 30, 0.2);
-}
-
-scale = approach(scale, ScreenWidth, 8);
-delay = max(delay - 1, 0);
-
-// Options
-switch(optionSelected) {
-    // Resolution
-    case 0:
-        if (delay = 0) {
-            // Change option
-            if (sysinput_get("down")) {
-                optionSelected += 1;
-                PlaySound(sndMenuSelect);
-                scale = 0;
-                delay = 20;
-            }
-
-            if (sysinput_get("right"))  {
-                global.windowScale = WindowSetScale(global.windowScale + 1);
-                delay = 25;
-            }
-
-            if (sysinput_get("left") && global.windowScale > 1) {
-                global.windowScale = WindowSetScale(global.windowScale - 1);
-                delay = 25;
-            }
-        }
-        break;
-
-    // Music
-    case 1:
-        if (delay == 0) {
-            // Change option
-            if (sysinput_get("up") && delay == 0) {
-                optionSelected -= 1;
-                PlaySound(sndMenuSelect);
-                scale = 0;
-                delay = 20;
-            }
-
-            // Change option
-            if (sysinput_get("down")) {
-                optionSelected += 1;
-                PlaySound(sndMenuSelect);
-                scale = 0;
-                delay = 20;
-            }
-        }
-
-        if (sysinput_get("right")) {
-            global.musicVolume = approach(global.musicVolume, 1, 0.01);
-            audio_music_volume(global.musicVolume);
-        }
-
-        if (sysinput_get("left")) {
-            global.musicVolume = approach(global.musicVolume, 0, 0.01);
-            audio_music_volume(global.musicVolume);
-        }
-        break;
-
-    // Sounds
-    case 2:
-        // Change option
-        if (sysinput_get("up") && delay == 0) {
-            optionSelected -= 1;
-            PlaySound(sndMenuSelect);
-            scale = 0;
-            delay = 20;
-        }
-        // Change option
-        if (sysinput_get("down") && delay == 0) {
-            optionSelected += 1;
-            PlaySound(sndMenuSelect);
-            scale = 0;
-            delay = 20;
-        }
-
-        if (sysinput_get("right")) {
-            global.soundVolume = approach(global.soundVolume, 1, 0.01);
-        }
-
-        if (sysinput_get("left")) {
-            global.soundVolume = approach(global.soundVolume, 0, 0.01);
-        }
-        break;
-
-    // Voicelines
-    case 3:
-        // Change option
-        if (sysinput_get("up") && delay == 0) {
-            optionSelected -= 1;
-            PlaySound(sndMenuSelect);
-            scale = 0;
-            delay = 20;
-        }
-        // Change option
-        if (sysinput_get("down") && delay == 0) {
-            optionSelected += 1;
-            PlaySound(sndMenuSelect);
-            scale = 0;
-            delay = 20;
-        }
-
-        if (sysinput_get("right")) {
-            global.voiceVolume = approach(global.voiceVolume, 1, 0.01);
-        }
-
-        if (sysinput_get("left")) {
-            global.voiceVolume = approach(global.voiceVolume, 0, 0.01);
-        }
-        break;
-
-    // VSync
-    case 4:
-        // Change option
-        if (sysinput_get("up") && delay == 0) {
-            optionSelected -= 1;
-            PlaySound(sndMenuSelect);
-            scale = 0;
-            delay = 20;
-        }
-        // Change option
-        if (sysinput_get("down") && delay == 0) {
-            optionSelected += 1;
-            PlaySound(sndMenuSelect);
-            scale = 0;
-            delay = 20;
-        }
-
-        if (sysinput_get("right")) {
-            set_synchronization(true);
-            global.windowVSync = true;
-        }
-
-        if (sysinput_get("left")) {
-            set_synchronization(false);
-            global.windowVSync = false;
-        }
-        break;
-
-    // Exit and saving
-    case optionMax - 1:
-        if (delay == 0) {
-            if (sysinput_get("up")) {
-                optionSelected -= 1;
-                PlaySound(sndMenuSelect);
-                scale = 0;
-                delay = 20;
-            }
-            // Change option
-            if (sysinput_get("down")) {
-                optionSelected = 0;
-                PlaySound(sndMenuSelect);
-                scale = 0;
-                delay = 20;
-            }
-
-            if (sysinput_get("accept")) {
-                PlaySound(sndMenuAccept);
-                delay = 120;
-                leaved = true;
-                SettingsSave();
-            }
-        }
-        break;
-}
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Exit
 if (leaved) {
     image_alpha -= 0.03;
+    if (image_alpha <= 0) instance_destroy();
+    exit;
+}
 
-    if (image_alpha < 0) {
-        instance_destroy();
+image_alpha = approach(image_alpha, 0.9, 0.05);
+scale = approach(scale, ScreenWidth, 10);
+slideX = lerp(slideX, padding, 0.2);
+inputDelay = max(inputDelay - 1, 0);
+
+if (inputDelay == 0) {
+    if (sysinput_get("up")) {
+        optionSelected = (optionSelected - 1 + optionMax) mod optionMax;
+        PlaySound(sndMenuSelect);
+        scale = 0;
+        inputDelay = 15;
     }
-    if (instance_exists(objAstralTitle)) {
-        with (objAstralTitle) {
-            menu = 1;
+    if (sysinput_get("down")) {
+        optionSelected = (optionSelected + 1) mod optionMax;
+        PlaySound(sndMenuSelect);
+        scale = 0;
+        inputDelay = 15;
+    }
 
-            menuOption = 1;
-            option[0, 0] = finalOptionY[0];
-            option[1, 0] = finalOptionY[1];
-            option[2, 0] = finalOptionY[2];
+    _type = optionType[optionSelected];
 
-            optionMainAlpha = 1;
-            cardDashY = option[menuOption, 0] - 2;
-            cardYScale = 4;
-            cardY = view_yview + ScreenHeight - 120;
-            delay = 20;
-        }
+    switch (_type) {
+        case 0: // Fullscreen
+            if (sysinput_get("right") && !window_get_fullscreen()) { global.windowScale = WindowSetScale(4); inputDelay = 20; }
+            if (sysinput_get("left") && window_get_fullscreen()) { global.windowScale = WindowSetScale(1); inputDelay = 20; }
+            break;
+        case 1: // Resolution
+            if (sysinput_get("right")) { global.windowScale = WindowSetScale(global.windowScale + 1); inputDelay = 20; }
+            break;
+
+        case 2: // Music Volume
+            if (sysinput_get("right")) { global.musicVolume = clamp(global.musicVolume + 0.05, 0, 1); audio_music_volume(global.musicVolume); inputDelay = 10; }
+            if (sysinput_get("left"))  { global.musicVolume = clamp(global.musicVolume - 0.05, 0, 1); audio_music_volume(global.musicVolume); inputDelay = 10; }
+            break;
+
+        case 3: // Sound Volume
+            if (sysinput_get("right")) { global.soundVolume = approach(global.soundVolume, 1, 0.05); inputDelay = 10; };
+            if (sysinput_get("left"))  { global.soundVolume = approach(global.soundVolume, 0, 0.05); inputDelay = 10; };
+            break;
+
+        case 4: // Voice Volume
+            if (sysinput_get("right")) { global.voiceVolume = approach(global.voiceVolume, 1, 0.05); inputDelay = 10; };
+            if (sysinput_get("left"))  { global.voiceVolume = approach(global.voiceVolume, 0, 0.05); inputDelay = 10; };
+            break;
+
+        case 5: // VSync
+            if (sysinput_get("right") && !global.windowVSync) { global.windowVSync = true;  set_synchronization(true);  inputDelay = 20; }
+            if (sysinput_get("left")  &&  global.windowVSync) { global.windowVSync = false; set_synchronization(false); inputDelay = 20; }
+            break;
+
+        case 6: // Save and Exit
+            if (sysinput_get("accept")) {
+                PlaySound(sndMenuAccept);
+                SettingsSave();
+                leaved = true;
+                inputDelay = 120;
+                if (instance_exists(objAstralTitle)) {
+                    objAstralTitle.menu = 4;
+                }
+            }
+            break;
     }
 }
 #define Draw_0
@@ -236,39 +123,69 @@ action_id=603
 applies_to=self
 */
 /// Draw options
+var i, _sliderWidth, _sliderHeight, _valueX;
+_sliderWidth = 138;
+_sliderHeight = 16;
+_valueX = view_wview[view_current] - (padding * 2);
+
 BeginUI();
+draw_set_alpha(image_alpha);
+draw_set_valign(fa_middle);
+draw_rect(0, 0, ScreenWidth, ScreenHeight, c_black, 0.3);
 
-draw_sprite_ext(sprTrigger, 0, 0, 0, ScreenWidth, ScreenHeight, 0, c_blue, image_alpha);
+var _selectedY;
+_selectedY = fontSpace * (optionSelected + 1);
+draw_line_width_color(
+    0,     _selectedY,
+    scale, _selectedY,
+    fontSpace, ColorPrimary, ColorPrimary
+);
 
-// Draw options
-var _volumeMusic, _volumeSound, _volumeVoice, _volumeAmbient;
-_volumeMusic = floor(global.musicVolume * 100);
-_volumeSound = floor(global.soundVolume * 100);
-_volumeVoice = floor(global.voiceVolume * 100);
-draw_set_alpha(image_alpha)
-var _colorLine;
-_colorLine = $e09915;
-draw_line_width_color(0, optionY[optionSelected] + 10, scale, optionY[optionSelected] + 10, fontSpace, _colorLine, _colorLine);
-draw_set_font(fontConsolasBold12)
-draw_set_halign(fa_left);
+var _yPos, _type, _optionLabel, _valueText;
+for (i = 0; i < optionMax; i += 1) {
+    _yPos = fontSpace * (i + 1);
+    _optionLabel = string_upper(optionLabel[i]);
+    _type = optionType[i];
+    _valueText = "";
+    _isToggle = (_type == 0 || _type == 1 || _type == 5);
 
-// Draw options
-draw_text(optionX[0], optionY[0], "Resolution: " + string(window_get_width()) + "X" + string(window_get_height()));
-draw_text(optionX[1], optionY[1], "Music Volume: " + string(_volumeMusic));
-draw_text(optionX[2], optionY[2], "Sound Volume: " + string(_volumeSound));
-draw_text(optionX[3], optionY[3], "Voice Volume: " + string(_volumeVoice));
+    if (_type == 0) _valueText = pick(window_get_fullscreen(), "OFF", "ON");
+    else if (_type == 1) _valueText = string(window_get_width()) + "x" + string(window_get_height());
+    else if (_type == 5) _valueText = pick(global.windowVSync, "OFF", "ON");
 
-var _vsync;
-if (global.windowVSync) {
-    _vsync = "ON";
-} else {
-    _vsync = "OFF";
+    if (i == optionSelected && _isToggle) {
+        _valueText = "< " + _valueText + " >";
+    }
+
+    draw_set_font(fontSansBold);
+
+    draw_set_halign(fa_left);
+    draw_text(round(slideX), round(_yPos), _optionLabel);
+
+    draw_set_halign(fa_right);
+    draw_set_font(fontSans);
+
+    if (_isToggle) {
+        draw_text(round(slideX + _valueX), round(_yPos), _valueText);
+    } else if (_type >= 2 && _type <= 4) {
+        var _val, _sx, _sy, _thumbX;
+        if (_type == 2) _val = global.musicVolume;
+        else if (_type == 3) _val = global.soundVolume;
+        else if (_type == 4) _val = global.voiceVolume;
+
+        _sx = round((slideX + _valueX) - _sliderWidth);
+        _sy = round(_yPos - (_sliderHeight / 2));
+        _valueText = string(round(_val * 100)) + "%";
+
+        // Percentage
+        draw_text(_sx - 8, round(_yPos), _valueText);
+
+        DrawSlider(_sx, _yPos, _sliderWidth, _sliderHeight, _val, ColorSecondary);
+    }
 }
 
-draw_text(optionX[4], optionY[4], "VSync: " + _vsync);
-draw_text(optionX[optionMax - 1], optionY[optionMax - 1], "Save and Exit");
-draw_set_halign(-1);
-draw_set_font(1);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_font(-1);
 draw_set_alpha(1);
-
 EndUI();
