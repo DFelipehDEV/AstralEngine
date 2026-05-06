@@ -10,9 +10,10 @@ global.fontText = font_add_sprite(sprFontText, ord(","), true, 0);
 global.fontResults = font_add_sprite(sprFontResults, ord("0"), false, -1);
 
 // Player
-global.playerRings = 0;
-global.playerCheckTime = 0;
-global.playerCheckpoint = noone;
+global.currentCheckpoint = dss_map_create();
+ds_map_add(global.currentCheckpoint, "instance", noone);
+ds_map_add(global.currentCheckpoint, "rings", 0);
+ds_map_add(global.currentCheckpoint, "time", 0);
 
 global.gameState = GameStateRunning;
 global.systems = instance_create(0, 0, objSystems);
@@ -31,7 +32,6 @@ SettingsLoad();
 // Finish initialization and start the game
 if (!debug_mode) {
     room_goto_next();
-}
-else {
+} else {
     room_goto(rmSpace_Colony);
 }

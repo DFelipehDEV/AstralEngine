@@ -109,16 +109,20 @@ if (instance_exists(player) && !GameStateGet(GameStatePaused)) {
     draw_text(_leftHUDX + 95, 16, string_pad(floor(global.gameTime/60000), 2) + ":" + string_pad(floor(global.gameTime/1000) mod 60,2) + ":" + string_pad(floor(global.gameTime/10) mod 100,2));
 
     // Rings
+    var _rings;
+    _rings = string(player.rings);
     draw_set_halign(fa_left);
     draw_sprite(sprHUDRings, 0, _leftHUDX, 32);
-    draw_text(_leftHUDX + 20, 40, string(global.playerRings));
+    draw_text(_leftHUDX + 20, 40, _rings);
     // Red fade on ring counter
-    if (global.playerRings == 0) {
-        draw_text_color(_leftHUDX + 20, 40, string(global.playerRings), c_red, c_red, c_red, c_red, min(cos(global.gameTime/200), 1));
+    if (player.rings == 0) {
+        draw_text_color(_leftHUDX + 20, 40, _rings, c_red, c_red, c_red, c_red, min(cos(global.gameTime/200), 1));
     }
+
     if (player.combineActive) {
-        draw_text_color(_leftHUDX + 20, 40, string(global.playerRings), c_aqua, c_blue, c_blue, c_blue, abs(cos(global.gameTime/300)));
+        draw_text_color(_leftHUDX + 20, 40, _rings, c_aqua, c_blue, c_blue, c_blue, abs(cos(global.gameTime/300)));
     }
+
     draw_set_halign(fa_right);
 
     // Energy bar

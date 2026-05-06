@@ -7,13 +7,15 @@ applies_to=self
 /// Create player
 MarkAsActive();
 player = noone;
-if (!instance_exists(global.playerCheckpoint)) {
+checkpoint = ds_map_get(global.currentCheckpoint, "instance");
+if (!instance_exists(checkpoint)) {
     player = instance_create(x, y - 12, objPlayer);
     player.xDirection = sign(image_xscale);
-}
-else {
-    player = instance_create(global.playerCheckpoint.x, global.playerCheckpoint.y - 17, objPlayer);
-    player.xDirection = sign(global.playerCheckpoint.image_xscale);
+} else {
+    player = instance_create(checkpoint.x, checkpoint.y - 17, objPlayer);
+    player.xDirection = sign(checkpoint.image_xscale);
+    player.rings = ds_map_get(global.currentCheckpoint, "rings");
+    global.gameTime = ds_map_get(global.currentCheckpoint, "time");
 }
 
 var _cam;

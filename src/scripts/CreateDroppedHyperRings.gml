@@ -12,7 +12,7 @@ while (_ringValue) {
     _ring = instance_create(x, y, objRingHyper);
     _ring.xSpeed = dcos(_ringAngle) * _ringSpeed;
     _ring.ySpeed = -dsin(_ringAngle) * _ringSpeed*1.15;
-    _ring.value = floor(global.playerRings/_ringValue);
+    _ring.value = floor(rings/_ringValue);
 
     _ringAngle += 23;
     _ringSpeed -= 0.1;
