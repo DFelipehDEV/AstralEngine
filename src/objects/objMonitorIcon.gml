@@ -55,21 +55,21 @@ switch (icon) {
 
     // 5 Rings
     case 2:
-        global.playerRings += 5;
+        player.rings += 5;
         PlaySoundSingle(sndRingMonitor,);
         break;
 
 
     // 10 Rings
     case 3:
-        global.playerRings += 10;
+        player.rings += 10;
         PlaySoundSingle(sndRingMonitor);
         break;
 
 
     // Random rings
     case 4:
-        global.playerRings += irandom_range(1, 25);
+        player.rings += irandom_range(1, 25);
         PlaySoundSingle(sndRingMonitor);
         break;
 

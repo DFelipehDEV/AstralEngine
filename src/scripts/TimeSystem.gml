@@ -1,5 +1,6 @@
 /// TimeSystem(event)
 switch (argument0) {
+    case ev_room_end:
     case ev_create:
         global.gameTimeAllow = true;
         global.gameTime = 0;
@@ -12,9 +13,5 @@ switch (argument0) {
         if (global.gameTimeAllow) {
             global.gameTime += 1000 / 60 * global.timeScale;
         }
-        break;
-
-    case ev_room_start:
-        global.gameTime = global.playerCheckTime;
         break;
 }

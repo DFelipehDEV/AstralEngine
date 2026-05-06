@@ -118,7 +118,8 @@ ds_list_add_many(homingObjects, objEnemy, objSpring, objMonitor, objHandle, objS
 // Trick timer
 trickCombo = 0;
 
-// Interaction
+// Other
+rings = 0;
 invincibility = 0;
 invincibilityTimer = 0;
 shield = ShieldNoone;
@@ -218,10 +219,10 @@ action_id=603
 applies_to=self
 */
 /// Lose rings
-global.playerRings -= 1;
+rings -= 1;
 alarm[1] = 60;
 
-if (global.playerRings == 0) {
+if (rings == 0) {
     alarm[1] = -1;
     if (character == CharacterSuperSonic) {
         PlayerSetCharacter(CharacterSonic);
@@ -659,7 +660,6 @@ if (physicsMode == PhysicsWater && state != PlayerStateDead) {
         // Drown
         if (underwaterDrownFrame == 6) {
             physicsMode = PhysicsNormal;
-            global.playerRings = 0;
             StatesSet(PlayerStateDead);
 
             PlaySound(sndPlayerDrown);
