@@ -37,7 +37,7 @@ gamescreen = -1;
 delay = 20;
 
 // Create a "print screen" of the screen before pausing
-background = background_create_from_screen(0, 0, ScreenWidth, ScreenHeight, 0, 0);
+background = background_create_from_screen(0, 0, window_get_width(), window_get_height(), 0, 0);
 
 // Stop all objects
 instance_deactivate_all(1);
@@ -124,7 +124,10 @@ applies_to=self
 BeginUI();
 
 if (background != -1) {
-    draw_background_ext(background, 0, 0, 1, 1, 0, c_gray, 1)
+	    var _scaleX, _scaleY;
+    _scaleX = view_wview[0] / window_get_width();
+    _scaleY = view_hview[0] / window_get_height();
+    draw_background_ext(background, 0, 0, _scaleX, _scaleY, 0, c_gray, 1);
 }
 
 draw_sprite_ext(sprite_index, 0, ScreenWidthHalf, ScreenHeightHalf - sprite_height, round(titleScale/0.2)*0.2, round(titleScale/0.2)*0.2, 0, c_white, 1);
