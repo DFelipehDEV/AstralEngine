@@ -757,7 +757,7 @@ if (afterImageTimer > 0) {
 }
 
 // Trail
-trailTimer -= 1;
+trailTimer = max(trailTimer - 1, 0);
 trailAlpha = lerp(trailAlpha, trailTimer/110, 0.08);
 TrailUpdate(
     floor(x)+dcos(angle+90)+angleCos*xSpeed,
@@ -800,15 +800,17 @@ action_id=603
 applies_to=self
 */
 /// Ring attraction
-var _nearRing;
+var _nearRing, _distance;
 _nearRing = instance_nearest(x, y, objRing);
 _distance = distance_to_object(_nearRing);
 
 if ((_distance < 32 && boosting) || (_distance < 65 && shield == ShieldElectricity)) {
+    var _player;
+    _player = id;
     with (_nearRing) {
         instance_destroy();
         with (instance_create(x, y, objRingMagnetic)) {
-            target = objPlayer;
+            target = _player;
         }
     }
 }

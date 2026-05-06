@@ -5,8 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Variables
-event_inherited();
 MarkAsActive();
+image_speed = 0;
 attractAcc[0] = 0.85;
 attractAcc[1] = 0.2875;
 #define Step_0
@@ -16,7 +16,8 @@ action_id=603
 applies_to=self
 */
 /// Attration
-event_inherited();
+image_index = global.gameTime div 80;
+
 if (instance_exists(target)) {
     var _signPlayerX, _signPlayerY;
     _signPlayerX = sign(target.x - x);

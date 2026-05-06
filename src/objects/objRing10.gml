@@ -7,6 +7,7 @@ applies_to=self
 /// Variables
 image_speed = 0;
 value = 10;
+collected = false;
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

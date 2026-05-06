@@ -7,6 +7,7 @@ applies_to=self
 /// Init
 event_inherited();
 value = 5;
+collected = false;
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

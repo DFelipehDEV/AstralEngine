@@ -7,6 +7,7 @@ applies_to=self
 /// Init
 event_inherited();
 value = 50;
+collected = false;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
