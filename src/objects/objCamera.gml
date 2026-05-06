@@ -71,8 +71,8 @@ if (delay > 0) {
     delay -= 1;
 }
 
-if (delay == 0 && instance_exists(target)) {
-    x = floor(lerp(x, target.x + xShift + xOffset, xInterpolationSpeed * global.timeScale));
+if (instance_exists(target)) {
+    x = floor(lerp(x, target.x + xShift + xOffset - delay, xInterpolationSpeed * global.timeScale));
     y = floor(lerp(y, target.y + yShift + yOffset, yInterpolationSpeed * global.timeScale));
 }
 

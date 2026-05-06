@@ -15,7 +15,7 @@ if (energy > 0) {
             xSpeed = boostStartSpeed * xDirection;
 
         with (cam) {
-            CameraLag(16);
+            CameraLag(100);
             CameraShakeY(20);
         }
         instance_create(x, y, objBoostShockwave);
