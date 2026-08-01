@@ -86,7 +86,7 @@ switch (icon) {
     // Normal shield
     case 6:
         with (player) {
-            PlayerSetShield(ShieldNormal);
+            PlayerSetShield(objShieldNormal);
             PlaySoundSingle(sndShieldMonitor);
         }
         break;
@@ -95,7 +95,7 @@ switch (icon) {
     // Electricity shield
     case 7:
         with (player) {
-            PlayerSetShield(ShieldElectricity);
+            PlayerSetShield(objShieldElectricity);
             PlaySoundSingle(sndShieldMonitor, 1, 1.1);
         }
         break;

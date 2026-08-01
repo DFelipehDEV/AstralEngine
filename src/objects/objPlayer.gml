@@ -122,7 +122,7 @@ trickCombo = 0;
 rings = 0;
 invincibility = 0;
 invincibilityTimer = 0;
-shield = ShieldNoone;
+shield = noone;
 shieldInstance = noone;
 combineActive = false;
 goal = false;
@@ -792,26 +792,6 @@ if (invincibility != InvincibilityHurt) {
 else {
     if (state != PlayerStateHurt) {
         invincibility = InvincibilityNoone;
-    }
-}
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Ring attraction
-var _nearRing, _distance;
-_nearRing = instance_nearest(x, y, objRing);
-_distance = distance_to_object(_nearRing);
-
-if ((_distance < 32 && boosting) || (_distance < 65 && shield == ShieldElectricity)) {
-    var _player;
-    _player = id;
-    with (_nearRing) {
-        instance_destroy();
-        with (instance_create(x, y, objRingMagnetic)) {
-            target = _player;
-        }
     }
 }
 /*"/*'/**//* YYD ACTION

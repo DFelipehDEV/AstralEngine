@@ -24,6 +24,19 @@ if (floor(image_index) mod 2 == 0) {
 } else {
     depth = 0;
 }
+
+var _nearRing, _target;
+_nearRing = instance_nearest(x, y, objRing);
+_target = body;
+
+if (distance_to_object(_nearRing) < 65) {
+    with (_nearRing) {
+        instance_destroy();
+        with (instance_create(x, y, objRingMagnetic)) {
+            target = _target;
+        }
+    }
+}
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

@@ -4,3 +4,4 @@ src/cache
 _pycache
 *.exe
 *.sav
+imgui.ini

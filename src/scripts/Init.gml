@@ -27,7 +27,7 @@ SystemsAddSystem(InputSystem);
 SystemsAddSystem(DeactivationSystem);
 SystemsAddSystem(TimeSystem);
 SystemsAddSystem(WindowSystem);
-if (DebugBuild) {
+if (!test_is_stub()) {
     SystemsAddSystem(DebugSystem);
     if (debug_mode)
         SystemsAddSystem(LogSystem);

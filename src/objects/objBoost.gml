@@ -44,6 +44,19 @@ if (!player.boosting || abs(player.xSpeed) < player.boostMinSpeed) {
 x = player.x;
 y = player.y;
 image_angle = point_direction(xprevious, yprevious, x, y);
+
+var _nearRing, _target;
+_nearRing = instance_nearest(x, y, objRing);
+_target = player;
+
+if (distance_to_object(_nearRing) < 30) {
+    with (_nearRing) {
+        instance_destroy();
+        with (instance_create(x, y, objRingMagnetic)) {
+            target = _target;
+        }
+    }
+}
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

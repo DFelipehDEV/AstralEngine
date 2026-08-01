@@ -3,14 +3,13 @@ var _projectile;
 _projectile = PlayerCollisionHitbox(x, y, objProjectile);
 
 if (_projectile != noone) {
-    if (shield == ShieldNormal) {
+    if (shield == objShieldNormal) {
         // Reflect projectiles with shields
         with (_projectile) {
             hspeed = -sign(hspeed);
             vspeed = -4;
         }
-    }
-    else {
+    } else {
         PlayerHurt();
     }
 }

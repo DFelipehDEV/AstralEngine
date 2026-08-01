@@ -2,25 +2,16 @@
 var _newShield;
 _newShield = argument0;
 if (shield != _newShield) {
-    if (shieldInstance != noone) {
+    if (instance_exists(shieldInstance)) {
         instance_destroy_id(shieldInstance);
         shieldInstance = noone;
     }
-    switch (_newShield) {
-        case ShieldNormal:
-            shield = ShieldNormal;
-            with (instance_create(x, y, objShieldNormal)) {
-                other.shieldInstance = id;
-                body = other.id; // Assign player ID to the shield
-            }
-            break;
 
-        case ShieldElectricity:
-            shield = ShieldElectricity;
-            with (instance_create(x, y, objShieldElectricity)) {
-                other.shieldInstance = id;
-                body = other.id; // Assign player ID to the shield
-            }
-            break;
+    shield = _newShield;
+    if (shield != noone) {
+        with (instance_create(x, y, shield)) {
+            other.shieldInstance = id;
+            body = other.id;
+        }
     }
 }

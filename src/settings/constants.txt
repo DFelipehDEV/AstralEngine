@@ -1,7 +1,3 @@
-DebugBuild=true
-ShieldNoone=0
-ShieldNormal=1
-ShieldElectricity=2
 InvincibilityNoone=0
 InvincibilityHurt=1
 InvincibilityBlink=2
