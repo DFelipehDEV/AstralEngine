@@ -28,7 +28,6 @@ ParallaxSprite=4
 ParallaxBGHorizontal=5
 ParallaxBGVertical=6
 ParallaxBG=7
-CollisionSolid=0
 GameStateRunning=0
 GameStatePaused=1
 GameStateCutscene=2
