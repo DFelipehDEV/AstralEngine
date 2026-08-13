@@ -9,6 +9,14 @@ dialogues = dss_list_create();
 dialogueQuerier = noone;
 
 player = noone;
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Free dialogues
+dss_destroy(dialogues);
 #define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -33,3 +41,11 @@ if (player != noone) {
         PlayerResetKeys();
     }
 }
+#define Other_5
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Free dialogues
+dss_destroy(dialogues);
