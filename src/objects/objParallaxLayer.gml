@@ -6,7 +6,6 @@ applies_to=self
 */
 /// Variables
 MarkAsActive();
-
 background = 0;
 
 tileHorizontal = false;
@@ -30,7 +29,6 @@ action_id=603
 applies_to=self
 */
 /// Move
-
 // Wrap texture
 xScroll = xScroll mod (background_get_width(background) + xSeperation);
 yScroll = yScroll mod (background_get_height(background) + ySeperation);
@@ -115,47 +113,44 @@ action_id=603
 applies_to=self
 */
 /// Draw
+var width, height;
+width = background_get_width(background);
+height = background_get_height(background);
 
-if (background_exists(background)) {
-    var width, height;
-    width = background_get_width(background);
-    height = background_get_height(background);
+var _viewX, _viewY, _viewWidth, _viewHeight;
+_viewX = view_xview[view_current];
+_viewY = view_yview[view_current];
+_viewWidth = view_wview[view_current];
+_viewHeight = view_hview[view_current];
 
-    var _viewX, _viewY, _viewWidth, _viewHeight;
-    _viewX = view_xview[view_current];
-    _viewY = view_yview[view_current];
-    _viewWidth = view_wview[view_current];
-    _viewHeight = view_hview[view_current];
+var _parallaxX, _parallaxY, _tileWidth, _tileHeight;
+_parallaxX = x + xScroll + floor(_viewX * xMotionScale);
+_parallaxY = y + yScroll + floor(_viewY * yMotionScale);
+_tileWidth = width + xSeperation;
+_tileHeight = height + ySeperation;
 
-    var _parallaxX, _parallaxY, _tileWidth, _tileHeight;
-    _parallaxX = x + xScroll + floor(_viewX * xMotionScale);
-    _parallaxY = y + yScroll + floor(_viewY * yMotionScale);
-    _tileWidth = width + xSeperation;
-    _tileHeight = height + ySeperation;
+var _startX, _endX;
+if (tileHorizontal) {
+    _startX = _viewX + ((_parallaxX - _viewX) mod _tileWidth) - _tileWidth;
+    _endX = _viewX + _viewWidth + _tileWidth;
+} else {
+    _startX = _parallaxX;
+    _endX = _parallaxX;
+}
 
-    var _startX, _endX;
-    if (tileHorizontal) {
-        _startX = _viewX + ((_parallaxX - _viewX) mod _tileWidth) - _tileWidth;
-        _endX = _viewX + _viewWidth + _tileWidth;
-    } else {
-        _startX = _parallaxX;
-        _endX = _parallaxX;
-    }
+var _startY, _endY;
+if (tileVertical) {
+    _startY = _viewY + ((_parallaxY - _viewY) mod _tileHeight) - _tileHeight;
+    _endY = _viewY + _viewHeight + _tileHeight;
+} else {
+    _startY = _parallaxY;
+    _endY = _parallaxY;
+}
 
-    var _startY, _endY;
-    if (tileVertical) {
-        _startY = _viewY + ((_parallaxY - _viewY) mod _tileHeight) - _tileHeight;
-        _endY = _viewY + _viewHeight + _tileHeight;
-    } else {
-        _startY = _parallaxY;
-        _endY = _parallaxY;
-    }
-
-    // Draw tiled background
-    var cy, cx;
-    for (cy = _startY; cy <= _endY; cy += _tileHeight) {
-        for (cx = _startX; cx <= _endX; cx += _tileWidth) {
-            draw_background_part_ext(background, 0, 0, width, height, cx, cy, image_xscale, image_yscale, image_blend, image_alpha);
-        }
+// Draw tiled background
+var cy, cx;
+for (cy = _startY; cy <= _endY; cy += _tileHeight) {
+    for (cx = _startX; cx <= _endX; cx += _tileWidth) {
+        draw_background_part_ext(background, 0, 0, width, height, cx, cy, image_xscale, image_yscale, image_blend, image_alpha);
     }
 }

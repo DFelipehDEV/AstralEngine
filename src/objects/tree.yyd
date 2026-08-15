@@ -51,7 +51,6 @@
 		|objDialogue
 		|objDialogueQuery
 +Parallax
-	|objParallax
 	|objParallaxLayer
 	|objParallaxLayerAnimated
 +Player
@@ -177,7 +176,6 @@
 			|objCorkscrewDepth
 	+TestStage
 		|objTestFlower
-		|objTZBG
 	+Destructable
 		|objDebris
 		|objDestructiveWall

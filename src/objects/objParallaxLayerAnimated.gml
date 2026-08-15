@@ -27,7 +27,6 @@ action_id=603
 applies_to=self
 */
 /// Move
-
 // Wrap texture
 xScroll = xScroll mod (sprite_width + xSeperation);
 yScroll = yScroll mod (sprite_height + ySeperation);
@@ -108,7 +107,6 @@ action_id=603
 applies_to=self
 */
 /// Draw
-
 var _viewX, _viewY, _viewWidth, _viewHeight;
 _viewX = view_xview[view_current];
 _viewY = view_yview[view_current];
