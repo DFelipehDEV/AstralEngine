@@ -172,7 +172,6 @@ PlayerStateTransform
 DrawSpriteQuad
 ease
 PlayerHandleRings
-InputSystem
 WindowSetScale
 README
 
@@ -210,11 +209,6 @@ SettingsLoad
 SaveInit
 SettingsSave
 SoundInit
-SystemsAddSystem
-DeactivationSystem
-TimeSystem
-DebugSystem
-WindowSystem
 PlayerResetKeys
 InputIconDraw
 InputIconAddKey
@@ -231,7 +225,6 @@ NPCDispatch
 
 DistanceToView
 MarkAsActive
-LogSystem
 Log
 EnemySetAnimation
 

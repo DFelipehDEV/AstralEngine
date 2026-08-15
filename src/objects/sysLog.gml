@@ -1,32 +1,48 @@
-/// LogSystem(event)
-switch (argument0) {
-    case ev_create:
-        global.logs = dss_list_create();
-        break;
-
-    case ev_step:
-        var i;
-        for (i = ds_list_size(global.logs) - 1; i >= 0; i -= 1) {
+#define Create_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+sysLog.logs = dss_list_create();
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+dss_destroy(sysLog.logs);
+#define Step_1
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+var i;
+        for (i = ds_list_size(sysLog.logs) - 1; i >= 0; i -= 1) {
             var _logData, _logAge, _logDur;
-            _logData = ds_list_find_value(global.logs, i);
+            _logData = ds_list_find_value(sysLog.logs, i);
             _logAge = current_time - ds_map_find_value(_logData, "time");
             _logDur = ds_map_find_value(_logData, "dur");
 
             if (_logAge > _logDur) {
                 dss_destroy(_logData);
-                ds_list_delete(global.logs, i);
+                ds_list_delete(sysLog.logs, i);
             }
         }
-        break;
-
-    case ev_draw:
-        var _logCount;
-        _logCount = ds_list_size(global.logs);
+#define Draw_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+var _logCount;
+        _logCount = ds_list_size(sysLog.logs);
 
         var i;
         for (i = 0; i < _logCount; i += 1) {
             var _logData, _content, _time, _logAge, _maxAge;
-            _logData = ds_list_find_value(global.logs, i);
+            _logData = ds_list_find_value(sysLog.logs, i);
             _content = ds_map_find_value(_logData, "message");
             _time = ds_map_find_value(_logData, "time");
             _logAge = current_time - _time;
@@ -45,9 +61,3 @@ switch (argument0) {
             draw_set_alpha(1);
             EndUI();
         }
-        break;
-
-    case ev_destroy:
-        dss_destroy(global.logs);
-        break;
-}

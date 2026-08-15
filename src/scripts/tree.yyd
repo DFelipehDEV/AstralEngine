@@ -12,7 +12,6 @@
 	|CameraShakeX
 	|CameraShakeY
 +Deactivation
-	|DeactivationSystem
 	|DeactivateExceptionsAdd
 	|DeactivateExceptionsRemove
 	|MarkAsActive
@@ -52,7 +51,6 @@
 	|GameStateGet
 	|GameStateSet
 +Input
-	|InputSystem
 	|InputIconAddKey
 	|InputIconAddButton
 	|InputIconDraw
@@ -193,9 +191,6 @@
 	|StatesUpdate
 	|StatesSet
 	|StateTemplate
-+Systems
-	|SystemsAddSystem
-	|TimeSystem
 +Trail
 	|TrailUpdate
 	|DrawTrail
@@ -213,12 +208,9 @@
 	|CreateAfterImage
 	|CreateDebris
 +Window
-	|WindowSystem
 	|WindowSetScale
 	|ViewSetZoom
 +Debug
-	|DebugSystem
-	|LogSystem
 	|Log
 +UIDesign
 	|DrawSlider

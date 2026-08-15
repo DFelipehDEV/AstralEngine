@@ -23,7 +23,7 @@ applies_to=self
 /// Movement
 if (canMove) {
     BodyApplyGravity(0.2);
-    move_and_collide(xSpeed * global.timeScale, ySpeed * global.timeScale, objTerrain);
+    move_and_collide(xSpeed * sysTime.timeScale, ySpeed * sysTime.timeScale, objTerrain);
 } else {
     EnemySetAnimation(sprEnemyEggpawnIdle, 0.2);
 }
@@ -42,6 +42,6 @@ if (!ground) {
     }
 }
 
-StatesUpdate(global.timeScale);
+StatesUpdate(sysTime.timeScale);
 
 x = clamp(x, objCamera.leftBorder, objCamera.rightBorder);

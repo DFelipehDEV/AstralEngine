@@ -1,26 +1,32 @@
-/// DebugSystem(event)
-switch (argument0) {
-    case ev_create:
-        global.debugMode = false;
-        global.debugOverlay = false;
-        break;
-
-    case ev_step:
-        if (keyboard_check_pressed(vk_tab) && !global.debugMode) {
+#define Create_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+sysDebug.debugMode = false;
+        sysDebug.debugOverlay = false;
+#define Step_1
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+if (keyboard_check_pressed(vk_tab) && !sysDebug.debugMode) {
             PlaySound(sndRing);
-            global.debugMode = true;
+            sysDebug.debugMode = true;
         }
 
-        if (!global.debugMode) exit;
+        if (!sysDebug.debugMode) exit;
 
         var _player;
         _player = instance_find(objPlayer, 0);
 
         if (keyboard_check_pressed(vk_tab)) {
-            global.debugOverlay = !global.debugOverlay;
+            sysDebug.debugOverlay = !sysDebug.debugOverlay;
             if (_player != noone) {
-                _player.drawSensors = global.debugOverlay;
-                _player.depth = pick(global.debugOverlay, -99, -1);
+                _player.drawSensors = sysDebug.debugOverlay;
+                _player.depth = pick(sysDebug.debugOverlay, -99, -1);
             }
         }
 
@@ -101,10 +107,13 @@ switch (argument0) {
             view_wview[0] /= 0.9;
             view_hview[0] /= 0.9;
         }
-        break;
-
-    case ev_draw:
-        if (!global.debugOverlay) exit;
+#define Draw_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+if (!sysDebug.debugOverlay) exit;
         BeginUI();
         draw_rect(333, 72, 179, 240, c_black, 0.5, 0);
         draw_set_font(fontConsolas8);
@@ -131,5 +140,3 @@ switch (argument0) {
             draw_text(333, 72, _playerText);
         }
         EndUI();
-        break;
-}

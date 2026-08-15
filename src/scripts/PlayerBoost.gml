@@ -58,7 +58,7 @@ if (energy > 0) {
             }
         }
 
-        PlayerAddEnergy(-0.35 * global.timeScale);
+        PlayerAddEnergy(-0.35 * sysTime.timeScale);
         PlayerSetPhysicsMode(physicsMode);
     }
 } else if (keyBoostPressed && !boosting) {

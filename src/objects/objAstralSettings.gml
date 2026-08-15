@@ -76,11 +76,11 @@ if (inputDelay == 0) {
 
     switch (_type) {
         case 0: // Fullscreen
-            if (sysinput_get("right") && !window_get_fullscreen()) { global.windowScale = WindowSetScale(4); inputDelay = 20; }
-            if (sysinput_get("left") && window_get_fullscreen()) { global.windowScale = WindowSetScale(1); inputDelay = 20; }
+            if (sysinput_get("right") && !window_get_fullscreen()) { sysWindow.windowScale = WindowSetScale(4); inputDelay = 20; }
+            if (sysinput_get("left") && window_get_fullscreen()) { sysWindow.windowScale = WindowSetScale(1); inputDelay = 20; }
             break;
         case 1: // Resolution
-            if (sysinput_get("right")) { global.windowScale = WindowSetScale(global.windowScale + 1); inputDelay = 20; }
+            if (sysinput_get("right")) { sysWindow.windowScale = WindowSetScale(sysWindow.windowScale + 1); inputDelay = 20; }
             break;
 
         case 2: // Music Volume
@@ -99,8 +99,8 @@ if (inputDelay == 0) {
             break;
 
         case 5: // VSync
-            if (sysinput_get("right") && !global.windowVSync) { global.windowVSync = true;  set_synchronization(true);  inputDelay = 20; }
-            if (sysinput_get("left")  &&  global.windowVSync) { global.windowVSync = false; set_synchronization(false); inputDelay = 20; }
+            if (sysinput_get("right") && !sysWindow.windowVSync) { sysWindow.windowVSync = true;  set_synchronization(true);  inputDelay = 20; }
+            if (sysinput_get("left")  &&  sysWindow.windowVSync) { sysWindow.windowVSync = false; set_synchronization(false); inputDelay = 20; }
             break;
 
         case 6: // Save and Exit
@@ -151,7 +151,7 @@ for (i = 0; i < optionMax; i += 1) {
 
     if (_type == 0) _valueText = pick(window_get_fullscreen(), "OFF", "ON");
     else if (_type == 1) _valueText = string(window_get_width()) + "x" + string(window_get_height());
-    else if (_type == 5) _valueText = pick(global.windowVSync, "OFF", "ON");
+    else if (_type == 5) _valueText = pick(sysWindow.windowVSync, "OFF", "ON");
 
     if (i == optionSelected && _isToggle) {
         _valueText = "< " + _valueText + " >";

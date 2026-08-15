@@ -28,7 +28,7 @@ i = 1 repeat (string_length(_text)) {
                 var _actionName, _actionFrame;
                 _actionName = string_copy(_tagName, _actionPos + string_length("Input."), _tagLength);
                 if (joystick_exists(0)) {
-                    _actionFrame = ds_list_find_value(ds_map_get(global.buttonInputIcons, _actionName), 1);
+                    _actionFrame = ds_list_find_value(ds_map_get(sysInput.buttonInputIcons, _actionName), 1);
 
                     switch (_actionFrame) {
                         case 0:
@@ -45,7 +45,7 @@ i = 1 repeat (string_length(_text)) {
                             break;
                     }
                 } else {
-                    _actionFrame = ds_list_find_value(ds_map_get(global.keyInputIcons, _actionName), 1);
+                    _actionFrame = ds_list_find_value(ds_map_get(sysInput.keyInputIcons, _actionName), 1);
                     _newText += chr(ord('A') + _actionFrame);
                 }
             }

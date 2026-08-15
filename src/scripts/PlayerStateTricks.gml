@@ -1,10 +1,10 @@
 /// PlayerStateTricks()
 if (stateEntering) {
-    global.timeScale = 0.4;
+    sysTime.timeScale = 0.4;
     exit;
 }
 if (stateExiting) {
-    global.timeScale = 1;
+    sysTime.timeScale = 1;
     exit;
 }
 
@@ -28,7 +28,7 @@ if (lockKeysTimer == 0) {
         instance_create(x, y, objRainbow);
         PlaySound(sndTrick, 1, 1 + (trickCombo * 0.0441), 0);
 
-        global.timeScale = 1;
+        sysTime.timeScale = 1;
     }
 }
 

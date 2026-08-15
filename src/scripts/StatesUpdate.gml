@@ -1,6 +1,6 @@
 /// StatesUpdate([timeScale])
 var _timeScale;
-_timeScale = global.timeScale;
+_timeScale = sysTime.timeScale;
 if (argument_count == 1) {
     _timeScale = argument0;
 }

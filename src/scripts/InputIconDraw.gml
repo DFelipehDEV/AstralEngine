@@ -21,9 +21,9 @@ switch (argument_count) {
 
 var _spr;
 if (!joystick_exists(0)) {
-    _spr = ds_map_find_value(global.keyInputIcons, _action);
+    _spr = ds_map_find_value(sysInput.keyInputIcons, _action);
 } else {
-    _spr = ds_map_find_value(global.buttonInputIcons, _action);
+    _spr = ds_map_find_value(sysInput.buttonInputIcons, _action);
 }
 
 if (_spr == 0) exit;

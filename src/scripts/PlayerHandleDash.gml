@@ -35,7 +35,7 @@ if (_dashRing != noone) {
 
         // Set slow motion
         if (_dashRing.playerAction == PlayerStateTricks) {
-            global.timeScale = 0.4;
+            sysTime.timeScale = 0.4;
             trickCombo = 0;
         }
 

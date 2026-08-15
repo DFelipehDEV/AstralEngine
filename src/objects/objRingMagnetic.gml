@@ -16,13 +16,13 @@ action_id=603
 applies_to=self
 */
 /// Attration
-image_index = global.gameTime div 80;
+image_index = sysTime.gameTime div 80;
 
 if (instance_exists(target)) {
     var _signPlayerX, _signPlayerY;
     _signPlayerX = sign(target.x - x);
     _signPlayerY = sign(target.y - y);
 
-    hspeed += (attractAcc[sign(hspeed) == _signPlayerX] * _signPlayerX) * global.timeScale;
-    vspeed += (attractAcc[sign(vspeed) == _signPlayerY] * _signPlayerY) * global.timeScale;
+    hspeed += (attractAcc[sign(hspeed) == _signPlayerX] * _signPlayerX) * sysTime.timeScale;
+    vspeed += (attractAcc[sign(vspeed) == _signPlayerY] * _signPlayerY) * sysTime.timeScale;
 }

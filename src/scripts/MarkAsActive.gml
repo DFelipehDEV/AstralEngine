@@ -1,2 +1,2 @@
 /// MarkAsActive()
-ds_list_add(global.deactivateExceptions, id);
+ds_list_add(sysDeactivation.deactivateExceptions, id);

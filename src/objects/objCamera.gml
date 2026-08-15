@@ -72,8 +72,8 @@ if (delay > 0) {
 }
 
 if (instance_exists(target)) {
-    x = floor(lerp(x, target.x + xShift + xOffset - delay, xInterpolationSpeed * global.timeScale));
-    y = floor(lerp(y, target.y + yShift + yOffset, yInterpolationSpeed * global.timeScale));
+    x = floor(lerp(x, target.x + xShift + xOffset - delay, xInterpolationSpeed * sysTime.timeScale));
+    y = floor(lerp(y, target.y + yShift + yOffset, yInterpolationSpeed * sysTime.timeScale));
 }
 
 x = clamp(x, leftBorder + ScreenWidthHalf, rightBorder - ScreenWidthHalf);

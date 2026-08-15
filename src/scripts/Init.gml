@@ -1,5 +1,5 @@
 /// Init()
-if (instance_exists(objSystems)) exit;
+if (instance_exists(sysTime)) exit;
 
 if (gm82core_version < 160) {
     show_error("You are using a gm82core extension version older than 1.6, only version 1.6 and higher are supported. Update by downloading a newer gm82 build from gm82.cherry-treehouse.com or by building it from source.", true);
@@ -21,16 +21,16 @@ ds_map_add(global.currentCheckpoint, "rings", 0);
 ds_map_add(global.currentCheckpoint, "time", 0);
 
 global.gameState = GameStateRunning;
-global.systems = instance_create(0, 0, objSystems);
 
-SystemsAddSystem(InputSystem);
-SystemsAddSystem(DeactivationSystem);
-SystemsAddSystem(TimeSystem);
-SystemsAddSystem(WindowSystem);
+
+instance_create(0, 0, sysInput);
+instance_create(0, 0, sysDeactivation);
+instance_create(0, 0, sysTime);
+instance_create(0, 0, sysWindow);
 if (!test_is_stub()) {
-    SystemsAddSystem(DebugSystem);
+    instance_create(0, 0, sysDebug);
     if (debug_mode)
-        SystemsAddSystem(LogSystem);
+        instance_create(0, 0, sysLog);
 }
 SettingsLoad();
 

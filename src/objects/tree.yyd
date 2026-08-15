@@ -72,7 +72,12 @@
 		|objBoostShockwave
 +Singletons
 	|objAlwaysActive
-	|objSystems
+	|sysInput
+	|sysDeactivation
+	|sysTime
+	|sysWindow
+	|sysDebug
+	|sysLog
 	|objInit
 +Stage
 	+Spring

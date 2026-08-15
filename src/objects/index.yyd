@@ -1,4 +1,3 @@
-
 objPlayer
 
 objCamera
@@ -162,7 +161,6 @@ objPlatformAngle
 objPlatformMove
 objPlatformMask01Spin
 objAstralSettings
-objSystems
 objNavigator
 objTestFlower
 objBox
@@ -242,3 +240,10 @@ objLight
 objLightRay
 objLightPoint
 objDarkRegion
+
+sysInput
+sysDeactivation
+sysTime
+sysWindow
+sysDebug
+sysLog
