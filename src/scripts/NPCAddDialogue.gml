@@ -6,7 +6,7 @@ _avatar = argument2;
 _avatarIndex = argument3;
 
 dial = dss_map_create();
-ds_map_add(dial, "text", _text);
+ds_map_add(dial, "text", ParseDialogueText(_text));
 ds_map_add(dial, "color", _color);
 ds_map_add(dial, "avatar", _avatar);
 ds_map_add(dial, "avatarIndex", _avatarIndex);

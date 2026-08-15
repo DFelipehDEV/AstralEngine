@@ -27,16 +27,6 @@ applies_to=self
 /// Write the text
 textYOffset = approach(textYOffset, 0, 1);
 
-if (currentCharacter < string_length(text) + 1) {
-    var _characterToInsert;
-    _characterToInsert = string_char_at(text, currentCharacter);
-    currentText = string_insert(_characterToInsert, currentText, currentCharacter);
-    if (currentCharacter mod 4 == 0) {
-        PlaySound(sndDialogueType, 1, 1, false, true);
-    }
-    currentCharacter += 1;
-}
-
 if (sysinput_get_pressed("dialogue_skip")) {
     if (currentCharacter < string_length(text)) {
         currentCharacter = string_length(text);
@@ -44,6 +34,16 @@ if (sysinput_get_pressed("dialogue_skip")) {
     } else {
         instance_destroy();
     }
+}
+
+if (currentCharacter < string_length(text)) {
+    var _characterToInsert;
+    _characterToInsert = string_char_at(text, currentCharacter);
+    currentText = string_insert(_characterToInsert, currentText, currentCharacter);
+    if (currentCharacter mod 4 == 0) {
+        PlaySound(sndDialogueType, 1, 1, false, true);
+    }
+    currentCharacter += 1;
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION
@@ -64,7 +64,16 @@ draw_sprite_ext(avatar, avatarIndex, 28, 177, image_xscale, image_yscale, image_
 
 draw_set_alpha(image_alpha);
 draw_set_halign(fa_left);
-draw_text_ext(32, 183 + textYOffset, currentText, 16, 350);
+var _drawTextCalls;
+_drawTextCalls = draw_text_ext(32, 183 + textYOffset, currentText, 16, 350);
 draw_set_alpha(1);
+/*
 
+draw_text(24, 200, _drawTextCalls);
+var i;
+for (i = 0; i < ds_list_size(global.testStrippedStrings); i += 1) {
+    draw_text(24, i * 16, ds_list_find_value(global.testStrippedStrings, i));
+}
+ds_list_clear(global.testStrippedStrings);
+*/
 EndUI();

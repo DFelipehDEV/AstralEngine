@@ -224,3 +224,5 @@
 	|Log
 +UIDesign
 	|DrawSlider
++Dialogue
+	|ParseDialogueText

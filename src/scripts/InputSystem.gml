@@ -46,12 +46,12 @@ switch (argument0) {
         sysinput_add_key("p_lightspeed", ord('F'));
         sysinput_add_button("p_lightspeed", gp_face4);
         InputIconAddKey("p_lightspeed", sprKeyboardKeys, 5);
-        InputIconAddButton("p_lightspeed", sprGamepadKeys, 4);
+        InputIconAddButton("p_lightspeed", sprGamepadKeys, 3);
 
         sysinput_add_key("npc_interact", ord('F'));
         sysinput_add_button("npc_interact", gp_face4);
         InputIconAddKey("npc_interact", sprKeyboardKeys, 5);
-        InputIconAddButton("npc_interact", sprGamepadKeys, 4);
+        InputIconAddButton("npc_interact", sprGamepadKeys, 3);
 
         sysinput_add_key("dialogue_skip", ord('A'));
         sysinput_add_button("dialogue_skip", gp_face1);

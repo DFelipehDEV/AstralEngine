@@ -237,3 +237,4 @@ EnemySetAnimation
 PlayerCheckLine
 PlayerSetTerrainType
 DrawSlider
+ParseDialogueText
