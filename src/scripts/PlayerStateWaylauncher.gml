@@ -7,3 +7,6 @@ if (stateEntering) {
 if (stateExiting) {
     exit;
 }
+
+xSpeed = 0;
+ySpeed = 0;

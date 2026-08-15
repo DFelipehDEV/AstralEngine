@@ -8,22 +8,17 @@ applies_to=self
 event_inherited();
 MarkAsActive();
 
+PlayerPhysicsInit(objSolid, objPlatform, objLayer0, objLayer1);
+pushingWall = false;
 physicsMode = PhysicsNormal;
+xDirection = 1;
 
-// Movement Flags
-canMove = true;
-canMoveX = true;
-canMoveY = true;
-
-// Horizontal speed (change physics in the player physics script)
+// Horizontal speed
 xTopSpeed = 0;
 xMaxSpeed = 0;
 xAcceleration = 0;
 xAirAcceleration = 0;
 xFriction = 0;
-xMinSpeedToFall = 4; // Minimum speed to fall when on a slope
-xFrictionTemp = 0;
-xDirection = 1;
 
 // Vertical speed
 noGravityTimer = 0; // This keeps the gravity from being applied for a certain amount of time
@@ -33,36 +28,16 @@ yDirection = 1;
 yDrag = 0.06;
 
 // Terrain
-terrainLayer = 0;
 terrainType = "";
 terrainSound[TerFootstep1] = sndFootstepStone;
 terrainSound[TerFootstep2] = sndFootstepStone2;
 terrainSound[TerLand] = sndLandStone;
 terrainSound[TerSkid] = sndSkidStone;
-onPlatform = false;
-pushingWall = false;
 
 footstepPlayed = false;
 
-angle = 0;
-angleHolder = 0;
-angleCos = 0;
-angleSin = 0;
-angleMode = 0;
-fallAngleThreshold = 75;
-
-slopeFactor = 0.14;
-slopeFactorMinAngle = 40;
-
 // Sensors
-sensorX = x;
-sensorY = y;
-sensorCos = dcos(angle);
-sensorSin = dsin(angle);
 drawSensors = false;
-PlayerResetSensors();
-bottomCollision = false;
-edgeCollision = false;
 
 // State
 StatesInit(PlayerStateNormal);
@@ -247,238 +222,56 @@ action_id=603
 applies_to=self
 */
 /// Movement
-if (canMove) {
-    if (canMoveX) {
-        x += (angleCos * xSpeed) * global.timeScale;
-    }
-    if (canMoveY) {
-        y -= (angleSin * xSpeed) * global.timeScale;
-    }
 
-    repFactor = 1;
-
-    if (abs(xSpeed) > 11) {
-        repFactor = round(abs(xSpeed) / 9);
+// Water running
+if (angle == 0 && abs(xSpeed) > waterRunSpeed) {
+    var _water;
+    _water = PlayerCollisionObjectBottom(x, y, 0, maskBig, objWater);
+    if (_water != noone && !instance_exists(waterRunSolid)) {
+        waterRunSolid = instance_create(x - 64, _water.y, objWaterSolid);
     }
 
-    if (xSpeed > 0) {
-        while (PlayerCollisionRight(x, y, angle, maskMid)) {
-            x -= angleCos;
-            y += angleSin;
-        }
+    if (instance_exists(waterRunSolid)) waterRunSolid.x = x - 64;
+} else {
+    if (instance_exists(waterRunSolid)) {
+        instance_destroy_id(waterRunSolid);
     }
+}
+//benchmark_start();
+PlayerPhysicsMove(global.timeScale);
+//show_debug_message("PlayerPhysicsMove took: " + string(benchmark_end()));
 
-    if (xSpeed < 0) {
-        while (PlayerCollisionLeft(x, y, angle, maskMid)) {
-            x += angleCos;
-            y -= angleSin;
-        }
+if (noGravityTimer == 0) {
+    BodyApplyGravity(yGravity);
+} else {
+    noGravityTimer = max(noGravityTimer - global.timeScale, 0);
+}
+
+// Limit speed
+if (abs(xSpeed) > xMaxSpeed) {
+    xSpeed -= (xFriction * 1.2) * sign(xSpeed);
+}
+
+if (state != PlayerStateRoll) {
+    PlayerApplySlopeFactor();
+}
+
+pushingWall = false;
+// Stop when meet a wall/slide pass and isnt sliding
+if ((xSpeed > 0 && (PlayerCollisionRight(x, y, angle, maskBig))) || (xSpeed > 0 && PlayerCollisionObjectRight(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
+    xSpeed = 0;
+    pushingWall = true;
+    if (ground && state != PlayerStatePush) {
+        xDirection = 1;
+        StatesSet(PlayerStatePush);
     }
-
-    PlayerCollisionCache();
-
-    if (ground) {
-        repeat (repFactor) {
-            if (edgeCollision) {
-                while (PlayerCollisionMain(x, y)) {
-                    x -= angleSin;
-                    y -= angleCos;
-                }
-            }
-
-            if (PlayerCollisionSlope(x, y, angle, maskMid) && !PlayerCollisionMain(x, y)) {
-                while (!PlayerCollisionMain(x, y)) {
-                    x += angleSin;
-                    y += angleCos;
-                }
-            }
-        }
-
-        PlayerCollisionCache();
-
-        // Crushing
-        /*
-        if (bottomCollision && PlayerCollisionTop(x, y, angle, maskBig)) {
-            // Kill player
-            StatesSet(PlayerStateDead);
-            exit;
-        }
-        */
-
-        // Water running
-        if (PlayerCollisionObjectBottom(x, y, 0, maskBig, objWaterHorizon) && angle == 0 && abs(xSpeed) > waterRunSpeed) {
-            // Check if the watersolid doesnt exist
-            if (waterRunSolid == noone) {
-                waterRunSolid = instance_create(x, bbox_bottom, objWaterSolid);
-            } else {
-                // Stick solid to our position
-                waterRunSolid.x = x;
-            }
-        } else {
-            // Destroy water solid
-            if (waterRunSolid != noone) {
-                instance_destroy_id(waterRunSolid);
-
-                waterRunSolid = noone;
-            }
-        }
-
-        // Fall if there isnt enough speed
-        if (angle >= fallAngleThreshold && angle <= 360-fallAngleThreshold && abs(xSpeed) < xMinSpeedToFall) {
-            if (state != PlayerStateGrind) {
-                PlayerFlight();
-            }
-        }
-
-        PlayerCollisionCache();
-
-        // Fall off the ground if the edges aren't colliding
-        if (angle != 0 && !edgeCollision) {
-            PlayerFlight();               
-        } 
-        
-        // Get new angle
-        if (edgeCollision && ground) {
-            // Store the new angle
-            angleHolder = PlayerCalculateAngle(x, y, angle);
-    
-            // Smooth angle
-            if (abs(angle - angleHolder) < 45) {
-                PlayerSetAngle(angle + (angleHolder-angle)*0.5);
-            }
-            else {
-                PlayerSetAngle(angleHolder);
-            }
-        } else {
-            PlayerSetAngle(0);
-        }
-    
-        // Leave the ground
-        if (!bottomCollision) {
-            PlayerSetGround(false);
-            PlayerSetAngle(0);
-        }                            
-    } else {                   
-        if (canMoveY) {
-            y += ySpeed * global.timeScale;
-        }
-        
-        PlayerCollisionCache();
-        
-        // Crushing
-        if (bottomCollision && PlayerCollisionTop(x, y, angle, maskBig)) {
-            // Kill player
-            StatesSet(PlayerStateDead);
-            exit;                        
-        }
-        
-        // Ceiling
-        if (ySpeed < 0 && PlayerCollisionTop(x, y, 0, maskBig)) {
-            if (PlayerCollisionLeftEdge(x, y, 180) && PlayerCollisionRightEdge(x, y, 180)) {
-                PlayerSetAngle(PlayerCalculateAngle(x, y, 180))
-                                        
-                if (angle < 140 || angle > 220) {
-                    xSpeed = -angleSin * (ySpeed*1.5);
-                    ySpeed = 0;     
-                    PlayerSetGround(true);
-                    PlayerCollisionCache();             
-                }
-                // Reset angle
-                else {
-                    PlayerSetAngle(0);
-                }
-            }
-        }
-                
-        // Move the player outside in case he has got stuck into the floor or the ceiling           
-        while (ySpeed < 0 && PlayerCollisionTop(x, y, 0, maskMid)) {
-            y += 1;
-        }            
-        while (ySpeed > 0 && PlayerCollisionBottom(x, y, 0, maskMid)) {
-            y -= 1;
-        }            
-    
-        // Wall collision (needs to be performed because y axis has recently changed)
-        while (PlayerCollisionRight(x, y, angle, maskMid)) {
-            x -= angleCos;
-            y += angleSin;
-        }
-        
-        while (PlayerCollisionLeft(x, y, angle, maskMid)) {
-            x += angleCos;
-            y -= angleSin;
-        }
-        
-        // Add gravity
-        if (noGravityTimer == 0 && state != PlayerStateCorkscrew && state != PlayerStateAirdash
-        && state != PlayerStateWaylauncher) {
-            ySpeed = min(ySpeed + yGravity * global.timeScale, 15);
-        }
-    
-        PlayerCollisionCache();
-        // Land
-        if (ySpeed >= 0 && bottomCollision) {
-            if (edgeCollision) {
-                PlayerSetAngle(PlayerCalculateAngle(x, y, angle));
-                PlayerCollisionCache();
-            }
-    
-            xSpeed -= angleSin * ySpeed;
-            
-            // Play landing sound effect
-            if (abs(ySpeed) > 2) {
-                PlayerHandleFootstepSensors();
-                PlaySound(terrainSound[TerLand]);
-            }
-            
-            ySpeed = 0;
-            boostAirTimer = 90;
-            PlayerSetGround(true);
-        }
-    
-        // Check if we're on the air but we collided with the ceiling
-        if (ySpeed < 0 && PlayerCollisionTop(x, y, 0, maskBig)) {
-            ySpeed = 0;
-        }
-    }
-
-    // Horizontal movement
-    // Limit speed
-    if (abs(xSpeed) > xMaxSpeed) {
-        xSpeed -= (xFriction * 1.2) * sign(xSpeed);
-    }
-
-    if (state != PlayerStateRoll) {
-        // Acceleration and deceleration on slopes
-        if (ground && angle > slopeFactorMinAngle && angle < 360-slopeFactorMinAngle) {
-            xSpeed -= angleSin * slopeFactor;
-        }
-    }
-
-    // Stop when meet a wall/slide pass and isnt sliding
-    if ((xSpeed > 0 && (PlayerCollisionRight(x, y, angle, maskBig))) || (xSpeed > 0 && PlayerCollisionObjectRight(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
-        xSpeed = 0;
-        pushingWall = true;
-        if (ground && state != PlayerStatePush) {
-            xDirection = 1;
-            StatesSet(PlayerStatePush);
-        }
-    }
-    else if ((xSpeed < 0 && (PlayerCollisionLeft(x, y, angle, maskBig))) || (xSpeed < 0 && PlayerCollisionObjectLeft(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
-        xSpeed = 0;
-        pushingWall = true;
-        if (ground && state != PlayerStatePush) {
-            xDirection = -1;
-            StatesSet(PlayerStatePush);
-        }
-    }
-    else {
-        pushingWall = false;
-    }
-
-    // Decrease gravity freeze timer
-    if (noGravityTimer > 0) {
-        noGravityTimer -= 1;
+} else if ((xSpeed < 0 && (PlayerCollisionLeft(x, y, angle, maskBig)))
+        || (xSpeed < 0 && PlayerCollisionObjectLeft(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
+    xSpeed = 0;
+    pushingWall = true;
+    if (ground && state != PlayerStatePush) {
+        xDirection = -1;
+        StatesSet(PlayerStatePush);
     }
 }
 /*"/*'/**//* YYD ACTION
@@ -946,4 +739,10 @@ if (drawSensors) {
     _rightY = y - sensorSin * 8 + sensorCos * 8;
     draw_line(floor(_leftX), floor(_leftY), floor(_leftX + sensorSin * 32), floor(_leftY + sensorCos * 32));
     draw_line(floor(_rightX), floor(_rightY), floor(_rightX + sensorSin * 32), floor(_rightY + sensorCos * 32));
+
+    draw_set_color(c_red);
+    draw_point(angleLeftX, angleLeftY);
+    draw_set_color(c_green);
+    draw_point(angleRightX, angleRightY);
+    draw_set_color(c_white);
 }

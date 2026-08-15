@@ -62,37 +62,11 @@
 +Parallax
 	|ParallaxAddNode
 +Player
-	+Collision
-		+Bottom
-			|PlayerCollisionBottom
-			|PlayerCollisionObjectBottom
-			|PlayerCollisionSlope
-		+Hitbox
-			|PlayerCollisionHitbox
-		+Left
-			|PlayerCollisionLeft
-			|PlayerCollisionObjectLeft
-			|PlayerCollisionLeftEdge
-		+Main
-			|PlayerCollisionMain
-			|PlayerCollisionObjectMain
-		+Right
-			|PlayerCollisionRight
-			|PlayerCollisionObjectRight
-			|PlayerCollisionRightEdge
-		+Top
-			|PlayerCollisionTop
-			|PlayerCollisionObjectTop
-		|PlayerCheckTerrain
-		|PlayerCheckLine
-		|PlayerCollisionCache
 	+Util
 		|PlayerAddEnergy
 		|PlayerAirdash
 		|PlayerBoost
-		|PlayerCalculateAngle
 		|PlayerDispatch
-		|PlayerFlight
 		|PlayerGetInputDirection
 		|PlayerHomingAttack
 		|PlayerHurt
@@ -104,9 +78,7 @@
 		|PlayerResetHomingAttack
 		|PlayerResetKeys
 		|PlayerResetSensors
-		|PlayerSetAngle
 		|PlayerSetCharacter
-		|PlayerSetGround
 		|PlayerSetPhysicsMode
 		|PlayerSetShield
 		|PlayerSetTerrainType
@@ -166,6 +138,32 @@
 	+Super Sonic
 		|SuperSonicAnimations
 		|SuperSonicPhysics
+	+Physics
+		|PlayerApplySlopeFactor
+		|PlayerCalculateAngle
+		|PlayerFlight
+		|PlayerPhysicsInit
+		|PlayerPhysicsMove
+		|PlayerSetAngle
+		|PlayerSetGround
+		+Collision
+			|PlayerCheckLine
+			|PlayerCheckTerrain
+			|PlayerCollisionBottom
+			|PlayerCollisionCache
+			|PlayerCollisionHitbox
+			|PlayerCollisionLeft
+			|PlayerCollisionLeftEdge
+			|PlayerCollisionMain
+			|PlayerCollisionObjectBottom
+			|PlayerCollisionObjectLeft
+			|PlayerCollisionObjectMain
+			|PlayerCollisionObjectRight
+			|PlayerCollisionObjectTop
+			|PlayerCollisionRight
+			|PlayerCollisionRightEdge
+			|PlayerCollisionSlope
+			|PlayerCollisionTop
 +Ring
 	|CreateDroppedRings
 	|CreateDroppedHyperRings

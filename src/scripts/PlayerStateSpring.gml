@@ -52,4 +52,7 @@ PlayerStomp();
 // Reset after touching the ground
 if (ground) {
     StatesSet(PlayerStateNormal);
+    if (ySpeed > 2) {
+        PlaySound(terrainSound[TerLand]);
+    }
 }

@@ -1,0 +1,9 @@
+exists=1
+tileset=1
+tile_width=64
+tile_height=64
+tile_hoffset=0
+tile_voffset=0
+tile_hsep=0
+tile_vsep=0
+gm82room_tilesmart=05|0,0,64,128,0,0,64,128,0,0,64,128,0,0,64,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1

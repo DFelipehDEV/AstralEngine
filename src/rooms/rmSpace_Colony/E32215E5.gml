@@ -1,3 +1,3 @@
 //gm82 fields begin
-strength=14
+strength=16
 //gm82 fields end

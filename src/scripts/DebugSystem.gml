@@ -18,8 +18,10 @@ switch (argument0) {
 
         if (keyboard_check_pressed(vk_tab)) {
             global.debugOverlay = !global.debugOverlay;
-            if (_player != noone)
+            if (_player != noone) {
                 _player.drawSensors = global.debugOverlay;
+                _player.depth = pick(global.debugOverlay, -99, -1);
+            }
         }
 
         if (keyboard_check_pressed(ord("R"))) {

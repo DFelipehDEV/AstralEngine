@@ -2,12 +2,14 @@
 if (stateEntering) {
     AnimationApply("GRIND");
     grindSound = PlaySound(sndPlayerGrind, 1, 1, true);
+    canFallFromSlope = false;
     exit;
 }
 
 if (stateExiting) {
     audio_stop(grindSound);
     grindSound = -1;
+    canFallFromSlope = true;
     exit;
 }
 

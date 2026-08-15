@@ -3,47 +3,71 @@ var _x, _y, _angle;
 _x = argument0;
 _y = argument1;
 _angle = argument2;
+
+maskTemp = mask_index;
+mask_index = maskDot;
+
 // Limit the angle to 32 directions to maintain stability and reduce jittering
-_angle = round(_angle / PlayerAngleFloorTo) * PlayerAngleFloorTo;
+//_angle = round(_angle / angleFloorTo) * angleFloorTo;
 
 var _angleCOS, _angleSIN;
-_angleCOS = dcos(_angle);
-_angleSIN = dsin(_angle);
+if (_angle == angle) {
+    _angleCOS = angleCos;
+    _angleSIN = angleSin;
+} else if (_angle == 0) {
+    _angleCOS = 1;
+    _angleSIN = 0;
+} else {
+    _angleCOS = dcos(_angle);
+    _angleSIN = dsin(_angle);
+}
 
-var _pointLeftX, _pointLeftY, _pointRightX, _pointRightY;
-_pointLeftX = floor(_x - _angleCOS * 8);
-_pointLeftY = floor(_y + _angleSIN * 8);
+var _baseLeftX, _baseLeftY, _baseRightX, _baseRightY;
+_baseLeftX = floor(_x - _angleCOS * sensorAngleDistance);
+_baseLeftY = floor(_y + _angleSIN * sensorAngleDistance);
 
-_pointRightX = floor(_x + _angleCOS * 8);
-_pointRightY = floor(_y - _angleSIN * 8);
+_baseRightX = floor(_x + _angleCOS * sensorAngleDistance);
+_baseRightY = floor(_y - _angleSIN * sensorAngleDistance);
 
-var _collisionLeft, _collisionRight;
-_collisionLeft = false;
-_collisionRight = false;
-// Check if it is colliding with the ground
-// Now, perform the checking. Push down the two points in order to touch the floor
-repeat (20) {
-    if (!_collisionLeft && PlayerCheckTerrain(_pointLeftX, _pointLeftY, terrainLayer)) {
-        _collisionLeft = true;
+var _bound, _leftDist, _rightDist, _pointLeftX, _pointLeftY, _pointRightX, _pointRightY;
+_bound = max(16, ceil(abs(xSpeed) + abs(ySpeed)) + 16);
+
+// Left point search
+_leftDist = 0;
+if (PlayerCheckTerrain(_baseLeftX, _baseLeftY)) {
+    while (_leftDist > -_bound && PlayerCheckTerrain(_baseLeftX + _angleSIN * _leftDist, _baseLeftY + _angleCOS * _leftDist)) {
+        _leftDist -= 1;
     }
-    else if (!_collisionLeft) {
-        _pointLeftX += _angleSIN;
-        _pointLeftY += _angleCOS;
-    }
-
-    if (!_collisionRight && PlayerCheckTerrain(_pointRightX, _pointRightY, terrainLayer)) {
-        _collisionRight = true;
-    }
-    else if (!_collisionRight) {
-        _pointRightX += _angleSIN;
-        _pointRightY += _angleCOS;
-    }
-
-    // If both points are colliding, break the loop
-    if (_collisionLeft && _collisionRight) {
-        break;
+    _leftDist += 1;
+} else {
+    while (_leftDist < _bound && !PlayerCheckTerrain(_baseLeftX + _angleSIN * _leftDist, _baseLeftY + _angleCOS * _leftDist)) {
+        _leftDist += 1;
     }
 }
+
+// Right point search
+_rightDist = 0;
+if (PlayerCheckTerrain(_baseRightX, _baseRightY)) {
+    while (_rightDist > -_bound && PlayerCheckTerrain(_baseRightX + _angleSIN * _rightDist, _baseRightY + _angleCOS * _rightDist)) {
+        _rightDist -= 1;
+    }
+    _rightDist += 1;
+} else {
+    while (_rightDist < _bound && !PlayerCheckTerrain(_baseRightX + _angleSIN * _rightDist, _baseRightY + _angleCOS * _rightDist)) {
+        _rightDist += 1;
+    }
+}
+
+_pointLeftX = _baseLeftX + _angleSIN * _leftDist;
+_pointLeftY = _baseLeftY + _angleCOS * _leftDist;
+
+_pointRightX = _baseRightX + _angleSIN * _rightDist;
+_pointRightY = _baseRightY + _angleCOS * _rightDist;
+
+angleLeftX = _pointLeftX;
+angleLeftY = _pointLeftY;
+angleRightX = _pointRightX;
+angleRightY = _pointRightY;
 
 mask_index = maskTemp;
 

@@ -46,4 +46,5 @@ PlayerBoost(true);
 
 if (ground) {
     StatesSet(PlayerStateNormal);
+    PlaySound(terrainSound[TerLand]);
 }

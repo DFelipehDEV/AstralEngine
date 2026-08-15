@@ -219,3 +219,5 @@ delete_underlying_tiles=0
 tab=0
 editor_x=0
 editor_y=0
+offset_x=0
+offset_y=0

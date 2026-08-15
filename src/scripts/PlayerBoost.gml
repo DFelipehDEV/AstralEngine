@@ -42,6 +42,8 @@ if (energy > 0) {
         }
     }
 
+    if (ground) boostAirTimer = 90;
+
     if (keyBoost && canBoost) {
         boosting = true;
         trailTimer = 120;

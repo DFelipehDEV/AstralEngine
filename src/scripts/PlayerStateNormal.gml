@@ -15,7 +15,7 @@ if (xSpeed == 0) {
         _right = PlayerCollisionRightEdge(x, y, angle);
         if (_left && !_right) {
             if (animation != "LEDGE" && animation != "LEDGE_2")
-                PlayVoice(choose(voiceline[11], voiceline[12], sndNoone));
+                PlayVoice(choose(voiceline[11], voiceline[12], -1));
 
             if (xDirection == 1)
                 AnimationApply("LEDGE");
