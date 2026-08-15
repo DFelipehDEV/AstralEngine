@@ -6,7 +6,7 @@ _aircanBoost = argument0;
 
 if (energy > 0) {
     if (keyBoostPressed && !boosting) {
-        PlayVoice(choose(sndNoone, voiceline[0], voiceline[1]));
+        PlayVoice(choose(voiceline[0], voiceline[1], -1));
         PlaySound(sndPlayerBoost);
         CreateDummy(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, image_angle);
         PlayerAddEnergy(-1.5);
