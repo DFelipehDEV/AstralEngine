@@ -29,7 +29,7 @@ _baseLeftY = floor(_y + _angleSIN * sensorAngleDistance);
 _baseRightX = floor(_x + _angleCOS * sensorAngleDistance);
 _baseRightY = floor(_y - _angleSIN * sensorAngleDistance);
 
-var _bound, _leftDist, _rightDist, _pointLeftX, _pointLeftY, _pointRightX, _pointRightY;
+var _bound, _leftDist, _rightDist;
 _bound = max(16, ceil(abs(xSpeed) + abs(ySpeed)) + 16);
 
 // Left point search
@@ -41,7 +41,10 @@ if (PlayerCheckTerrain(_baseLeftX, _baseLeftY)) {
     _leftDist += 1;
 } else {
     while (_leftDist < _bound && !PlayerCheckTerrain(_baseLeftX + _angleSIN * _leftDist, _baseLeftY + _angleCOS * _leftDist)) {
-        _leftDist += 1;
+        _leftDist += 2;
+    }
+    if (_leftDist > 0 && _leftDist < _bound && PlayerCheckTerrain(_baseLeftX + _angleSIN * (_leftDist - 1), _baseLeftY + _angleCOS * (_leftDist - 1))) {
+        _leftDist -= 1;
     }
 }
 
@@ -54,21 +57,19 @@ if (PlayerCheckTerrain(_baseRightX, _baseRightY)) {
     _rightDist += 1;
 } else {
     while (_rightDist < _bound && !PlayerCheckTerrain(_baseRightX + _angleSIN * _rightDist, _baseRightY + _angleCOS * _rightDist)) {
-        _rightDist += 1;
+        _rightDist += 2;
+    }
+    if (_rightDist > 0 && _rightDist < _bound && PlayerCheckTerrain(_baseRightX + _angleSIN * (_rightDist - 1), _baseRightY + _angleCOS * (_rightDist - 1))) {
+        _rightDist -= 1;
     }
 }
 
-_pointLeftX = _baseLeftX + _angleSIN * _leftDist;
-_pointLeftY = _baseLeftY + _angleCOS * _leftDist;
+angleLeftX = _baseLeftX + _angleSIN * _leftDist;
+angleLeftY = _baseLeftY + _angleCOS * _leftDist;
 
-_pointRightX = _baseRightX + _angleSIN * _rightDist;
-_pointRightY = _baseRightY + _angleCOS * _rightDist;
-
-angleLeftX = _pointLeftX;
-angleLeftY = _pointLeftY;
-angleRightX = _pointRightX;
-angleRightY = _pointRightY;
+angleRightX = _baseRightX + _angleSIN * _rightDist;
+angleRightY = _baseRightY + _angleCOS * _rightDist;
 
 mask_index = maskTemp;
 
-return point_direction(_pointLeftX, _pointLeftY, _pointRightX, _pointRightY);
+return point_direction(angleLeftX, angleLeftY, angleRightX, angleRightY);
