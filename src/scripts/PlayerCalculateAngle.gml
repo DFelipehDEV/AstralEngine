@@ -30,7 +30,7 @@ _baseRightX = floor(_x + _angleCOS * sensorAngleDistance);
 _baseRightY = floor(_y - _angleSIN * sensorAngleDistance);
 
 var _bound, _leftDist, _rightDist;
-_bound = max(16, ceil(abs(xSpeed) + abs(ySpeed)) + 16);
+_bound = min(20, max(14, ceil(abs(xSpeed) + abs(ySpeed)) + 8));
 
 // Left point search
 _leftDist = 0;
