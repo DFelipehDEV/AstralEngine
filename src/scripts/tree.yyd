@@ -146,6 +146,7 @@
 		|PlayerSetGround
 		+Collision
 			|PlayerCheckLine
+			|PlayerCheckRay
 			|PlayerCheckTerrain
 			|PlayerCollisionBottom
 			|PlayerCollisionCache

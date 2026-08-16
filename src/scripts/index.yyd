@@ -359,6 +359,7 @@ PlayerCollisionTop
 PlayerCollisionObjectTop
 PlayerCheckTerrain
 PlayerCheckLine
+PlayerCheckRay
 PlayerCollisionCache
 PlayerApplySlopeFactor
 PlayerCalculateAngle

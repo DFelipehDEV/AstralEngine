@@ -3,7 +3,7 @@
 if (keyLightspeedPressed && distance_to_object(objRing) <= 40) {
     var _nearRing;
     _nearRing = instance_nearest(x, y, objRing);
-    if (!collision_line(x, y, _nearRing.x, _nearRing.y, objTerrain, 1, 1)) {
+    if (!PlayerCheckRay(x, y, _nearRing.x, _nearRing.y)) {
         ySpeed = -1;
         PlayerSetGround(false);
         StatesSet(PlayerStateLightspeed);
