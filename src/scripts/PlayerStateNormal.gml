@@ -90,8 +90,6 @@ if (!ground) {
     AnimationApply("LANDING");
 }
 
-PlayerAirdash();
 PlayerJump();
-PlayerStomp();
 PlayerLightspeed();
 PlayerBoost(true);
