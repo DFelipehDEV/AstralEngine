@@ -1,4 +1,5 @@
 /// PlayerCollisionObjectMain(x, y, object)
+if (!instance_exists(argument2)) return noone;
 maskTemp = mask_index;
 mask_index = maskMain;
 

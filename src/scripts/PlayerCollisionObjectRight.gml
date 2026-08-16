@@ -1,4 +1,5 @@
 /// PlayerCollisionObjectRight(x, y, angle, mask, object)
+if (!instance_exists(argument4)) return noone;
 maskTemp = mask_index;
 mask_index = argument3;
 
