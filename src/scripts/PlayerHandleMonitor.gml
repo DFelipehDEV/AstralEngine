@@ -1,4 +1,6 @@
 /// PlayerHandleMonitor()
+if (!instance_exists(objMonitor)) exit;
+
 var _monitor;
 _monitor = PlayerCollisionObjectMain(x, y, objMonitor);
 

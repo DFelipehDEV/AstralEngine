@@ -1,4 +1,6 @@
 /// PlayerHandleCheckpoint()
+if (!instance_exists(objCheckpoint)) exit;
+
 var _checkpoint;
 _checkpoint = PlayerCollisionHitbox(x, y, objCheckpoint);
 

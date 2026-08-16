@@ -1,4 +1,6 @@
 /// PlayerHandleWallJump()
+if (!instance_exists(objWalljumpSensor)) exit;
+
 if (!ground) {
     var _wall;
     if (xDirection == -1) {

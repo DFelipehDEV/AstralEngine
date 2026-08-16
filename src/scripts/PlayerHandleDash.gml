@@ -1,8 +1,8 @@
 /// PlayerHandleDash()
-var _dashPad, _dashRing, _dashRamp;
-_dashPad = PlayerCollisionHitbox(x, y, objDashPad);
-if (_dashPad != noone) {
-    if (!PlayerCollisionHitbox(xprevious, yprevious, _dashPad)) {
+if (instance_exists(objDashPad)) {
+    var _dashPad;
+    _dashPad = PlayerCollisionHitbox(x, y, objDashPad);
+    if (_dashPad != noone && !PlayerCollisionHitbox(xprevious, yprevious, _dashPad)) {
         if (pushingWall && !ground) {
             PlayerSetGround(true);
             PlayerSetAngle(_dashPad.image_angle);
@@ -18,11 +18,12 @@ if (_dashPad != noone) {
     }
 }
 
-_dashRing = PlayerCollisionHitbox(x, y, objDashRing);
-if (_dashRing != noone) {
-    if (!PlayerCollisionHitbox(xprevious, yprevious, _dashRing)) {
-        xSpeed = _dashRing.strength * dcos(_dashRing.image_angle+90);
-        ySpeed = -_dashRing.strength * dsin(_dashRing.image_angle+90);
+if (instance_exists(objDashRing)) {
+    var _dashRing;
+    _dashRing = PlayerCollisionHitbox(x, y, objDashRing);
+    if (_dashRing != noone && !PlayerCollisionHitbox(xprevious, yprevious, _dashRing)) {
+        xSpeed = _dashRing.strength * dcos(_dashRing.image_angle + 90);
+        ySpeed = -_dashRing.strength * dsin(_dashRing.image_angle + 90);
         x = _dashRing.x;
         y = _dashRing.y;
 
@@ -51,9 +52,10 @@ if (_dashRing != noone) {
     }
 }
 
-_dashRamp = PlayerCollisionObjectBottom(x, y, angle, maskBig, objDashRamp);
-if (_dashRamp != noone && ground) {
-    if (!PlayerCollisionObjectBottom(xprevious, yprevious, _dashRamp)) {
+if (ground && instance_exists(objDashRamp)) {
+    var _dashRamp;
+    _dashRamp = PlayerCollisionObjectBottom(x, y, angle, maskBig, objDashRamp);
+    if (_dashRamp != noone && !PlayerCollisionObjectBottom(xprevious, yprevious, _dashRamp)) {
         if (_dashRamp.xStrength != 0) {
             xSpeed = _dashRamp.xStrength * _dashRamp.image_xscale;
         }

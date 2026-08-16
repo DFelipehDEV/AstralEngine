@@ -1,4 +1,6 @@
 /// PlayerHandleProjectile()
+if (!instance_exists(objProjectile)) exit;
+
 var _projectile;
 _projectile = PlayerCollisionHitbox(x, y, objProjectile);
 

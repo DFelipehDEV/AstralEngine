@@ -1,20 +1,18 @@
 /// PlayerHandleLayers()
-if (PlayerCollisionObjectMain(x, y, objSwitchLayer0)) {
+if (!instance_exists(objSwitchLayer0) && !instance_exists(objSwitchLayer1) && !instance_exists(objSwitchLayerAlternate)) exit;
+
+if (terrainLayer != 0 && PlayerCollisionObjectMain(x, y, objSwitchLayer0)) {
     terrainLayer = 0;
 }
 
-if (PlayerCollisionObjectMain(x, y, objSwitchLayerAlternate) && ground) {
-    // Switch to layer 1
+if (ground && PlayerCollisionObjectMain(x, y, objSwitchLayerAlternate)) {
     if (xSpeed > 0) {
         terrainLayer = 1;
-    }
-
-    // Switch to layer 0
-    if (xSpeed < 0) {
+    } else if (xSpeed < 0) {
         terrainLayer = 0;
     }
 }
 
-if (PlayerCollisionObjectMain(x, y, objSwitchLayer1)) {
+if (terrainLayer != 1 && PlayerCollisionObjectMain(x, y, objSwitchLayer1)) {
     terrainLayer = 1;
 }

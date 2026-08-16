@@ -1,4 +1,6 @@
 /// PlayerHandleBox()
+if (!instance_exists(objBox) && !instance_exists(objPushableBox)) exit;
+
 if (canAttack) {
     if (state != PlayerStateJump) {
         var _box1;

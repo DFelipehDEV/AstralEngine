@@ -1,4 +1,6 @@
 /// PlayerHandleCrane()
+if (!instance_exists(objHandle)) exit;
+
 var _handle;
 _handle = PlayerCollisionObjectMain(x, y, objHandle);
 

@@ -1,14 +1,22 @@
 /// PlayerHandleRails()
-if (state != PlayerStateGrind) {
-    var _railNormal, _railLayer0, _railLayer1;
-    _railNormal = PlayerCollisionObjectBottom(x, y, 0, maskBig, objRail);
-    _railLayer0 = PlayerCollisionObjectBottom(x, y, 0, maskBig, objRailLayer0);
-    _railLayer1 = PlayerCollisionObjectBottom(x, y, 0, maskBig, objRailLayer1);
+if (!ground || state == PlayerStateGrind) exit;
+if (!instance_exists(objRail) && !instance_exists(objRailLayer0) && !instance_exists(objRailLayer1)) exit;
 
-    // Rail
-    if ((_railNormal != noone)
-    || (_railLayer0 != noone && terrainLayer == 0)
-    || (_railLayer1 != noone && terrainLayer == 1)) && ground {
+var _railNormal;
+_railNormal = PlayerCollisionObjectBottom(x, y, 0, maskBig, objRail);
+if (_railNormal != noone) {
+    PlaySound(sndPlayerGrindLand);
+    StatesSet(PlayerStateGrind);
+    exit;
+}
+
+if (terrainLayer == 0) {
+    if (PlayerCollisionObjectBottom(x, y, 0, maskBig, objRailLayer0) != noone) {
+        PlaySound(sndPlayerGrindLand);
+        StatesSet(PlayerStateGrind);
+    }
+} else if (terrainLayer == 1) {
+    if (PlayerCollisionObjectBottom(x, y, 0, maskBig, objRailLayer1) != noone) {
         PlaySound(sndPlayerGrindLand);
         StatesSet(PlayerStateGrind);
     }

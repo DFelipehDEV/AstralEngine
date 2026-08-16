@@ -1,4 +1,6 @@
 /// PlayerHandleGimmicks()
+if (!instance_exists(objCorkscrew) && !instance_exists(objSwingPole)) exit;
+
 if (abs(xSpeed) >= 6 && ground) {
     var _corkscrew;
     _corkscrew = PlayerCollisionObjectMain(x, y, objCorkscrew);
