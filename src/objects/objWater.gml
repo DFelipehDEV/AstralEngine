@@ -4,9 +4,34 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Depth
+/// Depth & Surface
 depth = -10;
-surfaceRipple = surface_create(256*image_xscale, 128*image_yscale);
+surfaceRipple = noone;
+
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Free Surface
+if (surface_exists(surfaceRipple)) {
+    surface_free(surfaceRipple);
+    surfaceRipple = noone;
+}
+
+#define Other_5
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Free Surface
+if (surface_exists(surfaceRipple)) {
+    surface_free(surfaceRipple);
+    surfaceRipple = noone;
+}
+
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
