@@ -1,4 +1,6 @@
 /// PlayerHandleRings()
+if (!instance_exists(objRing) && !instance_exists(objRingDrop)) exit;
+
 var _ring;
 _ring = PlayerCollisionHitbox(x, y, objRing);
 

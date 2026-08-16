@@ -1,4 +1,5 @@
 /// PlayerHandleHurt()
+if (!instance_exists(objHurt)) exit;
 
 var _hurt;
 _hurt = PlayerCollisionHitbox(x, y, objHurt);

@@ -1,4 +1,6 @@
 /// PlayerHandleEnemy()
+if (!instance_exists(objEnemy)) exit;
+
 var _enemy;
 _enemy = PlayerCollisionHitbox(x, y, objEnemy);
 if (_enemy != noone) {
@@ -50,7 +52,7 @@ if (_enemy != noone) {
                 instance_destroy_id(_enemy);
 
                 // Arena phase handling
-                if (distance_to_object(objEnemiesArenaSensor) < 50) {
+                if (instance_exists(objEnemiesArenaSensor) && distance_to_object(objEnemiesArenaSensor) < 50) {
                     with instance_nearest(x, y, objEnemiesArenaSensor) {
                         phaseEnemiesRemaining -= 1;
                         if (phaseEnemiesRemaining == 0) {

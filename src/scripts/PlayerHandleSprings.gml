@@ -1,4 +1,6 @@
 /// PlayerHandleSprings()
+if (!instance_exists(objSpring)) exit;
+
 var _spring;
 _spring = PlayerCollisionHitbox(x, y, objSpring);
 
