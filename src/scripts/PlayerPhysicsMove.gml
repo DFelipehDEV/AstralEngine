@@ -45,8 +45,6 @@ if (ground) {
         PlayerFlight();
     }
 
-    PlayerCollisionCache();
-
     // Fall off the ground if the edges aren't colliding
     if (angle != 0 && !edgeCollision) {
         PlayerFlight();               
@@ -75,12 +73,10 @@ if (ground) {
 } else {                   
     if (canMoveY) y += ySpeed * _scale;
     
-    PlayerCollisionCache();
-    
     // Ceiling
     if (ySpeed < 0 && PlayerCollisionTop(x, y, 0, maskBig)) {
         if (PlayerCollisionLeftEdge(x, y, 180) && PlayerCollisionRightEdge(x, y, 180)) {
-            PlayerSetAngle(PlayerCalculateAngle(x, y, 180))
+            PlayerSetAngle(PlayerCalculateAngle(x, y, 180));
                                     
             if (angle < 140 || angle > 220) {
                 xSpeed = -angleSin * (ySpeed*1.5);
@@ -118,7 +114,6 @@ if (ground) {
     if (ySpeed >= 0 && bottomCollision) {
         if (edgeCollision) {
             PlayerSetAngle(PlayerCalculateAngle(x, y, angle));
-            PlayerCollisionCache();
         }
 
         xSpeed -= angleSin * ySpeed; 
