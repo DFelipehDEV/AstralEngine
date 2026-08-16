@@ -28,7 +28,7 @@ _distance = distance_to_object(_cam);
 _normalizedDistance = _distance / maxDistance;
 
 if (audio == -1) {
-    audio = PlaySound(snd, volume - _normalizedDistance, pitch, loop);
+    audio = PlaySound(snd, 0, pitch, loop);
 }
 
 if (_distance < maxDistance) {
