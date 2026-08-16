@@ -1,11 +1,11 @@
 /// PlayerMoveX([xAcceleration], [xFriction], [xTopSpeed]])
 var _xAcceleration, _xFriction, _xTopSpeed, _xBrakeFriction;
 if (ground) {
-    _xAcceleration = xAcceleration * sysTime.timeScale;
-    _xFriction = xFriction * sysTime.timeScale;
-    _xBrakeFriction = (xFriction * 1.7) * sysTime.timeScale;
+    _xAcceleration = xAcceleration * global.timeScale;
+    _xFriction = xFriction * global.timeScale;
+    _xBrakeFriction = (xFriction * 1.7) * global.timeScale;
 } else {
-    _xAcceleration = xAirAcceleration * sysTime.timeScale;
+    _xAcceleration = xAirAcceleration * global.timeScale;
     _xFriction = 0;
     _xBrakeFriction = 0;
 }

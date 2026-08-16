@@ -10,6 +10,6 @@ _log = dss_map_create();
 ds_map_add(_log, "message", _message);
 ds_map_add(_log, "dur", _dur * (1000/60));
 ds_map_add(_log, "time", current_time);
-ds_list_add(sysLog.logs, _log);
+ds_list_add(objWorld.logs, _log);
 show_debug_message(_message);
 return _log;

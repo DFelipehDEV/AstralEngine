@@ -1,2 +1,2 @@
 /// DeactivateExceptionAdd(instance)
-ds_list_add(sysDeactivation.deactivateExceptions, argument0);
+ds_list_add(objWorld.deactivateExceptions, argument0);

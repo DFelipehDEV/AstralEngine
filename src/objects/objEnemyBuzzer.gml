@@ -19,8 +19,8 @@ applies_to=self
 */
 /// Movement
 if (canMove) {
-    x += xSpeed * sysTime.timeScale;
-    y += ySpeed * sysTime.timeScale;
+    x += xSpeed * global.timeScale;
+    y += ySpeed * global.timeScale;
 }
 
 StatesUpdate();

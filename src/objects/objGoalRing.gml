@@ -40,11 +40,11 @@ applies_to=self
 */
 /// Results
 with (instance_create(0, 0, objResults)) {
-    time = sysTime.gameTime;
+    time = objWorld.gameTime;
     rings = player.rings;
     maxTimeScore = other.maxTimeScore;
     ringScoreMultiplier = other.ringScoreMultiplier;
-    scoreValueTime = max(0, maxTimeScore-floor(sysTime.gameTime/50000)*4500);
+    scoreValueTime = max(0, maxTimeScore-floor(objWorld.gameTime/50000)*4500);
     scoreValueRing = max(0, rings*ringScoreMultiplier);
     minimumScore[RankC] = other.minimumScoreC;
     minimumScore[RankB] = other.minimumScoreB;

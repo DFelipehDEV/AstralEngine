@@ -28,9 +28,9 @@ action_id=603
 applies_to=self
 */
 /// Animate
-image_index = sysTime.gameTime div 40;
+image_index = objWorld.gameTime div 40;
 
-image_angle = sysTime.gameTime / 8.3;
+image_angle = objWorld.gameTime / 8.3;
 image_xscale = max(lerp(image_xscale, 1 - floorto(abs(objPlayer.x - x)/200, 0.1), 0.2), 0);
 image_yscale = image_xscale;
 #define Draw_0

@@ -14,9 +14,9 @@ action_id=603
 applies_to=self
 */
 /// Draw spinner
-if (invincibilityTimer > 0 && (sysTime.gameTime div 60) mod 3 || invincibilityTimer == 0) {
+if (invincibilityTimer > 0 && (objWorld.gameTime div 60) mod 3 || invincibilityTimer == 0) {
     // Draw enemy
-    draw_sprite_ext(sprite_index, image_index, x, y - dsin(sysTime.gameTime div 10)*4, image_xscale, image_yscale, dcos(sysTime.gameTime/8)*12, image_blend, image_alpha);
+    draw_sprite_ext(sprite_index, image_index, x, y - dsin(objWorld.gameTime div 10)*4, image_xscale, image_yscale, dcos(objWorld.gameTime/8)*12, image_blend, image_alpha);
 }
 
 event_user(0);

@@ -1,11 +1,6 @@
-#define Create_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-sysInput.keyInputIcons = dss_map_create();
-sysInput.buttonInputIcons = dss_map_create();
+/// WorldInputInit()
+keyInputIcons = dss_map_create();
+buttonInputIcons = dss_map_create();
 sysinput_init();
 joystick_set_deadzone(0.9);
 

@@ -216,3 +216,21 @@
 	|DrawSlider
 +Dialogue
 	|ParseDialogueText
++World
+	|WorldInputInit
+	|WorldTimeInit
+	|WorldDeactivationInit
+	|WorldWindowInit
+	|WorldDebugInit
+	|WorldLogInit
+	|WorldTimeUpdate
+	|WorldDeactivationUpdate
+	|WorldWindowUpdate
+	|WorldDebugUpdate
+	|WorldLogUpdate
+	|WorldDeactivationDraw
+	|WorldDebugDraw
+	|WorldLogDraw
+	|WorldTimeReset
+	|WorldDeactivationReset
+	|WorldLogCleanup

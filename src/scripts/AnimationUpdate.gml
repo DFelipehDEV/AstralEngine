@@ -1,8 +1,8 @@
 /// AnimationUpdate()
-animationTime += sysTime.timeScale;
+animationTime += global.timeScale;
 
 if (!animationFinished) {
-    image_index += animationSpeed * sysTime.timeScale;
+    image_index += animationSpeed * global.timeScale;
 
     if (floor(image_index) > image_number - 1) {
         // Repeat animation

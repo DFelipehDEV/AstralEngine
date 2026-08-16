@@ -22,7 +22,7 @@ applies_to=self
 /// Movement
 if (canMove) {
     BodyApplyGravity(0.2);
-    move_and_collide(xSpeed * sysTime.timeScale, ySpeed * sysTime.timeScale, objTerrain);
+    move_and_collide(xSpeed * global.timeScale, ySpeed * global.timeScale, objTerrain);
 }
 
 // Vertical movement
@@ -39,6 +39,6 @@ if (!ground) {
     }
 }
 
-StatesUpdate(sysTime.timeScale);
+StatesUpdate(global.timeScale);
 
 x = clamp(x, objCamera.leftBorder, objCamera.rightBorder);

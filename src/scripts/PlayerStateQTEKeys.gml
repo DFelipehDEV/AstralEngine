@@ -8,10 +8,10 @@ if (stateEntering) {
     exit;
 }
 if (stateExiting) {
-    sysTime.timeScale = 1;
+    global.timeScale = 1;
     exit;
 }
 
-sysTime.timeScale = approach(sysTime.timeScale, 0.04, 0.02)
+global.timeScale = approach(global.timeScale, 0.04, 0.02)
 
 xDirection = esign(xSpeed, xDirection);

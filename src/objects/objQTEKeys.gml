@@ -54,7 +54,7 @@ if (qteWon == 0) {
 
         image_alpha = max(image_alpha - 0.1, 0)
         hudBackScale = max(hudBackScale - 0.2, 0)
-        sysTime.timeScale = min(sysTime.timeScale + 0.2, 1)
+        global.timeScale = min(global.timeScale + 0.2, 1)
 
         if (!audio_isplaying(sndPlayerHurt)) {
             PlaySound(sndPlayerHurt);
@@ -73,7 +73,7 @@ if (qteWon == 0) {
 } else {
     image_alpha = max(image_alpha - 0.1, 0)
     hudBackScale = max(hudBackScale - 0.2, 0)
-    sysTime.timeScale = min(sysTime.timeScale + 0.2, 1)
+    global.timeScale = min(global.timeScale + 0.2, 1)
 
     if (image_alpha == 0) {
         instance_destroy();

@@ -15,7 +15,7 @@ if (!instance_exists(checkpoint)) {
     player = instance_create(checkpoint.x, checkpoint.y - 17, objPlayer);
     player.xDirection = sign(checkpoint.image_xscale);
     player.rings = ds_map_get(global.currentCheckpoint, "rings");
-    sysTime.gameTime = ds_map_get(global.currentCheckpoint, "time");
+    objWorld.gameTime = ds_map_get(global.currentCheckpoint, "time");
 }
 
 var _cam;

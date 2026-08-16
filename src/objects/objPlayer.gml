@@ -238,13 +238,13 @@ if (angle == 0 && abs(xSpeed) > waterRunSpeed) {
     }
 }
 //benchmark_start();
-PlayerPhysicsMove(sysTime.timeScale);
+PlayerPhysicsMove(global.timeScale);
 //show_debug_message("PlayerPhysicsMove took: " + string(benchmark_end()));
 
 if (noGravityTimer == 0) {
     BodyApplyGravity(yGravity);
 } else {
-    noGravityTimer = max(noGravityTimer - sysTime.timeScale, 0);
+    noGravityTimer = max(noGravityTimer - global.timeScale, 0);
 }
 
 // Limit speed
@@ -340,12 +340,12 @@ if ((!keyBoost || energy <= 0 || abs(xSpeed) < boostMinSpeed || state == PlayerS
 if (boosting) {
     if (!ground) {
         if (state != PlayerStateCorkscrew) {
-            boostAirTimer = max(boostAirTimer - sysTime.timeScale, 0);
+            boostAirTimer = max(boostAirTimer - global.timeScale, 0);
         }
     }
 }
 
-StatesUpdate(sysTime.timeScale);
+StatesUpdate(global.timeScale);
 
 canAttack = boosting ||
     invincibility == InvincibilityMonitor ||
@@ -488,9 +488,9 @@ if (xSpeed == 0 && ground
     image_angle = 0;
 } else {
     if (ground) {
-        image_angle = approach_angle(image_angle, floorto(angle, 11.25), (6 + abs(xSpeed)) * sysTime.timeScale);
+        image_angle = approach_angle(image_angle, floorto(angle, 11.25), (6 + abs(xSpeed)) * global.timeScale);
     } else {
-        image_angle = approach_angle(image_angle, 0, 4 * sysTime.timeScale);
+        image_angle = approach_angle(image_angle, 0, 4 * global.timeScale);
     }
 }
 /*"/*'/**//* YYD ACTION
@@ -538,7 +538,7 @@ if (playFootstep) {
 }
 
 // AfterImage
-afterImageTimer = max(afterImageTimer - sysTime.timeScale, 0);
+afterImageTimer = max(afterImageTimer - global.timeScale, 0);
 if ((abs(xSpeed) >= afterImageMinSpeed || abs(ySpeed) >= afterImageMinSpeed) && afterImageTimer == 0) {
     afterImageTimer = afterImageInterval;
 }
@@ -595,8 +595,8 @@ applies_to=self
 /// Camera
 if (cam.target == id) {
     var _xSpeed, _ySpeed;
-    _xSpeed = (x - xprevious) / sysTime.timeScale;
-    _ySpeed = (y - yprevious) / sysTime.timeScale;
+    _xSpeed = (x - xprevious) / global.timeScale;
+    _ySpeed = (y - yprevious) / global.timeScale;
     if (state != PlayerStateWaylauncher)
         cam.xShift = approach(cam.xShift, _xSpeed * 11, 5);
 
@@ -680,14 +680,14 @@ if (trailAlpha > 0.1) {
 
 // Draw grind effect
 if (state == PlayerStateGrind) {
-    draw_sprite_ext(sprPlayerGrind, sysTime.gameTime div 30, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
+    draw_sprite_ext(sprPlayerGrind, objWorld.gameTime div 30, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
 }
 
 // Draw character if the player is not hurt. Blink when hurt
 if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink && (invincibilityTimer div 1.5) mod 3 == 1)) {
     if (character == CharacterSuperSonic) {
         shader_pixel_set(global.shaderColorSwap);
-        texture_set_stage("Palette", sprite_get_texture(sprSonicPalette, floor(sysTime.gameTime div 120) mod 2));
+        texture_set_stage("Palette", sprite_get_texture(sprSonicPalette, floor(objWorld.gameTime div 120) mod 2));
         shader_pixel_uniform_f("u_texHeight", sprite_get_height(sprSonicPalette) + 1);
     }
 
@@ -698,12 +698,12 @@ if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink 
 if (state == PlayerStateSpindash) {
     // Spindash normal dust
     if (animation == "SPINDASH") {
-        draw_sprite_ext(sprPlayerSpindashLow, sysTime.gameTime div 40, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
+        draw_sprite_ext(sprPlayerSpindashLow, objWorld.gameTime div 40, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
     }
 
     // Spindash charging dust
     if (animation == "SPINDASH_CHARGE") {
-        draw_sprite_ext(sprPlayerSpindashHigh, sysTime.gameTime div 40, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
+        draw_sprite_ext(sprPlayerSpindashHigh, objWorld.gameTime div 40, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
     }
 }
 

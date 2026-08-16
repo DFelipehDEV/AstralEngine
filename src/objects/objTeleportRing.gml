@@ -32,7 +32,7 @@ if (!transitioning) {
         PlaySound(interactSound);
     }
 } else {
-    transitionTimer += sysTime.timeScale;
+    transitionTimer += global.timeScale;
     if (transitionTimer > 60 && !instance_exists(transition)) {
         transition = TransitionFadeRoom(roomTarget, transitionColor, transitionSpeed);
         PlayerResetGlobalVariables();

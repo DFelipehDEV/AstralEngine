@@ -1,2 +1,2 @@
 /// MarkAsActive()
-ds_list_add(sysDeactivation.deactivateExceptions, id);
+ds_list_add(objWorld.deactivateExceptions, id);

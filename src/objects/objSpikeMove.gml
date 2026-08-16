@@ -16,7 +16,7 @@ applies_to=self
 if (floor(abs(y - yStart)) == 21 && DistanceToView(x, y) == 0) {
     PlaySound(sndSpikeMove, 0.9);
 }
-y = lerp(y, yStart - round(((sysTime.gameTime * 0.009) mod 26)/29)*29, 0.5);
+y = lerp(y, yStart - round(((objWorld.gameTime * 0.009) mod 26)/29)*29, 0.5);
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1

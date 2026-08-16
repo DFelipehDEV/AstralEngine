@@ -8,7 +8,7 @@ if (_checkpoint != noone) {
     if (ds_map_get(global.currentCheckpoint, "instance") != _checkpoint) {
         ds_map_set(global.currentCheckpoint, "instance", _checkpoint);
         ds_map_set(global.currentCheckpoint, "rings", rings);
-        ds_map_set(global.currentCheckpoint, "time", sysTime.gameTime);
+        ds_map_set(global.currentCheckpoint, "time", objWorld.gameTime);
 
         with (_checkpoint) {
             sprite_index = sprCheckpointActivated;

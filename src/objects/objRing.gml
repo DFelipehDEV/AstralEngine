@@ -37,7 +37,7 @@ action_id=603
 applies_to=self
 */
 /// Animate
-image_index = sysTime.gameTime div 80;
+image_index = objWorld.gameTime div 80;
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1

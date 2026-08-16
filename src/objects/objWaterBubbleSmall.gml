@@ -29,5 +29,5 @@ applies_to=self
 */
 /// Draw bubble
 draw_set_blend_mode(bm_add)
-draw_sprite(sprite_index, sysTime.gameTime/30, x + dcos(sysTime.gameTime/3)*5, y);
+draw_sprite(sprite_index, objWorld.gameTime/30, x + dcos(objWorld.gameTime/3)*5, y);
 draw_set_blend_mode(bm_normal)

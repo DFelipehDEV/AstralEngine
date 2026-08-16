@@ -1,5 +1,5 @@
 /// Init()
-if (instance_exists(sysTime)) exit;
+if (instance_exists(objWorld)) exit;
 
 if (gm82core_version < 160) {
     show_error("You are using a gm82core extension version older than 1.6, only version 1.6 and higher are supported. Update by downloading a newer gm82 build from gm82.cherry-treehouse.com or by building it from source.", true);
@@ -22,16 +22,8 @@ ds_map_add(global.currentCheckpoint, "time", 0);
 
 global.gameState = GameStateRunning;
 
-
-instance_create(0, 0, sysInput);
-instance_create(0, 0, sysDeactivation);
-instance_create(0, 0, sysTime);
-instance_create(0, 0, sysWindow);
-if (!test_is_stub()) {
-    instance_create(0, 0, sysDebug);
-    if (debug_mode)
-        instance_create(0, 0, sysLog);
-}
+application_surface_enable(ApplicationSurfacePost);
+instance_create(0, 0, objWorld);
 SettingsLoad();
 
 // Finish initialization and start the game

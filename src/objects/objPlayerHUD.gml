@@ -95,7 +95,7 @@ if (instance_exists(player) && !GameStateGet(GameStatePaused)) {
     BeginUI();
     // Speedlines
     if (instance_exists(player.boostAura)) {
-        draw_sprite_ext(sprHUDSpeedlines, sysTime.gameTime div 40, 0, 0, 1, 1, 0, c_white, (player.boostAura.image_alpha / 1.8))
+        draw_sprite_ext(sprHUDSpeedlines, objWorld.gameTime div 40, 0, 0, 1, 1, 0, c_white, (player.boostAura.image_alpha / 1.8))
     }
     draw_set_font(global.fontHUD);
     draw_set_color(c_white);
@@ -106,7 +106,7 @@ if (instance_exists(player) && !GameStateGet(GameStatePaused)) {
 
     // Time
     draw_sprite(sprHUDTime, 0, _leftHUDX, 8);
-    draw_text(_leftHUDX + 95, 16, string_pad(floor(sysTime.gameTime/60000), 2) + ":" + string_pad(floor(sysTime.gameTime/1000) mod 60,2) + ":" + string_pad(floor(sysTime.gameTime/10) mod 100,2));
+    draw_text(_leftHUDX + 95, 16, string_pad(floor(objWorld.gameTime/60000), 2) + ":" + string_pad(floor(objWorld.gameTime/1000) mod 60,2) + ":" + string_pad(floor(objWorld.gameTime/10) mod 100,2));
 
     // Rings
     var _rings;
@@ -116,11 +116,11 @@ if (instance_exists(player) && !GameStateGet(GameStatePaused)) {
     draw_text(_leftHUDX + 20, 40, _rings);
     // Red fade on ring counter
     if (player.rings == 0) {
-        draw_text_color(_leftHUDX + 20, 40, _rings, c_red, c_red, c_red, c_red, min(cos(sysTime.gameTime/200), 1));
+        draw_text_color(_leftHUDX + 20, 40, _rings, c_red, c_red, c_red, c_red, min(cos(objWorld.gameTime/200), 1));
     }
 
     if (player.combineActive) {
-        draw_text_color(_leftHUDX + 20, 40, _rings, c_aqua, c_blue, c_blue, c_blue, abs(cos(sysTime.gameTime/300)));
+        draw_text_color(_leftHUDX + 20, 40, _rings, c_aqua, c_blue, c_blue, c_blue, abs(cos(objWorld.gameTime/300)));
     }
 
     draw_set_halign(fa_right);

@@ -6,4 +6,4 @@ applies_to=self
 */
 /// Animation
 
-image_index = sysTime.gameTime div 200;
+image_index = objWorld.gameTime div 200;
