@@ -5,7 +5,6 @@ action_id=603
 applies_to=self
 */
 /// Variables
-event_inherited();
 MarkAsActive();
 
 xSpeed = 0;
@@ -14,18 +13,6 @@ yGravity = 0.1863;
 liveTimer = 300;
 minTimeToBeCollectable = 240;
 value = 1;
-collected = false;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-if (collected) {
-    instance_create(x, y, objRingCollected);
-    PlaySoundSingle(sndRing);
-}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -55,16 +42,12 @@ if (place_meeting(x, y + ySpeed, objTerrain)) {
 
 x += xSpeed;
 y += ySpeed;
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
+
+/// Destroy timer
 liveTimer -= 1;
 
 if (liveTimer < 90) {
-    visible = (liveTimer mod 2)
+    visible = (liveTimer mod 2);
 }
 
 if (liveTimer <= 0) {
@@ -77,4 +60,13 @@ action_id=603
 applies_to=self
 */
 /// Activate region
-instance_activate_region(bbox_left, bbox_top, 32, 32, 1)
+instance_activate_region(bbox_left, bbox_top, 32, 32, 1);
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// On Collect
+instance_create(x, y, objRingCollected);
+PlaySoundSingle(sndRing);

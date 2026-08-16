@@ -7,20 +7,6 @@ applies_to=self
 /// Init
 event_inherited();
 value = 50;
-collected = false;
-#define Destroy_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Destroy
-if (collected) {
-    with(instance_create(x, y, objRingCollected)) {
-        sparkleOffset = 30;
-    }
-    PlaySoundSingle(sndRingSpecial);
-}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -33,6 +19,17 @@ image_index = objWorld.gameTime div 40;
 image_angle = objWorld.gameTime / 8.3;
 image_xscale = max(lerp(image_xscale, 1 - floorto(abs(objPlayer.x - x)/200, 0.1), 0.2), 0);
 image_yscale = image_xscale;
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// On Collect
+with (instance_create(x, y, objRingCollected)) {
+    sparkleOffset = 30;
+}
+PlaySoundSingle(sndRingSpecial);
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

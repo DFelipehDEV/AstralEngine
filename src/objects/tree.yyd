@@ -85,7 +85,6 @@
 		|objTeleportRing
 		+Unplacable
 			|objRingDrop
-			|objRingMagnetic
 			|objRingHyper
 		+VFX
 			|objRainbow

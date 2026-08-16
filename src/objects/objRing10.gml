@@ -4,10 +4,24 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Variables
-image_speed = 0;
+/// Init
+event_inherited();
 value = 10;
-collected = false;
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// On Collect
+with (instance_create(x, y, objRingCollected)) {
+    sparkleOffset = 20;
+}
+with (instance_create(x, y, objRingNumber)) {
+    image_index = 1;
+    image_speed = 0;
+}
+PlaySoundSingle(sndRingSuper);
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

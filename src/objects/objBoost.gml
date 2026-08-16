@@ -45,16 +45,13 @@ x = player.x;
 y = player.y;
 image_angle = point_direction(xprevious, yprevious, x, y);
 
-var _nearRing, _target;
-_nearRing = instance_nearest(x, y, objRing);
+var _target;
 _target = player;
 
-if (distance_to_object(_nearRing) < 30) {
-    with (_nearRing) {
-        instance_destroy();
-        with (instance_create(x, y, objRingMagnetic)) {
-            target = _target;
-        }
+with (objRing) {
+    if (value == 1 && target == noone && distance_to_object(other) < 30) {
+        MarkAsActive();
+        target = _target;
     }
 }
 #define Draw_0
