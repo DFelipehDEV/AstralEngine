@@ -23,15 +23,21 @@ PlayerCollisionCache();
 
 if (ground) {
     // Eject up out of floor
-    if (edgeCollision) {
-        while (PlayerCollisionMain(x, y)) {
-            x -= angleSin;
-            y -= angleCos;
+    while (PlayerCollisionMain(x, y)) {
+        x -= angleSin;
+        y -= angleCos;
+    }
+
+    // Snap down flush to floor if bottom sensor is touching ground
+    if (bottomCollision && !PlayerCollisionMain(x, y)) {
+        while (!PlayerCollisionMain(x, y) && PlayerCollisionBottom(x, y, angle, maskBig)) {
+            x += angleSin;
+            y += angleCos;
         }
     }
 
     // Push down into slopes
-    if (PlayerCollisionSlope(x, y, angle, maskMid) && !PlayerCollisionMain(x, y)) {
+    if (edgeCollision && PlayerCollisionSlope(x, y, angle, maskMid) && !PlayerCollisionMain(x, y)) {
         while (!PlayerCollisionMain(x, y)) {
             x += angleSin;
             y += angleCos;
@@ -92,7 +98,7 @@ if (ground) {
     // Move the player outside in case he has got stuck into the floor or the ceiling           
     while (ySpeed < 0 && PlayerCollisionTop(x, y, 0, maskMid)) {
         y += 1;
-    }            
+    }
     while (ySpeed > 0 && PlayerCollisionBottom(x, y, 0, maskMid)) {
         y -= 1;
     }            

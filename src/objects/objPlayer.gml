@@ -12,7 +12,6 @@ PlayerPhysicsInit(objSolid, objPlatform, objLayer0, objLayer1);
 pushingWall = false;
 physicsMode = PhysicsNormal;
 xDirection = 1;
-
 // Horizontal speed
 xTopSpeed = 0;
 xMaxSpeed = 0;

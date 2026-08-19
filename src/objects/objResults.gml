@@ -160,14 +160,11 @@ if (resultsTimer > 230) {
 
                 SaveSetValue(_roomName + "Completed", true);
 
-                if (!global.timeAttack) {
-                    SaveSetValue("PreviousRoom", _roomName);
-                    SaveSetValue("NextRoom", _nextRoomName);
-                }
+                SaveSetValue("PreviousRoom", _roomName);
+                SaveSetValue("NextRoom", _nextRoomName);
                 SaveGame();
 
-                if (global.timeAttack || _nextRoomName == "") {
-                    global.timeAttack = false;
+                if (_nextRoomName == "") {
                     TransitionFadeRoom(rmTitleScreen, c_white);
                 } else {
                     TransitionFadeRoom(nextRoom, c_white);
