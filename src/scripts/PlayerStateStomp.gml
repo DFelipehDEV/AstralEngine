@@ -31,3 +31,4 @@ if (ground) {
 
 // Airdash
 PlayerAirdash();
+PlayerLightspeed();
