@@ -1,8 +1,8 @@
 /// Init()
 if (instance_exists(objWorld)) exit;
 
-if (gm82core_version < 160) {
-    show_error("You are using a gm82core extension version older than 1.6, only version 1.6 and higher are supported. Update by downloading a newer gm82 build from gm82.cherry-treehouse.com or by building it from source.", true);
+if (gm82core_version < 161) {
+    show_error("You are using a gm82core extension version older than 1.6.1, only version 1.6.1 and higher are supported. Update by downloading a newer gm82 build from gm82.cherry-treehouse.com or by building it from source.", true);
 }
 
 ShadersInit();
