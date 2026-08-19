@@ -604,8 +604,11 @@ if (cam.target == id) {
     var _xSpeed, _ySpeed;
     _xSpeed = (x - xprevious) / global.timeScale;
     _ySpeed = (y - yprevious) / global.timeScale;
+
+    var _xS;
+    _xS = clamp(_xSpeed * 11, -90, 90);
     if (state != PlayerStateWaylauncher)
-        cam.xShift = approach(cam.xShift, _xSpeed * 11, 5);
+        cam.xShift = lerp(cam.xShift, _xS, 0.05);
 
     switch(state) {
         case PlayerStateLookup:

@@ -67,13 +67,11 @@ action_id=603
 applies_to=self
 */
 /// Shift to the target position
-if (delay > 0) {
-    delay -= 1;
-}
+delay = approach(delay, 0, global.timeScale);
 
 if (instance_exists(target)) {
-    x = floor(lerp(x, target.x + xShift + xOffset - delay, xInterpolationSpeed * global.timeScale));
-    y = floor(lerp(y, target.y + yShift + yOffset, yInterpolationSpeed * global.timeScale));
+    x = floor(lerproach(x, target.x + xShift + xOffset - (delay * 2.5), xInterpolationSpeed * global.timeScale, global.timeScale));
+    y = floor(lerproach(y, target.y + yShift + yOffset, yInterpolationSpeed * global.timeScale, global.timeScale));
 }
 
 x = clamp(x, leftBorder + ScreenWidthHalf, rightBorder - ScreenWidthHalf);

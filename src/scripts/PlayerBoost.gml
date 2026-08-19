@@ -15,7 +15,7 @@ if (energy > 0) {
             xSpeed = boostStartSpeed * xDirection;
 
         with (cam) {
-            CameraLag(100);
+            CameraLag(45 * other.xDirection);
             CameraShakeY(20);
         }
         instance_create(x, y, objBoostShockwave);
@@ -33,7 +33,6 @@ if (energy > 0) {
                     player = other.id;
                     sprite_index = other.boostSprite;
                     image_angle = point_direction(other.xprevious, other.yprevious, x, y);
-                    image_alpha = 0.7;
                 }
             }
             PlayerSetPhysicsMode(physicsMode);
@@ -54,7 +53,6 @@ if (energy > 0) {
                 player = other.id;
                 sprite_index = other.boostSprite;
                 image_angle = point_direction(other.xprevious, other.yprevious, x, y);
-                image_alpha = 0.7;
             }
         }
 
