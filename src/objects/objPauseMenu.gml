@@ -40,8 +40,9 @@ delay = 20;
 background = background_create_from_screen(0, 0, window_get_width(), window_get_height(), 0, 0);
 
 // Stop all objects
-instance_deactivate_all(1);
+instance_deactivate_all(true);
 instance_activate_object(gm82core_object);
+instance_activate_object(objWorld);
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
