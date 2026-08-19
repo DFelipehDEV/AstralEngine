@@ -11,7 +11,7 @@ minSpeedToFall = 4; // Minimum speed to fall when on a slope
 // Angle
 angle = 0;
 angleHolder = 0;
-angleCos = 0;
+angleCos = 1;
 angleSin = 0;
 angleMode = 0;
 angleFloorTo = 360/32;
