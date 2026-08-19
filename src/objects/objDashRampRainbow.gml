@@ -23,7 +23,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Fields
+//override grid 32,32,0,0
 //field xStrength: value
 //field yStrength: value
 //field playerAction: script

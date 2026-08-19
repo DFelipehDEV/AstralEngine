@@ -23,7 +23,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Preview
+//override grid 32,32,0,0
 /*preview
 depth = -2;
 draw_sprite_ext(sprite_index, image_index, x, y + 29, image_xscale, image_yscale, image_angle, c_red, image_alpha)

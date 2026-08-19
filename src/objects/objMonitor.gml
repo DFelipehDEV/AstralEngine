@@ -13,7 +13,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Preview
+//override grid 32,32,0,0
 //field icon: value
 /*preview
     if (!FieldDefined("icon")) exit;

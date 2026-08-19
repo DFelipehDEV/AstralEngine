@@ -13,7 +13,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Preview
+//override grid 32,32,0,0
 /*preview
 draw_sprite(Sprite("sprMonitorIcons", 2), 0, x, y);
 */
