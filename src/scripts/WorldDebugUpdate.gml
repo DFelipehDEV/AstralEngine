@@ -40,6 +40,7 @@ if (keyboard_check_pressed(vk_home)) {
 if (keyboard_check_pressed(vk_pageup)) {
     if (room_next(room) != -1) {
         room_goto_next();
+        audio_sfx_stop();
         PlayerResetGlobalVariables();
     }
 }
@@ -47,6 +48,7 @@ if (keyboard_check_pressed(vk_pageup)) {
 if (keyboard_check_pressed(vk_pagedown)) {
     if (room_previous(room) != -1) {
         room_goto_previous();
+        audio_sfx_stop();
         PlayerResetGlobalVariables();
     }
 }
