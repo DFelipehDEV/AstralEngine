@@ -19,6 +19,7 @@ minimumScoreA = 6000;
 minimumScoreS = 8500;
 
 player = noone;
+nextRoom = room_next(room);
 #define Alarm_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -39,9 +40,18 @@ action_id=603
 applies_to=self
 */
 /// Results
+var _rings;
+_rings = 0;
+if (instance_exists(player)) {
+    _rings = player.rings;
+} else if (instance_exists(objPlayer)) {
+    _rings = objPlayer.rings;
+}
+
 with (instance_create(0, 0, objResults)) {
+    nextRoom = other.nextRoom;
     time = objWorld.gameTime;
-    rings = player.rings;
+    rings = _rings;
     maxTimeScore = other.maxTimeScore;
     ringScoreMultiplier = other.ringScoreMultiplier;
     scoreValueTime = max(0, maxTimeScore-floor(objWorld.gameTime/50000)*4500);
@@ -64,7 +74,9 @@ if (active) {
         speedval -= 0.032
         image_speed = speedval
 
-        player.keyRight = true;
+        if (instance_exists(player)) {
+            player.keyRight = true;
+        }
         if (image_speed < 0) {
             image_speed = 0
             alarm[0] = 80
@@ -112,3 +124,4 @@ applies_to=self
 //field minimumScoreB : number
 //field minimumScoreA : number
 //field minimumScoreS : number
+//field nextRoom: room

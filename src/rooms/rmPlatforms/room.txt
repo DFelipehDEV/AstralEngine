@@ -1,8 +1,8 @@
 caption=
 width=4160
 height=672
-snap_x=32
-snap_y=32
+snap_x=64
+snap_y=64
 isometric=0
 roomspeed=60
 roompersistent=0
@@ -219,3 +219,5 @@ delete_underlying_tiles=0
 tab=0
 editor_x=0
 editor_y=0
+offset_x=0
+offset_y=0
