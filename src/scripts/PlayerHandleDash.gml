@@ -40,6 +40,7 @@ if (instance_exists(objDashRing)) {
             trickCombo = 0;
         }
 
+        stateTimer = 0; // force state timer so the player plays the spring animation again
         StatesSet(_dashRing.playerAction);
         PlayerSetAngle(0);
         PlayerSetGround(false);

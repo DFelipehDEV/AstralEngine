@@ -9,7 +9,7 @@ if (stateExiting) {
 
 PlayerMoveX();
 // Animations
-if (animation != "FLING" && animation != "LANDING" && animation != "FALL") {
+if (animation != "FLING") {
     if (stateTimer < 15) {
         AnimationApply("SPRING");
     } else {
