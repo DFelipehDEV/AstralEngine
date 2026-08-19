@@ -5,7 +5,7 @@ switch(animation) {
         break;
 
     case "PUSH":
-        AnimationSet(sprSonicPush, 0, 0.15);
+        AnimationSet(sprSonicPush, 1, 0.15);
         break;
 
     case "IDLE":
