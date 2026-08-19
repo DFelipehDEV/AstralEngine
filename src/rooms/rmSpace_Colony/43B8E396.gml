@@ -1,4 +1,12 @@
 //gm82 fields begin
 parent=rmSpace_Colony_469A538D
+child0=rmSpace_Colony_23115F02
+child1=rmSpace_Colony_B9EC6E83
 child2=rmSpace_Colony_8824267E
+child3=rmSpace_Colony_95C7C202
+child4=rmSpace_Colony_18E99B96
+child5=rmSpace_Colony_9FB5BC66
+child6=rmSpace_Colony_7F6C516E
+child7=rmSpace_Colony_31F9CE25
+child8=rmSpace_Colony_7CCEA095
 //gm82 fields end

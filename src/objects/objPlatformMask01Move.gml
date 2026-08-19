@@ -16,8 +16,6 @@ action_id=603
 applies_to=self
 */
 /// Move
-// dont do anything at the start of the room so the instace grouper has time to group all objects
-if (objWorld.gameTime < 100) exit;
 hspeed = approach(hspeed, spd * dcos(dir), acceleration);
 vspeed = approach(vspeed, spd * -dsin(dir), acceleration);
 
