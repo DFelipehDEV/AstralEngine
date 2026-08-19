@@ -7,10 +7,6 @@ applies_to=self
 /// Variables
 MarkAsActive();
 
-view_object[0] = id;
-view_hborder[0] = ScreenWidthHalf * 0.97;
-view_vborder[0] = ScreenHeightHalf * 0.97;
-
 // Target
 target = noone;
 delay = 0;
@@ -21,12 +17,19 @@ xInterpolationSpeed = 0.3;
 yInterpolationSpeed = 0.3;
 xShift = 0;
 yShift = 0;
-xOffset = 0; // Applied on top of the xShift
-yOffset = 0; // Applied on top of the yShift
+lockedX = -1;
+lockedY = -1;
+
 xShakeTimer = 0;
 yShakeTimer = 0;
 yShakeOffset = 48;
 
+view = 0;
+view_object[0] = id;
+view_wview[0] = ScreenWidth;
+view_hview[0] = ScreenHeight;
+view_hborder[0] = ScreenWidthHalf * 0.97;
+view_vborder[0] = ScreenHeightHalf * 0.97;
 leftBorder = 0;
 rightBorder = room_width;
 topBorder = 0;
@@ -70,8 +73,22 @@ applies_to=self
 delay = approach(delay, 0, global.timeScale);
 
 if (instance_exists(target)) {
-    x = floor(lerproach(x, target.x + xShift + xOffset - (delay * 2.5), xInterpolationSpeed * global.timeScale, global.timeScale));
-    y = floor(lerproach(y, target.y + yShift + yOffset, yInterpolationSpeed * global.timeScale, global.timeScale));
+    var _targetX, _targetY;
+
+    if (lockedX != -1) {
+        _targetX = lockedX;
+    } else {
+        _targetX = target.x + xShift - (delay * 2.5);
+    }
+
+    if (lockedY != -1) {
+        _targetY = lockedY;
+    } else {
+        _targetY = target.y + yShift;
+    }
+
+    x = floor(lerproach(x, _targetX, xInterpolationSpeed * global.timeScale, global.timeScale));
+    y = floor(lerproach(y, _targetY, yInterpolationSpeed * global.timeScale, global.timeScale));
 }
 
 x = clamp(x, leftBorder + ScreenWidthHalf, rightBorder - ScreenWidthHalf);

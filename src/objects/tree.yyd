@@ -180,7 +180,8 @@
 		|objDestructiveWall
 	+Sensors
 		+Camera
-			|objOffsetCameraSensor
+			|objLockXCameraSensor
+			|objLockYCameraSensor
 			|objZoomCameraSensor
 		+Footsteps
 			|objFootstepSensor

@@ -219,7 +219,7 @@ objPauseMenu
 objParallaxLayer
 objParallaxLayerAnimated
 objPushableBox
-objOffsetCameraSensor
+
 
 
 
@@ -241,3 +241,6 @@ objLightPoint
 objDarkRegion
 
 objWorld
+
+objLockYCameraSensor
+objLockXCameraSensor
