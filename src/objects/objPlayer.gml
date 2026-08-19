@@ -619,6 +619,10 @@ if (cam.target == id) {
                 cam.yShift = approach(cam.yShift, 90, 4);
             break;
 
+        case PlayerStateSlide:
+            cam.yShift = approach(cam.yShift, 24, 3);
+            break;
+
         case PlayerStateWaylauncher:
             // Define target shifts based on key input
             var targetXShift, targetYShift;

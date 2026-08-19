@@ -81,6 +81,9 @@ if (abs(xSpeed) > 1 && keyDown) {
     PlayVoice(choose(voiceline[3], voiceline[2]));
     PlaySound(sndPlayerSlide);
     StatesSet(PlayerStateSlide);
+    if (abs(xSpeed) < 7) {
+        xSpeed = 7 * xDirection;
+    }
 }
 
 xDirection = esign(xSpeed, xDirection);
