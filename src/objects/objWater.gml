@@ -7,7 +7,6 @@ applies_to=self
 /// Depth & Surface
 depth = -10;
 surfaceRipple = noone;
-
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -19,7 +18,6 @@ if (surface_exists(surfaceRipple)) {
     surface_free(surfaceRipple);
     surfaceRipple = noone;
 }
-
 #define Other_5
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -31,7 +29,6 @@ if (surface_exists(surfaceRipple)) {
     surface_free(surfaceRipple);
     surfaceRipple = noone;
 }
-
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

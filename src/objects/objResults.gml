@@ -9,6 +9,7 @@ MarkAsActive();
 audio_music_switch_ext(bgmVictory, 20, 20, 1, 0, 1, false);
 
 // Initialize variables
+nextRoom = room_next(room);
 time = 0;
 rings = 0;
 scoreValueTime = 0;
@@ -134,10 +135,44 @@ if (resultsTimer > 230) {
             }
 
             if (sysinput_get("accept")) {
-                SaveSetValue("PreviousRoom", room_get_name(room));
-                SaveSetRoomAsCompleted(room, time, rings);
+                var _nextRoomName, _roomName;
+                _nextRoomName = "";
+                _roomName = room_get_name(room);
+                if (room_exists(nextRoom)) {
+                    _nextRoomName = room_get_name(nextRoom);
+                }
+
+                // Best Time update
+                var _prevTime;
+                _prevTime = SaveGetValue(_roomName + "Time");
+                if (is_string(_prevTime)) _prevTime = real(_prevTime);
+                if (_prevTime <= 0 || time < _prevTime) {
+                    SaveSetValue(_roomName + "Time", time);
+                }
+
+                // Best Rank update (RankS=0, RankA=1, RankB=2, RankC=3)
+                var _prevRank;
+                _prevRank = SaveGetValue(_roomName + "Rank");
+                if (is_string(_prevRank)) _prevRank = real(_prevRank);
+                if (_prevRank == -1 || rankIndex < _prevRank) {
+                    SaveSetValue(_roomName + "Rank", rankIndex);
+                }
+
+                SaveSetValue(_roomName + "Completed", true);
+
+                if (!global.timeAttack) {
+                    SaveSetValue("PreviousRoom", _roomName);
+                    SaveSetValue("NextRoom", _nextRoomName);
+                }
                 SaveGame();
-                TransitionFadeNext(c_white);
+
+                if (global.timeAttack || _nextRoomName == "") {
+                    global.timeAttack = false;
+                    TransitionFadeRoom(rmTitleScreen, c_white);
+                } else {
+                    TransitionFadeRoom(nextRoom, c_white);
+                }
+
                 PlayerResetGlobalVariables();
             }
         }

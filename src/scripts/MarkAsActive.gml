@@ -1,2 +1,4 @@
 /// MarkAsActive()
-ds_list_add(objWorld.deactivateExceptions, id);
+if (instance_exists(objWorld)) {
+    ds_list_add(objWorld.deactivateExceptions, id);
+}

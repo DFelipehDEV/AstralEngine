@@ -6,3 +6,4 @@ tile_hoffset=0
 tile_voffset=0
 tile_hsep=0
 tile_vsep=0
+gm82room_tilesmart=04|128,192,256,384,192,0,128,192,256,64,64,64,192,256,64,128,128,128,1,1

@@ -237,9 +237,9 @@ if (angle == 0 && abs(xSpeed) > waterRunSpeed) {
         instance_destroy_id(waterRunSolid);
     }
 }
-//benchmark_start();
+benchmark_start();
 PlayerPhysicsMove(global.timeScale);
-//show_debug_message("PlayerPhysicsMove took: " + string(benchmark_end()));
+debug_log("PlayerPhysicsMove took: " + string(benchmark_end()));
 
 if (noGravityTimer == 0) {
     BodyApplyGravity(yGravity);
@@ -640,7 +640,7 @@ if (cam.target == id) {
             break;
 
         case PlayerStateStomp:
-            cam.yShift = approach(cam.yShift, 210, 3);
+            cam.yShift = approach(cam.yShift, 160, 3);
             break;
 
         default:
