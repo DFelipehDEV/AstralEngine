@@ -1,1 +1,1 @@
-objTerrain.visible = true;
+all.visible = true;

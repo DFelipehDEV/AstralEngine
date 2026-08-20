@@ -1,6 +1,6 @@
 //gm82 fields begin
-acceleration=0.05
-spd=4
+path=path2_objPlatformPathedLerp_35A12784
+spd=3
 tileset=tileTZ3
 left=64
 top=192

@@ -22,9 +22,8 @@
 		|objPlatform
 		|objPlatformMove
 		|objPlatformMask01
-		|objPlatformMask01Move
-		|objPlatformMask01Pathed
-		|objPlatformMask01Spin
+		|objPlatformPathed
+		|objPlatformPathedInterpolated
 	+Layer0
 		|objLayer0
 		|objLayer0Mask01
@@ -44,12 +43,14 @@
 	|objTransition
 	|objFadeRoom
 +UI
-	|objPauseMenu
-	|objAstralTitle
-	|objAstralSettings
 	+Dialogue
 		|objDialogue
 		|objDialogueQuery
+	+Menus
+		|objPauseMenu
+		|objAstralTitle
+		|objAstralSettings
+	|objPressButtonPopup
 +Parallax
 	|objParallaxLayer
 	|objParallaxLayerAnimated
@@ -203,7 +204,6 @@
 			|objButtonSensor
 			|objHideHUDSensor
 			|objStartDialogueSensor
-		|objPlatformAngle
 	+Water
 		|objWaterHorizon
 		|objWater

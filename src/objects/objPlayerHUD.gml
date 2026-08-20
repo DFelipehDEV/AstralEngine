@@ -13,14 +13,9 @@ shakeOffset = 0;
 
 gaugeIndex = 21;
 
-// Button pop up variables
-buttonAction = "";
-lastButtonAction = buttonAction;
-buttonAlpha[0] = 0;
-buttonAlpha[1] = 1;
-buttonScale = 5;
-
 offset = 0;
+
+buttonPopup = noone;
 
 // Enemy fight HUD
 enemy = 0;
@@ -49,26 +44,6 @@ if (!enemy && enemyScale > 0) {
 
 if (enemy) {
     enemyScale = lerp(enemyScale, 1, 0.2);
-}
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Buttons
-if (buttonAction != "") {
-    buttonAlpha[0] = min(buttonAlpha[0] + 0.2, 1);
-    buttonScale = lerp(buttonScale, 2, 0.2);
-    buttonAlpha[1] = lerp(buttonAlpha[1], 0, 0.2);
-    lastButtonAction = buttonAction;
-} else {
-    buttonScale = lerp(buttonScale, 0, 0.2);
-    buttonAlpha[0] = max(buttonAlpha[0] - 0.2, 0);
-
-    if (buttonAlpha[0] == 0) {
-        buttonAlpha[1] = 1;
-        buttonScale = 5;
-    }
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -138,17 +113,6 @@ if (instance_exists(player) && !GameStateGet(GameStatePaused)) {
         draw_sprite_ext(sprHUDEnemiesText, 0, ScreenWidthHalf, 16, 1, enemyScale, 0, c_white, 1);
         // Enemies left
         draw_sprite_ext(sprHUDEnemiesCounter, enemyFrame, ScreenWidthHalf, 30, enemyScale, enemyScale, 0, c_white, 1);
-    }
-
-    if (buttonAlpha[0] > 0) {
-        InputIconDraw(lastButtonAction, ScreenWidthHalf, 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[0]);
-
-        // Highlight
-        if (buttonAlpha[1] > 0) {
-            d3d_set_fog(1, c_white, 0, 0)
-            InputIconDraw(buttonAction, ScreenWidthHalf, 64, buttonScale, buttonScale, 0, c_white, buttonAlpha[1]);
-            d3d_set_fog(0, c_white, 0, 0)
-        }
     }
     EndUI();
 }

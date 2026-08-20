@@ -155,10 +155,10 @@ objLayer1Mask02
 objLayer1Mask03
 objLayer1Mask04
 objLayer1Mask05
-objPlatformMask01Move
-objPlatformAngle
+
+
 objPlatformMove
-objPlatformMask01Spin
+
 objAstralSettings
 objNavigator
 objTestFlower
@@ -214,7 +214,7 @@ objPlayerHUD
 objDashRail
 
 
-objPlatformMask01Pathed
+objPlatformPathed
 objPauseMenu
 objParallaxLayer
 objParallaxLayerAnimated
@@ -244,3 +244,5 @@ objWorld
 
 objLockYCameraSensor
 objLockXCameraSensor
+objPressButtonPopup
+objPlatformPathedInterpolated

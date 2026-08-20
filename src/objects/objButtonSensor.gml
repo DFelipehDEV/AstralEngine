@@ -17,15 +17,20 @@ var _player;
 _player = instance_nearest(x, y, objPlayer);
 if (!instance_exists(_player)) exit;
 with (_player) {
-    var _wasInSensor, _isInSensor;
-    _wasInSensor = place_meeting(xprevious, yprevious, other);
-    _isInSensor = place_meeting(x, y, other);
-
-    if (!_wasInSensor && _isInSensor) {
-        hud.buttonAction = other.action;
-        PlaySound(sndMenuWarn);
-    } else if (_wasInSensor && !_isInSensor) {
-        hud.buttonAction = "";
+    // Check if we are in the sensor
+    if (place_meeting(x, y, other)) {
+        if (!instance_exists(hud.buttonPopup)) {
+            hud.buttonPopup = instance_create(x, y, objPressButtonPopup);
+            hud.buttonPopup.action = other.action;
+            PlaySound(sndMenuWarn);
+        }
+    } else {
+        // Check if we leaved the sensor
+        if (place_meeting(xprevious, yprevious, other)) {
+            if (instance_exists(hud.buttonPopup)) {
+                hud.buttonPopup.destroy = true;
+            }
+        }
     }
 }
 #define Other_4

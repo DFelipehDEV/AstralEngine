@@ -1,5 +1,5 @@
 //gm82 fields begin
-parent=rmSpace_Colony_469A538D
+parent=rmSpace_Colony_62316700
 child0=rmSpace_Colony_23115F02
 child1=rmSpace_Colony_B9EC6E83
 child2=rmSpace_Colony_8824267E

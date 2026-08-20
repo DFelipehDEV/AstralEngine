@@ -25,15 +25,6 @@ if (_body != noone) {
         _body.y = bbox_top - 11;
     }
 }
-#define Collision_objPlatformAngle
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Change direction
-
-direction = other.image_angle;
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1
