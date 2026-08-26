@@ -1,5 +1,6 @@
 +Camera
 	|objCamera
+	|objCameraPathFollower
 +Collision
 	+Main
 		|objSolid
@@ -184,6 +185,7 @@
 			|objLockXCameraSensor
 			|objLockYCameraSensor
 			|objZoomCameraSensor
+			|objPathCameraSensor
 		+Footsteps
 			|objFootstepSensor
 			|objFootstepSensorDirt

@@ -246,3 +246,5 @@ objLockYCameraSensor
 objLockXCameraSensor
 objPressButtonPopup
 objPlatformPathedInterpolated
+objPathCameraSensor
+objCameraPathFollower
