@@ -61,18 +61,20 @@
 		|sprSuperSonicWalk2
 		|sprSuperSonicJog1
 		|sprSuperSonicRun
+	+Spindash
+		|sprPlayerSpindashCharge
+		|sprPlayerSpindashHigh
+		|sprPlayerSpindashHighRelease
+		|sprPlayerSpindashLow
+	+VFX
+		|sprBoostShockwave
+		|sprBoostWave
+		|sprPlayerTrail
 	|sprPlayerSpawn
 	|sprPlayerReticle
-	|sprBoostShockwave
-	|sprBoostWave
 	|sprPlayerGrind
-	|sprPlayerSpindashCharge
-	|sprPlayerSpindashHigh
-	|sprPlayerSpindashHighRelease
-	|sprPlayerSpindashLow
 	|sprPlayerStomp
-	|sprPlayerTrail
-+Stage
++Interactables
 	+Spring
 		|sprSpring
 	+Rings
@@ -156,35 +158,37 @@
 			|sprCorkscrewDepth
 		+Bridge
 			|sprBridgeLog
-		+Chain Ball
+		+ChainBall
 			|sprSpikeBallPivot
 			|sprChain
-		+Swing Pole
+		+SwingPole
 			|sprSwingPole
-	+TestStage
-		|sprTestFlower
-		|sprTestWall1
 	+Sensors
-		+Layer
+		+Camera
+			|sprCameraSensor
+			|sprOffsetCameraSensor
+			|sprZoomCameraSensor
+		+Footsteps
+			|sprFootstepSensorDirt
+			|sprFootstepSensorGrass
+			|sprFootstepSensorMetal
+			|sprFootstepSensorStone
+			|sprFootstepSensorWater
+			|sprFootstepSensorWood
+		+Gameplay
+			|sprPlatformAngle
+			|sprSlidepassSensor
+			|sprTrigger
+		+Layers
 			|sprSwitchLayer0
 			|sprSwitchLayer1
 			|sprSwitchLayerAlternate
-		|sprCameraSensor
-		|sprOffsetCameraSensor
-		|sprZoomCameraSensor
-		|sprFootstepSensorDirt
-		|sprFootstepSensorGrass
-		|sprFootstepSensorMetal
-		|sprFootstepSensorStone
-		|sprFootstepSensorWater
-		|sprFootstepSensorWood
-		|sprHUDHideSensor
-		|sprPlatformAngle
-		|sprSlidepassSensor
-		|sprStartDialogueSensor
-		|sprTrigger
+		+UI
+			|sprHUDHideSensor
+			|sprStartDialogueSensor
 	+Water
 		|sprWater
+		|sprWaterfall
 		|sprWaterBubble
 		|sprWaterBubbleGenerator
 		|sprWaterBubbleSmall
@@ -192,8 +196,10 @@
 		|sprDrownTimer
 		|sprWaterSplash
 		|sprWaterDrop
-	+Waterfall
-		|sprWaterfall
++Stages
+	+SpaceColony
+		|sprTestFlower
+		|sprTestWall1
 +VFX
 	|sprDust
 	|sprExplosion
@@ -265,7 +271,7 @@
 	+QTE
 		|sprQTEKeysBack
 		|sprQTETimer
-	+Title card
+	+TitleCard
 		|sprTitleCardBG
 		|sprTitleCardChar
 		|sprTitleCardDash

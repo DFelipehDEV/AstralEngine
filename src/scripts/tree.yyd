@@ -5,12 +5,12 @@
 	|AnimationUpdate
 	|AnimationSet
 	|AnimationApply
-+Body
-	|BodyApplyGravity
 +Camera
 	|CameraLag
 	|CameraShakeX
 	|CameraShakeY
+	|ViewSetZoom
+	|DistanceToView
 +Deactivation
 	|DeactivateExceptionsAdd
 	|DeactivateExceptionsRemove
@@ -23,8 +23,6 @@
 	|DrawBackgroundRepeatHorizontal
 	|DrawBackgroundRepeatVertical
 	|DrawSpriteQuad
-+EnemiesArena
-	|EnemiesArenaAddEnemy
 +Enemy
 	+Eggpawn
 		+States
@@ -46,6 +44,8 @@
 		|BuzzerStateTurn
 		|BuzzerStateShoot
 		|BuzzerStateSpotted
+	+Arena
+		|EnemiesArenaAddEnemy
 	|EnemySetAnimation
 +GameState
 	|GameStateGet
@@ -54,12 +54,11 @@
 	|InputIconAddKey
 	|InputIconAddButton
 	|InputIconDraw
-+NPC
-	|NPCAddDialogue
-	|NPCDispatch
 +Parallax
 	|ParallaxAddNode
 +Player
+	+Body
+		|BodyApplyGravity
 	+Util
 		|PlayerAddEnergy
 		|PlayerAirdash
@@ -110,7 +109,7 @@
 		|PlayerStateTransform
 		|PlayerStateHurt
 		|PlayerStateDead
-	+Object Collision
+	+ObjectCollision
 		|PlayerHandleBox
 		|PlayerHandleCheckpoint
 		|PlayerHandleCrane
@@ -133,7 +132,7 @@
 	+Sonic
 		|SonicAnimations
 		|SonicPhysics
-	+Super Sonic
+	+SuperSonic
 		|SuperSonicAnimations
 		|SuperSonicPhysics
 	+Physics
@@ -163,9 +162,6 @@
 			|PlayerCollisionRightEdge
 			|PlayerCollisionSlope
 			|PlayerCollisionTop
-+Ring
-	|CreateDroppedRings
-	|CreateDroppedHyperRings
 +Save
 	|LoadGame
 	|SaveGame
@@ -187,36 +183,41 @@
 	|PlayVoice
 	|PlayMusic
 	|SoundInit
-+State Machine
++Stage
+	+NPC
+		|NPCAddDialogue
+		|NPCDispatch
+	+Rings
+		|CreateDroppedRings
+		|CreateDroppedHyperRings
++StateMachine
 	|StatesInit
 	|StatesUpdate
 	|StatesSet
 	|StateTemplate
-+Trail
-	|TrailUpdate
-	|DrawTrail
 +Transitions
 	|TransitionFadeNext
 	|TransitionFadePrevious
 	|TransitionFadeRoom
-+Utils
-	|ease
++UI
+	+Dialogue
+		|ParseDialogueText
+	+Design
+		|DrawSlider
 	|BeginUI
 	|EndUI
-	|DistanceToView
++Utils
+	|ease
 +VFX
 	|CreateDummy
 	|CreateAfterImage
 	|CreateDebris
+	|TrailUpdate
+	|DrawTrail
 +Window
 	|WindowSetScale
-	|ViewSetZoom
 +Debug
 	|Log
-+UIDesign
-	|DrawSlider
-+Dialogue
-	|ParseDialogueText
 +World
 	|WorldInputInit
 	|WorldTimeInit

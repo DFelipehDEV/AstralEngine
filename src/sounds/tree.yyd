@@ -1,7 +1,9 @@
-+Title
++BGM
 	|bgmTitle
-+Test
 	|bgmTest
+	|bgmInvincibility
+	|bgmResults
+	|bgmVictory
 +Player
 	|sndPlayerBoost
 	|sndPlayerBoostContinue
@@ -24,6 +26,9 @@
 	|sndPlayerStompLand
 	|sndPlayerTransform
 	|sndPlayerTrick
+	|sndLockOn
+	|sndFlail
+	|sndTrick
 	+Sonic
 		+Voicelines
 			|sndSonicVoice
@@ -39,19 +44,40 @@
 			|sndSonicVoice11
 			|sndSonicVoice12
 			|sndSonicVoice13
-+Crane
-	|sndHandleMove
-	|sndGrab
-+Ring
-	|sndRing
-	|sndRingSpecial
-	|sndRingSuper
-+Dash
-	|sndDashPad
-	|sndDashRing
-	|sndDashRingRainbow
-	|sndDashRamp
-+Enemy
++Interactables
+	+Rings
+		|sndRing
+		|sndRingSpecial
+		|sndRingSuper
+	+Dashes
+		|sndDashPad
+		|sndDashRing
+		|sndDashRingRainbow
+		|sndDashRamp
+	+Spring
+		|sndSpring
+	+Checkpoint
+		|sndCheckpoint
+	+GoalRing
+		|sndGoalRingSpin
+		|sndGoalRingFinish
+	+WayLauncher
+		|sndWayLauncherWait
+		|sndWayLauncherChangeDir
+		|sndWayLauncherLaunch
+	+Crane
+		|sndHandleMove
+		|sndGrab
+	+Monitors
+		|sndMonitor
+		|sndRingMonitor
+		|sndShieldMonitor
+	+Spikes
+		|sndSpikeMove
+	+Destructable
+		|sndBreakBox
+		|sndWallBreak
++Enemies
 	|sndShot
 	|sndEnemyHit
 	|sndEnemyHit2
@@ -62,25 +88,6 @@
 	|sndEnemySpinnerShock
 	|sndEnemySpinnerShockCharge
 	|sndEnemyWarn
-+Menu
-	|sndMenuAccept
-	|sndMenuSelect
-	|sndMenuStartup
-	|sndMenuWarn
-+Monitor
-	|bgmInvincibility
-	|sndMonitor
-	|sndRingMonitor
-	|sndShieldMonitor
-+QTE
-	|sndQTEPress
-	|sndQTEWin
-+Results
-	|bgmResults
-	|bgmVictory
-	|sndResultsRanked
-	|sndResultsScoreCount
-	|sndResultsScoreTotal
 +Terrain
 	+Footsteps
 		|sndFootstepDirt
@@ -108,30 +115,26 @@
 		|sndSkidStone
 		|sndSkidWater
 		|sndSkidWood
-+GoalRing
-	|sndGoalRingSpin
-	|sndGoalRingFinish
-+WayLauncher
-	|sndWayLauncherWait
-	|sndWayLauncherChangeDir
-	|sndWayLauncherLaunch
-+Dialogue
-	|sndDialogueOpen
-	|sndDialogueType
-+Spike
-	|sndSpikeMove
-+Spring
-	|sndSpring
-+Checkpoint
-	|sndCheckpoint
-|sndExplosion
-|sndExplosion2
-|sndLockOn
-|sndBreakBox
-|sndWallBreak
-|sndWaterSplash
-|sndWind
-|sndFlail
-|sndTrick
++UI
+	+Menu
+		|sndMenuAccept
+		|sndMenuSelect
+		|sndMenuStartup
+		|sndMenuWarn
+	+QTE
+		|sndQTEPress
+		|sndQTEWin
+	+Results
+		|sndResultsRanked
+		|sndResultsScoreCount
+		|sndResultsScoreTotal
+	+Dialogue
+		|sndDialogueOpen
+		|sndDialogueType
 +Ambience
 	|sndWaterfall
+	|sndWaterSplash
+	|sndWind
++VFX
+	|sndExplosion
+	|sndExplosion2

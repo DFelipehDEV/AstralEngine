@@ -1,9 +1,11 @@
-|path1
-|path0
-|path2_objPlatformPathedLerp_35A12784
-|path3_objPlatformPathedLerp_62316700
-|path4_objPlatformPathedLerp_481FA1C7
-|path5_objPlatformPathedLerp_23BA270E
-|path6_objPlatformPathedLerp_C52F7D6A
-|path7_objPathCameraSensor_CC46F9BB
-|path8_objPathCameraSensor_060DF9A8
++Platforms
+	|path0
+	|path1
+	|path2_objPlatformPathedLerp_35A12784
+	|path7_objPathCameraSensor_CC46F9BB
++SpaceColony
+	|path3_objPlatformPathedLerp_62316700
+	|path4_objPlatformPathedLerp_481FA1C7
+	|path5_objPlatformPathedLerp_23BA270E
+	|path6_objPlatformPathedLerp_C52F7D6A
+	|path8_objPathCameraSensor_060DF9A8

@@ -1,6 +1,7 @@
 +Camera
 	|objCamera
-	|objCameraPathFollower
+	+Unplacable
+		|objCameraPathFollower
 +Collision
 	+Main
 		|objSolid
@@ -40,26 +41,20 @@
 		|objLayer1Mask04
 		|objLayer1Mask05
 	|objTerrain
-+Transitions
-	|objTransition
-	|objFadeRoom
-+UI
-	+Dialogue
-		|objDialogue
-		|objDialogueQuery
-	+Menus
-		|objPauseMenu
-		|objAstralTitle
-		|objAstralSettings
-	|objPressButtonPopup
++Lights
+	|objLight
+	|objLightRay
+	|objLightPoint
+	|objDarkRegion
 +Parallax
 	|objParallaxLayer
 	|objParallaxLayerAnimated
 +Player
-	|objBody
 	|objPlayerSpawn
 	|objPlayer
-	|objPlayerReticle
+	+Unplacable
+		|objBody
+		|objPlayerReticle
 	+UI
 		|objTitleCard
 		|objPlayerHUD
@@ -76,22 +71,12 @@
 	|objAlwaysActive
 	|objWorld
 	|objInit
-+Stage
-	+Spring
-		|objSpring
-	+Rings
-		|objRing
-		|objRing10
-		|objRing5
-		|objRingSpecial
-		|objTeleportRing
-		+Unplacable
-			|objRingDrop
-			|objRingHyper
++Interactables
+	+Boxes
+		|objBox
+		|objPushableBox
 		+VFX
-			|objRainbow
-			|objRingCollected
-			|objRingNumber
+			|objBoxPart
 	+Checkpoint
 		|objCheckpoint
 	+Dashes
@@ -103,25 +88,45 @@
 		|objDashRampRainbow
 		+UI
 			|objQTEKeys
+	+Destructable
+		|objDebris
+		|objDestructiveWall
+	+Enemies
+		|objEnemy
+		|objEnemyTurn
+		|objEnemySpinner
+		|objEnemySpinner2
+		|objEnemyEggpawn
+		|objEnemyHeavy
+		|objEnemyChopper
+		|objEnemyBuzzer
+		+VFX
+			|objEnemyMetal
+			|objEnemyDeath
+	+Gimmicks
+		|objCorkscrew
+		|objBridge
+		|objSpikeBallPivot
+		|objSwingPole
+		+Unplacable
+			|objBridgeLog
+			|objCorkscrewDepth
+	+Gizmos
+		|objInstanceGroup
+		|obj3DAudioPlayer
+		|objMusicPlayer
+	+Goal
+		|objGoalRing
+		+UI
+			|objResults
 	+Handle
 		|objCrane
 		|objHandle
-	+Rails
-		+Main
-			|objRail
-			|objRail01
-			|objRail02
-			|objRail03
-		+Layer0
-			|objRailLayer0
-			|objRail02Layer0
-			|objRail03Layer0
-		+Layer1
-			|objRailLayer1
-			|objRail02Layer1
-			|objRail03Layer1
-	+WayLauncher
-		|objWayLauncher
+	+Hazards
+		|objHurt
+		|objProjectile
+		|objProjectileBuzzer
+		|objSpinnerShock
 	+Monitors
 		|objMonitor
 		|objMonitorEnergy
@@ -137,49 +142,33 @@
 	+NPC
 		|objNPC
 		|objNavigator
-	+Boxes
-		|objBox
-		|objPushableBox
-		+Miscellaneous
-			|objBoxPart
-	+Goal
-		|objGoalRing
-		+UI
-			|objResults
-	+Spikes
-		|objSpike
-		|objSpikeMove
-		|objSpikeBall
-	+Enemies
-		|objEnemy
-		|objEnemyTurn
-		|objEnemySpinner
-		|objEnemySpinner2
-		|objEnemyEggpawn
-		|objEnemyHeavy
-		|objEnemyChopper
-		|objEnemyBuzzer
+	+Rails
+		+Main
+			|objRail
+			|objRail01
+			|objRail02
+			|objRail03
+		+Layer0
+			|objRailLayer0
+			|objRail02Layer0
+			|objRail03Layer0
+		+Layer1
+			|objRailLayer1
+			|objRail02Layer1
+			|objRail03Layer1
+	+Rings
+		|objRing
+		|objRing10
+		|objRing5
+		|objRingSpecial
+		|objTeleportRing
+		+Unplacable
+			|objRingDrop
+			|objRingHyper
 		+VFX
-			|objEnemyMetal
-			|objEnemyDeath
-	+Hazards
-		|objHurt
-		|objProjectile
-		|objProjectileBuzzer
-		|objSpinnerShock
-	+Gimmicks
-		|objCorkscrew
-		|objBridge
-		|objSpikeBallPivot
-		|objSwingPole
-		+Don't use
-			|objBridgeLog
-			|objCorkscrewDepth
-	+TestStage
-		|objTestFlower
-	+Destructable
-		|objDebris
-		|objDestructiveWall
+			|objRainbow
+			|objRingCollected
+			|objRingNumber
 	+Sensors
 		+Camera
 			|objLockXCameraSensor
@@ -206,24 +195,38 @@
 			|objButtonSensor
 			|objHideHUDSensor
 			|objStartDialogueSensor
+	+Spikes
+		|objSpike
+		|objSpikeMove
+		|objSpikeBall
+	+Spring
+		|objSpring
 	+Water
 		|objWaterHorizon
 		|objWater
+		|objWaterfall
 		|objWaterBubbleGenerator
-		+Don't use
+		+Unplacable
 			|objWaterBubble
 			|objWaterBubbleSmall
-	+Gizmos
-		|objInstanceGroup
-		|obj3DAudioPlayer
-		|objMusicPlayer
-	|objWaterfall
+	+WayLauncher
+		|objWayLauncher
++Transitions
+	|objTransition
+	|objFadeRoom
++UI
+	+Dialogue
+		|objDialogue
+		|objDialogueQuery
+	+Menus
+		|objPauseMenu
+		|objAstralTitle
+		|objAstralSettings
+	|objPressButtonPopup
 +VFX
 	|objVFX
 	|objDummy
 	|objAfterImage
-+Lights
-	|objLight
-	|objLightRay
-	|objLightPoint
-	|objDarkRegion
++Stages
+	+SpaceColony
+		|objTestFlower
