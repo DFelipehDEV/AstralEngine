@@ -187,6 +187,7 @@
 			|objEnemiesArenaSensor
 			|objSlidepassSensor
 			|objWalljumpSensor
+			|objLockMovementSensor
 		+Layers
 			|objSwitchLayer0
 			|objSwitchLayerAlternate

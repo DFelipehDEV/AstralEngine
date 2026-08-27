@@ -248,3 +248,4 @@ objPressButtonPopup
 objPlatformPathedInterpolated
 objPathCameraSensor
 objCameraPathFollower
+objLockMovementSensor
