@@ -31,7 +31,6 @@ InputIconAddKey("p_jump", sprKeyboardKeys, 0);
 InputIconAddButton("p_jump", sprGamepadKeys, 0);
 
 sysinput_add_key("p_stomp", vk_down);
-sysinput_add_axes("p_stomp", 1, false);
 sysinput_add_button("p_stomp", gp_face2);
 InputIconAddKey("p_stomp", sprKeyboardKeys, 3);
 InputIconAddButton("p_stomp", sprGamepadKeys, 1);
