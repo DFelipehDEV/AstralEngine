@@ -386,3 +386,6 @@ WorldTimeReset
 WorldDeactivationReset
 WorldLogCleanup
 PlayerTransform
+RoomGoto
+RoomGotoNext
+RoomGotoPrevious

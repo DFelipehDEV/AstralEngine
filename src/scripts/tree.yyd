@@ -237,3 +237,6 @@
 	|WorldTimeReset
 	|WorldDeactivationReset
 	|WorldLogCleanup
+|RoomGoto
+|RoomGotoNext
+|RoomGotoPrevious

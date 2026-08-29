@@ -24,7 +24,7 @@ if (fadeOut) {
     if (image_alpha >= 1 + delay) {
         fadeOut = false;
         if (room_exists(roomTarget))
-            room_goto(roomTarget);
+            RoomGoto(roomTarget);
     }
 } else {
     // Fade in

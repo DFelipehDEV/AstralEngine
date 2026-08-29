@@ -28,7 +28,7 @@ SettingsLoad();
 
 // Finish initialization and start the game
 if (!debug_mode) {
-    room_goto_next();
+    RoomGotoNext();
 } else {
-    room_goto(rmSpace_Colony);
+    RoomGoto(rmSpace_Colony);
 }
