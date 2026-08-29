@@ -3,29 +3,36 @@ if (pushingWall) exit;
 
 var _aircanBoost;
 _aircanBoost = argument0;
+if (!keyBoost && ground) {
+    canBoost = true;
+}
 
 if (energy > 0) {
-    if (keyBoostPressed && !boosting) {
-        PlayVoice(choose(voiceline[0], voiceline[1], -1));
-        PlaySound(sndPlayerBoost);
-        CreateDummy(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, image_angle);
-        PlayerAddEnergy(-1.5);
-
-        if (abs(xSpeed) < boostStartSpeed)
-            xSpeed = boostStartSpeed * xDirection;
-
-        with (cam) {
-            CameraLag(45 * other.xDirection);
-            CameraShakeY(20);
-        }
-        instance_create(x, y, objBoostShockwave);
-
-        if (!ground && _aircanBoost) {
+    // Boost burst
+    if (keyBoostPressed && !boosting && canBoost) {
+        if (ground || (_aircanBoost && boostAirTimer > 0)) {
             boosting = true;
-            boostAirTimer = 80;
-            canBoost = true;
-            StatesSet(PlayerStateAir);
-            AnimationApply("LAUNCH");
+
+            PlayVoice(choose(voiceline[0], voiceline[1], -1));
+            PlaySound(sndPlayerBoost);
+            CreateDummy(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, image_angle);
+            PlayerAddEnergy(-1.5);
+
+            if (abs(xSpeed) < boostStartSpeed) {
+                xSpeed = boostStartSpeed * xDirection;
+            }
+
+            with (cam) {
+                CameraLag(45 * other.xDirection);
+                CameraShakeY(20);
+            }
+            instance_create(x, y, objBoostShockwave);
+
+            if (!ground && _aircanBoost) {
+                boostAirTimer = boostAirTimerMax;
+                StatesSet(PlayerStateAir);
+                AnimationApply("LAUNCH");
+            }
 
             if (!instance_exists(boostAura)) {
                 boostAura = instance_create(x, y, objBoost);
@@ -36,15 +43,12 @@ if (energy > 0) {
                 }
             }
             PlayerSetPhysicsMode(physicsMode);
-        } else {
-            canBoost = true;
         }
     }
 
-    if (ground) boostAirTimer = 90;
+    if (ground) boostAirTimer = boostAirTimerMax;
 
-    if (keyBoost && canBoost) {
-        boosting = true;
+    if (keyBoost && boosting) {
         trailTimer = 120;
 
         if (!instance_exists(boostAura)) {

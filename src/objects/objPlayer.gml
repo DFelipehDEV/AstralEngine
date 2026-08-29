@@ -68,7 +68,8 @@ canBoost = true;
 boosting = false;
 boostStartSpeed = 11.2;
 boostMinSpeed = 2.25;
-boostAirTimer = 90; // Amount of time the player can boost in the air
+boostAirTimerMax = 90; // Amount of time the player can boost in the air
+boostAirTimer = boostAirTimerMax;
 boostAura = noone; // Instance of the boost aura VFX
 
 // Energy
