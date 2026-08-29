@@ -385,3 +385,4 @@ WorldLogDraw
 WorldTimeReset
 WorldDeactivationReset
 WorldLogCleanup
+PlayerTransform

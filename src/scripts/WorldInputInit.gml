@@ -2,7 +2,7 @@
 keyInputIcons = dss_map_create();
 buttonInputIcons = dss_map_create();
 sysinput_init();
-joystick_set_deadzone(0.1);
+//joystick_set_deadzone(0.1);
 
 sysinput_add_key("pause", vk_enter);
 sysinput_add_button("pause", gp_start);
@@ -44,6 +44,14 @@ sysinput_add_key("p_lightspeed", ord('F'));
 sysinput_add_button("p_lightspeed", gp_face4);
 InputIconAddKey("p_lightspeed", sprKeyboardKeys, 5);
 InputIconAddButton("p_lightspeed", sprGamepadKeys, 3);
+
+sysinput_add_key("p_transform_l", ord('Q'));
+sysinput_add_button("p_transform_l", gp_shoulderlb);
+
+sysinput_add_key("p_transform_r", ord('E'));
+sysinput_add_button("p_transform_r", gp_shoulderrb);
+
+sysinput_add_key("p_transform", ord('T'));
 
 sysinput_add_key("npc_interact", ord('F'));
 sysinput_add_button("npc_interact", gp_face4);

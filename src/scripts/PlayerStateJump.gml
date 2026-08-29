@@ -33,10 +33,7 @@ if(ySpeed < 0 && ySpeed >= -4) {
    xSpeed -= sign(xSpeed) * yDrag;
 }
 
-if (rings >= 50 && keyLightspeedPressed && character == CharacterSonic) {
-    StatesSet(PlayerStateTransform);
-    xSpeed = 0;
-}
+PlayerTransform();
 
 PlayerHomingAttack();
 PlayerAirdash();

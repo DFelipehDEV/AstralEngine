@@ -81,6 +81,7 @@
 		|PlayerSetTerrainType
 		|PlayerSetVoicelines
 		|PlayerStomp
+		|PlayerTransform
 	+States
 		|PlayerStateNormal
 		|PlayerStateAir

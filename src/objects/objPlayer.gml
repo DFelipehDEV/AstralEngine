@@ -153,6 +153,9 @@ keyAction = 0;
 keyBoost = 0;
 keyLightspeed = 0;
 keyStomp = 0;
+keyTransformL = 0;
+keyTransformR = 0;
+keyTransform = 0;
 
 keyLeftPressed = 0;
 keyRightPressed = 0;
@@ -161,6 +164,9 @@ keyDownPressed = 0;
 keyActionPressed = 0;
 keyBoostPressed = 0;
 keyLightspeedPressed = 0;
+keyTransformLPressed = 0;
+keyTransformRPressed = 0;
+keyTransformPressed = 0;
 
 inputDirection = 1;
 /*"/*'/**//* YYD ACTION
@@ -407,6 +413,9 @@ if (allowKeys) {
     keyStomp = sysinput_get("p_stomp");
     keyBoost = sysinput_get("p_boost");
     keyLightspeed = sysinput_get("p_lightspeed");
+    keyTransformL = sysinput_get("p_transform_l");
+    keyTransformR = sysinput_get("p_transform_r");
+    keyTransform = sysinput_get("p_transform");
 
     keyLeftPressed = sysinput_get_pressed("left");
     keyRightPressed = sysinput_get_pressed("right");
@@ -415,6 +424,9 @@ if (allowKeys) {
     keyActionPressed = sysinput_get_pressed("p_jump");
     keyBoostPressed = sysinput_get_pressed("p_boost");
     keyLightspeedPressed = sysinput_get_pressed("p_lightspeed");
+    keyTransformLPressed = sysinput_get_pressed("p_transform_l");
+    keyTransformRPressed = sysinput_get_pressed("p_transform_r");
+    keyTransformPressed = sysinput_get_pressed("p_transform");
 
     inputDirection = sysinput_get_axis("left", "right");
 
