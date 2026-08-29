@@ -56,7 +56,7 @@ switch (icon) {
     // 5 Rings
     case 2:
         player.rings += 5;
-        PlaySoundSingle(sndRingMonitor,);
+        PlaySoundSingle(sndRingMonitor);
         break;
 
 
