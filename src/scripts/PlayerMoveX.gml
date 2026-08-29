@@ -23,15 +23,16 @@ switch (argument_count) {
 
 // Apply horizontal movement based on player input
 if (keyLeft != keyRight) {
-    var dir;
-    dir = keyRight - keyLeft;
+    var _dir, _targetSpeed;
+    _dir = keyRight - keyLeft;
+    _targetSpeed = _xTopSpeed * _dir;
 
-    if (sign(xSpeed) != dir || abs(xSpeed) < _xTopSpeed) {
-        xSpeed += _xAcceleration * dir;
-    }
-
-    if (sign(xSpeed) != dir) {
-        xSpeed += _xBrakeFriction * dir;
+    if (sign(xSpeed) != 0 && sign(xSpeed) != sign(_dir)) {
+        xSpeed += (_xAcceleration + _xBrakeFriction) * _dir;
+    } else {
+        if (abs(xSpeed) < abs(_targetSpeed)) {
+            xSpeed = approach(xSpeed, _targetSpeed, _xAcceleration);
+        }
     }
 } else {
     xSpeed = approach(xSpeed, 0, _xFriction);

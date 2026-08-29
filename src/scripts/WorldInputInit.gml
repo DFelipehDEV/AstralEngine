@@ -2,7 +2,7 @@
 keyInputIcons = dss_map_create();
 buttonInputIcons = dss_map_create();
 sysinput_init();
-joystick_set_deadzone(0.9);
+joystick_set_deadzone(0.1);
 
 sysinput_add_key("pause", vk_enter);
 sysinput_add_button("pause", gp_start);
