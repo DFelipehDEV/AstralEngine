@@ -23,7 +23,7 @@ xDirection = PlayerGetInputDirection();
 
 // Air drag
 if(ySpeed < 0 && ySpeed >= -4) {
-   xSpeed -= sign(xSpeed) * yDrag;
+   xSpeed -= (sign(xSpeed) * yDrag) * global.timeScale;
 }
 
 PlayerHomingAttack();
