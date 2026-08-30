@@ -55,4 +55,6 @@ if (ground) {
     PlayerJump();
 }
 
+PlayerRotateSpriteToAngle();
+
 xDirection = esign(xSpeed, xDirection);

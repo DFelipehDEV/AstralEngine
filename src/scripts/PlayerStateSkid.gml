@@ -39,5 +39,7 @@ if (alarm[0] == -1) {
 
 xDirection = esign(xSpeed, xDirection);
 
+PlayerRotateSpriteToAngle();
+
 if (ground)
     PlayerJump();

@@ -361,6 +361,8 @@ if (boosting) {
     }
 }
 
+image_angle = approach_angle(image_angle, 0, 5 * global.timeScale);
+
 StatesUpdate(global.timeScale);
 
 canAttack = boosting ||
@@ -503,20 +505,8 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Animation system and rotation
+/// Animation system
 AnimationUpdate();
-
-// Rotate Sprites
-if (xSpeed == 0 && ground
-|| state == PlayerStateRoll) {
-    image_angle = 0;
-} else {
-    if (ground) {
-        image_angle = approach_angle(image_angle, floorto(angle, 11.25), (6 + abs(xSpeed)) * global.timeScale);
-    } else {
-        image_angle = approach_angle(image_angle, 0, 4 * global.timeScale);
-    }
-}
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603

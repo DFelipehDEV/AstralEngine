@@ -2,8 +2,6 @@
 if (stateEntering) {
     keyRight = false;
     keyLeft = false;
-    xSpeed = 0;
-    AnimationApply("TURN");
     exit;
 }
 if (stateExiting) {
@@ -11,6 +9,7 @@ if (stateExiting) {
 }
 
 PlayerMoveX();
+PlayerRotateSpriteToAngle();
 if (stateTimer > 8) {
     xDirection = -xDirection;
     StatesSet(PlayerStateNormal);

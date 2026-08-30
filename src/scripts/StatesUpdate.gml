@@ -6,5 +6,5 @@ if (argument_count == 1) {
 }
 if (!stateEntering && !stateExiting) {
     script_execute(state);
-    stateTimer += 1 * _timeScale;
+    stateTimer += _timeScale;
 }

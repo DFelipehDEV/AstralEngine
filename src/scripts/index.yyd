@@ -389,3 +389,4 @@ PlayerTransform
 RoomGoto
 RoomGotoNext
 RoomGotoPrevious
+PlayerRotateSpriteToAngle

@@ -83,6 +83,7 @@
 		|PlayerSetVoicelines
 		|PlayerStomp
 		|PlayerTransform
+		|PlayerRotateSpriteToAngle
 	+States
 		|PlayerStateNormal
 		|PlayerStateAir

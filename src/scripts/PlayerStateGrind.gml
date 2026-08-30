@@ -47,5 +47,7 @@ if (!PlayerCollisionObjectBottom(x, y, angle, maskBig, objRail) && !PlayerCollis
 
 xDirection = esign(xSpeed, xDirection);
 
+PlayerRotateSpriteToAngle();
+
 PlayerJump();
 PlayerBoost(false);
