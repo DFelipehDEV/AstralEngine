@@ -14,7 +14,7 @@ if (stateExiting) {
 }
 
 image_xscale = esign(objPlayer.x - x, image_xscale);
-xSpeed = lerp(xSpeed, 0, 0.12);
+xSpeed = lerp(xSpeed, 0, 0.12 * global.timeScale);
 
 if (stateTimer > 20) {
     StatesSet(HeavyStateChase);

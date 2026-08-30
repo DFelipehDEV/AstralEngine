@@ -30,10 +30,7 @@ action_id=603
 applies_to=self
 */
 /// Invincibility
-if (invincibilityTimer > 0) {
-    invincibilityTimer -= 1;
-}
-
+invincibilityTimer = max(invincibilityTimer - global.timeScale, 0);
 hit = false;
 #define Other_4
 /*"/*'/**//* YYD ACTION

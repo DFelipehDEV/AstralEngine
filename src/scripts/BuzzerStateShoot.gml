@@ -9,7 +9,7 @@ if (stateExiting) {
 }
 
 if (target != noone) {
-    if (stateTimer == 15 || stateTimer == 30) {
+    if (floor(stateTimer) == 15 || floor(stateTimer) == 30) {
         with (instance_create(x + 9 * image_xscale, y + 12, objProjectileBuzzer)) {
             hspeed = 4 * dcos(point_direction(x, y, other.target.x, other.target.y));
             vspeed = -4 * dsin(point_direction(x, y, other.target.x, other.target.y));
