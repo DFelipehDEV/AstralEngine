@@ -17,7 +17,7 @@ if (distance_to_object(objRing) > 90 || !instance_exists(objRing) || ground) {
 else {
     ringNear = instance_nearest(x, y, objRing)
     ringDir = point_direction(x, y, ringNear.x, ringNear.y);
-    xSpeed = lerp(xSpeed, lengthdir_x(12, ringDir), 0.4);
-    ySpeed = lerp(ySpeed, lengthdir_y(12, ringDir), 0.4);
+    xSpeed = lerp(xSpeed, lengthdir_x(12, ringDir), 0.4 * global.timeScale);
+    ySpeed = lerp(ySpeed, lengthdir_y(12, ringDir), 0.4 * global.timeScale);
     image_angle = point_direction(xprevious, yprevious, x, y)-90
 }

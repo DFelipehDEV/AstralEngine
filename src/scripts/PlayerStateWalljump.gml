@@ -8,7 +8,7 @@ if (stateExiting) {
     exit;
 }
 
-ySpeed = lerp(ySpeed, 1.5, 0.09);
+ySpeed = lerp(ySpeed, 1.5, 0.09 * global.timeScale);
 
 if (keyActionPressed) {
     xSpeed = 6*xDirection;
