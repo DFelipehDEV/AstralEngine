@@ -7,6 +7,12 @@ if (stateExiting) {
     exit;
 }
 
+if (!instance_exists(target)) {
+    target = noone;
+    StatesSet(EggpawnStateReturn);
+    exit;
+}
+
 xSpeed = lerp(xSpeed, 4.5 * image_xscale, 0.1 * global.timeScale);
 image_xscale = esign(target.x - x, image_xscale);
 

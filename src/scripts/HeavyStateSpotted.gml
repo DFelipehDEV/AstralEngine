@@ -13,7 +13,16 @@ if (stateExiting) {
     exit;
 }
 
-image_xscale = esign(objPlayer.x - x, image_xscale);
+if (!instance_exists(target)) {
+    target = instance_nearest(x, y, objPlayer);
+}
+if (instance_exists(target)) {
+    image_xscale = esign(target.x - x, image_xscale);
+} else {
+    StatesSet(HeavyStateNormal);
+    exit;
+}
+
 xSpeed = lerp(xSpeed, 0, 0.12 * global.timeScale);
 
 if (stateTimer > 20) {
