@@ -24,13 +24,13 @@ if (animation != "BREATHE") {
 
 // Variable jump
 if (ySpeed < 0 && jumpAirTimer <= 13 && keyAction) {
-    ySpeed += jumpStrength/(26);
-    jumpAirTimer += 1;
+    ySpeed += (jumpStrength/(26)) * global.timeScale;
+    jumpAirTimer += global.timeScale;
 }
 
 // Air drag
 if(ySpeed < 0 && ySpeed >= -4) {
-   xSpeed -= sign(xSpeed) * yDrag;
+   xSpeed -= (sign(xSpeed) * yDrag) * global.timeScale;
 }
 
 PlayerTransform();
