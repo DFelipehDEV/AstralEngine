@@ -1,4 +1,3 @@
-|README
 |Init
 +Animation
 	|AnimationInit
@@ -15,6 +14,8 @@
 	|DeactivateExceptionsAdd
 	|DeactivateExceptionsRemove
 	|MarkAsActive
++Debug
+	|Log
 +Drawing
 	|DrawCircularBar
 	|DrawSpriteTiledHorizontalPart
@@ -163,6 +164,10 @@
 			|PlayerCollisionRightEdge
 			|PlayerCollisionSlope
 			|PlayerCollisionTop
++Room
+	|RoomGoto
+	|RoomGotoNext
+	|RoomGotoPrevious
 +Save
 	|LoadGame
 	|SaveGame
@@ -217,8 +222,6 @@
 	|DrawTrail
 +Window
 	|WindowSetScale
-+Debug
-	|Log
 +World
 	|WorldInputInit
 	|WorldTimeInit
@@ -237,6 +240,3 @@
 	|WorldTimeReset
 	|WorldDeactivationReset
 	|WorldLogCleanup
-|RoomGoto
-|RoomGotoNext
-|RoomGotoPrevious

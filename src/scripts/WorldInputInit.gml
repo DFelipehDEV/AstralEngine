@@ -35,6 +35,11 @@ sysinput_add_button("p_stomp", gp_face2);
 InputIconAddKey("p_stomp", sprKeyboardKeys, 3);
 InputIconAddButton("p_stomp", sprGamepadKeys, 1);
 
+sysinput_add_key("p_slide", vk_down);
+sysinput_add_button("p_slide", gp_face2);
+InputIconAddKey("p_slide", sprKeyboardKeys, 29);
+InputIconAddButton("p_slide", sprGamepadKeys, 1);
+
 sysinput_add_key("p_boost", ord('S'));
 sysinput_add_button("p_boost", gp_face3);
 InputIconAddKey("p_boost", sprKeyboardKeys, 18);

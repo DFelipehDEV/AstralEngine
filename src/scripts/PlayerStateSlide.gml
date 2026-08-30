@@ -23,12 +23,12 @@ if (distance_to_object(objSlidepassSensor) > 15) {
     }
 
     // Decrease reset timer if is not holding the slide key
-    if (!keyDown && slideCancelTimer > 0) {
+    if (!keySlide && slideCancelTimer > 0) {
         slideCancelTimer -= 1;
     }
 
     // Back to the normal state if the player stopped or is not in the ground anymore
-    if (!ground || floor(xSpeed) == 0 || !keyDown && slideCancelTimer == 0) {
+    if (!ground || floor(xSpeed) == 0 || !keySlide && slideCancelTimer == 0) {
         StatesSet(PlayerStateNormal);
     }
 }

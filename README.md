@@ -1,6 +1,6 @@
 ## Requirements:
 * [Game Maker 8.2](https://gm82.cherry-treehouse.com/#Downloads)
-* [sysInput 0.9.0](https://gitlab.com/-/project/61833387/uploads/80abcd5d94e9f6335c52c3cf8eb1a127/sysInput.gex)
+* [sysInput 0.9.1](https://github.com/DFelipehDEV/AstralEngine/raw/refs/heads/master/extensions/sysInput.gex)
 
 ### How to install sysInput:
 * Open the AstralEngine82.gm82

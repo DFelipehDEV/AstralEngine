@@ -103,14 +103,8 @@
 		+VFX
 			|objEnemyMetal
 			|objEnemyDeath
-	+Gimmicks
-		|objCorkscrew
-		|objBridge
-		|objSpikeBallPivot
+	+SwingPole
 		|objSwingPole
-		+Unplacable
-			|objBridgeLog
-			|objCorkscrewDepth
 	+Gizmos
 		|objInstanceGroup
 		|obj3DAudioPlayer
@@ -127,6 +121,10 @@
 		|objProjectile
 		|objProjectileBuzzer
 		|objSpinnerShock
+		|objSpike
+		|objSpikeMove
+		|objSpikeBallPivot
+		|objSpikeBall
 	+Monitors
 		|objMonitor
 		|objMonitorEnergy
@@ -196,10 +194,6 @@
 			|objButtonSensor
 			|objHideHUDSensor
 			|objStartDialogueSensor
-	+Spikes
-		|objSpike
-		|objSpikeMove
-		|objSpikeBall
 	+Spring
 		|objSpring
 	+Water
@@ -212,6 +206,14 @@
 			|objWaterBubbleSmall
 	+WayLauncher
 		|objWayLauncher
+	+Bridge
+		|objBridge
+		+Unplacable
+			|objBridgeLog
+	+Corkscrew
+		|objCorkscrew
+		+Unplacable
+			|objCorkscrewDepth
 +Transitions
 	|objTransition
 	|objFadeRoom

@@ -75,26 +75,21 @@
 	|sprPlayerGrind
 	|sprPlayerStomp
 +Interactables
-	+Spring
-		|sprSpring
-	+Rings
-		|sprRing
-		|sprRingHyper
-		|sprRingAmount
-		|sprRingSpecial
-		|sprTeleportRing
-		|sprTeleportRing2
-		|sprTeleportRing3
-		+VFX
-			|sprRingSparkle
-			|sprRingSparkle2
-			|sprRingSparkle3
-			|sprRingYellow
-			|sprRingRainbow
-			|sprRingNumber
+	+Boxes
+		|sprBox
+		|sprBoxPart
+		|sprMetalBox
+	+Bridge
+		|sprBridgeLog
+	+ChainBall
+		|sprSpikeBallPivot
+		|sprChain
 	+Checkpoint
 		|sprCheckpoint
 		|sprCheckpointActivated
+	+Corkscrew
+		|sprCorkscrew
+		|sprCorkscrewDepth
 	+Dashes
 		|sprDashPad
 		|sprDashRail
@@ -102,31 +97,6 @@
 		|sprDashRampRainbow
 		|sprDashRing
 		|sprDashRingRainbow
-	+Handle
-		|sprCrane
-		|sprHandle
-		|sprHandleLine
-	+Rails
-		|sprRail
-		|sprRail2
-		|sprRail3
-	+WayLauncher
-		|sprWayLauncher
-		|sprWayLauncherDirection
-	+Monitors
-		|sprMonitor
-		|sprMonitorIcons
-	+Navigator
-		|sprNavigator
-	+Boxes
-		|sprBox
-		|sprBoxPart
-		|sprMetalBox
-	+Goal
-		|sprGoalRing
-	+Spikes
-		|sprSpike
-		|sprSpikeBall
 	+Enemies
 		+Spinner
 			|sprEnemySpinner
@@ -152,17 +122,36 @@
 			|sprEnemyMetal
 			|sprEnemyWarn
 		|sprEnemyTurn
-	+Gimmicks
-		+Corkscrew
-			|sprCorkscrew
-			|sprCorkscrewDepth
-		+Bridge
-			|sprBridgeLog
-		+ChainBall
-			|sprSpikeBallPivot
-			|sprChain
-		+SwingPole
-			|sprSwingPole
+	+Goal
+		|sprGoalRing
+	+Handle
+		|sprCrane
+		|sprHandle
+		|sprHandleLine
+	+Monitors
+		|sprMonitor
+		|sprMonitorIcons
+	+Navigator
+		|sprNavigator
+	+Rails
+		|sprRail
+		|sprRail2
+		|sprRail3
+	+Rings
+		|sprRing
+		|sprRingHyper
+		|sprRingAmount
+		|sprRingSpecial
+		|sprTeleportRing
+		|sprTeleportRing2
+		|sprTeleportRing3
+		+VFX
+			|sprRingSparkle
+			|sprRingSparkle2
+			|sprRingSparkle3
+			|sprRingYellow
+			|sprRingRainbow
+			|sprRingNumber
 	+Sensors
 		+Camera
 			|sprCameraSensor
@@ -186,6 +175,13 @@
 		+UI
 			|sprHUDHideSensor
 			|sprStartDialogueSensor
+	+Spikes
+		|sprSpike
+		|sprSpikeBall
+	+Spring
+		|sprSpring
+	+SwingPole
+		|sprSwingPole
 	+Water
 		|sprWater
 		|sprWaterfall
@@ -196,6 +192,9 @@
 		|sprDrownTimer
 		|sprWaterSplash
 		|sprWaterDrop
+	+WayLauncher
+		|sprWayLauncher
+		|sprWayLauncherDirection
 +Stages
 	+SpaceColony
 		|sprTestFlower
