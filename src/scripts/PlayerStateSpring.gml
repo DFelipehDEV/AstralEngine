@@ -11,7 +11,7 @@ if (stateExiting) {
 PlayerMoveX();
 // Animations
 if (animation != "FLING") {
-    if (stateTimer < 15) {
+    if (stateTimer < 30) {
         AnimationApply("SPRING");
     } else {
         // Spring animation
