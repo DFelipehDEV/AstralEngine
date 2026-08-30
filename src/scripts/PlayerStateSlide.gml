@@ -13,7 +13,15 @@ animationSpeed = 0.2 + abs(xSpeed)/18;
 
 PlayerApplySlopeFactor(global.timeScale);
 
-if (distance_to_object(objSlidepassSensor) > 15) {
+var _inSlidepass;
+_inSlidepass = false;
+if (instance_exists(objSlidepassSensor)) {
+    if (distance_to_object(objSlidepassSensor) <= 15) {
+        _inSlidepass = true;
+    }
+}
+
+if (!_inSlidepass) {
     // Decelerate while going to the left
     if (xSpeed < 0) {
         xSpeed += slideFriction;

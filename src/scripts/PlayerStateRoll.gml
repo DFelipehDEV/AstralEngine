@@ -9,7 +9,15 @@ if (stateExiting) {
 
 animationSpeed = 0.2 + abs(xSpeed)/17;
 
-if (distance_to_object(objSlidepassSensor) > 15) {
+var _inSlidepass;
+_inSlidepass = false;
+if (instance_exists(objSlidepassSensor)) {
+    if (distance_to_object(objSlidepassSensor) <= 15) {
+        _inSlidepass = true;
+    }
+}
+
+if (!_inSlidepass) {
     // Check if is going to the right
     if (xSpeed > 0) {
         // Decelerate depending on what are you pressing
@@ -71,6 +79,6 @@ if (!ground) {
 if (ground)
     PlayerJump();
 
-PlayerBoost();
+PlayerBoost(false);
 
 xDirection = esign(xSpeed, xDirection);
