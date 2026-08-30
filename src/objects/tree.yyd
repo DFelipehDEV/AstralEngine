@@ -116,7 +116,6 @@
 	+Hazards
 		|objHurt
 		|objProjectile
-		|objProjectileBuzzer
 		|objSpinnerShock
 		|objSpike
 		|objSpikeMove
