@@ -7,7 +7,7 @@ applies_to=self
 /// Variables
 image_speed = 0;
 
-gravity = 0.23;
+gravity = 0.23 * global.timeScale;
 image_xscale = random_range(1, 0.6);
 
 timer = 0;
@@ -18,7 +18,7 @@ action_id=603
 applies_to=self
 */
 /// Rotation
-image_angle += 3 + abs(vspeed) + irandom_range(-1, 1);
+image_angle += (3 + abs(vspeed) + irandom_range(-1, 1)) * global.timeScale;
 #define Other_40
 /*"/*'/**//* YYD ACTION
 lib_id=1

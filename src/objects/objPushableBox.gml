@@ -31,5 +31,5 @@ if (!ground) {
         ground = false;
     }
 
-    xSpeed = approach(xSpeed, 0, 0.1);
+    xSpeed = approach(xSpeed, 0, 0.1 * global.timeScale);
 }

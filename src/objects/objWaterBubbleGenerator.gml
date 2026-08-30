@@ -15,15 +15,14 @@ action_id=603
 applies_to=self
 */
 /// Generate
-smallBubbleTimer += 1;
-if (smallBubbleTimer == 110) {
+smallBubbleTimer += global.timeScale;
+if (smallBubbleTimer >= 110) {
     smallBubbleTimer = 0;
     instance_create(x, y, objWaterBubbleSmall);
 }
 
-bigBubbleTimer += 1;
-
-if (bigBubbleTimer == 290) {
+bigBubbleTimer += global.timeScale;
+if (bigBubbleTimer >= 290) {
     instance_create(x, y, objWaterBubble);
     bigBubbleTimer = 0;
 }

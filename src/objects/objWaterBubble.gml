@@ -14,7 +14,7 @@ action_id=603
 applies_to=self
 */
 /// Movement
-vspeed = approach(vspeed, -0.9, 0.17);
+vspeed = approach(vspeed, -0.9, 0.17 * global.timeScale);
 
 if (image_index > 7) {
     image_index = 5;
