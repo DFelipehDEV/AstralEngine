@@ -16,16 +16,21 @@ applies_to=self
 */
 /// Pull
 if (pull) {
-    // Check if we have reached the crane
+    var _dir;
+    _dir = point_direction(x, y, crane.x, crane.y);
+    hspeed = lerp(hspeed, 10 * dcos(_dir), 0.1 * global.timeScale)
+    vspeed = lerp(vspeed, 10 * -dsin(_dir), 0.1 * global.timeScale);
+    player.x = x;
+    player.y = y + 12;
+
     if (place_meeting(x, y, crane)) {
         pull = false;
         hspeed = 0;
         vspeed = 0;
         with (player) {
-            ySpeed = -6;
-            StatesSet(PlayerStateAir);
-            AnimationApply("LANDING");
-            y -= 16;
+            ySpeed = -6.5;
+            StatesSet(PlayerStateSpring);
+            AnimationApply("SPRING");
             canMove = true;
         }
         if (!audio_isplaying(sndPlayerJump)) {
@@ -38,19 +43,11 @@ if (pull) {
             PlaySound(sndHandleMove, 1, 1, true);
         }
     }
-
-    var _dir;
-    _dir = point_direction(x, y, crane.x, crane.y);
-
-    hspeed = lerp(hspeed, 10 * dcos(_dir), 0.1)
-    vspeed = lerp(vspeed, 10 * -dsin(_dir), 0.1);
-    player.x = x;
-    player.y = y + 12;
 }
 else {
     // Return to original position
-    x = approach(x, xstart, 6);
-    y = approach(y, ystart, 6);
+    x = approach(x, xstart, 6 * global.timeScale);
+    y = approach(y, ystart, 6 * global.timeScale);
 }
 #define Other_4
 /*"/*'/**//* YYD ACTION
