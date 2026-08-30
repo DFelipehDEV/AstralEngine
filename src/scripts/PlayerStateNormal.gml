@@ -7,6 +7,7 @@ if (stateExiting) {
 }
 
 PlayerMoveX();
+PlayerApplySlopeFactor(global.timeScale);
 
 if (xSpeed == 0) {
     image_angle = 0;

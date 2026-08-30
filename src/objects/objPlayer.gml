@@ -260,10 +260,6 @@ if (abs(xSpeed) > xMaxSpeed) {
     xSpeed -= (xFriction * 1.2) * sign(xSpeed);
 }
 
-if (state != PlayerStateRoll) {
-    PlayerApplySlopeFactor();
-}
-
 pushingWall = false;
 // Stop when meet a wall/slide pass and isnt sliding
 if ((xSpeed > 0 && (PlayerCollisionRight(x, y, angle, maskBig))) || (xSpeed > 0 && PlayerCollisionObjectRight(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {

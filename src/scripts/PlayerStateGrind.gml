@@ -14,6 +14,7 @@ if (stateExiting) {
 }
 
 PlayerMoveX(xAcceleration, 0, xTopSpeed);
+PlayerApplySlopeFactor(global.timeScale);
 
 var _pitch;
 _pitch = min(max(0.6, abs(xSpeed)/8), 1.2);

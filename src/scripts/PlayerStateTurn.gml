@@ -9,6 +9,7 @@ if (stateExiting) {
 }
 
 PlayerMoveX();
+PlayerApplySlopeFactor(global.timeScale);
 PlayerRotateSpriteToAngle();
 if (stateTimer > 8) {
     xDirection = -xDirection;

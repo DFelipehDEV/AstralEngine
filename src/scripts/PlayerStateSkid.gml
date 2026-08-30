@@ -7,6 +7,8 @@ if (stateExiting) {
     exit;
 }
 
+PlayerApplySlopeFactor(global.timeScale);
+
 // Decelerate while going to the left
 if (xSpeed < 0) {
     xSpeed += skidDeceleration;
