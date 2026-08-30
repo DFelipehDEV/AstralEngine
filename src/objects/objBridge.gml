@@ -23,8 +23,7 @@ for (i=0; i<logsAmount; i+=1) heights[i] = 0;
 // Find out the logs height depending on the player objects
 var _player;
 _player = collision_rectangle(x, y - 8, x + width, y + maxTension, objPlayer, true, false);
-
-if (_player) {
+if (instance_exists(_player)) {
     if (_player.onPlatform) {
         var _playerX;
         _playerX = round(_player.x / logWidth) * logWidth;
