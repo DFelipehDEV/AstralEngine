@@ -13,12 +13,17 @@ if (canAttack) {
 
                 // Spawn metal parts
                 repeat(4) {
+                    CreateDebris(
                     var _wood;
-                    _wood = instance_create(x, y, objBoxPart);
+                    _wood = instance_create(x, y, objDebris);
+                    _wood.sprite_index = sprBoxPart;
+                    _wood.image_xscale = random_range(1, 0.6);
                     _wood.hspeed = random_range(-3, 3);
                     _wood.vspeed = random_range(-6, -3);
-                    CreateDummy(x + random_range(-32, 32), y + random_range(-32, 32), sprExplosion2, 0.3, 0, -3, bm_normal, 1, 1, 1, 0)
+                    _wood.gravity = 0.23 * sqr(global.timeScale);
+                    _wood.rotate = true;
                 }
+                CreateDummy(x + random_range(-32, 32), y + random_range(-32, 32), sprExplosion2, 0.3, 0, -3, bm_normal, 1, 1, 1, 0);
             }
         }
     }

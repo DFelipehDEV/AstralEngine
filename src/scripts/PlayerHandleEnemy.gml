@@ -24,16 +24,16 @@ if (_enemy != noone) {
                 if (_enemy.knockOnDeath) {
                     var _enemyDeath;
                     _enemyDeath = instance_create(_enemy.x, _enemy.y, objEnemyDeath);
-                    _enemyDeath.hspeed = xSpeed * 1.05;
+                    _enemyDeath.hspeed = (xSpeed * 1.05) * global.timeScale;
 
                     if (ground) {
-                        _enemyDeath.vspeed = -6;
+                        _enemyDeath.vspeed = -6 * global.timeScale;
                     } else {
-                        _enemyDeath.vspeed = ySpeed * 0.7;
+                        _enemyDeath.vspeed = (ySpeed * 0.7) * global.timeScale;
                     }
 
-                    _enemyDeath.gravity = 0.2;
-                    _enemyDeath.alarm[0] = 40;
+                    _enemyDeath.gravity = 0.2 * sqr(global.timeScale);
+                    _enemyDeath.alarm[0] = round(40 / global.timeScale);
                     _enemyDeath.sprite_index = _enemy.sprite_index;
                 } else {
                     with(_enemy) {

@@ -75,8 +75,6 @@
 	+Boxes
 		|objBox
 		|objPushableBox
-		+VFX
-			|objBoxPart
 	+Checkpoint
 		|objCheckpoint
 	+Dashes
@@ -89,7 +87,6 @@
 		+UI
 			|objQTEKeys
 	+Destructable
-		|objDebris
 		|objDestructiveWall
 	+Enemies
 		|objEnemy
@@ -230,6 +227,7 @@
 	|objVFX
 	|objDummy
 	|objAfterImage
+	|objDebris
 +Stages
 	+SpaceColony
 		|objTestFlower

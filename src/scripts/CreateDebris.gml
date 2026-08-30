@@ -9,5 +9,5 @@ with (instance_create_depth(argument0, argument1, argument2, objDebris)) {
 
     hspeed = argument9 * global.timeScale;
     vspeed = argument10 * global.timeScale;
-    gravity = argument11 * global.timeScale;
+    gravity = argument11 * sqr(global.timeScale);
 }

@@ -5,8 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
 timer = 0;
+rotate = false;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -14,9 +14,8 @@ action_id=603
 applies_to=self
 */
 /// Animation
-
 if (rotate) {
-    image_angle += 3 + abs(vspeed);
+    image_angle += (3 + abs(vspeed)) * global.timeScale;
 }
 #define Other_40
 /*"/*'/**//* YYD ACTION
