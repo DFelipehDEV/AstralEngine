@@ -11,4 +11,6 @@ var _string;
 _string = buffer_read_string(_buffer);
 Log(_string);
 
+buffer_destroy(_buffer);
+
 return ds_map_read_ini_string(global.saveData, _string);
