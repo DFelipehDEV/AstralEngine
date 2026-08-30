@@ -615,21 +615,21 @@ if (cam.target == id) {
     var _xS;
     _xS = clamp(_xSpeed * 11, -90, 90);
     if (state != PlayerStateWaylauncher)
-        cam.xShift = lerp(cam.xShift, _xS, 0.05);
+        cam.xShift = lerp(cam.xShift, _xS, 0.05 * global.timeScale);
 
     switch(state) {
         case PlayerStateLookup:
             if (stateTimer > 30)
-                cam.yShift = approach(cam.yShift, -90, 4);
+                cam.yShift = approach(cam.yShift, -90, 4 * global.timeScale);
             break;
 
         case PlayerStateCrouch:
             if (stateTimer > 30)
-                cam.yShift = approach(cam.yShift, 90, 4);
+                cam.yShift = approach(cam.yShift, 90, 4 * global.timeScale);
             break;
 
         case PlayerStateSlide:
-            cam.yShift = approach(cam.yShift, 24, 3);
+            cam.yShift = approach(cam.yShift, 24, 3 * global.timeScale);
             break;
 
         case PlayerStateWaylauncher:
@@ -648,17 +648,17 @@ if (cam.target == id) {
                 targetYShift = 80;
             }
 
-            cam.xShift = approach(cam.xShift, targetXShift, 10);
-            cam.yShift = approach(cam.yShift, targetYShift, 10);
+            cam.xShift = approach(cam.xShift, targetXShift, 10 * global.timeScale);
+            cam.yShift = approach(cam.yShift, targetYShift, 10 * global.timeScale);
             break;
 
         case PlayerStateStomp:
-            cam.yShift = approach(cam.yShift, 160, 3);
+            cam.yShift = approach(cam.yShift, 160, 3 * global.timeScale);
             break;
 
         default:
             if (cam.yShakeTimer == 0) {
-                cam.yShift = approach(cam.yShift, _ySpeed * 2, 5);
+                cam.yShift = approach(cam.yShift, _ySpeed * 2, 5 * global.timeScale);
             }
     }
 }
