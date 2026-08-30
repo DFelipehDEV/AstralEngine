@@ -24,7 +24,7 @@ image_index = World.gameTime div 50;
 
 // Gravity
 if (!place_meeting(x, y, objTerrain)) {
-    ySpeed += yGravity;
+    ySpeed += yGravity * global.timeScale;
 }
 
 // Bounce if collided with a wall
@@ -40,17 +40,15 @@ if (place_meeting(x, y + ySpeed, objTerrain)) {
     ySpeed *= 0.98;
 }
 
-x += xSpeed;
-y += ySpeed;
+x += xSpeed * global.timeScale;
+y += ySpeed * global.timeScale;
 
-/// Destroy timer
-liveTimer -= 1;
-
+liveTimer = max(liveTimer - global.timeScale, 0);
 if (liveTimer < 90) {
     visible = (liveTimer mod 2);
 }
 
-if (liveTimer <= 0) {
+if (liveTimer == 0) {
     instance_destroy();
 }
 #define Step_1
