@@ -17,7 +17,12 @@ applies_to=self
 image_index = World.gameTime div 40;
 
 image_angle = World.gameTime / 8.3;
-image_xscale = max(lerp(image_xscale, 1 - floorto(abs(objPlayer.x - x)/200, 0.1), 0.2), 0);
+
+var _player;
+_player = instance_nearest(x, y, objPlayer);
+if (instance_exists(_player)) {
+    image_xscale = max(lerp(image_xscale, 1 - floorto(abs(_player.x - x)/200, 0.1), 0.2), 0);
+}
 image_yscale = image_xscale;
 #define Other_10
 /*"/*'/**//* YYD ACTION
