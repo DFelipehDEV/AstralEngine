@@ -407,7 +407,7 @@ action_id=603
 applies_to=self
 */
 /// Keys
-lockKeysTimer = max(lockKeysTimer - 1, 0);
+lockKeysTimer = max(lockKeysTimer - global.timeScale, 0);
 if (allowKeys) {
     keyLeft = sysinput_get("left");
     keyRight = sysinput_get("right");
