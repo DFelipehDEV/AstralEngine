@@ -15,7 +15,7 @@ applies_to=self
 */
 /// Rotation
 if (active) {
-    image_angle += 6.4 * player.xDirection;
+    image_angle += (6.4 * player.xDirection) * global.timeScale;
     var _rot;
     with (player) {
         image_angle = other.image_angle;

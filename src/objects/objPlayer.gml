@@ -560,7 +560,7 @@ if (afterImageTimer > 0) {
 }
 
 // Trail
-trailTimer = max(trailTimer - 1, 0);
+trailTimer = max(trailTimer - global.timeScale, 0);
 trailAlpha = lerp(trailAlpha, trailTimer/110, 0.08 * global.timeScale);
 TrailUpdate(
     floor(x)+dcos(angle+90)+angleCos*xSpeed,
@@ -568,7 +568,7 @@ TrailUpdate(
     trailAlpha > 0.1
 )
 
-starTimer = max(starTimer - 1, 0);
+starTimer = max(starTimer - global.timeScale, 0);
 if (starTimer > 0 && starTimer mod 5 == 1) {
     CreateDummy(x + irandom_range(-25, 25), y + irandom_range(-25, 25), sprStar, 0.25, 0, choose(1, -2), bm_normal, 1, 1, 1, 0);
 }
