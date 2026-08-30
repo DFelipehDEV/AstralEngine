@@ -8,6 +8,7 @@ applies_to=self
 MarkAsActive();
 pull = false;
 player = noone;
+pullSound = -1;
 #define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -36,11 +37,12 @@ if (pull) {
         if (!audio_isplaying(sndPlayerJump)) {
             PlaySound(sndPlayerJump);
         }
-        audio_stop(sndHandleMove);
+        audio_stop(pullSound);
+        pullSound = -1;
         exit;
     } else {
-        if (!audio_isplaying(sndHandleMove)) {
-            PlaySound(sndHandleMove, 1, 1, true);
+        if (pullSound == -1) {
+            pullSound = PlaySound(sndHandleMove, 1, 1, true);
         }
     }
 }
