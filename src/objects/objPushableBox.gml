@@ -16,7 +16,7 @@ applies_to=self
 */
 /// Physics
 BodyApplyGravity(0.2);
-move_and_collide(xSpeed, ySpeed, objTerrain);
+move_and_collide(xSpeed * global.timeScale, ySpeed * global.timeScale, objTerrain);
 
 // Vertical movement
 if (!ground) {
