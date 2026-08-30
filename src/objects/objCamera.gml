@@ -49,13 +49,13 @@ if (xShakeTimer > 0) {
 
 // Vertical Shake
 if (yShakeTimer > 0) {
-    yShift = approach(yShift, yShakeOffset - round(yShakeTimer/2)*2, 10)
-    y = lerp(y, floor(y + yShift), 0.2);
+    yShift = approach(yShift, yShakeOffset - round(yShakeTimer/2)*2, 10 * global.timeScale)
+    y = lerp(y, floor(y + yShift), 0.2 * global.timeScale);
 
-    if (yShakeTimer mod 6 == 4) {
+    if (floor(yShakeTimer) mod 6 == 4) {
         yShakeOffset = -yShakeOffset;
     }
-    yShakeTimer -= 1;
+    yShakeTimer = max(yShakeTimer - global.timeScale, 0);
 }
 
 
@@ -100,7 +100,7 @@ applies_to=self
 */
 /// Zoom
 if (zoom != zoomTarget) {
-    zoom = lerp(zoom, zoomTarget, 0.15);
+    zoom = lerp(zoom, zoomTarget, 0.15 * global.timeScale);
     ViewSetZoom(zoom);
 }
 #define Other_4
