@@ -61,6 +61,7 @@ action_id=603
 applies_to=self
 */
 /// Draw boost
+if (!instance_exists(player)) exit;
 draw_set_blend_mode(bm_add);
 if (player.xDirection == 1) {
     draw_sprite_ext(sprite_index, image_index, floor(x), floor(y), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
