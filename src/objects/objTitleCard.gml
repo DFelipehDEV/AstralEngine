@@ -114,7 +114,7 @@ if (cardTimer < 30) {
         // Give player control
         if (player != noone) {
             player.allowKeys = true;
-            objWorld.gameTimeAllow = true;
+            World.gameTimeAllow = true;
         }
     }
 

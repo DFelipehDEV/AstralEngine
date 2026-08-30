@@ -711,14 +711,14 @@ if (trailAlpha > 0.1) {
 
 // Draw grind effect
 if (state == PlayerStateGrind) {
-    draw_sprite_ext(sprPlayerGrind, objWorld.gameTime div 30, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
+    draw_sprite_ext(sprPlayerGrind, World.gameTime div 30, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
 }
 
 // Draw character if the player is not hurt. Blink when hurt
 if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink && (invincibilityTimer div 1.5) mod 3 == 1)) {
     if (character == CharacterSuperSonic) {
         shader_pixel_set(global.shaderColorSwap);
-        texture_set_stage("Palette", sprite_get_texture(sprSonicPalette, floor(objWorld.gameTime div 120) mod 2));
+        texture_set_stage("Palette", sprite_get_texture(sprSonicPalette, floor(World.gameTime div 120) mod 2));
         shader_pixel_uniform_f("u_texHeight", sprite_get_height(sprSonicPalette) + 1);
     }
 
@@ -729,12 +729,12 @@ if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink 
 if (state == PlayerStateSpindash) {
     // Spindash normal dust
     if (animation == "SPINDASH") {
-        draw_sprite_ext(sprPlayerSpindashLow, objWorld.gameTime div 40, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
+        draw_sprite_ext(sprPlayerSpindashLow, World.gameTime div 40, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
     }
 
     // Spindash charging dust
     if (animation == "SPINDASH_CHARGE") {
-        draw_sprite_ext(sprPlayerSpindashHigh, objWorld.gameTime div 40, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
+        draw_sprite_ext(sprPlayerSpindashHigh, World.gameTime div 40, floor(x), floor(y), xDirection, yDirection, image_angle, c_white, image_alpha);
     }
 }
 

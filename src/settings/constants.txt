@@ -41,3 +41,4 @@ SavePassword="whatthehell,sure"
 PlayerAngleFloorTo=360/32
 ColorPrimary=$e09915
 ColorSecondary=$155ae0
+World=objWorld

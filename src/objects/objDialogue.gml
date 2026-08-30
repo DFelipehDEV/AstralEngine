@@ -11,7 +11,7 @@ text = "insert text here";
 currentText = ""; // Text in progress of being written
 textYOffset = -12;
 textFont = global.fontText;
-currentCharacter = 0;
+currentCharacter = 1;
 
 avatar = sprNoone;
 avatarIndex = 0;
@@ -28,18 +28,18 @@ applies_to=self
 textYOffset = approach(textYOffset, 0, 1);
 
 if (sysinput_get_pressed("dialogue_skip")) {
-    if (currentCharacter < string_length(text)) {
-        currentCharacter = string_length(text);
+    if (currentCharacter <= string_length(text)) {
+        currentCharacter = string_length(text) + 1;
         currentText = text;
     } else {
         instance_destroy();
     }
 }
 
-if (currentCharacter < string_length(text)) {
+if (currentCharacter <= string_length(text)) {
     var _characterToInsert;
     _characterToInsert = string_char_at(text, currentCharacter);
-    currentText = string_insert(_characterToInsert, currentText, currentCharacter);
+    currentText += _characterToInsert;
     if (currentCharacter mod 4 == 0) {
         PlaySound(sndDialogueType, 1, 1, false, true);
     }

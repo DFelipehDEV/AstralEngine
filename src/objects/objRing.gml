@@ -15,7 +15,7 @@ action_id=603
 applies_to=self
 */
 /// Animate and Magnetism
-image_index = objWorld.gameTime div 80;
+image_index = World.gameTime div 80;
 
 if (target != noone) {
     if (instance_exists(target)) {

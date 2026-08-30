@@ -1,5 +1,2 @@
-/// InputIconAddButton(action, sprite, frame)
-var _def;
-_def = dss_list_create();
-ds_list_add_many(_def, argument1, argument2);
-ds_map_add(objWorld.buttonInputIcons, argument0, _def);
+/// InputIconAddButton(action, button)
+ds_map_add(World.buttonInputIcons, argument0, argument1);

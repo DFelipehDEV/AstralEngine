@@ -20,7 +20,7 @@ action_id=603
 applies_to=self
 */
 /// Bounce
-image_index = objWorld.gameTime div 50;
+image_index = World.gameTime div 50;
 
 // Gravity
 if (!place_meeting(x, y, objTerrain)) {

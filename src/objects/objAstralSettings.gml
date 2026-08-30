@@ -11,7 +11,7 @@ image_alpha = 0;
 slideX = -400;
 padding = 32;
 
-optionMax = 7;
+optionMax = 8;
 
 optionLabel[0] = "Fullscreen";
 optionType[0] = 0;
@@ -31,8 +31,11 @@ optionType[4] = 4;
 optionLabel[5] = "VSync";
 optionType[5] = 5;
 
-optionLabel[6] = "Save and Exit";
+optionLabel[6] = "Buttons";
 optionType[6] = 6;
+
+optionLabel[7] = "Save and Exit";
+optionType[7] = 7;
 
 optionSelected = 0;
 scale = 0;
@@ -76,11 +79,11 @@ if (inputDelay == 0) {
 
     switch (_type) {
         case 0: // Fullscreen
-            if (sysinput_get("right") && !window_get_fullscreen()) { objWorld.windowScale = WindowSetScale(4); inputDelay = 20; }
-            if (sysinput_get("left") && window_get_fullscreen()) { objWorld.windowScale = WindowSetScale(1); inputDelay = 20; }
+            if (sysinput_get("right") && !window_get_fullscreen()) { World.windowScale = WindowSetScale(4); inputDelay = 20; }
+            if (sysinput_get("left") && window_get_fullscreen()) { World.windowScale = WindowSetScale(1); inputDelay = 20; }
             break;
         case 1: // Resolution
-            if (sysinput_get("right")) { objWorld.windowScale = WindowSetScale(objWorld.windowScale + 1); inputDelay = 20; }
+            if (sysinput_get("right")) { World.windowScale = WindowSetScale(World.windowScale + 1); inputDelay = 20; }
             break;
 
         case 2: // Music Volume
@@ -99,11 +102,22 @@ if (inputDelay == 0) {
             break;
 
         case 5: // VSync
-            if (sysinput_get("right") && !objWorld.windowVSync) { objWorld.windowVSync = true;  set_synchronization(true);  inputDelay = 20; }
-            if (sysinput_get("left")  &&  objWorld.windowVSync) { objWorld.windowVSync = false; set_synchronization(false); inputDelay = 20; }
+            if (sysinput_get("right") && !World.windowVSync) { World.windowVSync = true;  set_synchronization(true);  inputDelay = 20; }
+            if (sysinput_get("left")  &&  World.windowVSync) { World.windowVSync = false; set_synchronization(false); inputDelay = 20; }
             break;
 
-        case 6: // Save and Exit
+        case 6: // Buttons
+            if (sysinput_get("right") || sysinput_get("left")) {
+                if (World.buttonSprite == sprXboxButtons) {
+                    World.buttonSprite = sprPlaystationButtons;
+                } else {
+                    World.buttonSprite = sprXboxButtons;
+                }
+                inputDelay = 20;
+            }
+            break;
+
+        case 7: // Save and Exit
             if (sysinput_get("accept")) {
                 PlaySound(sndMenuAccept);
                 SettingsSave();
@@ -147,11 +161,12 @@ for (i = 0; i < optionMax; i += 1) {
     _optionLabel = string_upper(optionLabel[i]);
     _type = optionType[i];
     _valueText = "";
-    _isToggle = (_type == 0 || _type == 1 || _type == 5);
+    _isToggle = (_type == 0 || _type == 1 || _type == 5 || _type == 6);
 
     if (_type == 0) _valueText = pick(window_get_fullscreen(), "OFF", "ON");
     else if (_type == 1) _valueText = string(window_get_width()) + "x" + string(window_get_height());
-    else if (_type == 5) _valueText = pick(objWorld.windowVSync, "OFF", "ON");
+    else if (_type == 5) _valueText = pick(World.windowVSync, "OFF", "ON");
+    else if (_type == 6) _valueText = pick(World.buttonSprite == sprPlaystationButtons, "XBOX", "PLAYSTATION");
 
     if (i == optionSelected && _isToggle) {
         _valueText = "< " + _valueText + " >";

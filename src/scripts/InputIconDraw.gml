@@ -19,13 +19,15 @@ switch (argument_count) {
         break;
 }
 
-var _spr;
+var _spr, _frame;
 if (!joystick_exists(0)) {
-    _spr = ds_map_find_value(objWorld.keyInputIcons, _action);
+    _spr = sprKeyboardKeys;
+    _frame = ds_map_find_value(World.keyInputIcons, _action);
 } else {
-    _spr = ds_map_find_value(objWorld.buttonInputIcons, _action);
+    _spr = World.buttonSprite;
+    _frame = ds_map_find_value(World.buttonInputIcons, _action);
 }
 
 if (_spr == 0) exit;
 
-draw_sprite_ext(ds_list_find_value(_spr, 0), ds_list_find_value(_spr, 1), _x, _y, _xScale, _yScale, _rot, _color, _alpha);
+draw_sprite_ext(_spr, _frame, _x, _y, _xScale, _yScale, _rot, _color, _alpha);

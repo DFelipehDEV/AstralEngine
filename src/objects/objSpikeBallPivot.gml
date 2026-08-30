@@ -19,7 +19,7 @@ applies_to=self
 /// Rotate ball
 if !instance_exists(spikeBall) { instance_activate_object(spikeBall) }
 
-angle = (objWorld.gameTime / 16.6)*angleSpeed;
+angle = (World.gameTime / 16.6)*angleSpeed;
 spikeBall.x = x + dcos(angle)*spikeBallDistance;
 
 // Calculate the scale factor based on the sine of the angle

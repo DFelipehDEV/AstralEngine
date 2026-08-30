@@ -116,7 +116,7 @@ sprWaterBubbleGenerator
 sprWaterBubbleSmall
 sprWaterHorizon
 sprSlidepassSensor
-sprGamepadKeys
+sprXboxButtons
 sprKeyboardKeys
 sprPauseOptions
 sprPauseTitle
@@ -270,3 +270,4 @@ sprWaterfall
 sprLightRay
 sprLightPoint
 sprDarkRegion
+sprPlaystationButtons

@@ -31,5 +31,5 @@ applies_to=self
 */
 /// Draw bubble
 draw_set_blend_mode(bm_add)
-draw_sprite(sprite_index, image_index, x + dcos(objWorld.gameTime/5)*4, y);
+draw_sprite(sprite_index, image_index, x + dcos(World.gameTime/5)*4, y);
 draw_set_blend_mode(bm_normal)

@@ -5,5 +5,4 @@ action_id=603
 applies_to=self
 */
 /// Animation
-
-image_index = objWorld.gameTime div 200;
+image_index = World.gameTime div 200;

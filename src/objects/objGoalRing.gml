@@ -50,11 +50,11 @@ if (instance_exists(player)) {
 
 with (instance_create(0, 0, objResults)) {
     nextRoom = other.nextRoom;
-    time = objWorld.gameTime;
+    time = World.gameTime;
     rings = _rings;
     maxTimeScore = other.maxTimeScore;
     ringScoreMultiplier = other.ringScoreMultiplier;
-    scoreValueTime = max(0, maxTimeScore-floor(objWorld.gameTime/50000)*4500);
+    scoreValueTime = max(0, maxTimeScore-floor(World.gameTime/50000)*4500);
     scoreValueRing = max(0, rings*ringScoreMultiplier);
     minimumScore[RankC] = other.minimumScoreC;
     minimumScore[RankB] = other.minimumScoreB;

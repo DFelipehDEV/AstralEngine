@@ -250,16 +250,14 @@
 		|sprHUDTime
 		|sprHUDSpeedlines
 		|sprHUDGauge
+		|sprFontHUD
 	+Splash
 		|sprAstralLogo2
 		|sprAstralTitleBG
 		|sprPressStart
-	+Fonts
-		|sprFontHUD
-		|sprFontResults
-		|sprFontText
 	+Input
-		|sprGamepadKeys
+		|sprXboxButtons
+		|sprPlaystationButtons
 		|sprKeyboardKeys
 	+Results
 		|sprResultsBG1
@@ -267,6 +265,7 @@
 		|sprResultsRanks
 		|sprResultsScoresUnderlay
 		|sprResultsTexts
+		|sprFontResults
 	+QTE
 		|sprQTEKeysBack
 		|sprQTETimer
@@ -281,6 +280,7 @@
 		|sprDialogueBG
 		|sprDialogueAvatarNavigator
 		|sprDialogueAvatarSonic
+		|sprFontText
 	+Enemy
 		|sprHUDEnemiesText
 		|sprHUDEnemiesCounter
