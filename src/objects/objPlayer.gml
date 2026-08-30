@@ -461,9 +461,9 @@ applies_to=self
 */
 /// Underwater
 if (physicsMode == PhysicsWater && state != PlayerStateDead) {
-    underwaterTime += 1;
+    underwaterTime += global.timeScale;
 
-    if (underwaterTime mod 120 == 1) {
+    if (floor(underwaterTime) mod 120 == 1) {
         instance_create(x, y, objWaterBubbleSmall);
     }
 
@@ -586,7 +586,7 @@ applies_to=self
 // Decrease invincibility time
 if (invincibility != InvincibilityHurt) {
     if (invincibilityTimer > 0) {
-        invincibilityTimer -= 1;
+        invincibilityTimer = max(invincibilityTimer - global.timeScale, 0);
     }
     // End invincibility
     else {
