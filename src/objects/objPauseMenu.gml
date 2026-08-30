@@ -105,7 +105,7 @@ switch (GameStateGet()) {
                     break;
 
                 case 2:
-                    settings = instance_create(x, y, objAstralSettings);
+                    settings = instance_create(x, y, objSettingsMenu);
                     break;
 
                 case 3:

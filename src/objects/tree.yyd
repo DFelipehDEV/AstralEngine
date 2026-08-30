@@ -222,8 +222,8 @@
 		|objDialogueQuery
 	+Menus
 		|objPauseMenu
-		|objAstralTitle
-		|objAstralSettings
+		|objTitleMenu
+		|objSettingsMenu
 	|objPressButtonPopup
 +VFX
 	|objVFX

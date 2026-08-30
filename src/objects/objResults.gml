@@ -135,10 +135,18 @@ if (resultsTimer > 230) {
             }
 
             if (sysinput_get("accept")) {
-                var _nextRoomName, _roomName;
+                var _nextRoomName, _roomName, _targetNextRoom;
                 _nextRoomName = "";
+                _targetNextRoom = -1;
                 _roomName = room_get_name(room);
-                if (room_exists(nextRoom)) {
+
+                if (is_string(nextRoom)) {
+                    _targetNextRoom = room_find(nextRoom);
+                    if (room_exists(_targetNextRoom)) {
+                        _nextRoomName = nextRoom;
+                    }
+                } else if (room_exists(nextRoom)) {
+                    _targetNextRoom = nextRoom;
                     _nextRoomName = room_get_name(nextRoom);
                 }
 
@@ -164,10 +172,10 @@ if (resultsTimer > 230) {
                 SaveSetValue("NextRoom", _nextRoomName);
                 SaveGame();
 
-                if (_nextRoomName == "") {
+                if (_nextRoomName == "" || !room_exists(_targetNextRoom)) {
                     TransitionFadeRoom(rmTitleScreen, c_white);
                 } else {
-                    TransitionFadeRoom(nextRoom, c_white);
+                    TransitionFadeRoom(_targetNextRoom, c_white);
                 }
 
                 PlayerResetGlobalVariables();

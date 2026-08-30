@@ -123,8 +123,8 @@ if (inputDelay == 0) {
                 SettingsSave();
                 leaved = true;
                 inputDelay = 120;
-                if (instance_exists(objAstralTitle)) {
-                    objAstralTitle.menu = 4;
+                if (instance_exists(objTitleMenu)) {
+                    objTitleMenu.menu = 4;
                 }
             }
             break;

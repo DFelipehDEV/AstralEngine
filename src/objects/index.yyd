@@ -135,7 +135,7 @@ objGoalRing
 objResults
 
 objButtonSensor
-objAstralTitle
+objTitleMenu
 objSolidMask07
 objSolidMask08
 objSolidMask09
@@ -159,7 +159,7 @@ objLayer1Mask05
 
 objPlatformMove
 
-objAstralSettings
+objSettingsMenu
 objNavigator
 objTestFlower
 objBox

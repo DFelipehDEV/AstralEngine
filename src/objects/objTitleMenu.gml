@@ -121,10 +121,24 @@ switch (menu) {
                         case 1: // Continue
                             if (!instance_exists(objFadeRoom)) {
                                 if (LoadGame()) {
-                                    var _previousRoom;
-                                    _previousRoom = SaveGetValue("PreviousRoom");
-                                    TransitionFadeRoom(room_next(room_find(_previousRoom)), c_white);
-                                    PlaySound(sndMenuAccept);
+                                    var _nextRoom, _targetRoom;
+                                    _nextRoom = SaveGetValue("NextRoom");
+                                    _targetRoom = -1;
+
+                                    if (is_string(_nextRoom) && _nextRoom != "") {
+                                        _targetRoom = room_find(_nextRoom);
+                                    } else if (is_real(_nextRoom) && _nextRoom != -1) {
+                                        _targetRoom = _nextRoom;
+                                    }
+
+                                    if (_targetRoom == room) {
+                                        _targetRoom = room_next(room);
+                                    }
+
+                                    if (room_exists(_targetRoom)) {
+                                        TransitionFadeRoom(_targetRoom, c_white);
+                                        PlaySound(sndMenuAccept);
+                                    }
                                 }
                             }
                         break;
@@ -149,8 +163,8 @@ switch (menu) {
         cardYScale = min(cardYScale + 1, 30);
         optionMainAlpha = max(optionMainAlpha - 0.07, 0);
 
-        if (!instance_exists(objAstralSettings)) {
-            instance_create(x, y, objAstralSettings);
+        if (!instance_exists(objSettingsMenu)) {
+            instance_create(x, y, objSettingsMenu);
         }
     break;
 
@@ -163,7 +177,7 @@ switch (menu) {
         currentBaseY = targetBaseY;
         cardDashY = (currentBaseY + optionSelected * optionSpacing) - 3;
 
-        if (!instance_exists(objAstralSettings)) {
+        if (!instance_exists(objSettingsMenu)) {
             menu = 1;
             inputDelay = 15;
         }
