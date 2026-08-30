@@ -4,6 +4,7 @@ if (stateEntering) {
     exit;
 }
 if (stateExiting) {
+    image_angle = 0;
     exit;
 }
 
