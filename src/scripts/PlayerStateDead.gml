@@ -2,7 +2,9 @@
 if (stateEntering) {
     ySpeed = -6;
     canMove = false;
-    if (cam.target == id) cam.target = noone;
+    if (instance_exists(cam)) {
+        if (cam.target == id) cam.target = noone;
+    }
     PlayerSetGround(false);
     AnimationApply("DEAD");
     PlaySound(sndPlayerHurt);
