@@ -11,6 +11,8 @@ dir = 0.01;
 launcherDir = 0.01;
 player = noone;
 timerExit = 0;
+
+waitSound = -1;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -20,7 +22,7 @@ applies_to=self
 /// Launch
 if (player == noone) {
     if (timerExit > 0) {
-        timerExit -= 1;
+        timerExit = max(timerExit - global.timeScale, 0);
     }
     image_index = max(image_index - 0.3, 0);
     if (image_index == 0) {
@@ -28,7 +30,7 @@ if (player == noone) {
     }
 } else {
     if (timerExit < 60) {
-        timerExit += 1;
+        timerExit = min(timerExit + global.timeScale, 60);
     } else {
         // After the timer ends, kick out player
         with (player) {
@@ -37,8 +39,9 @@ if (player == noone) {
         }
         dir = 0.01;
         player = noone;
-        audio_stop(sndWayLauncherWait);
+        audio_stop(waitSound);
         PlaySound(sndWayLauncherLaunch, 1, 0.85);
+        waitSound = -1;
         exit;
     }
 
@@ -79,17 +82,18 @@ if (player == noone) {
                 StatesSet(PlayerStateSpring);
                 xSpeed = 9 * -dcos(other.dir - 90);
                 ySpeed = 9 * dsin(other.dir - 90);
-                xDirection = 1;
+                xDirection = esign(xSpeed, xDirection);
 
                 noGravityTimer = 15;
 
                 starTimer = 40;
-
-                audio_stop(sndWayLauncherWait);
-                PlaySound(sndTrick);
-                PlaySound(sndWayLauncherLaunch);
                 visible = true;
             }
+
+            PlaySound(sndTrick);
+            PlaySound(sndWayLauncherLaunch);
+            audio_stop(waitSound);
+            waitSound = -1;
             dir = 0.01;
             player = noone;
         }

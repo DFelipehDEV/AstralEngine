@@ -11,6 +11,7 @@ knockOnDeath = false;
 
 shockTimer = 0;
 shockHazard = noone;
+
 chargeSound = -1;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
@@ -19,8 +20,7 @@ action_id=603
 applies_to=self
 */
 /// Stop sound effects
-audio_stop(sndEnemySpinnerShock)
-audio_stop(chargeSound)
+audio_stop(chargeSound);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -37,7 +37,6 @@ if (point_in_rectangle(x, y, view_xview[0], view_yview[0], view_xview[0] + view_
     if (shockTimer > 130 && shockHazard == noone) {
         shockHazard = instance_create(x, y, objSpinnerShock);
         audio_stop(chargeSound);
-        PlaySound(sndEnemySpinnerShock);
     }
 
     if (shockTimer > 180) {
