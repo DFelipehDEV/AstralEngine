@@ -19,8 +19,9 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Stop sound effects
+/// Stop sound effects and destroy shock
 audio_stop(chargeSound);
+instance_destroy_id(shockHazard);
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
