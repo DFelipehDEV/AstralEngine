@@ -97,8 +97,11 @@ switch (GameStateGet()) {
                     break;
 
                 case 1:
+                    GameStateSet(GameStateRunning);
+                    instance_activate_all();
                     TransitionFadeRoom(room);
                     PlayerResetGlobalVariables();
+                    instance_destroy();
                     break;
 
                 case 2:
@@ -106,8 +109,11 @@ switch (GameStateGet()) {
                     break;
 
                 case 3:
+                    GameStateSet(GameStateRunning);
+                    instance_activate_all();
                     TransitionFadeRoom(rmTitleScreen);
                     PlayerResetGlobalVariables();
+                    instance_destroy();
                     break;
             }
             PlaySound(sndMenuAccept);
