@@ -13,6 +13,7 @@ interactSound = sndDashRing;
 
 scale = 1;
 initialScale = image_xscale;
+animation = 0; // 0 - not animating, 1 - shrink, 2 - grow
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -20,8 +21,22 @@ action_id=603
 applies_to=self
 */
 /// Animate
-if (scale < 1) {
-    scale = min(scale + 0.04, 1);
+if (animation == 0) exit;
+switch (animation) {
+    // shrink
+    case 1:
+        scale = max(scale - 0.075 * global.timeScale, 0.5);
+        if (scale == 0.5) {
+            animation = 2;
+        }
+        break;
+    // grow
+    case 2:
+        scale = min(scale + 0.075 * global.timeScale, 1);
+        if (scale == 1) {
+            animation = 0;
+        }
+        break;
 }
 #define Other_4
 /*"/*'/**//* YYD ACTION

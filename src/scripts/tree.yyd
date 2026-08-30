@@ -76,6 +76,7 @@
 		|PlayerResetHomingAttack
 		|PlayerResetKeys
 		|PlayerResetSensors
+		|PlayerRotateSpriteToAngle
 		|PlayerSetCharacter
 		|PlayerSetPhysicsMode
 		|PlayerSetShield
@@ -83,7 +84,6 @@
 		|PlayerSetVoicelines
 		|PlayerStomp
 		|PlayerTransform
-		|PlayerRotateSpriteToAngle
 	+States
 		|PlayerStateNormal
 		|PlayerStateAir

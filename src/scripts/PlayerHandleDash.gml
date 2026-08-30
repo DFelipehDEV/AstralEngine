@@ -49,7 +49,7 @@ if (instance_exists(objDashRing)) {
         PlayerSetAngle(0);
         PlayerSetGround(false);
 
-        _dashRing.scale = 0.5;
+        _dashRing.animation = 1;
 
         lockKeysTimer = 15;
 
