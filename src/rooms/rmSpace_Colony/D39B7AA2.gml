@@ -1,3 +1,3 @@
 //gm82 fields begin
-nextRoom=rmPlatforms
+nextRoom=rmTitleScreen
 //gm82 fields end
