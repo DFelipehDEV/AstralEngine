@@ -169,6 +169,7 @@
 	|RoomGoto
 	|RoomGotoNext
 	|RoomGotoPrevious
+	|RoomRestart
 +Save
 	|LoadGame
 	|SaveGame

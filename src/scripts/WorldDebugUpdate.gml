@@ -18,7 +18,7 @@ if (keyboard_check_pressed(vk_tab)) {
 }
 
 if (keyboard_check_pressed(ord("R"))) {
-    room_restart();
+    RoomRestart();
 }
 
 if (keyboard_check_pressed(ord("L"))) {

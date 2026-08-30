@@ -1,5 +1,4 @@
 /// PlayMusic(music, pitch, loopPart, loopStart, loop)
-
 if (audio_isplaying(argument0)) exit;
 
 var _music, _pitch, _loopPart, _loopStart, _loops;

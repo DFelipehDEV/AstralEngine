@@ -390,3 +390,4 @@ RoomGoto
 RoomGotoNext
 RoomGotoPrevious
 PlayerRotateSpriteToAngle
+RoomRestart

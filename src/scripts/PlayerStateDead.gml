@@ -20,5 +20,5 @@ invincibilityTimer = 300;
 invincibility = InvincibilityHurt;
 
 if (stateTimer >= 210) {
-    room_restart();
+    RoomRestart();
 }
