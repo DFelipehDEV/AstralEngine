@@ -41,36 +41,6 @@
 		|objLayer1Mask04
 		|objLayer1Mask05
 	|objTerrain
-+Lights
-	|objLight
-	|objLightRay
-	|objLightPoint
-	|objDarkRegion
-+Parallax
-	|objParallaxLayer
-	|objParallaxLayerAnimated
-+Player
-	|objPlayerSpawn
-	|objPlayer
-	+Unplacable
-		|objBody
-		|objPlayerReticle
-	+UI
-		|objTitleCard
-		|objPlayerHUD
-	+Interaction
-		|objWaterSolid
-	+Shields
-		|objShieldNormal
-		|objShieldElectricity
-	+VFX
-		|objBoost
-		|objSpindashCharge
-		|objBoostShockwave
-+Singletons
-	|objAlwaysActive
-	|objWorld
-	|objInit
 +Interactables
 	+Boxes
 		|objBox
@@ -210,6 +180,39 @@
 		|objCorkscrew
 		+Unplacable
 			|objCorkscrewDepth
++Lights
+	|objLight
+	|objLightRay
+	|objLightPoint
+	|objDarkRegion
++Parallax
+	|objParallaxLayer
+	|objParallaxLayerAnimated
++Player
+	|objPlayerSpawn
+	|objPlayer
+	+Unplacable
+		|objBody
+		|objPlayerReticle
+	+UI
+		|objTitleCard
+		|objPlayerHUD
+	+Interaction
+		|objWaterSolid
+	+Shields
+		|objShieldNormal
+		|objShieldElectricity
+	+VFX
+		|objBoost
+		|objSpindashCharge
+		|objBoostShockwave
++Singletons
+	|objAlwaysActive
+	|objWorld
+	|objInit
++Stages
+	+SpaceColony
+		|objTestFlower
 +Transitions
 	|objTransition
 	|objFadeRoom
@@ -227,6 +230,3 @@
 	|objDummy
 	|objAfterImage
 	|objDebris
-+Stages
-	+SpaceColony
-		|objTestFlower

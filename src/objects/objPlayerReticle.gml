@@ -9,6 +9,7 @@ MarkAsActive();
 scale = 5;
 
 creationTimer = 0;
+lockOnSound = -1;
 
 angle[0] = 0;
 angle[1] = 0;
@@ -28,15 +29,16 @@ if (instance_exists(target)) {
 } else {
     instance_destroy();
 }
-creationTimer = min(creationTimer + 1, 20);
+creationTimer = min(creationTimer + global.timeScale, 20);
 scale = ease(creationTimer, 5, -4, 20, "OutBack");
 
-if (creationTimer == 4) {
-    PlaySound(sndLockOn);
+if (creationTimer > 10) {
+    if (lockOnSound == -1) lockOnSound = PlaySound(sndLockOn, 1, 0.95);
 }
+
 if (creationTimer > 15) {
-    angle[0] += 1;
-    angle[1] += 4;
+    angle[0] += global.timeScale;
+    angle[1] += 4 * global.timeScale;
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION
