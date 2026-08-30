@@ -19,6 +19,7 @@ minimumScoreA = 6000;
 minimumScoreS = 8500;
 
 player = noone;
+rings = 0;
 nextRoom = room_next(room);
 #define Alarm_0
 /*"/*'/**//* YYD ACTION
@@ -41,7 +42,7 @@ applies_to=self
 */
 /// Results
 var _rings;
-_rings = 0;
+_rings = rings;
 if (instance_exists(player)) {
     _rings = player.rings;
 } else if (instance_exists(objPlayer)) {
@@ -76,6 +77,7 @@ if (active) {
 
         if (instance_exists(player)) {
             player.keyRight = true;
+            rings = player.rings;
         }
         if (image_speed < 0) {
             image_speed = 0
@@ -98,6 +100,7 @@ if (!active) {
     active = true;
 
     player = other.id;
+    rings = player.rings;
     with (player) {
         allowKeys = false;
         keyRight = true;
