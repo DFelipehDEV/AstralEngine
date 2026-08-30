@@ -565,7 +565,7 @@ if (afterImageTimer > 0) {
 
 // Trail
 trailTimer = max(trailTimer - 1, 0);
-trailAlpha = lerp(trailAlpha, trailTimer/110, 0.08);
+trailAlpha = lerp(trailAlpha, trailTimer/110, 0.08 * global.timeScale);
 TrailUpdate(
     floor(x)+dcos(angle+90)+angleCos*xSpeed,
     floor(y)-dsin(angle+90)+ySpeed-angleSin*xSpeed,
