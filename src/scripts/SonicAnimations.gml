@@ -141,7 +141,7 @@ switch(animation) {
         break;
 
     case "LAUNCH":
-        AnimationSet(sprSonicLaunch, 0.49, 1);
+        AnimationSet(sprSonicLaunch, 0.49, 1, 11, "LANDING");
         break;
 
     case "CORKSCREW":

@@ -57,34 +57,47 @@ if (instance_exists(objDashRing)) {
     }
 }
 
-if (ground && instance_exists(objDashRamp)) {
+if (instance_exists(objDashRamp)) {
     var _dashRamp;
     _dashRamp = PlayerCollisionObjectBottom(x, y, angle, maskBig, objDashRamp);
-    if (_dashRamp != noone && !PlayerCollisionObjectBottom(xprevious, yprevious, _dashRamp)) {
-        if (_dashRamp.xStrength != 0) {
-            xSpeed = _dashRamp.xStrength * _dashRamp.image_xscale;
-        }
+    if (_dashRamp == noone && (ground || state != PlayerStateAir)) {
+        _dashRamp = PlayerCollisionObjectBottom(xprevious, yprevious, angle, maskBig, objDashRamp);
+    }
 
-        if (_dashRamp.yStrength != 0) {
-            ySpeed = _dashRamp.yStrength;
-            PlayerSetGround(false);
-        }
-
-        if (_dashRamp.playerAction == PlayerStateQTEKeys) {
-            StatesSet(PlayerStateQTEKeys, _dashRamp.qteFailedXSpeed, _dashRamp.qteFailedYSpeed);
+    if (_dashRamp != noone && animation != "LAUNCH") {
+        var _reachedEnd;
+        if (_dashRamp.image_xscale > 0) {
+            _reachedEnd = (x >= _dashRamp.x - 8 && xSpeed >= 0);
         } else {
-            StatesSet(_dashRamp.playerAction);
+            _reachedEnd = (x <= _dashRamp.x + 8 && xSpeed <= 0);
         }
 
-        PlayerSetAngle(0);
-        AnimationPlay("LAUNCH");
+        if (_reachedEnd) {
+            if (_dashRamp.xStrength != 0) {
+                xSpeed = _dashRamp.xStrength * _dashRamp.image_xscale;
+            }
 
-        xDirection = _dashRamp.image_xscale;
-        x = _dashRamp.x;
-        y = _dashRamp.y - 22;
+            if (_dashRamp.yStrength != 0) {
+                ySpeed = _dashRamp.yStrength;
+                PlayerSetGround(false);
+            }
 
-        lockKeysTimer = 30;
+            if (_dashRamp.playerAction == PlayerStateQTEKeys) {
+                StatesSet(PlayerStateQTEKeys, _dashRamp.qteFailedXSpeed, _dashRamp.qteFailedYSpeed);
+            } else {
+                StatesSet(_dashRamp.playerAction);
+            }
 
-        PlaySound(sndDashRamp);
+            PlayerSetAngle(0);
+            AnimationPlay("LAUNCH");
+
+            xDirection = _dashRamp.image_xscale;
+            x = _dashRamp.x;
+            y = _dashRamp.y - 26;
+
+            lockKeysTimer = 30;
+
+            PlaySound(sndDashRamp);
+        }
     }
 }
