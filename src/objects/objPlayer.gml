@@ -129,6 +129,7 @@ shield = noone;
 shieldInstance = noone;
 combineActive = false;
 goal = false;
+hasDamageImmunity = false;
 
 // Water Interaction
 waterRunSpeed = 10; // Minimum speed required to run on water
@@ -239,6 +240,7 @@ alarm[1] = transformRingDecay;
 if (rings == 0) {
     alarm[1] = -1;
     PlayerSetCharacter(transformPrevious);
+    hasDamageImmunity = false;
 }
 #define Step_0
 /*"/*'/**//* YYD ACTION

@@ -14,6 +14,7 @@ if (animation == "TRANSFORM") {
         PlayerSetCharacter(transformInto);
         AnimationPlay("LANDING");
         alarm[1] = transformRingDecay;
+        hasDamageImmunity = true;
     }
 
     if (round(image_index) == 5 && !audio_isplaying(sndPlayerTransform)) {

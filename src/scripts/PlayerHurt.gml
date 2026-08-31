@@ -1,43 +1,43 @@
 /// PlayerHurt()
-if (invincibilityTimer == 0 && invincibility != InvincibilityHurt && character != SuperSonic) {
-    // Knockback the player
-    if (sign(xSpeed) != 0) {
-        xSpeed = -2.7 * sign(xSpeed);
-        xDirection = -sign(xSpeed);
-    } else {
-        xSpeed = -2.7 * xDirection;
-    }
+if (invincibilityTimer > 0 || invincibility == InvincibilityHurt || hasDamageImmunity) exit;
 
-    invincibility = InvincibilityHurt;
-    ySpeed = -4;
-    PlayerSetGround(false);
+// Knockback the player
+if (sign(xSpeed) != 0) {
+    xSpeed = -2.7 * sign(xSpeed);
+    xDirection = -sign(xSpeed);
+} else {
+    xSpeed = -2.7 * xDirection;
+}
 
-    if (shield != noone) {
-        PlayerSetShield(noone);
-        StatesSet(PlayerStateHurt);
-        PlayVoice(voiceline[5]);
-    } else {
-        if (rings != 0) {
-            if (combineActive) {
-                combineActive = false;
-                CreateDroppedHyperRings(max(1, floor(min(rings/8, 8))));
+invincibility = InvincibilityHurt;
+ySpeed = -4;
+PlayerSetGround(false);
+
+if (shield != noone) {
+    PlayerSetShield(noone);
+    StatesSet(PlayerStateHurt);
+    PlayVoice(voiceline[5]);
+} else {
+    if (rings != 0) {
+        if (combineActive) {
+            combineActive = false;
+            CreateDroppedHyperRings(max(1, floor(min(rings/8, 8))));
+            rings = 0;
+        } else {
+            CreateDroppedRings(min(20, rings));
+
+            if (rings < 50) {
                 rings = 0;
             } else {
-                CreateDroppedRings(min(20, rings));
-
-                if (rings < 50) {
-                    rings = 0;
-                } else {
-                    // Only loose 60% of the rings instead of all of them
-                    rings = floor(rings*0.4);
-                }
+                // Only loose 60% of the rings instead of all of them
+                rings = floor(rings*0.4);
             }
-            StatesSet(PlayerStateHurt);
-            PlayVoice(voiceline[5]);
-            PlaySound(sndPlayerLoseRings);
-        } else {
-            StatesSet(PlayerStateDead);
         }
+        StatesSet(PlayerStateHurt);
+        PlayVoice(voiceline[5]);
+        PlaySound(sndPlayerLoseRings);
+    } else {
+        StatesSet(PlayerStateDead);
     }
-    PlayerSetAngle(0);
 }
+PlayerSetAngle(0);
