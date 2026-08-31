@@ -10,7 +10,7 @@ AnimationUpdate
 DrawTrail
 PlayerResetSensors
 SonicPhysics
-PlayerSetVoicelines
+
 PlaySound
 
 
@@ -393,3 +393,5 @@ PlayerRotateSpriteToAngle
 RoomRestart
 PlayerGetOwnedCamera
 PlayerUpdateReticle
+Sonic
+SuperSonic

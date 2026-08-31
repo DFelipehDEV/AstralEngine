@@ -116,7 +116,7 @@ hasTransform = false;
 transformDuration = 60; // Time it takes to complete the transformation
 transformRingDecay = 60; // Time until a ring is lost
 transformPrevious = -1;
-transformInto = CharacterSuperSonic;
+transformInto = -1;
 
 // Trick timer
 trickCombo = 0;
@@ -166,8 +166,7 @@ boostSprite = sprBoost;
 paletteSprite = -1;
 paletteFrame = 0;
 AnimationInit(SonicAnimations);
-PlayerSetCharacter(CharacterSonic);
-PlayerSetPhysicsMode(physicsMode);
+PlayerSetCharacter(Sonic);
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -537,8 +536,8 @@ if (starTimer > 0 && starTimer mod 5 == 1) {
     CreateDummy(x + irandom_range(-25, 25), y + irandom_range(-25, 25), sprStar, 0.25, 0, choose(1, -2), bm_normal, 1, 1, 1, 0);
 }
 
-if (character == CharacterSuperSonic) {
-    paletteIndex = floor(World.gameTime div 120) mod 2;
+if (character == SuperSonic) {
+    paletteFrame = floor(World.gameTime div 120) mod 2;
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1

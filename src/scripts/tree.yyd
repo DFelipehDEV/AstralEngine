@@ -116,6 +116,7 @@
 			|PlayerCollisionSlope
 			|PlayerCollisionTop
 	+Sonic
+		|Sonic
 		|SonicAnimations
 		|SonicPhysics
 	+States
@@ -147,6 +148,7 @@
 		|PlayerStateHurt
 		|PlayerStateDead
 	+SuperSonic
+		|SuperSonic
 		|SuperSonicAnimations
 		|SuperSonicPhysics
 	+Util
@@ -166,7 +168,6 @@
 		|PlayerSetPhysicsMode
 		|PlayerSetShield
 		|PlayerSetTerrainType
-		|PlayerSetVoicelines
 		|PlayerGetOwnedCamera
 +Room
 	|RoomGoto
