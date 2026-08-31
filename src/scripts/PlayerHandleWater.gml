@@ -1,39 +1,31 @@
 /// PlayerHandleWater()
-if (!instance_exists(objWater) && !instance_exists(objWaterHorizon) && !instance_exists(objWaterBubble)) exit;
+if (!instance_exists(objWater) && !instance_exists(objWaterBubble)) exit;
 
-var _waterHorizon, _waterTrigger, _waterBubble;
-_waterHorizon = PlayerCollisionObjectBottom(x, y, 0, maskMain, objWaterHorizon);
-_waterTrigger = PlayerCollisionObjectBottom(x, y, 0, maskMain, objWater);
+var _waterBubble;
 _waterBubble = PlayerCollisionHitbox(x, y, objWaterBubble);
 
-// Water mode
-if (_waterHorizon != noone) {
-    // Enter in water mode
-    if (y > _waterHorizon.y && yprevious < _waterHorizon.y && PlayerCollisionObjectMain(x, y, objWater)) {
-        PlayerSetPhysicsMode(PhysicsWater);
+var _water;
+_water = PlayerCollisionObjectMain(x, y, objWater);
 
-        CreateDummy(x, _waterHorizon.y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
+if (_water != noone) {
+    // Enter water
+    if (physicsMode != PhysicsWater) {
+        PlayerSetPhysicsMode(PhysicsWater);
+        CreateDummy(x, _water.y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
         PlaySoundSingle(sndWaterSplash, 0.3);
     }
-}
-
-if (physicsMode == PhysicsWater) {
-    if (!PlayerCollisionObjectMain(x, y, objWater)) {
+} else {
+    // Exit water
+    if (physicsMode == PhysicsWater) {
         PlayerSetPhysicsMode(PhysicsNormal);
         underwaterDrownFrame = 0;
         underwaterTime = 0;
 
-        if (instance_exists(objWaterHorizon)) {
-            CreateDummy(x, instance_nearest(x, y, objWaterHorizon).y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
-            PlaySoundSingle(sndWaterSplash, 0.3);
+        var _prevWater;
+        _prevWater = PlayerCollisionObjectMain(xprevious, yprevious, objWater);
+        if (_prevWater != noone) {
+            CreateDummy(x, _prevWater.y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
         }
-    }
-}
-else {
-    // Water mode
-    if (_waterTrigger != noone && !_waterHorizon) {
-        PlayerSetPhysicsMode(PhysicsWater);
-
         PlaySoundSingle(sndWaterSplash, 0.3);
     }
 }
