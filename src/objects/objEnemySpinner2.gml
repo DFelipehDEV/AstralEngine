@@ -20,7 +20,7 @@ action_id=603
 applies_to=self
 */
 /// Stop sound effects and destroy shock
-audio_stop(chargeSound);
+StopSound(chargeSound);
 instance_destroy_id(shockHazard);
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -37,7 +37,8 @@ if (point_in_rectangle(x, y, view_xview[0], view_yview[0], view_xview[0] + view_
 
     if (shockTimer > 130 && shockHazard == noone) {
         shockHazard = instance_create(x, y, objSpinnerShock);
-        audio_stop(chargeSound);
+        StopSound(chargeSound);
+        chargeSound = -1;
     }
 
     if (shockTimer > 180) {

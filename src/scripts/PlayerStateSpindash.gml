@@ -52,6 +52,6 @@ if (!keyDown) {
     StatesSet(PlayerStateRoll);
     trailTimer = 120;
 
-    audio_stop(sndPlayerSpindash);
+    StopSound(sndPlayerSpindash);
     PlaySound(sndPlayerSpindashRelease);
 }

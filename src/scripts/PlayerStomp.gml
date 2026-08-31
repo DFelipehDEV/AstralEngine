@@ -7,5 +7,5 @@ if (keyStomp && !ground) {
     StatesSet(PlayerStateStomp);
 
     PlaySound(sndPlayerStomp);
-    audio_stop(sndPlayerStompLand);
+    StopSound(sndPlayerStompLand);
 }

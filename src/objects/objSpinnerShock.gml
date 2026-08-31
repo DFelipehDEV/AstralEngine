@@ -15,7 +15,7 @@ action_id=603
 applies_to=self
 */
 /// Stop sound
-audio_stop(shockSound);
+StopSound(shockSound);
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

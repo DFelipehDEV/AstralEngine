@@ -508,8 +508,8 @@ if (playFootstep) {
                 alarm[0] = 1;
             }
         }
-        audio_stop(terrainSound[TerFootstep1]);
-        audio_stop(terrainSound[TerFootstep2]);
+        if (terrainSound[TerFootstep1] != -1) StopSound(terrainSound[TerFootstep1]);
+        if (terrainSound[TerFootstep2] != -1) StopSound(terrainSound[TerFootstep2]);
         PlaySound(choose(terrainSound[TerFootstep1],terrainSound[TerFootstep2]));
         footstepPlayed = true;
     }

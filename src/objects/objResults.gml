@@ -57,7 +57,7 @@ if (resultsTimer > 80) {
 
 if (resultsTimer > 110) {
     if (sysinput_get("accept") && !scoreFinished) {
-        audio_stop(bgmVictory);
+        StopSound(bgmVictory);
         resultsTimer = 290;
         scorebarX = 0;
         scoreTextX[0] = 8;
@@ -68,7 +68,7 @@ if (resultsTimer > 110) {
         scoreBonusTime = scoreValueTime;
         scoreBonusRing = scoreValueRing;
         scoreFinished = true;
-        audio_stop(sndResultsScoreCount);
+        StopSound(sndResultsScoreCount);
     }
 
     scorebarX = lerp(scorebarX, 0, 0.1);
@@ -90,7 +90,7 @@ if (resultsTimer > 230) {
     if (!scoreFinished && scoreBonusTime == scoreValueTime && scoreBonusRing == scoreValueRing) {
         scoreFinished = true;
         PlaySound(sndResultsScoreTotal);
-        audio_stop(sndResultsScoreCount);
+        StopSound(sndResultsScoreCount);
     }
 
     if (!scoreFinished) {

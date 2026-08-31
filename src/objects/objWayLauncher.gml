@@ -39,9 +39,8 @@ if (player == noone) {
         }
         dir = 0.01;
         player = noone;
-        audio_stop(waitSound);
+        StopSound(waitSound);
         PlaySound(sndWayLauncherLaunch, 1, 0.85);
-        waitSound = -1;
         exit;
     }
 
@@ -92,8 +91,7 @@ if (player == noone) {
 
             PlaySound(sndTrick);
             PlaySound(sndWayLauncherLaunch);
-            audio_stop(waitSound);
-            waitSound = -1;
+            StopSound(waitSound);
             dir = 0.01;
             player = noone;
         }

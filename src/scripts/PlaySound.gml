@@ -1,4 +1,6 @@
 /// PlaySound(sound, [volume=1], [pitch=1], [loop=false], [single=false])
+if (argument0 == -1 || argument0 == noone) return -1;
+
 var _sound, _volume, _pitch, _loop, _single;
 _sound = argument0;
 _volume = 1;

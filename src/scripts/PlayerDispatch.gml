@@ -8,4 +8,4 @@ instance_destroy_id(shieldInstance);
 instance_destroy_id(cam);
 instance_destroy_id(boostAura);
 
-audio_stop(grindSound);
+StopSound(grindSound);

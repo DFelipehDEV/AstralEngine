@@ -6,7 +6,7 @@ if (stateEntering) {
 }
 
 if (stateExiting) {
-    audio_stop(sndPlayerSlide);
+    StopSound(sndPlayerSlide);
     exit;
 }
 animationSpeed = 0.2 + abs(xSpeed)/18;

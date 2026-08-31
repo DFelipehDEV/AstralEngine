@@ -24,7 +24,7 @@ if (ground) {
     PlaySound(sndPlayerStompLand);
 
     with (PlayerGetOwnedCamera()) CameraShakeY(20);
-    audio_stop(sndPlayerStomp);
+    StopSound(sndPlayerStomp);
 
     CreateDummy(x, y, sprPlayerStomp, 0.5, 0, depth - 1, bm_add, image_alpha, 1, 1, image_angle, merge_color(afterimageColor1, afterimageColor2, 0.5));
 }

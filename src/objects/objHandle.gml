@@ -37,7 +37,7 @@ if (pull) {
         if (!audio_isplaying(sndPlayerJump)) {
             PlaySound(sndPlayerJump);
         }
-        audio_stop(pullSound);
+        StopSound(pullSound);
         pullSound = -1;
         exit;
     } else {

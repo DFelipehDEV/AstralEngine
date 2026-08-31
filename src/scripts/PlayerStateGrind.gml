@@ -7,7 +7,7 @@ if (stateEntering) {
 }
 
 if (stateExiting) {
-    audio_stop(grindSound);
+    StopSound(grindSound);
     grindSound = -1;
     canFallFromSlope = true;
     exit;
