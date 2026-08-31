@@ -65,6 +65,7 @@
 		|PlayerLightspeed
 		|PlayerStomp
 		|PlayerTransform
+		|PlayerUpdateReticle
 	+Body
 		|BodyApplyGravity
 	+ObjectCollision

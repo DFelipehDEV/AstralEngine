@@ -152,6 +152,7 @@
 			|objSlidepassSensor
 			|objWalljumpSensor
 			|objLockMovementSensor
+			|objDeathSensor
 		+Layers
 			|objSwitchLayer0
 			|objSwitchLayerAlternate

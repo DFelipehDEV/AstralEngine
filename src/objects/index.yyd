@@ -249,3 +249,4 @@ objPlatformPathedInterpolated
 objPathCameraSensor
 objCameraPathFollower
 objLockMovementSensor
+objDeathSensor
