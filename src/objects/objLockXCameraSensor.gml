@@ -5,25 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Variables
+event_inherited();
 lockedX = -1;
-#define Step_2
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Handle Camera Lock
-var _player;
-_player = instance_nearest(x, y, objPlayer);
-if (instance_exists(_player) && instance_exists(_player.cam)) {
-    if (place_meeting(x, y, _player)) {
-        _player.cam.lockedX = lockedX;
-    } else {
-        if (_player.cam.lockedX == lockedX) {
-            _player.cam.lockedX = -1;
-        }
-    }
-}
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -35,4 +18,30 @@ applies_to=self
 
 if (lockedX == -1) {
     lockedX = x + (sprite_width / 2);
+}
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// onEnter
+if (instance_exists(target)) {
+    if (instance_exists(target.cam)) {
+        target.cam.lockedX = lockedX;
+    }
+}
+#define Other_12
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// onLeave
+if (instance_exists(target)) {
+    if (instance_exists(target.cam)) {
+        if (target.cam.lockedX == lockedX) {
+            target.cam.lockedX = -1;
+        }
+    }
 }

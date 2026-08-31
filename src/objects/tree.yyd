@@ -45,8 +45,31 @@
 	+Boxes
 		|objBox
 		|objPushableBox
+	+Bridge
+		|objBridge
+		+Unplacable
+			|objBridgeLog
 	+Checkpoint
 		|objCheckpoint
+	+Collectables
+		|objCollectable
+		+Rings
+			|objRing
+			|objRing10
+			|objRing5
+			|objRingSpecial
+			|objTeleportRing
+			+Unplacable
+				|objRingDrop
+				|objRingHyper
+			+VFX
+				|objRainbow
+				|objRingCollected
+				|objRingNumber
+	+Corkscrew
+		|objCorkscrew
+		+Unplacable
+			|objCorkscrewDepth
 	+Dashes
 		|objDashRing
 		|objDashRingRainbow
@@ -70,8 +93,6 @@
 		+VFX
 			|objEnemyMetal
 			|objEnemyDeath
-	+SwingPole
-		|objSwingPole
 	+Gizmos
 		|objInstanceGroup
 		|obj3DAudioPlayer
@@ -148,8 +169,11 @@
 			|objButtonSensor
 			|objHideHUDSensor
 			|objStartDialogueSensor
+		|objSensor
 	+Spring
 		|objSpring
+	+SwingPole
+		|objSwingPole
 	+Water
 		|objWaterHorizon
 		|objWater
@@ -160,29 +184,6 @@
 			|objWaterBubbleSmall
 	+WayLauncher
 		|objWayLauncher
-	+Bridge
-		|objBridge
-		+Unplacable
-			|objBridgeLog
-	+Corkscrew
-		|objCorkscrew
-		+Unplacable
-			|objCorkscrewDepth
-	+Collectables
-		|objCollectable
-		+Rings
-			|objRing
-			|objRing10
-			|objRing5
-			|objRingSpecial
-			|objTeleportRing
-			+Unplacable
-				|objRingDrop
-				|objRingHyper
-			+VFX
-				|objRainbow
-				|objRingCollected
-				|objRingNumber
 +Lights
 	|objLight
 	|objLightRay
@@ -228,6 +229,7 @@
 		|objTitleMenu
 		|objSettingsMenu
 	|objPressButtonPopup
+	|objEnemiesArenaHUD
 +VFX
 	|objVFX
 	|objDummy

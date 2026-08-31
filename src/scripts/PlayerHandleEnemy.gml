@@ -50,18 +50,6 @@ if (_enemy != noone) {
                 }
 
                 instance_destroy_id(_enemy);
-
-                // Arena phase handling
-                if (instance_exists(objEnemiesArenaSensor) && distance_to_object(objEnemiesArenaSensor) < 50) {
-                    with instance_nearest(x, y, objEnemiesArenaSensor) {
-                        phaseEnemiesRemaining -= 1;
-                        if (phaseEnemiesRemaining == 0) {
-                            delay = 70;
-                            phaseEnemiesCreated = false;
-                        }
-                    }
-                    hud.enemyScale = 3;
-                }
             }
 
             with (PlayerGetOwnedCamera()) CameraShakeY(17);

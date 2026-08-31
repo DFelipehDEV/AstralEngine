@@ -5,36 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Variables
+event_inherited();
 action = "";
-#define Step_2
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Change hud button
-var _player;
-_player = instance_nearest(x, y, objPlayer);
-if (!instance_exists(_player)) exit;
-with (_player) {
-    // Check if we are in the sensor
-    if (instance_exists(hud)) {
-        if (place_meeting(x, y, other)) {
-            if (!instance_exists(hud.buttonPopup)) {
-                hud.buttonPopup = instance_create(x, y, objPressButtonPopup);
-                hud.buttonPopup.action = other.action;
-                PlaySound(sndMenuWarn);
-            }
-        } else {
-            // Check if we leaved the sensor
-            if (place_meeting(xprevious, yprevious, other)) {
-                if (instance_exists(hud.buttonPopup)) {
-                    hud.buttonPopup.destroy = true;
-                }
-            }
-        }
-    }
-}
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -43,3 +15,33 @@ applies_to=self
 */
 /// Fields
 //field action: string
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// onEnter
+if (instance_exists(target)) {
+    if (instance_exists(target.hud)) {
+        if (!instance_exists(target.hud.buttonPopup)) {
+            target.hud.buttonPopup = instance_create(target.x, target.y, objPressButtonPopup);
+            target.hud.buttonPopup.action = action;
+            PlaySound(sndMenuWarn);
+        }
+    }
+}
+#define Other_12
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// onLeave
+if (instance_exists(target)) {
+    if (instance_exists(target.hud)) {
+        if (instance_exists(target.hud.buttonPopup)) {
+            target.hud.buttonPopup.destroy = true;
+        }
+    }
+}

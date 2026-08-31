@@ -5,17 +5,9 @@ action_id=603
 applies_to=self
 */
 /// Variables
-
+event_inherited();
+lookFor = objCamera;
 zoom = 1;
-#define Collision_objCamera
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Zoom
-
-other.zoomTarget = zoom;
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -26,3 +18,13 @@ applies_to=self
 /*preview
 */
 //field zoom: value
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// onEnter
+if (instance_exists(target)) {
+    target.zoomTarget = zoom;
+}

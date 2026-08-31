@@ -16,11 +16,6 @@ gaugeIndex = 21;
 offset = 0;
 
 buttonPopup = noone;
-
-// Enemy fight HUD
-enemy = 0;
-enemyFrame = 0;
-enemyScale = 0;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -36,14 +31,6 @@ if (hidden) {
 
 if (shakeTimer) {
     shakeTimer -= 1;
-}
-
-if (!enemy && enemyScale > 0) {
-    enemyScale = lerp(enemyScale, 0, 0.2);
-}
-
-if (enemy) {
-    enemyScale = lerp(enemyScale, 1, 0.2);
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -107,12 +94,5 @@ if (instance_exists(player) && !GameStateGet(GameStatePaused)) {
     draw_sprite(sprHUDEnergy, 0, _leftHUDX, (ScreenHeight - 40) + shake)
     draw_sprite(sprHUDGauge, floor(gaugeIndex), _leftHUDX - 8, (ScreenHeight - 27) + shake)
 
-    // Check if the enemy scale is more than 0
-    if (enemyScale > 0) {
-        // Enemy text
-        draw_sprite_ext(sprHUDEnemiesText, 0, ScreenWidthHalf, 16, 1, enemyScale, 0, c_white, 1);
-        // Enemies left
-        draw_sprite_ext(sprHUDEnemiesCounter, enemyFrame, ScreenWidthHalf, 30, enemyScale, enemyScale, 0, c_white, 1);
-    }
     EndUI();
 }
