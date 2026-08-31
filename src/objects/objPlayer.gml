@@ -341,7 +341,7 @@ applies_to=self
 /// Object collision
 if (state != PlayerStateDead) {
     PlayerHandleLayers();
-    PlayerHandleRings();
+    PlayerHandleCollectable();
     PlayerHandleEnemy();
     PlayerHandleProjectile();
     PlayerHandleCheckpoint();

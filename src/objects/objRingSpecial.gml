@@ -1,12 +1,3 @@
-#define Create_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Init
-event_inherited();
-value = 50;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -31,10 +22,12 @@ action_id=603
 applies_to=self
 */
 /// On Collect
+collector.rings += 50;
 with (instance_create(x, y, objRingCollected)) {
     sparkleOffset = 30;
 }
 PlaySoundSingle(sndRingSpecial);
+instance_destroy();
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

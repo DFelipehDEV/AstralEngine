@@ -5,8 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Init
+event_inherited();
 image_speed = 0;
-value = 1;
 target = noone;
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -46,5 +46,12 @@ action_id=603
 applies_to=self
 */
 /// On Collect
+collector.rings += 1; // collector is given by the player when event_user(0) is called
+
+with (collector) {
+    PlayerAddEnergy(4);
+}
+
 instance_create(x, y, objRingCollected);
 PlaySoundSingle(sndRing);
+instance_destroy();

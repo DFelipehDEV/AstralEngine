@@ -120,19 +120,6 @@
 			|objRailLayer1
 			|objRail02Layer1
 			|objRail03Layer1
-	+Rings
-		|objRing
-		|objRing10
-		|objRing5
-		|objRingSpecial
-		|objTeleportRing
-		+Unplacable
-			|objRingDrop
-			|objRingHyper
-		+VFX
-			|objRainbow
-			|objRingCollected
-			|objRingNumber
 	+Sensors
 		+Camera
 			|objLockXCameraSensor
@@ -181,6 +168,21 @@
 		|objCorkscrew
 		+Unplacable
 			|objCorkscrewDepth
+	+Collectables
+		|objCollectable
+		+Rings
+			|objRing
+			|objRing10
+			|objRing5
+			|objRingSpecial
+			|objTeleportRing
+			+Unplacable
+				|objRingDrop
+				|objRingHyper
+			+VFX
+				|objRainbow
+				|objRingCollected
+				|objRingNumber
 +Lights
 	|objLight
 	|objLightRay

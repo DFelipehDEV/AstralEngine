@@ -251,3 +251,4 @@ objCameraPathFollower
 objLockMovementSensor
 objDeathSensor
 
+objCollectable

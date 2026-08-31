@@ -5,6 +5,7 @@ action_id=603
 applies_to=self
 */
 /// Variables
+event_inherited();
 MarkAsActive();
 
 xSpeed = 0;
@@ -13,6 +14,7 @@ yGravity = 0.1863;
 liveTimer = 300;
 minTimeToBeCollectable = 240;
 value = 1;
+collectable = false;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -44,6 +46,7 @@ x += xSpeed * global.timeScale;
 y += ySpeed * global.timeScale;
 
 liveTimer = max(liveTimer - global.timeScale, 0);
+collectable = (liveTimer <= minTimeToBeCollectable);
 if (liveTimer < 90) {
     visible = (liveTimer mod 2);
 }
@@ -66,5 +69,12 @@ action_id=603
 applies_to=self
 */
 /// On Collect
+collector.rings += value;
+
+with (collector) {
+    PlayerAddEnergy(4);
+}
+
 instance_create(x, y, objRingCollected);
 PlaySoundSingle(sndRing);
+instance_destroy();

@@ -31,7 +31,7 @@ var _target;
 _target = body;
 
 with (objRing) {
-    if (value == 1 && target == noone && distance_to_object(other) < 65) {
+    if (collectable && target == noone && distance_to_object(other) < 65) {
         MarkAsActive();
         target = _target;
     }

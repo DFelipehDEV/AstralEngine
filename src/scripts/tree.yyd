@@ -71,6 +71,7 @@
 	+ObjectCollision
 		|PlayerHandleBox
 		|PlayerHandleCheckpoint
+		|PlayerHandleCollectable
 		|PlayerHandleCrane
 		|PlayerHandleDash
 		|PlayerHandleDestructive
@@ -82,7 +83,6 @@
 		|PlayerHandleMonitor
 		|PlayerHandleProjectile
 		|PlayerHandleRails
-		|PlayerHandleRings
 		|PlayerHandleSpikes
 		|PlayerHandleSprings
 		|PlayerHandleWallJump

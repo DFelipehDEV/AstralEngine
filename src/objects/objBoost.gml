@@ -49,7 +49,7 @@ var _target;
 _target = player;
 
 with (objRing) {
-    if (value == 1 && target == noone && distance_to_object(other) < 30) {
+    if (collectable && target == noone && distance_to_object(other) < 30) {
         MarkAsActive();
         target = _target;
     }
