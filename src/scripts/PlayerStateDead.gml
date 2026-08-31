@@ -6,7 +6,7 @@ if (stateEntering) {
         if (cam.target == id) cam.target = noone;
     }
     PlayerSetGround(false);
-    AnimationApply("DEAD");
+    AnimationPlay("DEAD");
     PlaySound(sndPlayerHurt);
     PlaySound(voiceline[4]);
     exit;

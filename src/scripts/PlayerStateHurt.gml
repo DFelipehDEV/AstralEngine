@@ -1,6 +1,6 @@
 /// PlayerStateHurt()
 if (stateEntering) {
-    AnimationApply("HURT_FALL");
+    AnimationPlay("HURT_FALL");
     exit;
 }
 if (stateExiting) {

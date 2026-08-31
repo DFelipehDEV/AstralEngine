@@ -502,7 +502,9 @@ action_id=603
 applies_to=self
 */
 /// Animation system
+benchmark_start();
 AnimationUpdate();
+debug_log(benchmark_end());
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603

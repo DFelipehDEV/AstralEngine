@@ -1,7 +1,7 @@
 /// PlayerStateSlide()
 if (stateEntering) {
     slideCancelTimer = 35;
-    AnimationApply("SLIDE");
+    AnimationPlay("SLIDE");
     exit;
 }
 

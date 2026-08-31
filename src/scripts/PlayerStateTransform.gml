@@ -1,6 +1,6 @@
 /// PlayerStateTransform()
 if (stateEntering) {
-    AnimationApply("TRANSFORM");
+    AnimationPlay("TRANSFORM");
     exit;
 }
 if (stateExiting) {
@@ -12,7 +12,7 @@ if (animation == "TRANSFORM") {
     if (stateTimer > 60) {
         StatesSet(PlayerStateAir);
         PlayerSetCharacter(CharacterSuperSonic);
-        AnimationApply("LANDING");
+        AnimationPlay("LANDING");
         alarm[1] = 60;
     }
 

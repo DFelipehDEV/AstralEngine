@@ -1,6 +1,6 @@
 /// PlayerStateRoll()
 if (stateEntering) {
-    AnimationApply("ROLL");
+    AnimationPlay("ROLL");
     exit;
 }
 if (stateExiting) {

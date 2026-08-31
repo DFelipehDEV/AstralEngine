@@ -20,36 +20,36 @@ if (xSpeed == 0) {
                 PlayVoice(choose(voiceline[11], voiceline[12], -1));
 
             if (xDirection == 1)
-                AnimationApply("LEDGE");
+                AnimationPlay("LEDGE");
             else
-                AnimationApply("LEDGE_2");
+                AnimationPlay("LEDGE_2");
         } else if (!_left && _right) {
             if (animation != "LEDGE" && animation != "LEDGE_2")
                 PlayVoice(choose(voiceline[11], voiceline[12]));
 
             if (xDirection == 1)
-                AnimationApply("LEDGE_2");
+                AnimationPlay("LEDGE_2");
             else
-                AnimationApply("LEDGE");
+                AnimationPlay("LEDGE");
         }
     } else {
         if (animation != "IDLE_WAIT" && animation != "IDLE_WAIT_2") {
-            AnimationApply("IDLE");
+            AnimationPlay("IDLE");
             if (animationTime == 300)
-                AnimationApply(choose("IDLE_WAIT", "IDLE_WAIT_2"));
+                AnimationPlay(choose("IDLE_WAIT", "IDLE_WAIT_2"));
         }
     }
 } else { // Moving animations
     if (abs(xSpeed) < 2.25)
-        AnimationApply("WALK");
+        AnimationPlay("WALK", false);
     else if (abs(xSpeed) < 3.5)
-        AnimationApply("WALK_2");
+        AnimationPlay("WALK_2", false);
     else if (abs(xSpeed) < 5.5)
-        AnimationApply("JOG");
+        AnimationPlay("JOG", false);
     else if (abs(xSpeed) < 9.7)
-        AnimationApply("JOG_2");
+        AnimationPlay("JOG_2", false);
     else
-        AnimationApply("RUN");
+        AnimationPlay("RUN", false);
 
     PlayerRotateSpriteToAngle();
 }
@@ -62,7 +62,7 @@ if (animation == "WALK" || animation == "WALK_2" || animation == "JOG"
 // Turn!
 if (abs(xSpeed) < 1 && ((xDirection == -1 && keyRight) || (xDirection == 1 && keyLeft))) {
     xSpeed = 0;
-    AnimationApply("TURN");
+    AnimationPlay("TURN");
     StatesSet(PlayerStateTurn);
     //exit;
 }
@@ -93,7 +93,7 @@ xDirection = esign(xSpeed, xDirection);
 
 if (!ground) {
     StatesSet(PlayerStateAir);
-    AnimationApply("LANDING");
+    AnimationPlay("LANDING");
 }
 
 PlayerJump();

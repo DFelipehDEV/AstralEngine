@@ -1,6 +1,6 @@
 /// PlayerStateSkid()
 if (stateEntering) {
-    AnimationApply("SKID");
+    AnimationPlay("SKID");
     exit;
 }
 if (stateExiting) {

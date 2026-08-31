@@ -2,7 +2,7 @@
 if (stateEntering) {
     jumpAirTimer = 0;
     PlayerResetAirdash();
-    AnimationApply("JUMP");
+    AnimationPlay("JUMP");
     exit;
 }
 if (stateExiting) {
@@ -15,10 +15,10 @@ xDirection = PlayerGetInputDirection();
 
 if (animation != "BREATHE") {
     if (ySpeed < 2) {
-        AnimationApply("JUMP");
+        AnimationPlay("JUMP");
         animationSpeed = (0.2 + abs(ySpeed)/7) + abs(xSpeed)/15;
     } else {
-        AnimationApply("LANDING");
+        AnimationPlay("LANDING");
     }
 }
 

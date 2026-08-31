@@ -1,6 +1,6 @@
 /// PlayerStateCrouch()
 if (stateEntering) {
-    AnimationApply("CROUCH");
+    AnimationPlay("CROUCH");
     exit;
 }
 if (stateExiting) {

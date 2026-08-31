@@ -7,7 +7,6 @@ animation = "";
 animationPrevious = "";
 animationLoopFrame = 0; // Loop animation frame
 animationRepeatTimes = infinity; // How many times the animation repeats
-animationResetFrame = true; // If true and the animation ended, back to the first frame
 animationSpeed = 0;
 animationLinkedTo = "";
 animationFinished = false;

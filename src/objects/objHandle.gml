@@ -31,7 +31,7 @@ if (pull) {
         with (player) {
             ySpeed = -6.5;
             StatesSet(PlayerStateSpring);
-            AnimationApply("SPRING");
+            AnimationPlay("SPRING");
             canMove = true;
         }
         if (!audio_isplaying(sndPlayerJump)) {

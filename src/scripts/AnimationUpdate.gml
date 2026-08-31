@@ -4,10 +4,10 @@ animationTime += global.timeScale;
 if (!animationFinished) {
     image_index += animationSpeed * global.timeScale;
 
-    if (floor(image_index) > image_number - 1) {
+    if (image_index >= image_number) {
         // Repeat animation
         if (animationRepeatTimes > 0) {
-            image_index = animationLoopFrame;
+            image_index = animationLoopFrame + (image_index - image_number);
             animationRepeatTimes -= 1;
         } else {
             // Stop animation
@@ -16,7 +16,7 @@ if (!animationFinished) {
                 image_index = image_number - 1;
                 animationFinished = true;
             } else {
-                AnimationApply(animationLinkedTo);
+                AnimationPlay(animationLinkedTo);
             }
         }
     }

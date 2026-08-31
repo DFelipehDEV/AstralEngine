@@ -1,6 +1,6 @@
 /// PlayerStateAirdash()
 if (stateEntering) {
-    AnimationApply("JUMP");
+    AnimationPlay("JUMP");
     exit;
 }
 if (stateExiting) {

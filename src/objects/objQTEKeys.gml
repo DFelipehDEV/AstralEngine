@@ -62,7 +62,7 @@ if (qteWon == 0) {
         if (image_alpha <= 0.1) {
             with (player) {
                 StatesSet(PlayerStateAir);
-                AnimationApply(choose("HOMED", "HOMED_2", "SPRING_TRICK_VERTICAL"));
+                AnimationPlay(choose("HOMED", "HOMED_2", "TRICK_VER"));
                 xSpeed = other.failedXSpeed;
                 ySpeed = other.failedYSpeed;
                 lockKeysTimer = 50;
@@ -173,7 +173,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         
                         with (player) {
                             StatesSet(PlayerStateAir);
-                            AnimationApply("HOMED");
+                            AnimationPlay("HOMED");
                             lockKeysTimer = 60;
                         }
                         PlayVoice(player.voiceline[8]);
@@ -192,7 +192,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         
                         with (player) {
                             StatesSet(PlayerStateAir);
-                            AnimationApply("HOMED");
+                            AnimationPlay("HOMED");
                             lockKeysTimer = 60;
                         }
                         PlayVoice(player.voiceline[8]);
@@ -211,7 +211,7 @@ if (qteWon == 0 && image_alpha > 0.7) {
                         
                         with (player) {
                             StatesSet(PlayerStateAir);
-                            AnimationApply("HOMED");
+                            AnimationPlay("HOMED");
                             lockKeysTimer = 60;
                         }
                         PlayVoice(player.voiceline[8]);

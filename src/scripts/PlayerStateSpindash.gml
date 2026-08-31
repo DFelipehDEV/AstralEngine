@@ -10,11 +10,11 @@ if (stateExiting) {
 // Animations
 // Normal animation
 if (spindashStrength < 0.9) {
-    AnimationApply("SPINDASH");
+    AnimationPlay("SPINDASH");
 }
 // Charging animation
 else {
-    AnimationApply("SPINDASH_CHARGE");
+    AnimationPlay("SPINDASH_CHARGE");
 }
 
 // Charge spindash

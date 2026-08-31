@@ -1,6 +1,6 @@
 /// PlayerStateStomp()
 if (stateEntering) {
-    AnimationApply("STOMP");
+    AnimationPlay("STOMP");
     trailTimer = 80;
     sensorBottomDistance = 14;
     image_angle = 0;

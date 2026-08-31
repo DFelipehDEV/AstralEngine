@@ -1,7 +1,7 @@
 /// PlayerStateHomingAttack()
 if (stateEntering) {
     PlayerResetAirdash();
-    AnimationApply("JUMP");
+    AnimationPlay("JUMP");
     exit;
 }
 if (stateExiting) {
@@ -30,5 +30,5 @@ else {
     xSpeed = 0;
     ySpeed = 0;
     StatesSet(PlayerStateAir);
-    AnimationApply("LANDING");
+    AnimationPlay("LANDING");
 }

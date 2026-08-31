@@ -33,7 +33,7 @@ if (_water != noone) {
 if (_waterBubble != noone) {
     underwaterTime = 0;
     underwaterDrownFrame = 0;
-    AnimationApply("BREATHE");
+    AnimationPlay("BREATHE");
     PlaySound(sndPlayerBubble);
     instance_destroy_id(_waterBubble);
 }

@@ -3,7 +3,7 @@
 	|AnimationInit
 	|AnimationUpdate
 	|AnimationSet
-	|AnimationApply
+	|AnimationPlay
 +Camera
 	|CameraLag
 	|CameraShakeX

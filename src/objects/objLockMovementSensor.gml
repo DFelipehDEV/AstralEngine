@@ -137,7 +137,7 @@ if (active && !reached) {
             player.x = actualTargetX;
             player.xSpeed = 0;
             with (player) {
-                AnimationApply("IDLE");
+                AnimationPlay("IDLE");
             }
             reached = true;
             lockTimer = lockTime;

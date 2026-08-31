@@ -41,4 +41,6 @@ if (!ground) {
 
 StatesUpdate(global.timeScale);
 
-x = clamp(x, objCamera.leftBorder, objCamera.rightBorder);
+if (instance_exists(objCamera)) {
+    x = clamp(x, objCamera.leftBorder, objCamera.rightBorder);
+}

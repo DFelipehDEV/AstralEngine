@@ -9,7 +9,7 @@ if (abs(xSpeed) >= 6 && ground) {
         // Check if is not rolling
         if (animation != "ROLL" && animation != "CORKSCREW") {
             // If is not rolling, walk on the corkscrew
-            AnimationApply("CORKSCREW");
+            AnimationPlay("CORKSCREW");
         }
         StatesSet(PlayerStateCorkscrew);
         PlayerSetGround(false);
@@ -26,7 +26,7 @@ if (_swing != noone && state != PlayerStateGrab) {
         ySpeed = 0;
 
         StatesSet(PlayerStateGrab);
-        AnimationApply("HANG_3");
+        AnimationPlay("HANG_3");
         with (_swing) {
             active = true;
             player = other.id;

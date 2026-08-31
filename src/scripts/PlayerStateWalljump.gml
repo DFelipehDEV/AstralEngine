@@ -1,7 +1,7 @@
 /// PlayerStateWalljump()
 if (stateEntering) {
     xSpeed = 0;
-    AnimationApply("WALLGRAB");
+    AnimationPlay("WALLGRAB");
     exit;
 }
 if (stateExiting) {
@@ -15,11 +15,11 @@ if (keyActionPressed) {
     ySpeed = -6;
 
     StatesSet(PlayerStateAir);
-    AnimationApply("LAUNCH");
+    AnimationPlay("LAUNCH");
     PlaySound(sndPlayerJump);
 }
 
 if (!PlayerCollisionObjectLeft(x, y, 0, maskBig, objWalljumpSensor) && !PlayerCollisionObjectRight(x, y, 0, maskBig, objWalljumpSensor)) {
     StatesSet(PlayerStateAir);
-    AnimationApply("LANDING");
+    AnimationPlay("LANDING");
 }

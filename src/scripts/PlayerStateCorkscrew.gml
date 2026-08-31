@@ -11,7 +11,7 @@ corkscrewObject = PlayerCollisionObjectMain(x, y, objCorkscrew);
 
 if (abs(xSpeed) < 4 || corkscrewObject == noone) {
     StatesSet(PlayerStateAir);
-    AnimationApply("LANDING");
+    AnimationPlay("LANDING");
 }
 else {
     var _relativePosition, _angleInCorkscrew;

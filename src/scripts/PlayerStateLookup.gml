@@ -1,6 +1,6 @@
 /// PlayerStateLookup()
 if (stateEntering) {
-    AnimationApply("LOOK_UP");
+    AnimationPlay("LOOK_UP");
     exit;
 }
 if (stateExiting) {

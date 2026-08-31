@@ -1,6 +1,6 @@
 /// PlayerStateStompLand()
 if (stateEntering) {
-    AnimationApply("STOMP_LAND");
+    AnimationPlay("STOMP_LAND");
     exit;
 }
 if (stateExiting) {

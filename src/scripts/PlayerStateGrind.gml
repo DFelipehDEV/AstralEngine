@@ -1,6 +1,6 @@
 /// PlayerStateGrind()
 if (stateEntering) {
-    AnimationApply("GRIND");
+    AnimationPlay("GRIND");
     grindSound = PlaySound(sndPlayerGrind, 1, 1, true);
     canFallFromSlope = false;
     exit;
@@ -23,7 +23,7 @@ if (grindSound != -1) {
 }
 
 if (keyDown && abs(xSpeed) > 0.1) {
-    AnimationApply("GRIND_2");
+    AnimationPlay("GRIND_2");
     xSpeed -= 0.06 * xDirection;
     // Physics
     if (sign(xSpeed) == sign(angleSin)) {
@@ -35,7 +35,7 @@ if (keyDown && abs(xSpeed) > 0.1) {
 }
 
 if (!keyDown) {
-    AnimationApply("GRIND");
+    AnimationPlay("GRIND");
 }
 animationSpeed = min(0.18 + abs(xSpeed)/20, 0.4);
 

@@ -1,6 +1,6 @@
 /// PlayerStatePush()
 if (stateEntering) {
-    AnimationApply("PUSH");
+    AnimationPlay("PUSH");
     exit;
 }
 if (stateExiting) {

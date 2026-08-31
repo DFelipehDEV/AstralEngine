@@ -22,7 +22,7 @@ if (lockKeysTimer == 0) {
         }
 
         image_index = 0;
-        AnimationApply(choose("HOMED", "HOMED_2", "SPRING_TRICK_HORIZONTAL", "SPRING_TRICK_VERTICAL"));
+        AnimationPlay(choose("HOMED", "HOMED_2", "TRICK_HOR", "TRICK_VER"));
 
         PlayerAddEnergy(7);
         instance_create(x, y, objRainbow);
@@ -38,7 +38,7 @@ if (keyLightspeedPressed) {
     PlayerAddEnergy(21);
 
     StatesSet(PlayerStateSpring);
-    AnimationApply("SPRING_TRICK_HORIZONTAL");
+    AnimationPlay("TRICK_HOR");
 
     PlaySound(sndTrick);
 }

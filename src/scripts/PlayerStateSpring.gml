@@ -1,6 +1,6 @@
 /// PlayerStateSpring()
 if (stateEntering) {
-    AnimationApply("SPRING");
+    AnimationPlay("SPRING");
     exit;
 }
 if (stateExiting) {
@@ -12,13 +12,13 @@ PlayerMoveX();
 // Animations
 if (animation != "FLING") {
     if (stateTimer < 30) {
-        AnimationApply("SPRING");
+        AnimationPlay("SPRING");
     } else {
         // Spring animation
         if (ySpeed < 0.2) {
-            AnimationApply("SPRING");
+            AnimationPlay("SPRING");
         } else { // Fall animation
-            AnimationApply("LANDING");
+            AnimationPlay("LANDING");
         }
     }
 }
@@ -33,12 +33,12 @@ if (keyBoostPressed) {
     if (keyUp) {
         xSpeed = 0;
         ySpeed = -7;
-        AnimationApply("SPRING_TRICK_VERTICAL");
+        AnimationPlay("TRICK_VER");
     } else {
         xSpeed = 6 * PlayerGetInputDirection();
         ySpeed = -2;
         xDirection = sign(xSpeed);
-        AnimationApply("SPRING_TRICK_HORIZONTAL");
+        AnimationPlay("TRICK_HOR");
     }
 
     PlaySound(sndPlayerTrick);

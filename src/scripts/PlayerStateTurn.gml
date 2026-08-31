@@ -14,7 +14,7 @@ PlayerRotateSpriteToAngle();
 if (stateTimer > 8) {
     xDirection = -xDirection;
     StatesSet(PlayerStateNormal);
-    AnimationApply("IDLE");
+    AnimationPlay("IDLE");
 }
 if (ground)
     PlayerJump();

@@ -1,6 +1,6 @@
 /// PlayerStateLightspeed()
 if (stateEntering) {
-    AnimationApply("SPRING");
+    AnimationPlay("SPRING");
     exit;
 }
 if (stateExiting) {
@@ -10,7 +10,7 @@ if (stateExiting) {
 afterimageTimer = 15;
 if (distance_to_object(objRing) > 90 || !instance_exists(objRing) || ground) {
     StatesSet(PlayerStateAir);
-    AnimationApply("LANDING");
+    AnimationPlay("LANDING");
     xSpeed /= 1.65;
     ySpeed /= 1.2;
 } else {

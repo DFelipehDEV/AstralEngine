@@ -2,23 +2,23 @@
 SonicAnimations();
 switch(animation) {
     case "IDLE":
-        AnimationSet(sprSuperSonicIdle, 0, 0.17);
+        AnimationSet(sprSuperSonicIdle, 0.17);
         break;
 
     case "WALK":
-        AnimationSet(sprSuperSonicWalk1, 0, 0, false);
+        AnimationSet(sprSuperSonicWalk1, 0);
         break;
 
     case "WALK_2":
-        AnimationSet(sprSuperSonicWalk2, 0, 0, false);
+        AnimationSet(sprSuperSonicWalk2, 0);
         break;
 
     case "JOG":
-        AnimationSet(sprSuperSonicJog1, 0, 0, false);
+        AnimationSet(sprSuperSonicJog1, 0);
         break;
 
     case "JOG_2":
     case "RUN":
-        AnimationSet(sprSuperSonicRun, 0, 0, false);
+        AnimationSet(sprSuperSonicRun, 0);
         break;
 }

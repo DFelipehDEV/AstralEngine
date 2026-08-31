@@ -77,7 +77,7 @@ if (ground && instance_exists(objDashRamp)) {
         }
 
         PlayerSetAngle(0);
-        AnimationApply("LAUNCH");
+        AnimationPlay("LAUNCH");
 
         xDirection = _dashRamp.image_xscale;
         x = _dashRamp.x;

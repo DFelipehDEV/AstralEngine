@@ -31,7 +31,7 @@ if (energy > 0) {
             if (!ground && _aircanBoost) {
                 boostAirTimer = boostAirTimerMax;
                 StatesSet(PlayerStateAir);
-                AnimationApply("LAUNCH");
+                AnimationPlay("LAUNCH");
             }
 
             if (!instance_exists(boostAura)) {
