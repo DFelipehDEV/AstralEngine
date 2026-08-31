@@ -14,7 +14,7 @@ if (stateExiting) {
 
 PlayerMoveX();
 xSpeed = approach(xSpeed, 0, 0.01)
-ySpeed = 15;
+ySpeed = stompSpeed;
 
 // Land
 if (ground) {
@@ -22,8 +22,8 @@ if (ground) {
     ySpeed = 0;
 
     PlaySound(sndPlayerStompLand);
-    with (cam)
-        CameraShakeY(20);
+
+    with (PlayerGetOwnedCamera()) CameraShakeY(20);
     audio_stop(sndPlayerStomp);
 
     CreateDummy(x, y, sprPlayerStomp, 0.5, 0, depth - 1, bm_add, image_alpha, 1, 1, image_angle, merge_color(afterimageColor1, afterimageColor2, 0.5));

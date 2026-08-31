@@ -80,7 +80,7 @@ if ((xSpeed >= 4 && keyLeft) || (xSpeed <= -4 && keyRight)) {
     PlaySound(terrainSound[TerSkid]);
 }
 
-if (abs(xSpeed) > 1 && keySlide) {
+if (hasSlide && abs(xSpeed) > 1 && keySlide) {
     PlayVoice(choose(voiceline[3], voiceline[2]));
     PlaySound(sndPlayerSlide);
     StatesSet(PlayerStateSlide);

@@ -1,5 +1,5 @@
 /// PlayerHandleWallJump()
-if (!instance_exists(objWalljumpSensor)) exit;
+if (!hasWallJump || !instance_exists(objWalljumpSensor)) exit;
 
 if (!ground) {
     var _wall;

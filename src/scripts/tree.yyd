@@ -58,32 +58,65 @@
 +Parallax
 	|ParallaxAddNode
 +Player
-	+Body
-		|BodyApplyGravity
-	+Util
-		|PlayerAddEnergy
+	+Abilities
 		|PlayerAirdash
 		|PlayerBoost
-		|PlayerDispatch
-		|PlayerGetInputDirection
 		|PlayerHomingAttack
-		|PlayerHurt
-		|PlayerJump
 		|PlayerLightspeed
-		|PlayerMoveX
-		|PlayerResetAirdash
-		|PlayerResetGlobalVariables
-		|PlayerResetHomingAttack
-		|PlayerResetKeys
-		|PlayerResetSensors
-		|PlayerRotateSpriteToAngle
-		|PlayerSetCharacter
-		|PlayerSetPhysicsMode
-		|PlayerSetShield
-		|PlayerSetTerrainType
-		|PlayerSetVoicelines
 		|PlayerStomp
 		|PlayerTransform
+	+Body
+		|BodyApplyGravity
+	+ObjectCollision
+		|PlayerHandleBox
+		|PlayerHandleCheckpoint
+		|PlayerHandleCrane
+		|PlayerHandleDash
+		|PlayerHandleDestructive
+		|PlayerHandleEnemy
+		|PlayerHandleFootstepSensors
+		|PlayerHandleGimmicks
+		|PlayerHandleHurt
+		|PlayerHandleLayers
+		|PlayerHandleMonitor
+		|PlayerHandleProjectile
+		|PlayerHandleRails
+		|PlayerHandleRings
+		|PlayerHandleSpikes
+		|PlayerHandleSprings
+		|PlayerHandleWallJump
+		|PlayerHandleWater
+		|PlayerHandleWayLauncher
+	+Physics
+		|PlayerApplySlopeFactor
+		|PlayerCalculateAngle
+		|PlayerFlight
+		|PlayerPhysicsInit
+		|PlayerPhysicsMove
+		|PlayerSetAngle
+		|PlayerSetGround
+		+Collision
+			|PlayerCheckLine
+			|PlayerCheckRay
+			|PlayerCheckTerrain
+			|PlayerCollisionBottom
+			|PlayerCollisionCache
+			|PlayerCollisionHitbox
+			|PlayerCollisionLeft
+			|PlayerCollisionLeftEdge
+			|PlayerCollisionMain
+			|PlayerCollisionObjectBottom
+			|PlayerCollisionObjectLeft
+			|PlayerCollisionObjectMain
+			|PlayerCollisionObjectRight
+			|PlayerCollisionObjectTop
+			|PlayerCollisionRight
+			|PlayerCollisionRightEdge
+			|PlayerCollisionSlope
+			|PlayerCollisionTop
+	+Sonic
+		|SonicAnimations
+		|SonicPhysics
 	+States
 		|PlayerStateNormal
 		|PlayerStateAir
@@ -112,59 +145,28 @@
 		|PlayerStateTransform
 		|PlayerStateHurt
 		|PlayerStateDead
-	+ObjectCollision
-		|PlayerHandleBox
-		|PlayerHandleCheckpoint
-		|PlayerHandleCrane
-		|PlayerHandleDash
-		|PlayerHandleDestructive
-		|PlayerHandleEnemy
-		|PlayerHandleFootstepSensors
-		|PlayerHandleGimmicks
-		|PlayerHandleHurt
-		|PlayerHandleLayers
-		|PlayerHandleMonitor
-		|PlayerHandleProjectile
-		|PlayerHandleRails
-		|PlayerHandleRings
-		|PlayerHandleSpikes
-		|PlayerHandleSprings
-		|PlayerHandleWallJump
-		|PlayerHandleWater
-		|PlayerHandleWayLauncher
-	+Sonic
-		|SonicAnimations
-		|SonicPhysics
 	+SuperSonic
 		|SuperSonicAnimations
 		|SuperSonicPhysics
-	+Physics
-		|PlayerApplySlopeFactor
-		|PlayerCalculateAngle
-		|PlayerFlight
-		|PlayerPhysicsInit
-		|PlayerPhysicsMove
-		|PlayerSetAngle
-		|PlayerSetGround
-		+Collision
-			|PlayerCheckLine
-			|PlayerCheckRay
-			|PlayerCheckTerrain
-			|PlayerCollisionBottom
-			|PlayerCollisionCache
-			|PlayerCollisionHitbox
-			|PlayerCollisionLeft
-			|PlayerCollisionLeftEdge
-			|PlayerCollisionMain
-			|PlayerCollisionObjectBottom
-			|PlayerCollisionObjectLeft
-			|PlayerCollisionObjectMain
-			|PlayerCollisionObjectRight
-			|PlayerCollisionObjectTop
-			|PlayerCollisionRight
-			|PlayerCollisionRightEdge
-			|PlayerCollisionSlope
-			|PlayerCollisionTop
+	+Util
+		|PlayerAddEnergy
+		|PlayerDispatch
+		|PlayerGetInputDirection
+		|PlayerHurt
+		|PlayerJump
+		|PlayerMoveX
+		|PlayerResetAirdash
+		|PlayerResetGlobalVariables
+		|PlayerResetHomingAttack
+		|PlayerResetKeys
+		|PlayerResetSensors
+		|PlayerRotateSpriteToAngle
+		|PlayerSetCharacter
+		|PlayerSetPhysicsMode
+		|PlayerSetShield
+		|PlayerSetTerrainType
+		|PlayerSetVoicelines
+		|PlayerGetOwnedCamera
 +Room
 	|RoomGoto
 	|RoomGotoNext

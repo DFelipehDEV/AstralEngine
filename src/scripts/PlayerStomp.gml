@@ -1,4 +1,5 @@
 /// PlayerStomp()
+if (!hasStomp) exit;
 if (keyStomp && !ground) {
     xSpeed = 0;
     ySpeed = 13;

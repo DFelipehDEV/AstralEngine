@@ -9,18 +9,16 @@ if (stateExiting) {
 
 ySpeed = -0.1;
 if (animation == "TRANSFORM") {
-    if (stateTimer > 60) {
+    if (stateTimer >= transformDuration) {
         StatesSet(PlayerStateAir);
         PlayerSetCharacter(CharacterSuperSonic);
         AnimationPlay("LANDING");
-        alarm[1] = 60;
+        alarm[1] = transformRingDecay;
     }
-
 
     if (round(image_index) == 5 && !audio_isplaying(sndPlayerTransform)) {
         PlaySound(sndPlayerTransform)
         instance_create(x, y, objBoostShockwave);
-        with (cam)
-            CameraShakeY(20);
+        with (PlayerGetOwnedCamera()) CameraShakeY(20);
     }
 }

@@ -11,8 +11,8 @@ if (stateExiting) {
 ySpeed = lerp(ySpeed, 1.5, 0.09 * global.timeScale);
 
 if (keyActionPressed) {
-    xSpeed = 6*xDirection;
-    ySpeed = -6;
+    xSpeed = wallJumpXStrength*xDirection;
+    ySpeed = -wallJumpYStrength;
 
     StatesSet(PlayerStateAir);
     AnimationPlay("LAUNCH");

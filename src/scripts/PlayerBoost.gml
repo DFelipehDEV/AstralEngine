@@ -1,5 +1,5 @@
 /// PlayerBoost(aircanBoost)
-if (pushingWall) exit;
+if (!hasBoost || pushingWall) exit;
 
 var _aircanBoost;
 _aircanBoost = argument0;
@@ -16,16 +16,17 @@ if (energy > 0) {
             PlayVoice(choose(voiceline[0], voiceline[1], -1));
             PlaySound(sndPlayerBoost);
             CreateDummy(x, y, sprBoostWave, 0.4, 0, -0.01, bm_normal, 1, xDirection, 1, image_angle);
-            PlayerAddEnergy(-1.5);
+            PlayerAddEnergy(boostEnergyPenalty * 2);
 
             if (abs(xSpeed) < boostStartSpeed) {
                 xSpeed = boostStartSpeed * xDirection;
             }
 
-            with (cam) {
+            with (PlayerGetOwnedCamera()) {
                 CameraLag(45 * other.xDirection);
                 CameraShakeY(20);
             }
+
             instance_create(x, y, objBoostShockwave);
 
             if (!ground && _aircanBoost) {
@@ -60,7 +61,7 @@ if (energy > 0) {
             }
         }
 
-        PlayerAddEnergy(-0.35 * global.timeScale);
+        PlayerAddEnergy(boostEnergyPenalty * global.timeScale);
         PlayerSetPhysicsMode(physicsMode);
     }
 } else if (keyBoostPressed && !boosting) {

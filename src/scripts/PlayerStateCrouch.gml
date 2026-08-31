@@ -17,7 +17,7 @@ if (!keyDown || keyUp) {
 }
 else {
     // Spindash!
-    if (keyActionPressed) {
+    if (hasSpindash && keyActionPressed) {
         StatesSet(PlayerStateSpindash);
 
         // Create charge effect

@@ -50,10 +50,12 @@ jumpAirTimer = 0;
 skidDeceleration = 0.3;
 
 // Slide
+hasSlide = true;
 slideFriction = 0.11;
 slideCancelTimer = 35; // Time to go back to normal state when the player is not holding the slide key
 
 // Spindash
+hasSpindash = true;
 spindashStrength = 0;
 spindashStrengthMax = 10;
 
@@ -64,6 +66,7 @@ rollUphillFriction = 0.06; // Friction when rolling uphill
 rollDownhillForce = 0.25; // Acceleration when rolling downhill
 
 // Boost
+hasBoost = true;
 canBoost = true;
 boosting = false;
 boostStartSpeed = 11.2;
@@ -71,16 +74,21 @@ boostMinSpeed = 2.25;
 boostAirTimerMax = 90; // Amount of time the player can boost in the air
 boostAirTimer = boostAirTimerMax;
 boostAura = noone; // Instance of the boost aura VFX
+boostEnergyPenalty = -0.35;
 
 // Energy
 energy = 87;
 energyMax = 87;
 
 // Airdash
+hasAirdash = true;
 canAirdash = true;
 airdashSpeed = 11;
+airdashDuration = 22; // in frames
+airdashSpeedOnExit = 11 / 2; // Speed when the airdash is over
 
 // Homing attack
+hasHomingAttack = true;
 canHomingAttack = true;
 canHome = false;
 homingSpeed = 12;
@@ -89,6 +97,24 @@ homingYThreshold = 12;
 homingReticle = noone;
 homingObjects = dss_list_create();
 ds_list_add_many(homingObjects, objEnemy, objSpring, objMonitor, objHandle, objSwingPole);
+
+// Stomp
+hasStomp = true;
+stompSpeed = 12;
+
+// Lightspeed dash
+hasLightspeed = true;
+lightspeedSpeed = 12;
+
+// Walljump
+hasWallJump = true;
+wallJumpXStrength = 6;
+wallJumpYStrength = 6;
+
+// Transform
+hasTransform = true;
+transformDuration = 60; // Time it takes to complete the transformation
+transformRingDecay = 60; // Time until a ring is lost
 
 // Trick timer
 trickCombo = 0;
@@ -203,7 +229,7 @@ applies_to=self
 */
 /// Lose rings
 rings -= 1;
-alarm[1] = 60;
+alarm[1] = transformRingDecay;
 
 if (rings == 0) {
     alarm[1] = -1;
@@ -284,7 +310,7 @@ action_id=603
 applies_to=self
 */
 /// Homing reticle
-if (canHome) {
+if (hasHomingAttack && canHome) {
     var _dir;
     _dir = PlayerGetInputDirection();
 

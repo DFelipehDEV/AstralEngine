@@ -1,4 +1,5 @@
 /// PlayerLightspeed()
+if (!hasLightspeed) exit;
 
 if (keyLightspeedPressed && distance_to_object(objRing) <= 40) {
     var _nearRing;

@@ -9,9 +9,7 @@ if (instance_exists(objDashPad)) {
             ySpeed = 0;
         }
 
-        with (cam) {
-            CameraLag(30);
-        }
+        with (PlayerGetOwnedCamera()) CameraLag(30);
 
         if (_dashPad.strength != 0) {
             xSpeed = _dashPad.strength * _dashPad.image_xscale;

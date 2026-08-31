@@ -64,9 +64,7 @@ if (_enemy != noone) {
                 }
             }
 
-            with (cam)
-                CameraShakeY(17);
-
+            with (PlayerGetOwnedCamera()) CameraShakeY(17);
             CreateDummy(x, y, sprHit, 0.45, 0, -0.1, bm_add, 1, 1, 1, 0);
             PlaySound(choose(sndEnemyHit, sndEnemyHit2, sndEnemyHit3));
             PlayerAddEnergy(8);
