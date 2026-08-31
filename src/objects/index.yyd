@@ -113,7 +113,7 @@ objMonitorRingsRandom
 objMonitorShieldElectro
 objMonitorShieldNormal
 objMonitorIcon
-objShieldNormal
+objShield
 objShieldElectricity
 objRainbow
 
@@ -250,3 +250,4 @@ objPathCameraSensor
 objCameraPathFollower
 objLockMovementSensor
 objDeathSensor
+

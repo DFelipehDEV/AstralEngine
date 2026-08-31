@@ -86,7 +86,7 @@ switch (icon) {
     // Normal shield
     case 6:
         with (player) {
-            PlayerSetShield(objShieldNormal);
+            PlayerSetShield(objShield);
             PlaySoundSingle(sndShieldMonitor);
         }
         break;

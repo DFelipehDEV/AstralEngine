@@ -4,8 +4,10 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-/// Animation
-
+/// Init
+event_inherited();
+reflects = false;
+destroyInWater = true;
 image_speed = 0.35;
 #define Step_0
 /*"/*'/**//* YYD ACTION

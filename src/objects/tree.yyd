@@ -201,7 +201,7 @@
 	+Interaction
 		|objWaterSolid
 	+Shields
-		|objShieldNormal
+		|objShield
 		|objShieldElectricity
 	+VFX
 		|objBoost

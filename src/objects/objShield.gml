@@ -5,6 +5,8 @@ action_id=603
 applies_to=self
 */
 /// Animation
+reflects = true;
+destroyInWater = false;
 image_speed = 0.3;
 image_alpha = 0.9;
 #define Step_0
