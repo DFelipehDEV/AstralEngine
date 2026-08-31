@@ -23,7 +23,7 @@ ds_map_add(global.currentCheckpoint, "time", 0);
 global.gameState = GameStateRunning;
 
 application_surface_enable(ApplicationSurfacePost);
-instance_create(0, 0, objWorld);
+global.world = instance_create(0, 0, objWorld);
 SettingsLoad();
 
 // Finish initialization and start the game
