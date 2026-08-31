@@ -315,11 +315,11 @@ if ((!keyBoost || energy <= 0 || abs(xSpeed) < boostMinSpeed || state == PlayerS
     PlayerSetPhysicsMode(physicsMode);
 }
 
-if (boosting) {
-    if (!ground) {
-        if (state != PlayerStateCorkscrew) {
-            boostAirTimer = max(boostAirTimer - global.timeScale, 0);
-        }
+if (ground) {
+    boostAirTimer = boostAirTimerMax;
+} else {
+    if (boosting && state != PlayerStateCorkscrew) {
+        boostAirTimer = max(boostAirTimer - global.timeScale, 0);
     }
 }
 

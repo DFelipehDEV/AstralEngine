@@ -1,6 +1,7 @@
 /// PlayerStateJump()
 if (stateEntering) {
     jumpAirTimer = 0;
+    boostAirTimer = boostAirTimerMax;
     PlayerResetAirdash();
     AnimationPlay("JUMP");
     exit;

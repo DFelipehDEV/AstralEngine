@@ -3,7 +3,7 @@ if (!hasBoost || pushingWall) exit;
 
 var _aircanBoost;
 _aircanBoost = argument0;
-if (!keyBoost && ground) {
+if (!keyBoost) {
     canBoost = true;
 }
 
