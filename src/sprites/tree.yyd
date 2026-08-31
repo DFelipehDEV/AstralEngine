@@ -12,7 +12,6 @@
 		|sprShieldNormal
 	+Sonic
 		|sprBoost
-		|sprSonicPalette
 		|sprSonicIdle
 		|sprSonicIdleWait
 		|sprSonicIdleWait2
@@ -56,6 +55,7 @@
 		|sprSonicTransform
 	+SuperSonic
 		|sprBoostSuper
+		|sprSuperSonicPalette
 		|sprSuperSonicIdle
 		|sprSuperSonicWalk1
 		|sprSuperSonicWalk2

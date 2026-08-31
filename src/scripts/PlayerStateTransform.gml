@@ -11,7 +11,7 @@ ySpeed = -0.1;
 if (animation == "TRANSFORM") {
     if (stateTimer >= transformDuration) {
         StatesSet(PlayerStateAir);
-        PlayerSetCharacter(CharacterSuperSonic);
+        PlayerSetCharacter(transformInto);
         AnimationPlay("LANDING");
         alarm[1] = transformRingDecay;
     }

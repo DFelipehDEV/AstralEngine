@@ -50,12 +50,12 @@ jumpAirTimer = 0;
 skidDeceleration = 0.3;
 
 // Slide
-hasSlide = true;
+hasSlide = false;
 slideFriction = 0.11;
 slideCancelTimer = 35; // Time to go back to normal state when the player is not holding the slide key
 
 // Spindash
-hasSpindash = true;
+hasSpindash = false;
 spindashStrength = 0;
 spindashStrengthMax = 10;
 
@@ -66,7 +66,7 @@ rollUphillFriction = 0.06; // Friction when rolling uphill
 rollDownhillForce = 0.25; // Acceleration when rolling downhill
 
 // Boost
-hasBoost = true;
+hasBoost = false;
 canBoost = true;
 boosting = false;
 boostStartSpeed = 11.2;
@@ -81,7 +81,7 @@ energy = 87;
 energyMax = 87;
 
 // Airdash
-hasAirdash = true;
+hasAirdash = false;
 canAirdash = true;
 airdashSpeed = 11;
 airdashDuration = 22; // in frames
@@ -99,22 +99,24 @@ homingObjects = dss_list_create();
 ds_list_add_many(homingObjects, objEnemy, objSpring, objMonitor, objHandle, objSwingPole);
 
 // Stomp
-hasStomp = true;
+hasStomp = false;
 stompSpeed = 12;
 
 // Lightspeed dash
-hasLightspeed = true;
+hasLightspeed = false;
 lightspeedSpeed = 12;
 
 // Walljump
-hasWallJump = true;
+hasWallJump = false;
 wallJumpXStrength = 6;
 wallJumpYStrength = 6;
 
 // Transform
-hasTransform = true;
+hasTransform = false;
 transformDuration = 60; // Time it takes to complete the transformation
 transformRingDecay = 60; // Time until a ring is lost
+transformPrevious = -1;
+transformInto = CharacterSuperSonic;
 
 // Trick timer
 trickCombo = 0;
@@ -154,11 +156,15 @@ grindSound = -1;
 afterImageTimer = 0;
 afterImageInterval = 15; // Frames between afterimages
 afterImageMinSpeed = 11;
+afterimageColor1 = c_teal;
+afterimageColor2 = c_blue;
 
 // Character
-character = CharacterSonic;
+character = -1;
 characterPhysics = SonicPhysics;
 boostSprite = sprBoost;
+paletteSprite = -1;
+paletteFrame = 0;
 AnimationInit(SonicAnimations);
 PlayerSetCharacter(CharacterSonic);
 PlayerSetPhysicsMode(physicsMode);
@@ -233,9 +239,7 @@ alarm[1] = transformRingDecay;
 
 if (rings == 0) {
     alarm[1] = -1;
-    if (character == CharacterSuperSonic) {
-        PlayerSetCharacter(CharacterSonic);
-    }
+    PlayerSetCharacter(transformPrevious);
 }
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -600,6 +604,10 @@ starTimer = max(starTimer - global.timeScale, 0);
 if (starTimer > 0 && starTimer mod 5 == 1) {
     CreateDummy(x + irandom_range(-25, 25), y + irandom_range(-25, 25), sprStar, 0.25, 0, choose(1, -2), bm_normal, 1, 1, 1, 0);
 }
+
+if (character == CharacterSuperSonic) {
+    paletteIndex = floor(World.gameTime div 120) mod 2;
+}
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -730,10 +738,10 @@ if (state == PlayerStateGrind) {
 
 // Draw character if the player is not hurt. Blink when hurt
 if (invincibility != InvincibilityBlink || (invincibility == InvincibilityBlink && (invincibilityTimer div 1.5) mod 3 == 1)) {
-    if (character == CharacterSuperSonic) {
+    if (paletteSprite != -1) {
         shader_pixel_set(global.shaderColorSwap);
-        texture_set_stage("Palette", sprite_get_texture(sprSonicPalette, floor(World.gameTime div 120) mod 2));
-        shader_pixel_uniform_f("u_texHeight", sprite_get_height(sprSonicPalette) + 1);
+        texture_set_stage("Palette", sprite_get_texture(paletteSprite, paletteFrame));
+        shader_pixel_uniform_f("u_texHeight", sprite_get_height(paletteSprite) + 1);
     }
 
     draw_sprite_ext(sprite_index, floor(image_index), floor(x), floor(y), xDirection, yDirection, image_angle, image_blend, image_alpha);
