@@ -18,6 +18,7 @@ hasSpindash = true;
 hasWallJump = true;
 hasLightspeed = true;
 hasStomp = true;
+hasSpringTrick = true;
 hasTransform = true;
 
 voiceline[0] = sndSonicVoice;

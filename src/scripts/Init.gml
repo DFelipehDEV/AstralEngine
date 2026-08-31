@@ -22,6 +22,10 @@ ds_map_add(global.currentCheckpoint, "time", 0);
 
 global.gameState = GameStateRunning;
 
+// Water rendering surface
+global.waterSurface = noone;
+global.waterSurfaceFrame = -1;
+
 application_surface_enable(ApplicationSurfacePost);
 global.world = instance_create(0, 0, objWorld);
 SettingsLoad();

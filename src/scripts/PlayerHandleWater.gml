@@ -11,7 +11,7 @@ if (_water != noone) {
     // Enter water
     if (physicsMode != PhysicsWater) {
         PlayerSetPhysicsMode(PhysicsWater);
-        CreateDummy(x, _water.y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
+        CreateDummy(x, _water.bbox_top, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
         PlaySoundSingle(sndWaterSplash, 0.3);
     }
 } else {
@@ -24,7 +24,7 @@ if (_water != noone) {
         var _prevWater;
         _prevWater = PlayerCollisionObjectMain(xprevious, yprevious, objWater);
         if (_prevWater != noone) {
-            CreateDummy(x, _prevWater.y, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
+            CreateDummy(x, _prevWater.bbox_top, sprWaterDrop, 0.2, 0, -1, bm_add, 1, 1, 1, 0);
         }
         PlaySoundSingle(sndWaterSplash, 0.3);
     }

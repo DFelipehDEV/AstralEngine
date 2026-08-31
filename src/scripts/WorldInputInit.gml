@@ -46,6 +46,11 @@ sysinput_add_button("p_boost", gp_face3);
 InputIconAddKey("p_boost", 18);
 InputIconAddButton("p_boost", gp_face3);
 
+sysinput_add_key("p_trick", ord('S'));
+sysinput_add_button("p_trick", gp_face3);
+InputIconAddKey("p_trick", 18);
+InputIconAddButton("p_trick", gp_face3);
+
 sysinput_add_key("p_lightspeed", ord('F'));
 sysinput_add_button("p_lightspeed", gp_face4);
 InputIconAddKey("p_lightspeed", 5);

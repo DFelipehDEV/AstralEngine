@@ -119,6 +119,7 @@ transformPrevious = -1;
 transformInto = -1;
 
 // Trick timer
+hasSpringTrick = false;
 trickCombo = 0;
 
 // Other
@@ -183,6 +184,7 @@ keyUp = 0;
 keyDown = 0;
 keyAction = 0;
 keyBoost = 0;
+keyTrick = 0;
 keySlide = 0;
 keyLightspeed = 0;
 keyStomp = 0;
@@ -196,6 +198,7 @@ keyUpPressed= 0;
 keyDownPressed = 0;
 keyActionPressed = 0;
 keyBoostPressed = 0;
+keyTrickPressed = 0;
 keySlidePressed = 0;
 keyLightspeedPressed = 0;
 keyTransformLPressed = 0;
@@ -375,6 +378,7 @@ if (allowKeys) {
     keyAction = sysinput_get("p_jump");
     keyStomp = sysinput_get("p_stomp");
     keyBoost = sysinput_get("p_boost");
+    keyTrick = sysinput_get("p_trick");
     keySlide = sysinput_get("p_slide");
     keyLightspeed = sysinput_get("p_lightspeed");
     keyTransformL = sysinput_get("p_transform_l");
@@ -387,6 +391,7 @@ if (allowKeys) {
     keyDownPressed = sysinput_get_pressed("down");
     keyActionPressed = sysinput_get_pressed("p_jump");
     keyBoostPressed = sysinput_get_pressed("p_boost");
+    keyTrickPressed = sysinput_get_pressed("p_trick");
     keySlidePressed = sysinput_get_pressed("p_slide");
     keyLightspeedPressed = sysinput_get_pressed("p_lightspeed");
     keyTransformLPressed = sysinput_get_pressed("p_transform_l");

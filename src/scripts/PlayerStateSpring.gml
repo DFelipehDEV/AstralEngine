@@ -29,7 +29,7 @@ if (animation == "SPRING") {
     xDirection = esign(xSpeed, xDirection);
 }
 
-if (keyBoostPressed) {
+if (hasSpringTrick && keyTrickPressed) {
     if (keyUp) {
         xSpeed = 0;
         ySpeed = -7;
