@@ -17,6 +17,12 @@ applies_to=self
 */
 /// Create dialogues
 if (dialogues != -1 && !instance_exists(currentDialogueInstance)) {
+    if (currentDialogue >= ds_list_size(dialogues)) {
+        instance_destroy_id(currentDialogueInstance);
+        instance_destroy();
+        exit;
+    }
+
     var _dial;
     _dial = ds_list_find_value(dialogues, currentDialogue);
 
