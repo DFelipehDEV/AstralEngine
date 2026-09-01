@@ -33,12 +33,12 @@ if (image_alpha <= 0) {
 
 // Increase alpha if the player started to boost
 if (image_alpha < 0.8 && player.boosting) {
-    image_alpha += 0.05;
+    image_alpha += 0.05 * global.timeScale;
 }
 
 // Fade when not boosting
 if (!player.boosting || abs(player.xSpeed) < player.boostMinSpeed) {
-    image_alpha -= 0.05;
+    image_alpha -= 0.05 * global.timeScale;
 }
 
 x = player.x;

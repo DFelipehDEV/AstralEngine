@@ -20,8 +20,8 @@ applies_to=self
 */
 /// Animate and reward
 if (ySpeed < 0) {
-    y      += ySpeed;
-    ySpeed += 0.09375;
+    y      += ySpeed * global.timeScale;
+    ySpeed += 0.09375 * global.timeScale;
 }
 
 if (ySpeed >= 0 && !playerRewarded) {
@@ -32,7 +32,7 @@ if (ySpeed >= 0 && !playerRewarded) {
 
 // Fade
 if (playerRewarded) {
-    image_alpha -= 0.1;
+    image_alpha -= 0.1 * global.timeScale;
     if (image_alpha <= 0) {
         instance_destroy();
     }

@@ -16,11 +16,11 @@ action_id=603
 applies_to=self
 */
 /// Animate
-image_xscale += scalespeed;
-image_yscale += scalespeed;
+image_xscale += scalespeed * global.timeScale;
+image_yscale += scalespeed * global.timeScale;
 
 if (image_xscale > 0.5) {
-    image_alpha -= 0.15;
+    image_alpha -= 0.15 * global.timeScale;
 }
 
 if (image_alpha <= 0) {

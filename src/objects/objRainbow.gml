@@ -15,9 +15,9 @@ action_id=603
 applies_to=self
 */
 /// Animate
-image_xscale += 0.05;
-image_yscale += 0.05;
-image_alpha -= 0.05;
+image_xscale += 0.05 * global.timeScale;
+image_yscale += 0.05 * global.timeScale;
+image_alpha -= 0.05 * global.timeScale;
 
 if (image_alpha <= 0) {
     instance_destroy();
