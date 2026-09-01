@@ -21,16 +21,16 @@ action_id=603
 applies_to=self
 */
 /// Animate
-rainbowScale += 0.025;
-rainbowAlpha -= 0.07;
+rainbowScale += 0.025 * global.timeScale;
+rainbowAlpha -= 0.07 * global.timeScale;
 
-yellowScale  += 0.017;
-yellowAlpha  -= 0.075;
+yellowScale += 0.017 * global.timeScale;
+yellowAlpha -= 0.075 * global.timeScale;
 
-sparkleAngle += 14;
-createTimer += 1;
+sparkleAngle += 14 * global.timeScale;
+createTimer += global.timeScale;
 
-if (createTimer mod 4 == 2) {
+if (floor(createTimer) mod 4 == 2) {
     CreateDummy(x + dcos(sparkleAngle)*sparkleOffset, y - dsin(sparkleAngle)*sparkleOffset, choose(sprRingSparkle, sprRingSparkle2, sprRingSparkle3), 0.5, 0, 1, bm_normal, 1, 1, 1, 0)
 }
 
