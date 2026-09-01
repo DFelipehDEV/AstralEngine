@@ -13,6 +13,7 @@ StatesInit(BuzzerStateNormal);
 target = noone;
 
 shootTimer = 20;
+shootStep = 0;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

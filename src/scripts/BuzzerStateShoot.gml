@@ -8,8 +8,10 @@ if (stateExiting) {
     exit;
 }
 
-if (instance_exists(target)) {
-    if (floor(stateTimer) == 15 || floor(stateTimer) == 30) {
+if (instance_exists(target) && stateTimer <= 30) {
+    shootStep += global.timeScale;
+    if (shootStep >= 15) {
+        shootStep = 0;
         with (instance_create(x + 9 * image_xscale, y + 12, objProjectile)) {
             sprite_index = sprEnemyBuzzerProjectile;
             image_speed = 0.25 * global.timeScale;
@@ -21,7 +23,7 @@ if (instance_exists(target)) {
     }
 }
 
-if (!instance_exists(target) || distance_to_object(target) > 200 || stateTimer > 30) {
+if (!instance_exists(target) || stateTimer > 60) {
     target = noone;
     StatesSet(BuzzerStateNormal);
 }
