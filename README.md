@@ -16,7 +16,6 @@ No. Astral Engine uses alot of GameMaker 8.2 room specific features, such as fie
 
 If you really want to use new GameMaker, you can use [Astral Physics for GameMaker 2024+](https://gitlab.com/astralengine/astralphysics), or port the physics controller to a new standalone project, but that means that you will only have the player physics and will need to reimplement the other features.
 
-
 **Can you add this character?**  
 No. Adding characters increases complexity by alot, for example when adding a new animation, you would need to create an animation for all characters.  
 The only exception is Super Sonic, which reuses Sonic’s animations.  
@@ -26,3 +25,6 @@ Yes! The license permits you to do anything, including fangames, commercial proj
 
 **How do i install sysInput?**  
 There's a tutorial at the top explaining the steps to install sysInput. The extension itself comes with the source code, inside the extensions folder.
+
+**How do i create a release build?**  
+Inside GameMaker 8.2, with the project open, go to `Extensions` and replace `Game Maker 8.2 Test` with `Game Maker 8.2 Test Stub`, this removes all debug related code and the game will run faster. Next, click on `File` on the top menu and `Create Executable`. You can also change the exe's icon, author, version, and description by going to `Game Settings`.
