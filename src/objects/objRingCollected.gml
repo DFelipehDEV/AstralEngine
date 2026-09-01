@@ -14,6 +14,7 @@ yellowAlpha = 1;
 sparkleAngle = 0;
 sparkleOffset = 15;
 createTimer = 0;
+sparkleStep = 0;
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -30,7 +31,9 @@ yellowAlpha -= 0.075 * global.timeScale;
 sparkleAngle += 14 * global.timeScale;
 createTimer += global.timeScale;
 
-if (floor(createTimer) mod 4 == 2) {
+sparkleStep += global.timeScale;
+if (sparkleStep >= 4) {
+    sparkleStep = 0;
     CreateDummy(x + dcos(sparkleAngle)*sparkleOffset, y - dsin(sparkleAngle)*sparkleOffset, choose(sprRingSparkle, sprRingSparkle2, sprRingSparkle3), 0.5, 0, 1, bm_normal, 1, 1, 1, 0)
 }
 
