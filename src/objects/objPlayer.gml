@@ -525,7 +525,7 @@ if ((abs(xSpeed) >= afterImageMinSpeed || abs(ySpeed) >= afterImageMinSpeed) && 
 
 if (afterImageTimer > 0) {
     if (floor(afterImageTimer) mod 6 == 1) {
-        CreateAfterImage(x, y, sprite_index, image_index, 1, xDirection, 1, image_angle, afterimageColor1, afterimageColor2);
+        CreateAfterImage(floor(x), floor(y), sprite_index, floor(image_index), 1, xDirection, yDirection, image_angle, afterimageColor1, afterimageColor2);
     }
 }
 
