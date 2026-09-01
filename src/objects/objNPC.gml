@@ -11,6 +11,7 @@ dialogueQuerier = noone;
 inputAlpha = 0;
 
 player = noone;
+playerCam = noone;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -28,34 +29,41 @@ applies_to=self
 /// Change dialogue and end dialogue
 if (!instance_exists(dialogueQuerier) && instance_exists(player)) {
     player.allowKeys = true;
-    player.hud.hidden = false;
+    if (instance_exists(player.hud)) player.hud.hidden = false;
 
-    player.cam.yShift = 0;
-    player.cam.target = player;
+    if (instance_exists(playerCam)) {
+        playerCam.yShift = 0;
+        playerCam.target = player;
+    }
+    playerCam = noone;
     player = noone;
 }
-#define Collision_objPlayer
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Dialogue
-if (other.keyLightspeedPressed && !instance_exists(dialogueQuerier)) {
-    player = other.id;
-    with (player) {
-        allowKeys = false;
-        PlayerResetKeys();
 
-        xSpeed = 0;
+// Interaction check
+if (!instance_exists(dialogueQuerier) && instance_exists(objPlayer)) {
+    var _nearPlayer;
+    _nearPlayer = instance_nearest(x, y, objPlayer);
+    if (instance_exists(_nearPlayer) && distance_to_object(_nearPlayer) < 20) {
+        if (_nearPlayer.keyLightspeedPressed) {
+            player = _nearPlayer;
+            playerCam = _nearPlayer.cam;
 
-        cam.yShift = -50;
-        cam.target = other.id;
-        hud.hidden = true;
+            with (player) {
+                allowKeys = false;
+                PlayerResetKeys();
+                xSpeed = 0;
+                if (instance_exists(hud)) hud.hidden = true;
+            }
+
+            if (instance_exists(playerCam)) {
+                playerCam.yShift = -50;
+                playerCam.target = id;
+            }
+
+            dialogueQuerier = instance_create(x, y, objDialogueQuery);
+            dialogueQuerier.dialogues = dialogues;
+        }
     }
-
-    dialogueQuerier = instance_create(x, y, objDialogueQuery);
-    dialogueQuerier.dialogues = dialogues;
 }
 #define Other_5
 /*"/*'/**//* YYD ACTION
