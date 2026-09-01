@@ -5,12 +5,14 @@ action_id=603
 applies_to=self
 */
 /// Variables
-MarkAsActive();
 // Destroy while in GMdebug mode
 if (debug_mode) {
     instance_destroy();
     exit;
 }
+
+MarkAsActive();
+World.gameTimeAllow = false;
 
 stageName = string_upper(room_get_name(room));
 
