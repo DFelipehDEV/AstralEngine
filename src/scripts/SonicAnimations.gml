@@ -148,10 +148,6 @@ switch(animation) {
         AnimationSet(sprSonicCorkscrew, 0.37);
         break;
 
-    case "FLING":
-        AnimationSet(sprSonicCorkscrew, 0.37, 0, 0, "LAND");
-        break;
-
     case "HURT_FALL":
         AnimationSet(sprSonicHurtFall, 0.2, 0, 0);
         break;

@@ -309,7 +309,7 @@ applies_to=self
 PlayerUpdateReticle();
 canHome = false;
 // Stop boosting
-if ((!keyBoost || energy <= 0 || abs(xSpeed) < boostMinSpeed || state == PlayerStateRoll || animation == "FLING" || (boostAirTimer == 0 && !ground)) && boosting) {
+if ((!keyBoost || energy <= 0 || abs(xSpeed) < boostMinSpeed || state == PlayerStateRoll || (boostAirTimer == 0 && !ground)) && boosting) {
     boosting = false;
     canBoost = false;
     PlayerSetPhysicsMode(physicsMode);

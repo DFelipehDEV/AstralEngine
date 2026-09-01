@@ -10,16 +10,14 @@ if (stateExiting) {
 
 PlayerMoveX();
 // Animations
-if (animation != "FLING") {
-    if (stateTimer < 30) {
+if (stateTimer < 30) {
+    AnimationPlay("SPRING");
+} else {
+    // Spring animation
+    if (ySpeed < 0.2) {
         AnimationPlay("SPRING");
-    } else {
-        // Spring animation
-        if (ySpeed < 0.2) {
-            AnimationPlay("SPRING");
-        } else { // Fall animation
-            AnimationPlay("LANDING");
-        }
+    } else { // Fall animation
+        AnimationPlay("LANDING");
     }
 }
 
