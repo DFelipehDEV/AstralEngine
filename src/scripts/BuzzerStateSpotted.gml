@@ -13,6 +13,12 @@ if (stateExiting) {
     exit;
 }
 
+if (!instance_exists(target)) {
+    target = noone;
+    StatesSet(BuzzerStateNormal);
+    exit;
+}
+
 image_xscale = esign(target.x - x, image_xscale);
 xSpeed = lerp(xSpeed, 0, 0.12 * global.timeScale);
 

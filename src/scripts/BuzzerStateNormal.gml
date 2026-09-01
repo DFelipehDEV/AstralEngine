@@ -13,10 +13,8 @@ xSpeed = 2 * image_xscale;
 if (stateTimer > 30) {
     var _nearest;
     _nearest = instance_nearest(x, y, objPlayer);
-
     if (_nearest != noone && distance_to_object(_nearest) < 260 && sign(_nearest.x - x) == image_xscale) {
         target = _nearest;
-
         StatesSet(BuzzerStateSpotted);
     } else {
         target = noone;
