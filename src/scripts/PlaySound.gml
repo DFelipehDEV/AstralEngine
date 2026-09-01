@@ -1,14 +1,17 @@
-/// PlaySound(sound, [volume=1], [pitch=1], [loop=false], [single=false])
+/// PlaySound(sound, [volume=1], [pitch=1], [loop=false], [single=false], [pan=0])
 if (argument0 == -1 || argument0 == noone) return -1;
 
-var _sound, _volume, _pitch, _loop, _single;
+var _sound, _volume, _pitch, _loop, _single, _pan;
 _sound = argument0;
 _volume = 1;
 _pitch = 1;
 _loop = false;
 _single = false;
+_pan = 0;
 
 switch (argument_count) {
+    case 6:
+        _pan = argument5;
     case 5:
         _single = argument4;
     case 4:
@@ -21,7 +24,7 @@ switch (argument_count) {
 }
 
 if (_single) {
-    return audio_play_single_ext(_sound, _volume * global.soundVolume, 0, _pitch, _loop);
+    return audio_play_single_ext(_sound, _volume * global.soundVolume, _pan, _pitch, _loop);
 }
 
-return audio_play_ext(_sound, _volume * global.soundVolume, 0, _pitch, _loop);
+return audio_play_ext(_sound, _volume * global.soundVolume, _pan, _pitch, _loop);
