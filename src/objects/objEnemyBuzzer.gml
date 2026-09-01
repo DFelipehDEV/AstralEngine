@@ -7,6 +7,8 @@ applies_to=self
 /// Variables
 event_inherited();
 
+image_speed = 0.32;
+
 StatesInit(BuzzerStateNormal);
 target = noone;
 

@@ -13,6 +13,8 @@ target = noone;
 delay = 0;
 normalStateX = x;
 
+image_speed = 0.2;
+
 StatesInit(EggpawnStateNormal);
 #define Step_0
 /*"/*'/**//* YYD ACTION

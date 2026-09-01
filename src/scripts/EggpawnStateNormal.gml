@@ -10,6 +10,7 @@ if (stateExiting) {
 normalStateX = x;
 
 if (canMove) {
+    EnemySetAnimation(sprEnemyEggpawnWalk, 0.2);
     xSpeed = 1.6 * image_xscale;
 
     var _nearPlayer;
