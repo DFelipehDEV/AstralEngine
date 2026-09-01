@@ -70,6 +70,6 @@ if (energy > 0) {
         image_yscale = 0.0006;
         scalespeed = 0.2;
     }
-    hud.shakeTimer = 30;
+    if (instance_exists(hud)) hud.shakeTimer = 30;
     PlayVoice(voiceline[2]);
 }
