@@ -24,4 +24,3 @@ if (canAttack && ground) {
         }
     }
 }
-

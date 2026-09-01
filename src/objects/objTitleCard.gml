@@ -58,9 +58,12 @@ action_id=603
 applies_to=self
 */
 /// Disable player input
-if (delay == 29) {
+if (delay == 30) {
     if (player != noone) {
-        player.allowKeys = false;
+        with (player) {
+            allowKeys = false;
+            PlayerResetKeys();
+        }
     }
 }
 /*"/*'/**//* YYD ACTION
