@@ -160,6 +160,7 @@ afterImageInterval = 15; // Frames between afterimages
 afterImageMinSpeed = 11;
 afterimageColor1 = c_teal;
 afterimageColor2 = c_blue;
+afterImageStep = 0; // this is to ensure a afterimage is created every 6 ticks. this way it respects timeScale
 
 // Character
 character = -1;
@@ -524,7 +525,9 @@ if ((abs(xSpeed) >= afterImageMinSpeed || abs(ySpeed) >= afterImageMinSpeed) && 
 }
 
 if (afterImageTimer > 0) {
-    if (floor(afterImageTimer) mod 6 == 1) {
+    afterImageStep += global.timeScale;
+    if (afterImageStep >= 6) {
+        afterImageStep = 0;
         CreateAfterImage(floor(x), floor(y), sprite_index, floor(image_index), 1, xDirection, yDirection, image_angle, afterimageColor1, afterimageColor2);
     }
 }
