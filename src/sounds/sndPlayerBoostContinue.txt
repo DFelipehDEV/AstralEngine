@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=sndPlayerBoostContinue (1).wav
+source=22PLY_SNC_PAM.acb-0044-2002_boost_lp.wav
 kind=0
 effects=0
 volume=1

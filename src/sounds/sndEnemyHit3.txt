@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=PlayerEnemyHit3.wav
+source=52ENM_CMN.acb-0004-5002_damage.wav
 kind=0
 effects=0
 volume=1

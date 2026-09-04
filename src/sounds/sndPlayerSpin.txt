@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=PlayerSpin.wav
+source=22PLY_SNC_PAM.acb-0037-2002_spin_ge.wav
 kind=0
 effects=0
 volume=1

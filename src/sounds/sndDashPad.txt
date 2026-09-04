@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=DashPad.wav
+source=40OBJ_CMN_PAM.acb-0015-4001_booster_ge__4002_booster_ge.wav
 kind=0
 effects=0
 volume=1

@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=PlayerBoostLoop.wav
+source=22PLY_SNC_PAM.acb-0043-2002_boost_lp.wav
 kind=0
 effects=0
 volume=1

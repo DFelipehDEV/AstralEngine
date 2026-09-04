@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=PlayerHome.wav
+source=22PLY_SNC_PAM.acb-0038-2002_homing.wav
 kind=0
 effects=0
 volume=1

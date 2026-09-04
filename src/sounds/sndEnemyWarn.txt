@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=EnemyWarn.wav
+source=51ENM_EFN.acb-0006-5011_beep02.wav
 kind=0
 effects=0
 volume=1

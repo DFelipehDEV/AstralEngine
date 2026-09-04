@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=PlayerBoostStart.wav
+source=22PLY_SNC_PAM.acb-0039-2002_boost.wav
 kind=0
 effects=0
 volume=1

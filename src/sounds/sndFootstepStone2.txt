@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=FootstepStone2.wav
+source=22PLY_SNC_PAM.acb-0003-2002_fst_run_stn__2002_fst_wlk_stn.wav
 kind=0
 effects=0
 volume=1

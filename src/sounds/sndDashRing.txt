@@ -1,6 +1,6 @@
 extension=.wav
 exists=1
-source=DashRing.wav
+source=40OBJ_CMN_PAM.acb-0001-4001_rbooster.wav
 kind=0
 effects=0
 volume=1
