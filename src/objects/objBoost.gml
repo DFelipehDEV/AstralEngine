@@ -7,7 +7,7 @@ applies_to=self
 /// Init
 image_alpha = 0.1;
 
-continueSound = PlaySound(sndPlayerBoostContinue);
+continueSound = PlaySound(sndPlayerBoostContinue, 0.5);
 loopSound = PlaySound(sndPlayerBoostLoop, 1, 1, true)
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
