@@ -99,8 +99,9 @@ if (resultsTimer > 230) {
     }
 
     if (resultsTimer > 370) {
-        if (!audio_isplaying(bgmResults))
-            PlaySound(bgmResults, global.musicVolume);
+        if (!audio_isplaying(bgmResults)) {
+            PlayMusic(bgmResults, 1, -1, 12.6);
+        }
     }
 
     if (resultsTimer > 300 && scoreFinished) {
