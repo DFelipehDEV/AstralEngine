@@ -7,7 +7,7 @@ if (stateExiting) {
     exit;
 }
 
-afterimageTimer = 15;
+afterImageTimer = 15;
 if (distance_to_object(objRing) > 90 || !instance_exists(objRing) || ground) {
     StatesSet(PlayerStateAir);
     AnimationPlay("LANDING");

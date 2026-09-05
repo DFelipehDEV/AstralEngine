@@ -9,7 +9,7 @@ if (stateExiting) {
 }
 
 canHome = true;
-afterimageTimer = 15;
+afterImageTimer = 15;
 if (!instance_exists(homingReticle)){
     PlayerResetHomingAttack();
     exit;

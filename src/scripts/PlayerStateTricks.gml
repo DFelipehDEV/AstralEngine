@@ -8,7 +8,7 @@ if (stateExiting) {
     exit;
 }
 
-afterimageTimer = 15;
+afterImageTimer = 15;
 if (animation == "SPRING") {
     image_angle = point_direction(xprevious, yprevious, x, y)-90;
 }
