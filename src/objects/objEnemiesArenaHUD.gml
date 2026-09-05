@@ -30,7 +30,7 @@ action_id=603
 applies_to=self
 */
 /// Draw Arena HUD
-if (!GameStateGet(GameStatePaused) && scale > 0.01) {
+if (GameStateGet() != GameStatePaused && scale > 0.01) {
     BeginUI();
     // Enemy text
     draw_sprite_ext(sprHUDEnemiesText, 0, ScreenWidthHalf, 16, 1, scale, 0, c_white, 1);

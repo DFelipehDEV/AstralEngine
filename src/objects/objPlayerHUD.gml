@@ -53,7 +53,7 @@ action_id=603
 applies_to=self
 */
 /// Draw HUD
-if (instance_exists(player) && !GameStateGet(GameStatePaused)) {
+if (instance_exists(player) && GameStateGet() != GameStatePaused) {
     BeginUI();
     // Speedlines
     if (instance_exists(player.boostAura)) {

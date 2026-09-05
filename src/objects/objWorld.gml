@@ -28,7 +28,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-if (GameStateGet(GameStatePaused)) exit;
+if (GameStateGet() != GameStatePaused) exit;
 
 WorldTimeUpdate();
 WorldDeactivationUpdate();
