@@ -11,7 +11,7 @@ image_alpha = 0;
 slideX = -400;
 padding = 32;
 
-optionMax = 8;
+optionMax = 9;
 
 optionLabel[0] = "Fullscreen";
 optionType[0] = 0;
@@ -34,13 +34,27 @@ optionType[5] = 5;
 optionLabel[6] = "Buttons";
 optionType[6] = 6;
 
-optionLabel[7] = "Save and Exit";
+optionLabel[7] = "Credits";
 optionType[7] = 7;
+
+optionLabel[8] = "Save and Exit";
+optionType[8] = 8;
 
 optionSelected = 0;
 scale = 0;
 inputDelay = 0;
 leaved = false;
+creditsInstance = noone;
+#define Destroy_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// Cleanup
+if (creditsInstance != noone && instance_exists(creditsInstance)) {
+    with (creditsInstance) instance_destroy();
+}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -54,6 +68,15 @@ if (leaved) {
     image_alpha -= 0.03;
     if (image_alpha <= 0) instance_destroy();
     exit;
+}
+
+if (creditsInstance != noone) {
+    if (!instance_exists(creditsInstance)) {
+        creditsInstance = noone;
+        inputDelay = 15;
+    } else {
+        exit;
+    }
 }
 
 image_alpha = approach(image_alpha, 0.9, 0.05);
@@ -84,6 +107,7 @@ if (inputDelay == 0) {
             break;
         case 1: // Resolution
             if (sysinput_get("right")) { World.windowScale = WindowSetScale(World.windowScale + 1); inputDelay = 20; }
+            if (sysinput_get("left"))  { World.windowScale = WindowSetScale(World.windowScale - 1); inputDelay = 20; }
             break;
 
         case 2: // Music Volume
@@ -117,7 +141,15 @@ if (inputDelay == 0) {
             }
             break;
 
-        case 7: // Save and Exit
+        case 7: // Credits
+            if (sysinput_get_pressed("accept") || sysinput_get("right")) {
+                PlaySound(sndMenuAccept);
+                creditsInstance = instance_create(x, y, objCreditsMenu);
+                inputDelay = 20;
+            }
+            break;
+
+        case 8: // Save and Exit
             if (sysinput_get("accept")) {
                 PlaySound(sndMenuAccept);
                 SettingsSave();
@@ -196,6 +228,8 @@ for (i = 0; i < optionMax; i += 1) {
         draw_text(_sx - 8, round(_yPos), _valueText);
 
         DrawSlider(_sx, _yPos, _sliderWidth, _sliderHeight, _val, ColorSecondary);
+    } else if (_type == 7) {
+        draw_text(round(slideX + _valueX), round(_yPos), ">");
     }
 }
 

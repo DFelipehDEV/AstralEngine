@@ -228,6 +228,7 @@
 		|objPauseMenu
 		|objTitleMenu
 		|objSettingsMenu
+		|objCreditsMenu
 	|objPressButtonPopup
 	|objEnemiesArenaHUD
 +VFX

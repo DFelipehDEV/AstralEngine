@@ -14,6 +14,11 @@ sysinput_add_button("accept", gp_face1);
 InputIconAddKey("accept", 0);
 InputIconAddButton("accept", gp_face1);
 
+sysinput_add_key("cancel", ord('S'));
+sysinput_add_button("cancel", gp_face2);
+InputIconAddKey("cancel", 18);
+InputIconAddButton("cancel", gp_face2);
+
 sysinput_add_key("left", vk_left);
 sysinput_add_axes("left", gp_axislh, true);
 

@@ -254,3 +254,4 @@ objDeathSensor
 objCollectable
 objSensor
 objEnemiesArenaHUD
+objCreditsMenu
