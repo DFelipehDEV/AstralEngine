@@ -56,7 +56,7 @@ if (resultsTimer > 80) {
 }
 
 if (resultsTimer > 110) {
-    if (sysinput_get("accept") && !scoreFinished) {
+    if (sysinput_get_pressed("accept") && !scoreFinished) {
         StopSound(bgmVictory);
         resultsTimer = 290;
         scorebarX = 0;
@@ -135,7 +135,7 @@ if (resultsTimer > 230) {
                 }
             }
 
-            if (sysinput_get("accept")) {
+            if (sysinput_get_pressed("accept") && !instance_exists(objFadeRoom)) {
                 var _nextRoomName, _roomName, _targetNextRoom;
                 _nextRoomName = "";
                 _targetNextRoom = -1;
