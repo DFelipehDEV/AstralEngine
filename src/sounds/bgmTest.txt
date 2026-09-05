@@ -1,6 +1,6 @@
 extension=.ogg
 exists=1
-source=SEGA _ Kanon Oguni - Cyber Space 2-6_ Transparent Highway.ogg
+source=SurvivalStep.ogg
 kind=1
 effects=0
 volume=1
