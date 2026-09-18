@@ -268,9 +268,8 @@ if (angle == 0 && abs(xSpeed) > waterRunSpeed) {
         instance_destroy_id(waterRunSolid);
     }
 }
-benchmark_start();
+
 PlayerPhysicsMove(global.timeScale);
-debug_log("PlayerPhysicsMove took: " + string(benchmark_end()));
 
 if (noGravityTimer == 0) {
     BodyApplyGravity(yGravity);
@@ -471,9 +470,7 @@ action_id=603
 applies_to=self
 */
 /// Animation system
-benchmark_start();
 AnimationUpdate();
-debug_log(benchmark_end());
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
