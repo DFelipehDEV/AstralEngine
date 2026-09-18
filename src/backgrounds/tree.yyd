@@ -1,8 +1,21 @@
-+TitleScreen
-	|bgTitle
 +SpaceColony
 	|tileTZ
 	|tileTZ3
 	|bgTZ
 	|bgTZ2
 	|tileTZGrass
++TitleScreen
+	|bgTitle
+	|bgTitleEarth
+	|bgTitleMoon
+	|bgTitleBottomCorner
+	|bgTitleTopCorner
++UI
+	+Results
+		|bgResults
+		|bgScoreResults
+	+TitleCard
+		|bgTitleCard
+		|bgTitleCardCorner
+	+Dialogue
+		|bgDialogue

@@ -240,10 +240,8 @@
 		|sprLayer1Mask03
 		|sprLayer1Mask04
 		|sprLayer1Mask05
-+Parallax
++SpaceColony
 	|sprTZBG
-	|sprTZBG2
-	|sprTZBG3
 +UI
 	+HUD
 		|sprHUDEnergy
@@ -254,31 +252,23 @@
 		|sprFontHUD
 	+Splash
 		|sprAstralLogo2
-		|sprAstralTitleBG
 		|sprPressStart
 	+Input
 		|sprXboxButtons
 		|sprPlaystationButtons
 		|sprKeyboardKeys
 	+Results
-		|sprResultsBG1
 		|sprResultsOverlays
 		|sprResultsRanks
-		|sprResultsScoresUnderlay
 		|sprResultsTexts
 		|sprFontResults
 	+QTE
 		|sprQTEKeysBack
 		|sprQTETimer
 	+TitleCard
-		|sprTitleCardBG
 		|sprTitleCardChar
 		|sprTitleCardDash
-		|sprTitleCardShapes
-		|sprTitleCardZoneCard
-		|sprTitleCardBar
 	+Dialogue
-		|sprDialogueBG
 		|sprDialogueAvatarNavigator
 		|sprDialogueAvatarSonic
 		|sprFontText

@@ -193,18 +193,16 @@ applies_to=self
 /// Draw
 BeginUI();
 
-draw_sprite(sprResultsBG1, 0, 0, 0);
+draw_background(bgResults, 0, 0);
 
 if (resultsTimer > 80) {
-    draw_sprite(sprResultsScoresUnderlay, 0, scorebarX, 33);
+    draw_background(bgScoreResults, scorebarX, 33);
 
-    d3d_set_fog(1, c_white, 0, 0);
     draw_sprite_ext(sprTitleCardChar, 0, characterX + 20, 130, max(abs(-dsin(current_time/9)*1.3), 1),
         max(abs(-dsin(current_time/9)*1.3), 1), -dsin(current_time/11)*20, c_white, 1);
-    d3d_set_fog(0, 0, 0, 0);
 
-    draw_sprite_ext(sprTitleCardChar, 0, characterX, 130, 1, 1, -dsin(current_time/11)*20, c_white, 1);
-    draw_sprite_ext(sprTitleCardZoneCard, 0, 0, ScreenHeight - 80, resultsBarScale, 0.7, 0, c_white, 1);
+    draw_sprite_ext(sprTitleCardChar, 0, characterX, 130, 1, 1, -dsin(current_time/11)*20, ColorPrimary, 1);
+    DrawBar(0, ScreenHeight - 80, resultsBarScale, round(39 * 0.7));
 }
 
 draw_sprite_part(sprResultsOverlays, 0, 0, 0, 512, overlaysHeight, 0, 0);

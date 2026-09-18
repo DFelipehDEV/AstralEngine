@@ -217,6 +217,7 @@
 		|ParseDialogueText
 	+Design
 		|DrawSlider
+		|DrawBar
 	|BeginUI
 	|EndUI
 +Utils

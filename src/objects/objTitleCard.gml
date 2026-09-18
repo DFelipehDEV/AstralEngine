@@ -24,8 +24,8 @@ cardZoneScale = 1;
 cardCenterX = ScreenWidthHalf;
 cardCenterY = ScreenHeightHalf;
 
-cardColor1 = make_color_rgb(21,153,224);
-cardColor2 = make_color_rgb(120,228,225);
+cardColor1 = ColorPrimary;
+cardColor2 = ColorPrimaryLight;
 
 cardBackAlpha = 1;
 cardLineAlpha = 1;
@@ -169,22 +169,22 @@ applies_to=self
 BeginUI();
 
 // Draw background left
-draw_sprite_ext(sprTitleCardBG, 0, -cardResultOffset*8, 0, 1, 1, 0, c_white, cardBackAlpha);
+draw_background_ext(bgTitleCard, -cardResultOffset*8, 0, 1, 1, 0, c_white, cardBackAlpha);
 
 // Draw background right
-draw_sprite_ext(sprTitleCardBG, 0, (cardResultOffset*8) + 256, 0, 1, 1, 0, c_white, cardBackAlpha);
+draw_background_ext(bgTitleCard, (cardResultOffset*8) + 256, 0, 1, 1, 0, c_white, cardBackAlpha);
 
 // Draw character
-draw_sprite_ext(sprTitleCardChar, 0, cardCharX + cardResultOffset*9, (dsin(current_time/6)*8) + cardCenterY, 1 + cardResultOffset/12, 1 + cardResultOffset/12, 0, c_white, cardCharAlpha);
+draw_sprite_ext(sprTitleCardChar, 0, cardCharX + cardResultOffset*9, (dsin(current_time/6)*8) + cardCenterY, 1 + cardResultOffset/12, 1 + cardResultOffset/12, 0, cardColor1, cardCharAlpha);
 
 draw_set_alpha(cardLineAlpha);
 
 // Draw zone card
-draw_sprite_ext(sprTitleCardZoneCard, 0, 0, cardCenterY, cardZoneScale, 1, 0, c_white, cardLineAlpha);
+DrawBar(0, cardCenterY, cardZoneScale, 39);
 
 if (cardResultOffset == 0) {
     // Draw dash sign
-    draw_sprite_ext(sprTitleCardDash, 0, cardDashX, cardCenterY, 1, 1, 0, c_white, cardLineAlpha);
+    draw_sprite_ext(sprTitleCardDash, 0, cardDashX, cardCenterY, 1, 1, 0, cardColor2, cardLineAlpha);
 }
 
 // Draw text
@@ -195,16 +195,16 @@ draw_set_halign(-1);
 draw_set_font(1);
 
 // Draw bottom shape
-draw_sprite_ext(sprTitleCardShapes, 0, (cardResultOffset) + cardShape1X, cardResultOffset, 1, 1, 0, c_white, cardLineAlpha);
+draw_background_ext(bgTitleCardCorner, (cardResultOffset) + cardShape1X - 256, cardResultOffset, 1, 1, 0, c_white, cardLineAlpha);
 
 // Draw top shape
-draw_sprite_ext(sprTitleCardShapes, 1, (-cardResultOffset) + cardShape2X, -cardResultOffset, 1, 1, 0, c_white, cardLineAlpha);
+draw_background_ext(bgTitleCardCorner, (-cardResultOffset) + cardShape2X + 256, (-cardResultOffset) + 288, -1, -1, 0, c_white, cardLineAlpha);
 
 // Draw a line in the top
-draw_sprite(sprTitleCardBar, 0, 0, -cardResultOffset*2.5);
+draw_rect(0, -cardResultOffset*2.5, ScreenWidth, 11, cardColor2, cardLineAlpha);
 
 // Draw a line in the bottom
-draw_sprite(sprTitleCardBar, 0, 0, (ScreenHeight-11) + cardResultOffset*2.5);
+draw_rect(0, (ScreenHeight-11) + cardResultOffset*2.5, ScreenWidth, 11, cardColor2, cardLineAlpha);
 draw_set_alpha(1);
 
 EndUI();

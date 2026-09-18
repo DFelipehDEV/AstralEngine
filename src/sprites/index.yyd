@@ -122,16 +122,16 @@ sprPauseOptions
 sprPauseTitle
 sprQTEKeysBack
 sprQTETimer
-sprResultsBG1
+
 sprResultsOverlays
 sprResultsRanks
-sprResultsScoresUnderlay
+
 sprResultsTexts
-sprTitleCardBG
+
 sprTitleCardChar
 sprTitleCardDash
-sprTitleCardShapes
-sprTitleCardZoneCard
+
+
 sprHUDEnergy
 sprHUDRings
 sprHUDSpeedlines
@@ -176,12 +176,12 @@ sprEnemyBuzzerTurn
 sprPlatformMask01
 
 sprAstralLogo2
-sprTZBG3
-sprTZBG2
+
+
 sprTZBG
 sprHUDGauge
 sprPlayerTrail
-sprAstralTitleBG
+
 sprPressStart
 sprSolidMask04
 sprSolidMask05
@@ -205,7 +205,7 @@ sprLayer0Mask05
 sprPlatformAngle
 sprPlatformMask01Spin
 sprNavigator
-sprDialogueBG
+
 sprFontText
 sprTestFlower
 
@@ -221,7 +221,7 @@ sprSonicLedge2
 sprTestWall1
 
 sprSonicPush
-sprTitleCardBar
+
 sprSonicGrind2
 sprBridgeLog
 

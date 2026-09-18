@@ -56,7 +56,7 @@ BeginUI();
 
 draw_set_valign(fa_top)
 draw_set_font(textFont);
-draw_sprite_ext(sprite_index, image_index, 16, 70, image_xscale, image_yscale, image_angle, color, image_alpha);
+draw_background_ext(bgDialogue, 16, 70, image_xscale, image_yscale, image_angle, color, image_alpha);
 
 InputIconDraw("dialogue_skip", 157, 168, 1, 1);
 
