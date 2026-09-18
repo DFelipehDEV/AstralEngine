@@ -27,21 +27,25 @@ if (animation == "SPRING") {
     xDirection = esign(xSpeed, xDirection);
 }
 
-if (hasSpringTrick && keyTrickPressed) {
-    if (keyUp) {
-        xSpeed = 0;
-        ySpeed = -7;
-        AnimationPlay("TRICK_VER");
-    } else {
-        xSpeed = 6 * PlayerGetInputDirection();
-        ySpeed = -2;
-        xDirection = sign(xSpeed);
-        AnimationPlay("TRICK_HOR");
-    }
+if (hasSpringTrick) {
+    if (keyTrickPressed) {
+        if (keyUp) {
+            xSpeed = 0;
+            ySpeed = -7;
+            AnimationPlay("TRICK_VER");
+        } else {
+            xSpeed = 6 * PlayerGetInputDirection();
+            ySpeed = -2;
+            xDirection = sign(xSpeed);
+            AnimationPlay("TRICK_HOR");
+        }
 
-    PlaySound(sndPlayerTrick);
-    image_angle = 0;
-    StatesSet(PlayerStateAir, false, false);
+        PlaySound(sndPlayerTrick);
+        image_angle = 0;
+        StatesSet(PlayerStateAir, false, false);
+    }
+} else {
+    PlayerBoost(true);
 }
 
 PlayerHomingAttack();
