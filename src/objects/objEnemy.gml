@@ -22,7 +22,7 @@ action_id=603
 applies_to=self
 */
 /// Activation region
-instance_activate_region(bbox_left - 4, bbox_top - 4, (bbox_left - bbox_right) + 8, (bbox_top - bbox_bottom) + 8, 1);
+instance_activate_region(bbox_left - 4, bbox_top - 4, (bbox_right - bbox_left) + 8, (bbox_bottom - bbox_top) + 8, 1);
 #define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1

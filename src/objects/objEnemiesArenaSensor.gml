@@ -6,6 +6,7 @@ applies_to=self
 */
 /// Variables
 event_inherited();
+MarkAsActive();
 
 spawnedEnemies = dss_list_create();
 
@@ -28,7 +29,13 @@ action_id=603
 applies_to=self
 */
 /// Cleanup
+DeactivateExceptionsRemove(id);
+
 if (spawnedEnemies != -1) {
+    var i;
+    for (i = 0; i < ds_list_size(spawnedEnemies); i += 1) {
+        DeactivateExceptionsRemove(ds_list_find_value(spawnedEnemies, i));
+    }
     dss_destroy(spawnedEnemies);
     spawnedEnemies = -1;
 }
@@ -70,11 +77,14 @@ if (active) {
     if (phaseEnemiesCreated) {
         var _alive;
         _alive = 0;
-        var i;
+        var i, _enemyInst;
         for (i = ds_list_size(spawnedEnemies) - 1; i >= 0; i -= 1) {
-            if (instance_exists(ds_list_find_value(spawnedEnemies, i))) {
+            _enemyInst = ds_list_find_value(spawnedEnemies, i);
+            instance_activate_object(_enemyInst);
+            if (instance_exists(_enemyInst)) {
                 _alive += 1;
             } else {
+                DeactivateExceptionsRemove(_enemyInst);
                 ds_list_delete(spawnedEnemies, i);
                 if (instance_exists(hud)) {
                     hud.scale = 3; // Bounce effect on enemy kill
@@ -148,7 +158,13 @@ action_id=603
 applies_to=self
 */
 /// Cleanup
+DeactivateExceptionsRemove(id);
+
 if (spawnedEnemies != -1) {
+    var i;
+    for (i = 0; i < ds_list_size(spawnedEnemies); i += 1) {
+        DeactivateExceptionsRemove(ds_list_find_value(spawnedEnemies, i));
+    }
     dss_destroy(spawnedEnemies);
     spawnedEnemies = -1;
 }
