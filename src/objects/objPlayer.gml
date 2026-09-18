@@ -305,6 +305,32 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+/// Object collision
+if (state != PlayerStateDead) {
+    PlayerHandleLayers();
+    PlayerHandleCollectable();
+    PlayerHandleEnemy();
+    PlayerHandleProjectile();
+    PlayerHandleCheckpoint();
+    PlayerHandleSpikes();
+    PlayerHandleHurt();
+    PlayerHandleSprings();
+    PlayerHandleDash();
+    PlayerHandleRails();
+    PlayerHandleWayLauncher();
+    PlayerHandleWater();
+    PlayerHandleGimmicks();
+    PlayerHandleCrane();
+    PlayerHandleWallJump();
+    PlayerHandleBox();
+    PlayerHandleDestructive();
+    PlayerHandleMonitor();
+}
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
 /// Actions
 PlayerUpdateReticle();
 canHome = false;
@@ -336,32 +362,6 @@ canAttack = boosting ||
     state == PlayerStateStomp ||
     state == PlayerStateSlide ||
     state == PlayerStateLightspeed;
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-/// Object collision
-if (state != PlayerStateDead) {
-    PlayerHandleLayers();
-    PlayerHandleCollectable();
-    PlayerHandleEnemy();
-    PlayerHandleProjectile();
-    PlayerHandleCheckpoint();
-    PlayerHandleSpikes();
-    PlayerHandleHurt();
-    PlayerHandleSprings();
-    PlayerHandleDash();
-    PlayerHandleRails();
-    PlayerHandleWayLauncher();
-    PlayerHandleWater();
-    PlayerHandleGimmicks();
-    PlayerHandleCrane();
-    PlayerHandleWallJump();
-    PlayerHandleBox();
-    PlayerHandleDestructive();
-    PlayerHandleMonitor();
-}
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1

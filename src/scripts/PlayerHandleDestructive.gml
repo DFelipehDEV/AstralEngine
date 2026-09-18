@@ -1,7 +1,7 @@
 /// PlayerHandleDestructive()
 if (!instance_exists(objDestructiveWall)) exit;
 
-if (canAttack && ground) {
+if (boosting || (canAttack && ground)) {
     var _wall;
     _wall = PlayerCollisionObjectRight(x + xSpeed, y, angle, maskBig, objDestructiveWall);
     if (_wall == noone) {
