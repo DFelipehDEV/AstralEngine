@@ -30,6 +30,8 @@ if (energy > 0) {
             instance_create(x, y, objBoostShockwave);
 
             if (!ground && _aircanBoost) {
+                ySpeed = 0;
+                noGravityTimer = 15;
                 boostAirTimer = boostAirTimerMax;
                 StatesSet(PlayerStateAir);
                 AnimationPlay("LAUNCH");
