@@ -172,6 +172,7 @@
 		|objSensor
 	+Spring
 		|objSpring
+		|objEggSpring
 	+SwingPole
 		|objSwingPole
 	+Water

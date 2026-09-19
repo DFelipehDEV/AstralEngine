@@ -6,8 +6,11 @@ _spring = PlayerCollisionHitbox(x, y, objSpring);
 
 if (_spring != noone) {
     if (!PlayerCollisionHitbox(xprevious, yprevious, _spring)) {
-        xSpeed = _spring.strength * dcos(_spring.image_angle + 90);
-        ySpeed = -_spring.strength * dsin(_spring.image_angle + 90);
+        var _angle;
+        _angle = _spring.image_angle;
+        if (_spring.image_yscale < 0) _angle += 180;
+        xSpeed = _spring.strength * dcos(_angle + 90);
+        ySpeed = -_spring.strength * dsin(_angle + 90);
         if (abs(ySpeed) > 0.05 || !ground) {
             xDirection = esign(xSpeed, xDirection);
             stateTimer = 0; // force state timer so the player plays the spring animation again
@@ -16,9 +19,6 @@ if (_spring != noone) {
             PlayerSetAngle(0);
         }
         lockKeysTimer = 8;
-        _spring.image_speed = 0.25;
-        _spring.image_index = 1;
-
-        PlaySound(sndSpring);
+        with (_spring) event_user(0);
     }
 }

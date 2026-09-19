@@ -30,6 +30,8 @@ creditsText =
     "#Additional Art:" +
     "#  FieryExplosion" +
     "#  Gussprint" +
+    "#  Kainoso" +
+    "#  HomingMissile333" +
     "#" +
     "#Additional Programming:" +
     "#  damizean" +

@@ -181,6 +181,7 @@
 		|sprSpikeBall
 	+Spring
 		|sprSpring
+		|sprEggSpring
 	+SwingPole
 		|sprSwingPole
 	+Water
