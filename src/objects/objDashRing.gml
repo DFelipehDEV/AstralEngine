@@ -9,7 +9,6 @@ image_speed = 0.3;
 
 strength = 8;
 playerAction = PlayerStateSpring; //Player state when he meets the dash ring
-interactSound = sndDashRing;
 
 scale = 1;
 initialScale = image_xscale;
@@ -47,6 +46,15 @@ applies_to=self
 //override grid 32,32,0,0
 //field strength: value
 //field playerAction: script
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// On Interaction
+animation = 1;
+PlaySound(sndDashRing);
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

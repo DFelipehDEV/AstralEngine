@@ -9,4 +9,12 @@ event_inherited();
 image_speed = 0.3;
 
 strength = 10;
-interactSound = sndDashRingRainbow;
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// On Interaction
+animation = 1;
+PlaySound(sndDashRingRainbow);

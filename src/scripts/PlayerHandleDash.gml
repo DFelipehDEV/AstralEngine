@@ -15,8 +15,7 @@ if (instance_exists(objDashPad)) {
             xSpeed = _dashPad.strength * _dashPad.image_xscale;
         }
 
-        CreateDummy(x, y, sprDashDust, 0.25, 0, -0.1, bm_normal, 1, _dashPad.image_xscale, _dashPad.image_yscale, _dashPad.image_angle);
-        PlaySound(sndDashPad);
+        with (_dashPad) event_user(0);
     }
 }
 
@@ -47,11 +46,9 @@ if (instance_exists(objDashRing)) {
         PlayerSetAngle(0);
         PlayerSetGround(false);
 
-        _dashRing.animation = 1;
-
         lockKeysTimer = 15;
 
-        PlaySound(_dashRing.interactSound);
+        with (_dashRing) event_user(0);
     }
 }
 
@@ -95,7 +92,7 @@ if (instance_exists(objDashRamp)) {
 
             lockKeysTimer = 30;
 
-            PlaySound(sndDashRamp);
+            with (_dashRamp) event_user(0);
         }
     }
 }

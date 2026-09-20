@@ -20,3 +20,11 @@ applies_to=self
 //field xStrength: value
 //field yStrength: value
 //field playerAction: script
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// On Interaction
+PlaySound(sndDashRamp);
