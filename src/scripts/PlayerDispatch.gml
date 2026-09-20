@@ -1,7 +1,5 @@
 /// PlayerDispatch()
-ds_list_destroy(trailx);
-ds_list_destroy(traily);
-ds_list_destroy(trailal);
+ds_list_destroy(trailList);
 ds_list_destroy(homingObjects);
 
 instance_destroy_id(shieldInstance);

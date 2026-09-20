@@ -71,7 +71,7 @@ canBoost = true;
 boosting = false;
 boostStartSpeed = 11.2;
 boostMinSpeed = 2.25;
-boostAirTimerMax = 90; // Amount of time the player can boost in the air
+boostAirTimerMax = 70; // Amount of time the player can boost in the air
 boostAirTimer = boostAirTimerMax;
 boostAura = noone; // Instance of the boost aura VFX
 boostEnergyPenalty = -0.35;
@@ -140,9 +140,7 @@ underwaterTime = 0;
 underwaterTimeToDrown = 60 * 25;
 
 // Trail
-trailx = dss_list_create();
-traily = dss_list_create();
-trailal = dss_list_create();
+trailList = dss_list_create();
 trailLength = 19;
 trailTimer = 0;
 trailColor = make_color_rgb(25,100,255);
