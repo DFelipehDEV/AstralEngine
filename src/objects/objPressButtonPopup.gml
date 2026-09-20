@@ -54,20 +54,20 @@ action_id=603
 applies_to=self
 */
 /// Draw
-BeginUI();
-if (alpha[0] > 0) {
-    if (pulseCooldown == 0) {
-        d3d_set_fog(1, c_white, 0, 0);
-        InputIconDraw(action, ScreenWidthHalf, 64, image_xscale * pulseScale, image_yscale * pulseScale, image_angle, image_blend, pulseAlpha);
-        d3d_set_fog(0, c_white, 0, 0);
-    }
-    InputIconDraw(action, ScreenWidthHalf, 64, image_xscale, image_yscale, image_angle, image_blend, alpha[0]);
+if (alpha[0] <= 0) exit;
 
-    // Highlight
-    if (alpha[1] > 0) {
-        d3d_set_fog(1, c_white, 0, 0);
-        InputIconDraw(action, ScreenWidthHalf, 64, image_xscale, image_yscale, image_angle, image_blend, alpha[1]);
-        d3d_set_fog(0, c_white, 0, 0);
-    }
+BeginUI();
+if (pulseCooldown == 0) {
+    d3d_set_fog(1, c_white, 0, 0);
+    InputIconDraw(action, ScreenWidthHalf, 64, image_xscale * pulseScale, image_yscale * pulseScale, image_angle, image_blend, pulseAlpha);
+    d3d_set_fog(0, c_white, 0, 0);
+}
+InputIconDraw(action, ScreenWidthHalf, 64, image_xscale, image_yscale, image_angle, image_blend, alpha[0]);
+
+// Highlight
+if (alpha[1] > 0) {
+    d3d_set_fog(1, c_white, 0, 0);
+    InputIconDraw(action, ScreenWidthHalf, 64, image_xscale, image_yscale, image_angle, image_blend, alpha[1]);
+    d3d_set_fog(0, c_white, 0, 0);
 }
 EndUI();

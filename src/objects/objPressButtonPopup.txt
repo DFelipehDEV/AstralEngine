@@ -2,6 +2,6 @@ sprite=sprXboxButtons
 visible=1
 solid=0
 persistent=0
-depth=0
+depth=-9999
 parent=objAlwaysActive
 mask=
