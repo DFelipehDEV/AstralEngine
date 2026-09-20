@@ -36,6 +36,7 @@ creditsText =
     "#Additional Programming:" +
     "#  damizean" +
     "#  Chaos Rush" +
+    "#  renex" +
     "#" +
     "#Sonic the Hedgehog (C) SEGA / Sonic Team";
 

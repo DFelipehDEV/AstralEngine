@@ -196,7 +196,7 @@ for (i = 0; i < optionMax; i += 1) {
     _isToggle = (_type == 0 || _type == 1 || _type == 5 || _type == 6);
 
     if (_type == 0) _valueText = pick(window_get_fullscreen(), "OFF", "ON");
-    else if (_type == 1) _valueText = string(window_get_width()) + "x" + string(window_get_height());
+    else if (_type == 1) _valueText = string(global.ww) + "x" + string(global.wh);
     else if (_type == 5) _valueText = pick(World.windowVSync, "OFF", "ON");
     else if (_type == 6) _valueText = pick(World.buttonSprite == sprPlaystationButtons, "XBOX", "PLAYSTATION");
 
