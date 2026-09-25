@@ -77,7 +77,7 @@ switch (icon) {
     // Energy up
     case 5:
         with (player) {
-            PlayerAddEnergy(80);
+            PlayerAddEnergy(energyMax);
             PlaySoundSingle(sndTrick);
         }
         break;
