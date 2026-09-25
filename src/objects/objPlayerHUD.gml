@@ -11,7 +11,7 @@ hidden = false;
 shakeTimer = 0;
 shakeOffset = 0;
 
-gaugeIndex = 21;
+gaugeIndex = 87;
 
 offset = 0;
 
@@ -88,11 +88,23 @@ if (instance_exists(player) && GameStateGet() != GameStatePaused) {
     draw_set_halign(fa_right);
 
     // Energy bar
-    gaugeIndex = approach(gaugeIndex, player.energy/4, 1);
     var shake;
     shake = sin(shakeTimer)*3;
-    draw_sprite(sprHUDEnergy, 0, _leftHUDX, (ScreenHeight - 40) + shake)
-    draw_sprite(sprHUDGauge, floor(gaugeIndex), _leftHUDX - 8, (ScreenHeight - 27) + shake)
+    draw_sprite(sprHUDEnergy, 0, _leftHUDX, (ScreenHeight - 40) + shake);
+
+    gaugeIndex = approach(gaugeIndex, player.energy, 4);
+    var _pct, _fillW;
+    _pct = clamp(gaugeIndex / player.energyMax, 0, 1);
+    _fillW = round(105 * _pct);
+
+    var _shake;
+    _shake = sin(shakeTimer) * 3;
+    draw_sprite(sprHUDEnergy, 0, _leftHUDX, (ScreenHeight - 40) + _shake);
+
+    if (_fillW > 0) {
+        // draw_sprite_part ignores sprite origin, so we offset manually (+22 px)
+        draw_sprite_part(sprHUDGauge, 0, 0, 0, _fillW, 13, _leftHUDX + 22, (ScreenHeight - 27) + _shake);
+    }
 
     EndUI();
 }
