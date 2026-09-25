@@ -280,9 +280,13 @@ if (abs(xSpeed) > xMaxSpeed) {
     xSpeed -= (xFriction * 1.2) * sign(xSpeed);
 }
 
-pushingWall = false;
+pushingWall = (state == PlayerStatePush);
 // Stop when meet a wall/slide pass and isnt sliding
 if ((xSpeed > 0 && (PlayerCollisionRight(x, y, angle, maskBig))) || (xSpeed > 0 && PlayerCollisionObjectRight(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
+    while (PlayerCollisionObjectRight(x, y, angle, maskMid, objSlidepassSensor) != noone) {
+        x -= angleCos;
+        y += angleSin;
+    }
     xSpeed = 0;
     pushingWall = true;
     if (ground && state != PlayerStatePush) {
@@ -291,6 +295,10 @@ if ((xSpeed > 0 && (PlayerCollisionRight(x, y, angle, maskBig))) || (xSpeed > 0 
     }
 } else if ((xSpeed < 0 && (PlayerCollisionLeft(x, y, angle, maskBig)))
         || (xSpeed < 0 && PlayerCollisionObjectLeft(x, y, angle, maskBig, objSlidepassSensor) && state != PlayerStateSlide && state != PlayerStateRoll)) {
+    while (PlayerCollisionObjectLeft(x, y, angle, maskMid, objSlidepassSensor) != noone) {
+        x += angleCos;
+        y -= angleSin;
+    }
     xSpeed = 0;
     pushingWall = true;
     if (ground && state != PlayerStatePush) {
