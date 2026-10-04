@@ -31,7 +31,7 @@ applies_to=self
 /// Shock
 if (point_in_rectangle(x, y, view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0])) {
     shockTimer += global.timeScale;
-    if (shockTimer > 80 && shockTimer < 130 && !audio_isplaying(chargeSound)) {
+    if (shockTimer > 80 && shockTimer < 130 && !sound_isplaying(chargeSound)) {
         chargeSound = PlaySound(sndEnemySpinnerShockCharge);
     }
 

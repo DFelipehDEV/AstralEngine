@@ -34,7 +34,7 @@ if (pull) {
             AnimationPlay("SPRING");
             canMove = true;
         }
-        if (!audio_isplaying(sndPlayerJump)) {
+        if (!sound_isplaying(sndPlayerJump)) {
             PlaySound(sndPlayerJump);
         }
         StopSound(pullSound);

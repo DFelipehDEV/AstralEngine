@@ -40,12 +40,12 @@ _normalizedDistance = _distance / maxDistance;
 
 if (_distance <= maxDistance) {
     soundPan = clamp(-(_cam.x - x) / panDistance, -1, 1);
-    currentVolume = (power(1 - _normalizedDistance, 2)) * (global.soundVolume * volume);
+    currentVolume = (power(1 - _normalizedDistance, 2)) * volume;
     if (audio == -1) {
         audio = PlaySound(snd, currentVolume, pitch, loop, false, soundPan);
     } else {
-        audio_set_pan(audio, soundPan);
-        audio_set_volume(audio, currentVolume);
+        sound_pan(audio, soundPan);
+        sound_volume(audio, currentVolume * global.soundVolume);
     }
 } else {
     StopSound(audio);

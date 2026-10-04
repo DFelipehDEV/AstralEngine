@@ -29,7 +29,7 @@ applies_to=self
 */
 /// Create results
 TransitionFadeRoom(-1, c_white, 0.05, 0.5);
-audio_sfx_stop();
+sound_kind_stop(kind_sounds);
 PlaySound(sndGoalRingFinish);
 instance_create(x, y, objRainbow);
 

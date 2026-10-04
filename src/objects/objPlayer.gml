@@ -567,7 +567,8 @@ if (invincibility != InvincibilityHurt) {
     // End invincibility
     else {
         if (invincibility == InvincibilityMonitor) {
-            audio_music_resume();
+            //audio_music_resume();
+            sound_kind_resume(kind_background);
         }
         invincibility = InvincibilityNoone;
     }

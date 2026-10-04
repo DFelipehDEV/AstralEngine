@@ -62,7 +62,7 @@ if (qteWon == 0) {
         hudBackScale = max(hudBackScale - 0.2, 0);
         global.timeScale = min(global.timeScale + 0.2, 1);
 
-        if (!audio_isplaying(sndPlayerHurt)) {
+        if (!sound_isplaying(sndPlayerHurt)) {
             PlaySound(sndPlayerHurt);
         }
         if (image_alpha <= 0.1) {

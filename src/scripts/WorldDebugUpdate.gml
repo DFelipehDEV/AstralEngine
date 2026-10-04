@@ -27,15 +27,18 @@ if (keyboard_check_pressed(ord("L"))) {
 
 if (keyboard_check_pressed(vk_end)) {
     var _loopstart;
-    _loopstart = audio_get_loop_point_a(global.currentMusic);
-    audio_music_set_pos(_loopstart - 10);
+    _loopstart = sound_get_loop_a(global.currentMusic);
+    Log(_loopstart);
+    sound_set_pos(global.currentMusic, _loopstart - 10);
 }
 
 if (keyboard_check_pressed(vk_home)) {
     var _loopend;
-    _loopend = audio_get_loop_point_b(global.currentMusic);
-    audio_music_set_pos(_loopend - 10)
+    _loopend = sound_get_loop_b(global.currentMusic);
+    Log(_loopend);
+    sound_set_pos(global.currentMusic, _loopend - 10)
 }
+
 
 if (keyboard_check_pressed(vk_pageup)) {
     if (room_next(room) != -1) {

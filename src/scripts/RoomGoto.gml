@@ -1,4 +1,4 @@
 /// RoomGoto(room)
 room_goto(argument0);
-audio_sfx_stop();
+sound_kind_stop(kind_sounds);
 PlayerResetGlobalVariables();

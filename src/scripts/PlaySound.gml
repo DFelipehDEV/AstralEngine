@@ -23,8 +23,8 @@ switch (argument_count) {
         break;
 }
 
-if (_single) {
-    return audio_play_single_ext(_sound, _volume * global.soundVolume, _pan, _pitch, _loop);
+if (_loop) {
+    return sound_loop_ext(_sound, _volume * global.soundVolume, _pan, _pitch, false, _single);
 }
 
-return audio_play_ext(_sound, _volume * global.soundVolume, _pan, _pitch, _loop);
+return sound_play_ext(_sound, _volume * global.soundVolume, _pan, _pitch, false, _single);

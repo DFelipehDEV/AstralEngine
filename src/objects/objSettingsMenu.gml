@@ -111,8 +111,8 @@ if (inputDelay == 0) {
             break;
 
         case 2: // Music Volume
-            if (sysinput_get("right")) { global.musicVolume = clamp(global.musicVolume + 0.05, 0, 1); audio_music_volume(global.musicVolume); inputDelay = 10; }
-            if (sysinput_get("left"))  { global.musicVolume = clamp(global.musicVolume - 0.05, 0, 1); audio_music_volume(global.musicVolume); inputDelay = 10; }
+            if (sysinput_get("right")) { global.musicVolume = clamp(global.musicVolume + 0.05, 0, 1); sound_kind_volume(kind_background, global.musicVolume); inputDelay = 10; }
+            if (sysinput_get("left"))  { global.musicVolume = clamp(global.musicVolume - 0.05, 0, 1); sound_kind_volume(kind_background, global.musicVolume); inputDelay = 10; }
             break;
 
         case 3: // Sound Volume

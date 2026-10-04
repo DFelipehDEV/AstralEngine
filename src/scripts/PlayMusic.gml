@@ -1,5 +1,5 @@
 /// PlayMusic(music, [pitch=1], [loopPart=-1], [loopStart=-1], [loops=true])
-if (audio_isplaying(argument0)) exit;
+if (sound_isplaying(argument0)) exit;
 
 var _music, _pitch, _loopPart, _loopStart, _loops;
 _music = argument0;
@@ -19,15 +19,15 @@ switch (argument_count) {
         break;
 }
 
-audio_music_stop();
+//sound_backgroun;
 
+global.currentMusic = sound_loop_ext(_music, global.musicVolume, 0, _pitch, false, true);
 if (_loops && _loopStart != -1) {
     if (_loopPart != -1) {
-        audio_set_loop_points(_music, _loopStart, _loopPart);
+        sound_set_loop(global.currentMusic, _loopStart, _loopPart);
     } else {
-        audio_set_loop_points(_music, _loopStart);
+        sound_set_loop(global.currentMusic, _loopStart);
     }
 }
 
-global.currentMusic = _music;
-audio_music_play_ext(_music, 0, global.musicVolume, 0, _pitch, _loops);
+//audio_music_play_ext(_music, 0, global.musicVolume, 0, _pitch, _loops);

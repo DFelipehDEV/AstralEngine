@@ -19,7 +19,7 @@ PlayerApplySlopeFactor(global.timeScale);
 var _pitch;
 _pitch = min(max(0.6, abs(xSpeed)/8), 1.2);
 if (grindSound != -1) {
-    audio_set_pitch(grindSound, _pitch);
+    sound_pitch(grindSound, _pitch);
 }
 
 if (keyDown && abs(xSpeed) > 0.1) {

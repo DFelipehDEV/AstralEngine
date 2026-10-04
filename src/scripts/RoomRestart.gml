@@ -1,3 +1,3 @@
 /// RoomGoto(room)
 room_restart();
-audio_sfx_stop();
+sound_kind_stop(kind_sounds);

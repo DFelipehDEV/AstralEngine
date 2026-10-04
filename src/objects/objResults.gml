@@ -6,7 +6,7 @@ applies_to=self
 */
 /// Variables
 MarkAsActive();
-audio_music_switch_ext(bgmVictory, 20, 20, 1, 0, 1, false);
+//audio_music_switch_ext(bgmVictory, 20, 20, 1, 0, 1, false);
 
 // Initialize variables
 nextRoom = room_next(room);
@@ -94,12 +94,12 @@ if (resultsTimer > 230) {
     }
 
     if (!scoreFinished) {
-        if (!audio_isplaying(sndResultsScoreCount))
+        if (!sound_isplaying(sndResultsScoreCount))
             PlaySound(sndResultsScoreCount, 1, 1, true);
     }
 
     if (resultsTimer > 370) {
-        if (!audio_isplaying(bgmResults)) {
+        if (!sound_isplaying(bgmResults)) {
             PlayMusic(bgmResults, 1, -1, 12.6);
         }
     }
