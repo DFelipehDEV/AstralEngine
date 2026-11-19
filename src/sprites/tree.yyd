@@ -282,6 +282,7 @@
 +Debug
 	|sprMusicPlayer
 +Lights
-	|sprLightRay
-	|sprLightPoint
 	|sprDarkRegion
+	|sprLightPoint
+	|sprLightRay
+	|sprLightSpot

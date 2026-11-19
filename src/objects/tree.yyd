@@ -186,10 +186,11 @@
 	+WayLauncher
 		|objWayLauncher
 +Lights
-	|objLight
-	|objLightRay
-	|objLightPoint
 	|objDarkRegion
+	|objLight
+	|objLightPoint
+	|objLightRay
+	|objLightSpot
 +Parallax
 	|objParallaxLayer
 	|objParallaxLayerAnimated
