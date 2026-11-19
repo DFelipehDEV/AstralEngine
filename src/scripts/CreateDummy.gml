@@ -7,7 +7,9 @@ switch (argument_count) {
         break;
 }
 
-with (instance_create(argument0, argument1, objDummy)) {
+var _dummy;
+_dummy = instance_create(argument0, argument1, objDummy);
+with (_dummy) {
     depth = argument5;
     sprite_index = argument2;
     image_speed = argument3 * global.timeScale;
@@ -20,3 +22,5 @@ with (instance_create(argument0, argument1, objDummy)) {
     repeatTimes = argument4;
     blendMode = argument6;
 }
+
+return _dummy;
