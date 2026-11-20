@@ -1,4 +1,5 @@
 //gm82 fields begin
+useSprite=true
 sprite_index=sprTZBG
 image_speed=0.1
 tileHorizontal=true

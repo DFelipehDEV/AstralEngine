@@ -193,7 +193,8 @@
 	|objLightSpot
 +Parallax
 	|objParallaxLayer
-	|objParallaxLayerAnimated
+	+deprecated
+		|objParallaxLayerAnimated
 +Player
 	|objPlayerSpawn
 	|objPlayer
