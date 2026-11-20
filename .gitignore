@@ -5,3 +5,7 @@ _pycache
 *.exe
 *.sav
 imgui.ini
+
+dbg_tools_init.gml
+dbg_tools_step.gml
+dbg_tools_draw.gml
