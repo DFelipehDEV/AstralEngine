@@ -15,6 +15,7 @@ hp = maxHP;
 
 hit = false;
 invincibilityTimer = 0;
+turnDistance = 0;
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -42,6 +43,16 @@ applies_to=self
 //field maxHP : number
 //field knockOnDeath : bool
 //field canMove : bool
+//field turnDistance : number
+
+/*preview
+if (FieldDefined("turnDistance")) {
+    var _td;
+    _td = Field("turnDistance");
+    draw_set_color(c_white);
+    draw_line(x - _td, y, x + _td, y);
+}
+*/
 
 hp = maxHP;
 #define Other_10

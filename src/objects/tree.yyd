@@ -83,7 +83,6 @@
 		|objDestructiveWall
 	+Enemies
 		|objEnemy
-		|objEnemyTurn
 		|objEnemySpinner
 		|objEnemySpinner2
 		|objEnemyEggpawn
@@ -114,15 +113,6 @@
 		|objSpikeBall
 	+Monitors
 		|objMonitor
-		|objMonitorEnergy
-		|objMonitorHurt
-		|objMonitorInvincibility
-		|objMonitorRings5
-		|objMonitorRings10
-		|objMonitorRingsRandom
-		|objMonitorCombine
-		|objMonitorShieldElectro
-		|objMonitorShieldNormal
 		|objMonitorIcon
 	+NPC
 		|objNPC
@@ -193,8 +183,6 @@
 	|objLightSpot
 +Parallax
 	|objParallaxLayer
-	+deprecated
-		|objParallaxLayerAnimated
 +Player
 	|objPlayerSpawn
 	|objPlayer

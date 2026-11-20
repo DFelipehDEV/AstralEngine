@@ -160,8 +160,6 @@ action_id=603
 applies_to=self
 */
 /// Fields
-/*preview
-*/
 //field targetX: number
 //field minSpeed: number
 //field lockTime: number

@@ -53,8 +53,6 @@ action_id=603
 applies_to=self
 */
 /// Fields
-/*preview
-*/
 //field path: path
 //field path_speed: number
 //field pathAction: enum(path_action_stop,path_action_restart,path_action_continue,path_action_reverse)

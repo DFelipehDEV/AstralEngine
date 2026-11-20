@@ -70,92 +70,74 @@ applies_to=self
 //field ySpeed: number
 
 /*preview nodrawself
-var useSprite;
-useSprite = false;
-if (FieldDefined("useSprite")) useSprite = Field("useSprite");
+var _useSpr;
+_useSpr = false;
+if (FieldDefined("useSprite")) _useSpr = Field("useSprite");
 
-var width, height, _bg, _spr, _hasResource;
-width = 0;
-height = 0;
-_bg = -1;
-_spr = -1;
-_hasResource = false;
+var _resName, _handle, _w, _h;
+_resName = "";
+_handle = -1;
+_w = 0;
+_h = 0;
 
-if (useSprite) {
-    if (FieldDefined("sprite_index")) {
-        _spr = Sprite(Field("sprite_index"), 0);
-        width = sprite_get_width(_spr);
-        height = sprite_get_height(_spr);
-        _hasResource = true;
+if (_useSpr) {
+    if (FieldDefined("sprite_index")) _resName = string(Field("sprite_index"));
+    if (_resName != "") {
+        _handle = Sprite(_resName, 0);
+        if (_handle != -1) {
+            _w = sprite_get_width(_handle);
+            _h = sprite_get_height(_handle);
+        }
     }
 } else {
-    if (FieldDefined("background")) {
-        _bg = Background(Field("background"));
-        width = background_get_width(_bg);
-        height = background_get_height(_bg);
-        _hasResource = true;
+    if (FieldDefined("background")) _resName = string(Field("background"));
+    if (_resName != "") {
+        _handle = Background(_resName);
+        if (_handle != -1) {
+            _w = background_get_width(_handle);
+            _h = background_get_height(_handle);
+        }
     }
 }
 
-if (_hasResource) {
-    var tileHorizontal, tileVertical, xMotionScale, yMotionScale, xSeperation, ySeperation;
-    tileHorizontal = false;
-    tileVertical = false;
-    xMotionScale = 1;
-    yMotionScale = 1;
-    xSeperation = 0;
-    ySeperation = 0;
+if (_handle != -1 && _w > 0 && _h > 0) {
+    var _tileH, _tileV, _xSep, _ySep;
+    _tileH = false;
+    _tileV = false;
+    _xSep = 0;
+    _ySep = 0;
 
-    if (FieldDefined("tileHorizontal")) tileHorizontal = Field("tileHorizontal");
-    if (FieldDefined("tileVertical")) tileVertical = Field("tileVertical");
-    if (FieldDefined("xMotionScale")) xMotionScale = Field("xMotionScale");
-    if (FieldDefined("yMotionScale")) yMotionScale = Field("yMotionScale");
-    if (FieldDefined("xSeperation")) xSeperation = Field("xSeperation");
-    if (FieldDefined("ySeperation")) ySeperation = Field("ySeperation");
+    if (FieldDefined("tileHorizontal")) _tileH = Field("tileHorizontal");
+    if (FieldDefined("tileVertical")) _tileV = Field("tileVertical");
+    if (FieldDefined("xSeperation")) _xSep = Field("xSeperation");
+    if (FieldDefined("ySeperation")) _ySep = Field("ySeperation");
 
-    var _viewX, _viewY, _viewWidth, _viewHeight;
-    _viewX = 0;
-    _viewY = 0;
-    _viewWidth = view_wview[view_current];
-    _viewHeight = view_hview[view_current];
+    var _tileW, _tileHgt;
+    _tileW = _w * abs(image_xscale) + _xSep;
+    _tileHgt = _h * abs(image_yscale) + _ySep;
 
-    var _parallaxX, _parallaxY, _tileWidth, _tileHeight;
-    _parallaxX = x + floor(_viewX * xMotionScale);
-    _parallaxY = y + floor(_viewY * yMotionScale);
-    _tileWidth = width * abs(image_xscale) + xSeperation;
-    _tileHeight = height * abs(image_yscale) + ySeperation;
+    if (_tileW > 0 && _tileHgt > 0) {
+        var _startX, _endX, _startY, _endY;
+        _startX = x;
+        _startY = y;
 
-    if (_tileWidth > 0 && _tileHeight > 0) {
-        var _startX, _endX;
-        if (tileHorizontal) {
-            _startX = _viewX + ((_parallaxX - _viewX) mod _tileWidth) - _tileWidth;
-            _endX = _viewX + _viewWidth + _tileWidth;
-        } else {
-            _startX = _parallaxX;
-            _endX = _parallaxX;
-        }
+        if (_tileH) _endX = x + _tileW * 3;
+        else _endX = x;
 
-        var _startY, _endY;
-        if (tileVertical) {
-            _startY = _viewY + ((_parallaxY - _viewY) mod _tileHeight) - _tileHeight;
-            _endY = _viewY + _viewHeight + _tileHeight;
-        } else {
-            _startY = _parallaxY;
-            _endY = _parallaxY;
-        }
+        if (_tileV) _endY = y + _tileHgt * 2;
+        else _endY = y;
 
-        // Draw tiled background / sprite
         var cy, cx;
-        if (useSprite) {
-            for (cy = _startY; cy <= _endY; cy += _tileHeight) {
-                for (cx = _startX; cx <= _endX; cx += _tileWidth) {
-                    draw_sprite_part_ext(_spr, image_index, 0, 0, width, height, cx, cy, image_xscale, image_yscale, image_blend, image_alpha);
+        if (_useSpr) {
+            for (cy = _startY; cy <= _endY; cy += _tileHgt) {
+                for (cx = _startX; cx <= _endX; cx += _tileW) {
+                    draw_sprite_ext(_handle, 0, cx, cy, image_xscale, image_yscale, image_angle, image_blend, 0.7);
                 }
             }
         } else {
-            for (cy = _startY; cy <= _endY; cy += _tileHeight) {
-                for (cx = _startX; cx <= _endX; cx += _tileWidth) {
-                    draw_background_part_ext(_bg, 0, 0, width, height, cx, cy, image_xscale, image_yscale, image_blend, image_alpha);
+            for (cy = _startY; cy <= _endY; cy += _tileHgt) {
+                for (cx = _startX; cx <= _endX; cx += _tileW) {
+                    draw_background_part_ext(_handle, 0, 0, _w, _h, cx, cy, image_xscale, image_yscale, image_blend, 0.7);
                 }
             }
         }
@@ -179,7 +161,10 @@ draw_set_alpha(1);
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-draw_text(x + _boxW / 2, y + _boxH / 2, "PARALLAX LAYER");
+var _label;
+if (_resName != "") _label = "PARALLAX: " + _resName;
+else _label = "PARALLAX LAYER";
+draw_text(x + _boxW / 2, y + _boxH / 2, _label);
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);

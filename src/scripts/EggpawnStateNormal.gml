@@ -24,7 +24,7 @@ if (canMove) {
         }
     }
 
-    if (place_meeting(x, y, objEnemyTurn) && !place_meeting(xprevious, yprevious, objEnemyTurn)) {
+    if (EnemyCheckTurn()) {
         xSpeed = 0;
         StatesSet(EggpawnStateTurn);
     }

@@ -1,4 +1,5 @@
 //gm82 fields begin
+useSprite=false
 background=bgTZ2
 tileHorizontal=true
 tileVertical=false

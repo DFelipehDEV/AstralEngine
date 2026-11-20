@@ -121,7 +121,6 @@
 		+VFX
 			|sprEnemyMetal
 			|sprEnemyWarn
-		|sprEnemyTurn
 	+Goal
 		|sprGoalRing
 	+Handle

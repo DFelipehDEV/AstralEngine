@@ -1,4 +1,9 @@
 /// WorldDebugDraw()
+if (variable_global_exists("debugInstancesBeingWatched")) {
+    dbg_tools_draw();
+    exit;
+}
+
 if (!debugOverlay) exit;
 BeginUI();
 draw_rect(333, 72, 179, 240, c_black, 0.5, 0);

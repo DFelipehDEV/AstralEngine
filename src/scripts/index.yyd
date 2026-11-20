@@ -227,6 +227,7 @@ DistanceToView
 MarkAsActive
 Log
 EnemySetAnimation
+EnemyCheckTurn
 
 PlayerSetTerrainType
 DrawSlider
@@ -397,3 +398,6 @@ Sonic
 SuperSonic
 StopSound
 DrawBar
+dbg_tools_init
+dbg_tools_step
+dbg_tools_draw

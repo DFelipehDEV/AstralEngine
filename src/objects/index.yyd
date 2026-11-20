@@ -62,7 +62,7 @@ objEnemySpinner
 objEnemyMetal
 objEnemyDeath
 objEnemyEggpawn
-objEnemyTurn
+
 objEnemyChopper
 objEnemySpinner2
 objSpinnerShock
@@ -217,7 +217,7 @@ objDashRail
 objPlatformPathed
 objPauseMenu
 objParallaxLayer
-objParallaxLayerAnimated
+
 objPushableBox
 
 

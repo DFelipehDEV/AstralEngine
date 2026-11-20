@@ -1,4 +1,8 @@
 /// WorldDebugUpdate()
+if (variable_global_exists("debugInstancesBeingWatched")) {
+    dbg_tools_step();
+}
+
 if (keyboard_check_pressed(vk_tab) && !debugMode) {
     PlaySound(sndRing);
     debugMode = true;
@@ -17,12 +21,13 @@ if (keyboard_check_pressed(vk_tab)) {
     }
 }
 
-if (keyboard_check_pressed(ord("R"))) {
-    RoomRestart();
+if (mouse_wheel_up()) {
+    view_wview[0] *= 0.9;
+    view_hview[0] *= 0.9;
 }
-
-if (keyboard_check_pressed(ord("L"))) {
-    LoadGame();
+if (mouse_wheel_down()) {
+    view_wview[0] /= 0.9;
+    view_hview[0] /= 0.9;
 }
 
 if (keyboard_check_pressed(vk_end)) {
@@ -54,6 +59,16 @@ if (keyboard_check_pressed(vk_f1)) {
     all.visible = true;
 }
 
+if (variable_global_exists("debugInstancesBeingWatched")) exit;
+
+if (keyboard_check_pressed(ord("R"))) {
+    RoomRestart();
+}
+
+if (keyboard_check_pressed(ord("L"))) {
+    LoadGame();
+}
+
 if (_player != noone) {
     if (mouse_check_button(mb_right)) {
         _player.x = lerp(_player.x, mouse_x, 0.1);
@@ -82,13 +97,4 @@ if (mouse_check_button_released(mb_left)) {
             _cam.target = instance_nearest(mouse_x, mouse_y, all);
         }
     }
-}
-
-if (mouse_wheel_up()) {
-    view_wview[0] *= 0.9;
-    view_hview[0] *= 0.9;
-}
-if (mouse_wheel_down()) {
-    view_wview[0] /= 0.9;
-    view_hview[0] /= 0.9;
 }

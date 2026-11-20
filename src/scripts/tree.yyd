@@ -48,6 +48,7 @@
 	+Arena
 		|EnemiesArenaAddEnemy
 	|EnemySetAnimation
+	|EnemyCheckTurn
 +GameState
 	|GameStateGet
 	|GameStateSet
@@ -231,20 +232,24 @@
 +Window
 	|WindowSetScale
 +World
-	|WorldInputInit
-	|WorldTimeInit
-	|WorldDeactivationInit
-	|WorldWindowInit
-	|WorldDebugInit
-	|WorldLogInit
-	|WorldTimeUpdate
-	|WorldDeactivationUpdate
-	|WorldWindowUpdate
-	|WorldDebugUpdate
-	|WorldLogUpdate
 	|WorldDeactivationDraw
-	|WorldDebugDraw
-	|WorldLogDraw
-	|WorldTimeReset
+	|WorldDeactivationInit
 	|WorldDeactivationReset
+	|WorldDeactivationUpdate
+	|WorldDebugDraw
+	|WorldDebugInit
+	|WorldDebugUpdate
+	|WorldInputInit
 	|WorldLogCleanup
+	|WorldLogDraw
+	|WorldLogInit
+	|WorldLogUpdate
+	|WorldTimeInit
+	|WorldTimeReset
+	|WorldTimeUpdate
+	|WorldWindowInit
+	|WorldWindowUpdate
++dbg_tools
+	|dbg_tools_init
+	|dbg_tools_step
+	|dbg_tools_draw

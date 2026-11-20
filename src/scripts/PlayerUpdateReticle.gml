@@ -1,5 +1,5 @@
 /// PlayerUpdateReticle()
-if (hasHomingAttack && canHome) {
+if (hasHomingAttack && canHome && lockKeysTimer == 0) {
     var _dir;
     _dir = PlayerGetInputDirection();
 

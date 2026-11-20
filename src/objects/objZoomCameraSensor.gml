@@ -15,8 +15,6 @@ action_id=603
 applies_to=self
 */
 /// Fields
-/*preview
-*/
 //field zoom: value
 #define Other_10
 /*"/*'/**//* YYD ACTION
