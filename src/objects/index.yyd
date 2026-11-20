@@ -104,14 +104,14 @@ objWaterBubbleGenerator
 objWaterBubble
 objWaterBubbleSmall
 objPlatformMask01
-objMonitorEnergy
-objMonitorHurt
-objMonitorInvincibility
-objMonitorRings10
-objMonitorRings5
-objMonitorRingsRandom
-objMonitorShieldElectro
-objMonitorShieldNormal
+
+
+
+
+
+
+
+
 objMonitorIcon
 objShield
 objShieldElectricity
@@ -177,7 +177,7 @@ objBridgeLog
 objWaterSolid
 objZoomCameraSensor
 objRingHyper
-objMonitorCombine
+
 
 objEnemyHeavy
 objRing10

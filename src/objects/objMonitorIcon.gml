@@ -46,7 +46,7 @@ applies_to=self
 /// Give reward
 switch (icon) {
     // Hurt monitor
-    case 1:
+    case MonitorHurt:
         with (player) {
             PlayerHurt();
         }
@@ -54,28 +54,28 @@ switch (icon) {
 
 
     // 5 Rings
-    case 2:
+    case MonitorRings5:
         player.rings += 5;
         PlaySoundSingle(sndRingMonitor);
         break;
 
 
     // 10 Rings
-    case 3:
+    case MonitorRings10:
         player.rings += 10;
         PlaySoundSingle(sndRingMonitor);
         break;
 
 
     // Random rings
-    case 4:
+    case MonitorRingsRandom:
         player.rings += irandom_range(1, 25);
         PlaySoundSingle(sndRingMonitor);
         break;
 
 
     // Energy up
-    case 5:
+    case MonitorEnergy:
         with (player) {
             PlayerAddEnergy(energyMax);
             PlaySoundSingle(sndTrick);
@@ -84,7 +84,7 @@ switch (icon) {
 
 
     // Normal shield
-    case 6:
+    case MonitorShieldNormal:
         with (player) {
             PlayerSetShield(objShield);
             PlaySoundSingle(sndShieldMonitor);
@@ -93,7 +93,7 @@ switch (icon) {
 
 
     // Electricity shield
-    case 7:
+    case MonitorShieldElectro:
         with (player) {
             PlayerSetShield(objShieldElectricity);
             PlaySoundSingle(sndShieldMonitor, 1, 1.1);
@@ -101,7 +101,7 @@ switch (icon) {
         break;
 
     // Invincibility
-    case 9:
+    case MonitorInvincibility:
         with (player) {
             invincibility = InvincibilityMonitor;
             invincibilityTimer = 1150;
@@ -112,7 +112,7 @@ switch (icon) {
         break;
 
     // Combine ring
-    case 10:
+    case MonitorCombine:
         with (player) {
             combineActive = true;
         }
